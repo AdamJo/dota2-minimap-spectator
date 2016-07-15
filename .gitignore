@@ -46,3 +46,6 @@ tmp
 gulpfile.js
 gulpfile.js.map
 
+# others
+firebase.json
+.firebaserc
