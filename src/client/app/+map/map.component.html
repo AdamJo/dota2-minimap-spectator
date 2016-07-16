@@ -1,25 +1,26 @@
 
 <div class="parent">
   <img class="child" src="app/assets/images/dota-map-6.86-40p-7q.jpg" alt="">
-  <div class="child" [style.width.px]='395' [style.height.px]='380'>
-    <div *ngFor="let hero of radiant">
+  <div class="child" [style.width.px]='width' [style.height.px]='height'>
+    <div *ngFor="let player of radiant">
       <app-sprite-animation
-        [heroId]='hero.hero_id'
-        [posX]='hero.position_x | calculateX:395'
-        [posY]='hero.position_y | calculateY:380'
-        [oldPosX]='hero.old_position_x | calculateX:395'
-        [oldPosY]='hero.old_position_y | calculateX:380'
-        [respawnTimer]='hero.respawn_timer'>
+        [heroId]='player.hero_id'
+        [posX]='player.position_x | calculateX:width'
+        [posY]='player.position_y | calculateY:height'
+        [oldPosX]='player.old_position_x | calculateX:width'
+        [oldPosY]='player.old_position_y | calculateY:height'
+        [respawnTimer]='player.respawn_timer'>
       </app-sprite-animation>
     </div>
     <div *ngFor="let hero of dire">
       <app-sprite-animation
         [heroId]='hero.hero_id'
-        [posX]='hero.position_x | calculateX:395'
-        [posY]='hero.position_y | calculateY:380'
-        [oldPosX]='hero.old_position_x | calculateX:395'
-        [oldPosY]='hero.old_position_y | calculateX:380'
+        [posX]='hero.position_x | calculateX:width'
+        [posY]='hero.position_y | calculateY:height'
+        [oldPosX]='hero.old_position_x | calculateX:width'
+        [oldPosY]='hero.old_position_y | calculateY:height'
         [respawnTimer]='hero.respawn_timer'>
       </app-sprite-animation>
+    </div>
   </div>
 </div>

@@ -10,6 +10,8 @@ import { HTTP_PROVIDERS } from '@angular/http';
 
 import {FIREBASE_PROVIDERS, defaultFirebase} from 'angularfire2';
 
+import { ApiService } from './services/index'
+
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
 /**
@@ -28,11 +30,12 @@ bootstrap(AppComponent, [
   }),
   disableDeprecatedForms(),
   provideForms(),
-  APP_ROUTER_PROVIDERS,
+  //APP_ROUTER_PROVIDERS,
   {
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
-  }
+  },
+  ApiService
 ]);
 
 // In order to start the Service Worker located at "./worker.js"

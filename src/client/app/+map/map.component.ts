@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer, ElementRef, ViewChild, ViewChildren } from '@angular/core';
+import { Component, Input, OnInit, Renderer, ElementRef, ViewChild, ViewChildren, SimpleChange } from '@angular/core';
 import { Http, Response } from '@angular/http'
 import { CalculateXPipe, CalculateYPipe } from '../pipes/index';
 //import { testData } from '../resources/testData'
@@ -23,39 +23,43 @@ import { FirebaseObjectObservable } from 'angularfire2'
     SpritesComponent,
     SpriteAnimationComponent
   ],
-  providers: [
-    ApiService
-  ]
+  providers: []
 })
 export class  MapComponent implements OnInit {
-  radiant : any;
-  dire : any;
+  width = 395;
+  height = 380;
+  @Input() radiant: any;
+  @Input() dire: any
+  oldPosX: number;
+  oldPosY: number;
+  //radiant: any;
+  //dire : any;
   firstCheckDone = false;
+  currentGame: FirebaseObjectObservable<any>
 
-  constructor(private apiService: ApiService ) {}
+  constructor(private apiService: ApiService ) {
+    
+    console.log('construct', this.radiant)
+  }
 
-  ngOnInit() { 
-
-    let currentGame = this.apiService.grabCurrentGame()
-      currentGame.subscribe(data => {  
-        if (this.firstCheckDone) {
-          this.radiant.map((d: any, i: any)  => {
-              data.scoreboard.radiant.players[i].old_position_x = d.position_x
-              data.scoreboard.radiant.players[i].old_position_y = d.position_y
-          })
-          this.dire.map((d: any, i: any) => {
-              data.scoreboard.dire.players[i].old_position_x = d.position_x
-              data.scoreboard.dire.players[i].old_position_y = d.position_y
-          })
-          this.radiant = data.scoreboard.radiant.players
-          this.dire = data.scoreboard.dire.players
-        } else {
-          this.radiant = data.scoreboard.radiant.players
-          this.dire = data.scoreboard.dire.players
-          this.firstCheckDone = true;
-        }
+  ngOnInit() {
+    console.log('ngOnInit', this.radiant)
+    /*
+    this.currentGame = this.apiService.grabCurrentGame()
+    this.currentGame.subscribe(data => {
+      this.apiService.sortScoreboard(data);
+      this.radiant = this.apiService.radiant
+      this.dire = this.apiService.dire
     })
+    */
+  }
+  ngOnChanges(changes: SimpleChange) {
+    console.log(changes);
   }
   ngAfterViewInit() {
+    
+  }
+  ngOnDestroy() {
+    
   }
 }

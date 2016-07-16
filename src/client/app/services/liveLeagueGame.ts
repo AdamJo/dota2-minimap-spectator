@@ -76,5 +76,7 @@ export interface Players {
   player_slot: number,
   level: number,
   hero_id: number,
-  denies: number
+  denies: number,
+  old_position_x?: number,
+  old_position_y?: number
 }
