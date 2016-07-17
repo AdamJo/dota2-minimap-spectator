@@ -31,7 +31,6 @@ export class AppComponent {
   constructor(private apiService: ApiService ) {
     this.currentGame = apiService.grabCurrentGame()
     this.currentGame.subscribe(data => {
-      
       apiService.sortScoreboard(data);
       this.radiant = apiService.radiant
       this.dire = apiService.dire

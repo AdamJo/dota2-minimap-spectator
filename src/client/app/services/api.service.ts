@@ -9,13 +9,14 @@ export class ApiService {
   radiant: Array<Players>;
   dire: Array<Players>;
   currentGame: LiveLeagueGame
-  duration : number;
+  public duration : number;
   
   constructor(private af: AngularFire) {
     //this.grabCurrentGame()
   }
 
   init() {
+    
     return this.grabCurrentGame();
   }
 
@@ -25,8 +26,10 @@ export class ApiService {
 
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
+    this.getDuration(data)
     if (this.firstCheckDone) {
       this.radiant.map((d: any, i: any)  => {
+          
           data.scoreboard.radiant.players[i].old_position_x = d.position_x
           data.scoreboard.radiant.players[i].old_position_y = d.position_y
       })
@@ -37,17 +40,37 @@ export class ApiService {
       this.radiant = data.scoreboard.radiant.players
       this.dire = data.scoreboard.dire.players
     } else {
+      console.log(data.scoreboard.radiant.players[0].position_x)
       this.radiant = data.scoreboard.radiant.players
       this.dire = data.scoreboard.dire.players
       this.firstCheckDone = true;
     }
-    console.log(this.radiant)
-    //this.radiant = data.scoreboard.radiant.players
-    //this.dire = data.scoreboard.dire.players
+    
   }
 
   getDuration(data: LiveLeagueGame) {
     this.duration = data.scoreboard.duration
+  }
+  grabPlayer(index : any, team: boolean) {
+    if (team) {
+      return [
+        this.radiant[index].hero_id,
+        this.radiant[index].old_position_y,
+        this.radiant[index].old_position_y,
+        this.radiant[index].position_x,
+        this.radiant[index].position_y,
+        this.radiant[index].respawn_timer
+      ]
+    } else {
+      return [
+        this.dire[index].hero_id,
+        this.dire[index].old_position_y,
+        this.dire[index].old_position_y,
+        this.dire[index].position_x,
+        this.dire[index].position_y,
+        this.dire[index].respawn_timer
+      ]
+    }
   }
 
 }

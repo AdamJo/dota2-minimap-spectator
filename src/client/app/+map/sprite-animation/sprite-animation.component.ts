@@ -1,5 +1,4 @@
-import { Component, Directive, Input, Renderer, ElementRef, ViewChild, ViewContainerRef, ComponentRef, SimpleChange } from '@angular/core';
-
+import { Component, Input, Renderer, ElementRef, ViewChild, SimpleChange } from '@angular/core';
 import { SpritesComponent } from '../sprites/index'
 
 @Component({
@@ -9,7 +8,10 @@ import { SpritesComponent } from '../sprites/index'
   template: `
     <div #position
       class="icons">
-      <app-sprites [heroId]='heroId'></app-sprites>
+      <app-sprites 
+        [team]='team' 
+        [heroId]='heroId'>
+        </app-sprites>
     </div>
   `,
   styles: [
@@ -21,34 +23,33 @@ import { SpritesComponent } from '../sprites/index'
   ]
 })
 export class SpriteAnimationComponent {
+  @Input() team: boolean;
   @Input() heroId: number;
   @Input() posX: number;
   @Input() posY: number;
   @Input() oldPosX: number;
   @Input() oldPosY: number;
+  @Input() index: number;
   
   @ViewChild('position') coordinates : ElementRef
   @Input() respawnTimer: number;
 
   constructor(public renderer: Renderer) {
-    
+    //console.log('cons ', apiService.duration)
   }
 
   ngOnChanges(changes: SimpleChange) {
+  }
+
+  ngOnInit() {}
+
+  ngDoCheck() {
+  }
+  ngAfterViewInit() {
     this.animateMovement()
     if (this.respawnTimer > 0){
       this.animateDeath()
     }
-  }
-
-  ngOnInit() {
-    //this.animateMovement()
-  }
-  ngDoCheck() {
-
-  }
-  ngAfterViewInit() {
-
   }
   /*
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart

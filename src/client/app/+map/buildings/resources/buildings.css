@@ -1,0 +1,24 @@
+.buildings {
+  background-image: url("app/+map/buildings/resources/buildings_80_20.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.buildings.dire_barracks
+{
+  background-position: 0 0;
+}
+.buildings.dire_tower
+{
+  background-position: -20px 0;
+}
+.buildings.radiant_barracks
+{
+  background-position: -40px 0;
+}
+.buildings.radiant_tower
+{
+  background-position: -60px 0;
+}
