@@ -9,7 +9,8 @@ import {
   template: `
     <i 
       ngClass="d2mh hero-{{heroId}} {{ team ? 'radiant' : 'dire' }}"
-      ></i>`,
+      ></i>
+  `,
   styleUrls: ['./resources/dota2minimapheroes.css'],
   styles: [`
     .radiant {
