@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'draft.component.html'
 })
 export class DraftComponent implements OnInit {
-  constructor() { }
+  constructor() {
+    console.log('cons - DraftComponent');
+   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log('ngOnInit - DraftComponent');
+   }
 
 }

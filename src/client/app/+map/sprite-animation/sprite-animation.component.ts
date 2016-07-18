@@ -1,5 +1,5 @@
-import { Component, Input, Renderer, ElementRef, ViewChild, SimpleChange } from '@angular/core';
-import { SpritesComponent } from '../sprites/index'
+import { Component, OnInit, AfterViewInit, Input, Renderer, ElementRef, ViewChild } from '@angular/core';
+import { SpritesComponent } from '../sprites/index';
 
 @Component({
   moduleId: module.id,
@@ -22,7 +22,7 @@ import { SpritesComponent } from '../sprites/index'
     `
   ]
 })
-export class SpriteAnimationComponent {
+export class SpriteAnimationComponent implements OnInit, AfterViewInit {
   @Input() team: boolean;
   @Input() heroId: number;
   @Input() posX: number;
@@ -30,28 +30,28 @@ export class SpriteAnimationComponent {
   @Input() oldPosX: number;
   @Input() oldPosY: number;
   @Input() index: number;
-  
-  @ViewChild('position') coordinates : ElementRef
+
+  @ViewChild('position') coordinates : ElementRef;
   @Input() respawnTimer: number;
 
   constructor(public renderer: Renderer) {
-    //console.log('cons ', apiService.duration)
+    console.log('cons - SpriteAnimationComponent');
   }
 
-  ngOnChanges(changes: SimpleChange) {
-  }
-
-  ngOnInit() {}
-
-  ngDoCheck() {
-  }
-  ngAfterViewInit() {
-    this.animateMovement()
-    if (this.respawnTimer > 0){
-      this.animateDeath()
-    }
+  ngOnInit() {
+    console.log('here app-buildings');
   }
   /*
+  ngDoCheck() {
+  }
+  */
+  ngAfterViewInit() {
+    this.animateMovement();
+    if (this.respawnTimer > 0) {
+      this.animateDeath();
+    }
+  }
+  /* 
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart
   * Using this instead of onChanges since onChanges only captures actual values and not object references like int he *ngFor
   */
@@ -75,8 +75,8 @@ export class SpriteAnimationComponent {
           ]
         );
       } else {
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX+'px')
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY+'px')
+        this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX+'px');
+        this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY+'px');
       }
   }
   animateDeath() {
@@ -97,5 +97,4 @@ export class SpriteAnimationComponent {
       ]
     );
   }
-  
 }

@@ -1,0 +1,171 @@
+.icons {
+  position: absolute;
+}
+
+/*
+* dire ancient
+*/
+.dire_ancient_building {
+  top: 66px;
+  left: 348px;
+}
+
+/*
+* dire barracks
+*/
+.dire_barracks_top_ranged {
+  top: 47px;
+  left: 305px;
+}
+.dire_barracks_top_melee {
+  top: 57px;
+  left: 305px;
+}
+.dire_barracks_middle_ranged {
+  top: 98px;
+  left: 316px;
+}
+.dire_barracks_middle_melee {
+  top: 104px;
+  left: 323px;
+}
+.dire_barracks_bottom_ranged {
+  top: 116px;
+  left: 360px;
+}
+.dire_barracks_bottom_melee {
+  top: 116px;
+  left: 370px;
+}
+
+/*
+* dire towers
+*/
+.dire_top_1 {
+  top: 45px;
+  left: 85px;
+}
+.dire_top_2 {
+  top: 45px;
+  left: 205px;
+}
+.dire_top_3 {
+  top: 52px;
+  left: 295px;
+}
+.dire_middle_1 {
+  top: 190px;
+  left: 230px;
+}
+.dire_middle_2 {
+  top: 145px;
+  left: 270px;
+}
+.dire_middle_3 {
+  top: 105px;
+  left: 312px;
+}
+.dire_bottom_1 {
+  top: 240px;
+  left: 363px;
+}
+.dire_bottom_2 {
+  top: 190px;
+  left: 363px;
+}
+.dire_bottom_3 {
+  top: 124px;
+  left: 365px;
+}
+.dire_ancient_1 {
+  top: 70px;
+  left: 340px;
+}
+.dire_ancient_2 {
+  top: 77px;
+  left: 351px;
+}
+
+/*
+* radiant ancient
+*/
+.radiant_ancient_building {
+  top: 328px;
+  left: 58px;
+}
+
+/*
+* radiant towers
+*/
+.radiant_bottom_1 {
+  top: 345px;
+  left: 330px;
+}
+.radiant_bottom_2 {
+  top: 352px;
+  left: 195px;
+}
+.radiant_bottom_3 {
+  top: 350px;
+  left: 110px;
+}
+.radiant_middle_1 {
+  top: 230px;
+  left: 165px;
+}
+.radiant_middle_2 {
+  top: 265px;
+  left: 125px;
+}
+.radiant_middle_3 {
+  top: 295px;
+  left: 90px;
+}
+.radiant_top_1 {
+  top: 150px;
+  left: 45px;
+}
+.radiant_top_2 {
+  top: 220px;
+  left: 45px;
+}
+.radiant_top_3 {
+  top: 280px;
+  left: 40px;
+}
+.radiant_ancient_1 {
+  top: 320px;
+  left: 60px;
+}
+.radiant_ancient_2 {
+  top: 327px;
+  left: 71px;
+}
+
+/*
+* radiant barracks
+*/
+.radiant_barracks_top_ranged {
+  top: 288px;
+  left: 35px;
+}
+.radiant_barracks_top_melee {
+  top: 288px;
+  left: 45px;
+}
+.radiant_barracks_middle_ranged {
+  top: 300px;
+  left: 81px;
+}
+.radiant_barracks_middle_melee {
+  top: 305px;
+  left: 88px;
+}
+.radiant_barracks_bottom_ranged {
+  top: 345px;
+  left: 100px;
+}
+.radiant_barracks_bottom_melee {
+  top: 355px;
+  left: 100px;
+}

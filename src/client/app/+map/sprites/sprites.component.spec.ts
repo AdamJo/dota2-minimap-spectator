@@ -3,7 +3,7 @@ import { TestComponentBuilder } from '@angular/compiler/testing';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import {
   describe,
-  expect,
+  //expect,
   inject,
   it
 } from '@angular/core/testing';
@@ -14,7 +14,7 @@ import {
   HTTP_PROVIDERS
 } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
-import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
+//import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 
 import { SpritesComponent } from './sprites.component';
 

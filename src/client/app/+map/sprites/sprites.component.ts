@@ -1,6 +1,7 @@
 import {
   Component,
-  Input
+  Input,
+  OnInit
 } from '@angular/core';
 
 @Component({
@@ -11,25 +12,16 @@ import {
       ngClass="d2mh hero-{{heroId}} {{ team ? 'radiant' : 'dire' }}"
       ></i>
   `,
-  styleUrls: ['./resources/dota2minimapheroes.css'],
-  styles: [`
-    .radiant {
-      background: rgba(170,197,107, 1);
-      border-radius: 25px;
-    }
-    .dire {
-      background: rgba(120,51,46, 1);
-      border-radius: 25px;
-    }
-  `]
+  styleUrls: ['sprites.component.css', './resources/dota2minimapheroes.css']
 })
-export class SpritesComponent {
+export class SpritesComponent implements OnInit {
   @Input() heroId: number;
   @Input() team: string;
 
   constructor() {
-
+    console.log('const - SpritesComponent');
   }
-  ngOnInit() {  
+  ngOnInit() {
+    console.log('ngOnInit - SpritesComponent');
   }
 }
