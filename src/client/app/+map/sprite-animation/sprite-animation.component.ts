@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, Renderer, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Renderer, ElementRef, ViewChild } from '@angular/core';
 import { SpritesComponent } from '../sprites/index';
 
 @Component({
@@ -18,11 +18,12 @@ import { SpritesComponent } from '../sprites/index';
     `
       .icons {
         position: absolute;
+        z-index: 2
       }
     `
   ]
 })
-export class SpriteAnimationComponent implements OnInit, AfterViewInit {
+export class SpriteAnimationComponent implements OnInit {
   @Input() team: boolean;
   @Input() heroId: number;
   @Input() posX: number;
@@ -34,18 +35,9 @@ export class SpriteAnimationComponent implements OnInit, AfterViewInit {
   @ViewChild('position') coordinates : ElementRef;
   @Input() respawnTimer: number;
 
-  constructor(public renderer: Renderer) {
-    console.log('cons - SpriteAnimationComponent');
-  }
+  constructor(public renderer: Renderer) {}
 
   ngOnInit() {
-    console.log('here app-buildings');
-  }
-  /*
-  ngDoCheck() {
-  }
-  */
-  ngAfterViewInit() {
     this.animateMovement();
     if (this.respawnTimer > 0) {
       this.animateDeath();

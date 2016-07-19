@@ -1,7 +1,6 @@
 import {
   Component,
-  Input,
-  OnInit
+  Input
 } from '@angular/core';
 
 @Component({
@@ -14,14 +13,7 @@ import {
   `,
   styleUrls: ['sprites.component.css', './resources/dota2minimapheroes.css']
 })
-export class SpritesComponent implements OnInit {
+export class SpritesComponent {
   @Input() heroId: number;
   @Input() team: string;
-
-  constructor() {
-    console.log('const - SpritesComponent');
-  }
-  ngOnInit() {
-    console.log('ngOnInit - SpritesComponent');
-  }
 }

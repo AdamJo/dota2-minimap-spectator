@@ -21,18 +21,19 @@ import { MapComponent } from './+map/index';
   ]
 })
 export class AppComponent {
-  radiant : any;
-  dire : any;
-  firstCheckDone = false;
+  radiant: any;
+  dire: any;
+  loaded = false;
   currentGame: FirebaseObjectObservable<any>;
 
   constructor(private apiService: ApiService ) {
     this.currentGame = apiService.grabCurrentGame();
     this.currentGame.subscribe(data => {
-      apiService.sortScoreboard(data);
+      apiService.sortScoreboard(data);    
       this.radiant = apiService.radiant;
       this.dire = apiService.dire;
+      this.loaded = true;
     });
+
   }
-  //ngOnInit() {}
 }

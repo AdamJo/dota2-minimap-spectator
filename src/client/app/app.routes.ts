@@ -1,10 +1,9 @@
-import { provideRouter, RouterConfig } from '@angular/router';
+import { Injectable } from '@angular/core'
+import { provideRouter, RouterConfig, Resolve } from '@angular/router';
 
-//import { SpritesRoutes } from './+sprites/index';
 import { MapRoutes } from './+map/index';
 
 const routes: RouterConfig = [
-  //...SpritesRoutes,
   ...MapRoutes
 ];
 

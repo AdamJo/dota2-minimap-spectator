@@ -1,145 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'app-buildings',
-  template: `
-    <div class="icons dire_barracks_bottom_ranged">
-      <i
-        ngClass="buildings dire_barracks"
-      ></i>
-    </div>
-    <div class="icons dire_barracks_bottom_melee">
-      <i
-        ngClass="buildings dire_barracks"
-      ></i>
-    </div>
-    <div class="icons dire_bottom_3">
-      <i
-        ngClass="buildings dire_tower"
-      ></i>
-    </div>
-    <div class="icons dire_barracks_middle_ranged">
-      <i
-        ngClass="buildings dire_barracks"
-      ></i>
-    </div>
-    <div class="icons dire_barracks_middle_melee">
-      <i
-        ngClass="buildings dire_barracks"
-      ></i>
-    </div>
-    <div class="icons dire_middle_3">
-      <i
-        ngClass="buildings dire_tower"
-      ></i>
-    </div>
-    <div class="icons dire_barracks_top_ranged">
-      <i
-        ngClass="buildings dire_barracks"
-      ></i>
-    </div>
-    <div class="icons dire_barracks_top_melee">
-      <i
-        ngClass="buildings dire_barracks"
-      ></i>
-    </div>
-    <div class="icons dire_top_3">
-      <i
-        ngClass="buildings dire_tower"
-      ></i>
-    </div>
-    <div class="icons dire_ancient_1">
-      <i
-        ngClass="buildings dire_tower"
-      ></i>
-    </div>
-    <div class="icons dire_ancient_building">
-      <i
-        ngClass="buildings dire_ancient"
-      ></i>
-    </div>
-    <div class="icons dire_ancient_2">
-      <i
-        ngClass="buildings dire_tower"
-      ></i>
-    </div>
-    <div class="icons radiant_bottom_3">
-      <i
-        ngClass="buildings radiant_tower"
-      ></i>
-    </div>
-    <div class="icons radiant_barracks_bottom_ranged">
-      <i
-        ngClass="buildings radiant_barracks"
-      ></i>
-    </div>
-    <div class="icons radiant_barracks_bottom_melee">
-      <i
-        ngClass="buildings radiant_barracks"
-      ></i>
-    </div>
-    <div class="icons radiant_middle_3">
-      <i
-        ngClass="buildings radiant_tower"
-      ></i>
-    </div>
-    <div class="icons radiant_barracks_middle_ranged">
-      <i
-        ngClass="buildings radiant_barracks"
-      ></i>
-    </div>
-    <div class="icons radiant_barracks_middle_melee">
-      <i
-        ngClass="buildings radiant_barracks"
-      ></i>
-    </div>
-    <div class="icons radiant_top_3">
-      <i
-        ngClass="buildings radiant_tower"
-      ></i>
-    </div>
-    <div class="icons radiant_barracks_top_ranged">
-      <i
-        ngClass="buildings radiant_barracks"
-      ></i>
-    </div>
-    <div class="icons radiant_barracks_top_melee">
-      <i
-        ngClass="buildings radiant_barracks"
-      ></i>
-    </div>
-    <div class="icons radiant_ancient_1">
-      <i
-        ngClass="buildings radiant_tower"
-      ></i>
-    </div>
-    <div class="icons radiant_ancient_building">
-      <i
-        ngClass="buildings radiant_ancient"
-      ></i>
-    </div>
-    <div class="icons radiant_ancient_2">
-      <i
-        ngClass="buildings radiant_tower"
-      ></i>
-    </div>
-  `,
+  templateUrl: 'buildings.component.html',
   styleUrls: ['buildings.component.css', './resources/buildings.css']
 })
-export class BuildingsComponent implements OnInit {
-  towers = [
-    'radiant_bottom_1',
-    'radiant_bottom_2',
-    'radiant_bottom_3'
+export class BuildingsComponent {
+  @Input() direBarracks: Array<number>;
+  @Input() direTowers: Array<number>;
+  @Input() radiantBarracks: Array<number>;
+  @Input() radiantTowers: Array<number>;
+
+  /*
+  * order matters
+  */
+  barracks = [
+    'barracks_bottom_ranged',
+    'barracks_bottom_melee',
+    'barracks_middle_ranged',
+    'barracks_middle_melee',
+    'barracks_top_ranged',
+    'barracks_top_melee'
   ];
-
-  constructor() {
-    console.log('const - BuildingsComponent');
-  }
-
-  ngOnInit() {
-    console.log('here app-buildings');
-  }
-
+  /*
+  * order matters
+  */
+  towers = [
+    'ancient_1',
+    'ancient_2',
+    'bottom_3',
+    'bottom_2',
+    'bottom_1',
+    'middle_3',
+    'middle_2',
+    'middle_1',
+    'top_3',
+    'top_2',
+    'top_1'
+  ];
 }

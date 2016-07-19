@@ -6,8 +6,8 @@ import { LiveLeagueGame, Players } from './liveLeagueGame';
 export class ApiService {
 
   public firstCheckDone = false;
-  radiant: Array<Players>;
-  dire: Array<Players>;
+  radiant: any;
+  dire: any;
   currentGame: LiveLeagueGame;
   public duration : number;
 
@@ -28,21 +28,19 @@ export class ApiService {
   sortScoreboard(data: LiveLeagueGame) {
     this.getDuration(data);
     if (this.firstCheckDone) {
-      this.radiant.map((d: any, i: any)  => {
-
+      this.radiant.players.map((d: any, i: any)  => {
           data.scoreboard.radiant.players[i].old_position_x = d.position_x;
           data.scoreboard.radiant.players[i].old_position_y = d.position_y;
       });
-      this.dire.map((d: any, i: any) => {
+      this.dire.players.map((d: any, i: any) => {
           data.scoreboard.dire.players[i].old_position_x = d.position_x;
           data.scoreboard.dire.players[i].old_position_y = d.position_y;
       });
-      this.radiant = data.scoreboard.radiant.players;
-      this.dire = data.scoreboard.dire.players;
+      this.radiant = data.scoreboard.radiant;
+      this.dire = data.scoreboard.dire;
     } else {
-      console.log(data.scoreboard.radiant.players[0].position_x);
-      this.radiant = data.scoreboard.radiant.players;
-      this.dire = data.scoreboard.dire.players;
+      this.radiant = data.scoreboard.radiant;
+      this.dire = data.scoreboard.dire;
       this.firstCheckDone = true;
     }
   }
