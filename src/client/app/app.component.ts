@@ -15,6 +15,7 @@ import { MapComponent } from './+map/index';
     HTTP_PROVIDERS
   ],
   templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
   directives: [
     ROUTER_DIRECTIVES,
     MapComponent
@@ -23,16 +24,16 @@ import { MapComponent } from './+map/index';
 export class AppComponent {
   radiant: any;
   dire: any;
-  loaded = false;
+  loaded = 'inactive';
   currentGame: FirebaseObjectObservable<any>;
 
   constructor(private apiService: ApiService ) {
     this.currentGame = apiService.grabCurrentGame();
     this.currentGame.subscribe(data => {
-      apiService.sortScoreboard(data);    
+      apiService.sortScoreboard(data);
       this.radiant = apiService.radiant;
       this.dire = apiService.dire;
-      this.loaded = true;
+      this.loaded = 'active';
     });
 
   }

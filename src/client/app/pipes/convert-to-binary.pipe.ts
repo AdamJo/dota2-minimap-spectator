@@ -21,13 +21,12 @@ export class ConvertTopBinaryPipe implements PipeTransform {
     */
     if (value !== null) {
       if (building === 'tower') {
-        return ('00000000000'+value.toString(2)).slice(-11).split('').map(data => parseInt(data))
+        return ('00000000000'+value.toString(2)).slice(-11).split('').map(data => parseInt(data));
       } else {
-        return ('000000'+value.toString(2)).slice(-6).split('').map(data => parseInt(data))
+        return ('000000'+value.toString(2)).slice(-6).split('').map(data => parseInt(data));
       }
-    }
-    else {
-      return undefined
+    } else {
+      return undefined;
     }
   }
 }

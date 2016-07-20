@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
-import { LiveLeagueGame, Players } from './liveLeagueGame';
+import { LiveLeagueGame } from './liveLeagueGame';
 
 @Injectable()
 export class ApiService {

@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core'
-import { provideRouter, RouterConfig, Resolve } from '@angular/router';
+import { provideRouter, RouterConfig } from '@angular/router';
 
 import { MapRoutes } from './+map/index';
 

@@ -1,27 +1,20 @@
-import { Component, ComponentResolver, Injector } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component } from '@angular/core';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { TestComponentBuilder } from '@angular/compiler/testing';
-import { SpyLocation } from '@angular/common/testing';
+
 import {
-  beforeEachProviders,
+  addProviders,
   async,
-  describe,
-  expect,
-  inject,
-  it
+  inject
 } from '@angular/core/testing';
 import {
-  UrlSerializer,
-  DefaultUrlSerializer,
-  RouterOutletMap,
-  Router,
-  ActivatedRoute,
   RouterConfig
 } from '@angular/router';
 
+import {provideFakeRouter} from '../testing/router/router-testing-providers';
+
 import { AppComponent } from './app.component';
-import { SpritesComponent } from './+sprites/sprites.component';
+import { SpritesComponent } from './+map/sprites/sprites.component';
 
 export function main() {
 
@@ -29,34 +22,17 @@ export function main() {
     // Disable old forms
     let providerArr: any[];
 
-    beforeEach(() => { providerArr = [disableDeprecatedForms(), provideForms()]; });
+    beforeEach(() => {
+      providerArr = [disableDeprecatedForms(), provideForms()];
 
-    // Support for testing component that uses Router
-    beforeEachProviders(() => {
+      // Support for testing component that uses Router
       let config:RouterConfig = [
         {path: '', component: SpritesComponent},
       ];
 
-      return [
-        RouterOutletMap,
-        {provide: UrlSerializer, useClass: DefaultUrlSerializer},
-        {provide: Location, useClass: SpyLocation},
-        {
-          provide: Router,
-          useFactory: (
-            resolver:ComponentResolver,
-            urlSerializer:UrlSerializer,
-            outletMap:RouterOutletMap,
-            location:Location,
-            injector:Injector) => {
-            const r = new Router(TestComponent, resolver, urlSerializer, outletMap, location, injector, config);
-//            r.initialNavigation();
-            return r;
-          },
-          deps: [ComponentResolver, UrlSerializer, RouterOutletMap, Location, Injector]
-        },
-        {provide: ActivatedRoute, useFactory: (r:Router) => r.routerState.root, deps: [Router]},
-      ];
+      addProviders([
+        provideFakeRouter(TestComponent, config)
+      ]);
     });
 
     it('should build without a problem',
