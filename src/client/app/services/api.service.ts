@@ -11,10 +11,7 @@ export class ApiService {
   currentGame: LiveLeagueGame;
   public duration : number;
 
-  constructor(private af: AngularFire) {
-    console.log('const - service');
-
-  }
+  constructor(private af: AngularFire) {}
 
   init() {
     return this.grabCurrentGame();

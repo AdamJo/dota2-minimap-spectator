@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { HTTP_PROVIDERS } from '@angular/http';
 import { ApiService } from './services/index';
 import { FirebaseObjectObservable } from 'angularfire2';
 import { MapComponent } from './+map/index';
@@ -11,9 +10,6 @@ import { MapComponent } from './+map/index';
 @Component({
   moduleId: module.id,
   selector: 'root-app',
-  viewProviders: [
-    HTTP_PROVIDERS
-  ],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [

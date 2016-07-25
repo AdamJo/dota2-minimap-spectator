@@ -3,31 +3,31 @@
   
   <div class="child" [style.width.px]='width' [style.height.px]='height'>
     <app-buildings 
-      [direBarracks]='dire?.barracks_state | toBinary:"barracks"'
-      [direTowers]='dire?.tower_state | toBinary:"tower"'
-      [radiantBarracks]='radiant?.barracks_state | toBinary:"barracks"'
-      [radiantTowers]='radiant?.tower_state | toBinary:"tower"'>
+      [direBarracks]='dire?.barracks_state | splitToNumbers'
+      [direTowers]='dire?.tower_state | splitToNumbers'
+      [radiantBarracks]='radiant?.barracks_state | splitToNumbers'
+      [radiantTowers]='radiant?.tower_state | splitToNumbers'>
     </app-buildings>
     <div *ngFor="let player of radiant?.players">
       <app-sprite-animation
         [team]='true'
-        [heroId]='player.hero_id'
-        [posX]='player.position_x | calculateX:width'
-        [posY]='player.position_y | calculateY:height'
-        [oldPosX]='player.old_position_x | calculateX:width'
-        [oldPosY]='player.old_position_y | calculateY:height'
-        [respawnTimer]='player.respawn_timer'>
+        [heroId]='player?.hero_id'
+        [posX]='player?.position_x | calculateX:width'
+        [posY]='player?.position_y | calculateY:height'
+        [oldPosX]='player?.old_position_x | calculateX:width'
+        [oldPosY]='player?.old_position_y | calculateY:height'
+        [respawnTimer]='player?.respawn_timer'>
       </app-sprite-animation>
     </div>
     <div *ngFor="let hero of dire?.players">
       <app-sprite-animation
         [team]='false'
-        [heroId]='hero.hero_id'
-        [posX]='hero.position_x | calculateX:width'
-        [posY]='hero.position_y | calculateY:height'
-        [oldPosX]='hero.old_position_x | calculateX:width'
-        [oldPosY]='hero.old_position_y | calculateY:height'
-        [respawnTimer]='hero.respawn_timer'>
+        [heroId]='hero?.hero_id'
+        [posX]='hero?.position_x | calculateX:width'
+        [posY]='hero?.position_y | calculateY:height'
+        [oldPosX]='hero?.old_position_x | calculateX:width'
+        [oldPosY]='hero?.old_position_y | calculateY:height'
+        [respawnTimer]='hero?.respawn_timer'>
       </app-sprite-animation>
     </div>
   </div>

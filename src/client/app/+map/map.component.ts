@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { CalculateXPipe, CalculateYPipe, ConvertTopBinaryPipe } from '../pipes/index';
+import { CalculateXPipe, CalculateYPipe, SplitNumbersPipe } from '../pipes/index';
 //import { testData } from '../resources/testData';
 import { SpritesComponent } from './sprites/index';
 import { SpriteAnimationComponent } from './sprite-animation/index';
@@ -17,7 +17,7 @@ import { BuildingsComponent } from './buildings/index';
   pipes: [
     CalculateXPipe,
     CalculateYPipe,
-    ConvertTopBinaryPipe
+    SplitNumbersPipe
   ],
   directives: [
     SpritesComponent,
