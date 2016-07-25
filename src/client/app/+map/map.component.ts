@@ -31,8 +31,4 @@ export class  MapComponent {
   height = 380;
   @Input() radiant: any;
   @Input() dire: any;
-
-  ngOnInit() {
-    console.log(this.radiant)
-  }
 }
