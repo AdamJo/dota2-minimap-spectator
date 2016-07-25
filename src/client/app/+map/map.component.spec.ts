@@ -1,10 +1,4 @@
-import {
-  beforeEachProviders,
-  describe,
-  inject,
-  it
-} from '@angular/core/testing';
-
+import { beforeEachProviders, inject } from '@angular/core/testing';
 import {MapComponent} from './map.component';
 
 export function main() {

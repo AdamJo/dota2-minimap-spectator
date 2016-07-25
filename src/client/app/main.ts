@@ -1,3 +1,4 @@
+//default imports
 import { APP_BASE_HREF } from '@angular/common';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { enableProdMode } from '@angular/core';
@@ -6,10 +7,8 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 //import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { AppComponent } from './app.component';
 
-import { HTTP_PROVIDERS } from '@angular/http';
-
+//Service and 3rd party libs
 import {FIREBASE_PROVIDERS, defaultFirebase} from 'angularfire2';
-
 import { ApiService } from './services/index';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
@@ -19,8 +18,6 @@ if ('<%= ENV %>' === 'prod') { enableProdMode(); }
  * @see https://angular.io/docs/ts/latest/api/platform-browser-dynamic/index/bootstrap-function.html
  */
 bootstrap(AppComponent, [
-
-  ...HTTP_PROVIDERS,
   ...FIREBASE_PROVIDERS,
   defaultFirebase({
     apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',
@@ -30,7 +27,6 @@ bootstrap(AppComponent, [
   }),
   disableDeprecatedForms(),
   provideForms(),
-  //APP_ROUTER_PROVIDERS,
   {
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'

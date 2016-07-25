@@ -1,16 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
-} from '@angular/core/testing';
 import { CalculateXPipe } from './calculate-x.pipe';
 
 export function main() {
-  describe('Pipe: CalculateX', () => {
 
+  describe('Pipe: CalculateX', () => {
+    let pipe: CalculateXPipe;
     let width = 395;
     let testIntegers = [
         7999,
@@ -23,8 +18,7 @@ export function main() {
         -6000,
         -7999
       ];
-    
-    let pipe: CalculateXPipe;
+
     beforeEach(() => {
       pipe = new CalculateXPipe();
     });
@@ -34,7 +28,7 @@ export function main() {
     }); 
     it('transforms float to integer', () => {
       testIntegers.map(testData => {
-        expect(pipe.transform(testData, width)).toEqual(jasmine.any(Number))      
+        expect(pipe.transform(testData, width)).toEqual(jasmine.any(Number));    
       })
     });
     it(`transforms are < ${width} && > -1`, () => {

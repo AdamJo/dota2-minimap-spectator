@@ -31,6 +31,5 @@ export class AppComponent {
       this.dire = apiService.dire;
       this.loaded = 'active';
     });
-
   }
 }

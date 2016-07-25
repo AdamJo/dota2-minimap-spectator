@@ -1,17 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
-import {
-  addProviders,
-  async,
-  inject
-} from '@angular/core/testing';
-
 import { CalculateYPipe } from './calculate-y.pipe';
-import { CalculateXPipe } from './calculate-x.pipe';
 
 export function main() {
 
   describe('Pipe: CalculateY', () => {
+    let pipe: CalculateYPipe;
     let height = 380;
     let testIntegers = [
         7999,
@@ -24,8 +18,7 @@ export function main() {
         -6000,
         -7999
       ];
-      
-    let pipe: CalculateYPipe;
+
     beforeEach(() => {
       pipe = new CalculateYPipe();
     });
@@ -36,7 +29,7 @@ export function main() {
 
     it('transforms (possible) float to integer', () => {
       testIntegers.map(testData => {
-        expect(pipe.transform(testData, height)).toEqual(jasmine.any(Number))        
+        expect(pipe.transform(testData, height)).toEqual(jasmine.any(Number));     
       });
     });
     it(`transforms are < ${height} && > -1`, () => {
