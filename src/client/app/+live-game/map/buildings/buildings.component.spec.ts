@@ -1,5 +1,4 @@
 import { beforeEachProviders, inject } from '@angular/core/testing';
-import { Renderer } from '@angular/core';
 import { BuildingsComponent } from './buildings.component';
 
 export function main() {
@@ -8,7 +7,7 @@ export function main() {
     beforeEachProviders(() => [
       BuildingsComponent
     ]);
-    
+
     it('should create an instance', inject([ BuildingsComponent ], (app:any) => {
       expect(app.barracks).toBeTruthy();
     }));

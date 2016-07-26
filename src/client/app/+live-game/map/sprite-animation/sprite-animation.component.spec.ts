@@ -9,7 +9,7 @@ export function main() {
       SpriteAnimationComponent,
       Renderer
     ]);
-    
+
     it('should create an instance', inject([ SpriteAnimationComponent ], (app:any) => {
       expect(app).toBeTruthy();
     }));

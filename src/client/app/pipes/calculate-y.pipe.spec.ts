@@ -29,15 +29,15 @@ export function main() {
 
     it('transforms (possible) float to integer', () => {
       testIntegers.map(testData => {
-        expect(pipe.transform(testData, height)).toEqual(jasmine.any(Number));     
+        expect(pipe.transform(testData, height)).toEqual(jasmine.any(Number));
       });
     });
     it(`transforms are < ${height} && > -1`, () => {
       testIntegers.map(testData => {
         // console.log(testData, pipe.transform(testData, height))
         expect(pipe.transform(testData, height)).toBeLessThan(height);
-        expect(pipe.transform(testData, height)).toBeGreaterThan(-1);        
-      })
+        expect(pipe.transform(testData, height)).toBeGreaterThan(-1);
+      });
     });
   });
 }

@@ -6,16 +6,12 @@ import { LiveLeagueGame } from './liveLeagueGame';
 export class ApiService {
 
   public firstCheckDone = false;
-  radiant: any;
-  dire: any;
+  public radiant: any;
+  public dire: any;
   currentGame: LiveLeagueGame;
   public duration : number;
 
   constructor(private af: AngularFire) {}
-
-  init() {
-    return this.grabCurrentGame();
-  }
 
   grabCurrentGame() {
     return this.af.database.object('currentGame');
@@ -45,6 +41,7 @@ export class ApiService {
   getDuration(data: LiveLeagueGame) {
     this.duration = data.scoreboard.duration;
   }
+
   grabPlayer(index : any, team: boolean) {
     if (team) {
       return [

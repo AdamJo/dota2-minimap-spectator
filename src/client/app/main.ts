@@ -6,6 +6,7 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 
 //import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { AppComponent } from './app.component';
+import { APP_ROUTER_PROVIDERS } from './app.routes';
 
 //Service and 3rd party libs
 import {FIREBASE_PROVIDERS, defaultFirebase} from 'angularfire2';
@@ -18,6 +19,7 @@ if ('<%= ENV %>' === 'prod') { enableProdMode(); }
  * @see https://angular.io/docs/ts/latest/api/platform-browser-dynamic/index/bootstrap-function.html
  */
 bootstrap(AppComponent, [
+  ...APP_ROUTER_PROVIDERS,
   ...FIREBASE_PROVIDERS,
   defaultFirebase({
     apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',

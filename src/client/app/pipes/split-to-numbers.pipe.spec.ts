@@ -24,7 +24,7 @@ export function main() {
     });
 
     it('transforms "" to undefined', () => {
-      expect(pipe.transform("")).toEqual(undefined);
+      expect(pipe.transform('')).toEqual(undefined);
     });
 
     it('transforms undefined to undefined', () => {

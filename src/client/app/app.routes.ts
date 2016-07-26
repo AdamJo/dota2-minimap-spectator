@@ -1,9 +1,17 @@
 import { provideRouter, RouterConfig } from '@angular/router';
 
-import { MapRoutes } from './+map/index';
+import { LiveGameComponent } from './+live-game/index';
 
 const routes: RouterConfig = [
-  ...MapRoutes
+  {
+    path: '',
+    redirectTo: '/live',
+    pathMatch: 'full'
+  },
+  {
+    path: 'live',
+    component: LiveGameComponent
+  }
 ];
 
 export const APP_ROUTER_PROVIDERS = [

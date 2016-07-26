@@ -1,5 +1,5 @@
-import { Component, Input} from '@angular/core';
-import { CalculateXPipe, CalculateYPipe, SplitNumbersPipe } from '../pipes/index';
+import { Component, Input } from '@angular/core';
+import { CalculateXPipe, CalculateYPipe, SplitNumbersPipe } from '../../pipes/index';
 //import { testData } from '../resources/testData';
 import { SpritesComponent } from './sprites/index';
 import { SpriteAnimationComponent } from './sprite-animation/index';
