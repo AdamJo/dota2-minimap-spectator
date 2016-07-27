@@ -31,4 +31,5 @@ export class  MapComponent {
   height = 380;
   @Input() radiant: any;
   @Input() dire: any;
+  @Input() dayNightCycle: any;
 }

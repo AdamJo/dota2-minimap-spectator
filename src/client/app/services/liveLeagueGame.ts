@@ -3,6 +3,7 @@
 export interface LiveLeagueGame {
   $key?: string;
   dire_series_wins: number;
+  dire_team_name: string;
   game_number: number;
   league: {
     name: string,
@@ -13,6 +14,7 @@ export interface LiveLeagueGame {
   league_tier: string;
   match_id: number;
   radiant_series_wins: number;
+  radiant_team_name: string;
   scoreboard: {
     day_cycle: string,
     dire: {

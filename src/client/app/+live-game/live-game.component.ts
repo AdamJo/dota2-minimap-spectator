@@ -18,13 +18,13 @@ export class LiveGameComponent implements DoCheck {
   radiant: any;
   dire: any;
   duration: number;
+  dayNightCycle: string;
 
-  constructor(private apiService: ApiService ) {
+  constructor(private apiService: ApiService ) {}
 
-  }
   ngDoCheck() {
-    this.radiant = this.apiService.radiant;
-    this.dire = this.apiService.dire;
-    this.duration = this.apiService.duration;
+    if (this.apiService.currentGame) {
+      this.duration = this.apiService.currentGame.scoreboard.duration;
+    }
   }
 }

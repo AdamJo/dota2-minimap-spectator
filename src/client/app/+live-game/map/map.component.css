@@ -1,15 +1,6 @@
-.parent {
-  top: 0;
-  left: 0;
+.container {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  overflow: scroll;
-}
-
-.child {
-  position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 1em;

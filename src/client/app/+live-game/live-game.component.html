@@ -1,2 +1,15 @@
-<app-map *ngIf="duration > 60" [radiant]='radiant' [dire]='dire'></app-map>
-<app-draft *ngIf="duration <= 60" [radiant]='radiant' [dire]='dire'></app-draft>
+<div *ngIf="apiService.currentGame">
+  <h1>{{apiService.currentGame.radiant_team_name}} vs {{apiService.currentGame.dire_team_name}}</h1>
+  <app-draft
+    *ngIf="apiService.currentGame.scoreboard.duration <= 60"
+    [radiant]='apiService.currentGame.scoreboard.radiant'
+    [dire]='apiService.currentGame.scoreboard.dire'
+    [dayNightCycle]="apiService.currentGame.scoreboard.day_cycle">
+  </app-draft>
+  <app-map 
+    *ngIf="apiService.currentGame.scoreboard.duration > 60"
+    [radiant]='apiService.currentGame.scoreboard.radiant'
+    [dire]='apiService.currentGame.scoreboard.dire'
+    [dayNightCycle]="apiService.currentGame.scoreboard.day_cycle">
+  </app-map>
+</div>
