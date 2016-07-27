@@ -19,6 +19,7 @@ export class ApiService {
 
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
+    console.log(data);
     this.getDuration(data);
     if (this.firstCheckDone) {
       this.radiant.players.map((d: any, i: any)  => {

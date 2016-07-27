@@ -19,7 +19,9 @@ export class LiveGameComponent implements DoCheck {
   dire: any;
   duration: number;
 
-  constructor(private apiService: ApiService ) {}
+  constructor(private apiService: ApiService ) {
+
+  }
   ngDoCheck() {
     this.radiant = this.apiService.radiant;
     this.dire = this.apiService.dire;

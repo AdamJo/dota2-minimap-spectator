@@ -1,0 +1,10 @@
+<div class="draft-constainer">
+  <div class="bans">
+    <div *ngFor='let hero of dire?.bans'>
+      <img class="hero-ban" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+    </div>
+  </div>
+  <div *ngFor='let hero of dire?.picks'>
+    <img class="hero-pick" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
+  </div>
+</div>

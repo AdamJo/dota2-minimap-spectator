@@ -18,7 +18,6 @@ import { FirebaseObjectObservable } from 'angularfire2';
 })
 export class AppComponent {
   currentGame: FirebaseObjectObservable<any>;
-  checked = false;
 
   constructor(private apiService: ApiService ) {
     this.currentGame = apiService.grabCurrentGame();
