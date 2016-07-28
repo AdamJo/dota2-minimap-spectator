@@ -32,4 +32,5 @@ export class  MapComponent {
   @Input() radiant: any;
   @Input() dire: any;
   @Input() dayNightCycle: any;
+  @Input() roshanRespawnTimer: any;
 }

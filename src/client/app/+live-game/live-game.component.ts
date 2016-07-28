@@ -13,8 +13,20 @@ import { DraftComponent } from './draft/index';
     DraftComponent
   ]
 })
-export class LiveGameComponent {
+export class LiveGameComponent implements DoCheck {
+
+  scoreboard: any;
+  game: any;
+  radiantTeamName: any;
+  direTeamName: any;
 
   constructor(private apiService: ApiService ) {}
 
+  ngDoCheck() {
+    if (this.apiService.currentGame) {
+      this.scoreboard = this.apiService.currentGame.scoreboard;
+      this.direTeamName = this.apiService.currentGame.dire_team_name;
+      this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
+    }
+  }
 }

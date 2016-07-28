@@ -1,11 +1,25 @@
-.nav {
-  text-align: center;
-  height: 35px;
-  background-color: grey;
+.main-nav {
+  background: #eee;
 }
-.container {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    list-style: none;
+}
+.main-nav a {
+  padding: 1.25rem 0.5rem;
+  font-size: 1.6rem;
+  max-width: 140px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  color: #333;
+}
+.main-nav a:hover, .main-nav a:focus {
+  background: #ccc;
+  color: black;
 }

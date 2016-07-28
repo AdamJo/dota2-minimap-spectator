@@ -31,11 +31,14 @@ export class ApiService {
           data.scoreboard.dire.players[i].old_position_y = d.position_y;
       });
     } else {
-      this.match_id = data.match_id
+      this.match_id = data.match_id;
       this.firstCheckDone = true;
     }
-    
+
     this.currentGame = data;
-    console.log(data)
+    console.log(data);
+  }
+  getCurrentGame() {
+    return this.currentGame;
   }
 }
