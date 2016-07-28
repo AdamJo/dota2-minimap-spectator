@@ -1,16 +1,20 @@
-.container {
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-width:410px;
+}
+.content {
   position: absolute;
-  top: 300px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 1em;
   z-index: 0;
+  min-width:410px;
 }
 
 .icons {
   position: absolute;
-}
-
-img.container {
-  padding: 0;
 }
