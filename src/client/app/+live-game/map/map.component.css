@@ -1,6 +1,6 @@
 .container {
   position: absolute;
-  top: 40%;
+  top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 1em;
@@ -9,4 +9,8 @@
 
 .icons {
   position: absolute;
+}
+
+img.container {
+  padding: 0;
 }

@@ -3,3 +3,9 @@
   height: 35px;
   background-color: grey;
 }
+.container {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

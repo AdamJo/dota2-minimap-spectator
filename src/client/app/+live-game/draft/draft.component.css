@@ -6,10 +6,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  width: 900px;
 }
+
+
 
 .bans {
   align-self: flex-start;
+}
+.picks {
+  
 }
 
 .hero-pick {
