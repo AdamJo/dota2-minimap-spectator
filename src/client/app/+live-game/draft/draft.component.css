@@ -1,23 +1,91 @@
-.draft-constainer {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 900px;
+.container {
+  width: 1020px;
+  margin: 0 auto;
 }
 
-.bans {
-  align-self: flex-start;
+.draft-container {
+  /*background-color: yellow;*/
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: wrap;
 }
-.picks {
+
+.titles {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.direName {
+  padding-left: 10px;
+  width: 60px;
+  color: maroon;
+}
+
+.radiantName {
+  padding-left: 10px;
+  width: 60px;
+  color: darkgreen;  
+}
+
+.bansTitle {
+  display: flex;
+  width: 60px;
+  justify-content: center;
+  align-self: center;
+  font-size: .6rem;
+}
+
+.teamName {
+  width: 700px;
+  text-align: right;
+}
+
+.row {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /*background-color:grey;*/
+}
+
+.column {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /*background-color: blue;*/
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /*background-color: cyan;*/
+  flex: 1;
+}
+
+.player > div > span {
+  font-size: .7rem;
   
 }
 
-.hero-pick {
-  height: 181px;
-  margin-left: 10px;
+.ban-cell {
+  height: 35px; 
+  /*background: red;*/
+}
+
+.pick-cell {
+  /*background: green;*/
+}
+
+.pick-cell > img {
+    margin-left: 5px;
+    height: 174px;
+    width: auto;
+}
+
+.line-break {
+  width: 100%;
+  margin-top: 50px;
 }

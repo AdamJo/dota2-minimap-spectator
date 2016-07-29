@@ -1,21 +1,75 @@
-<div class="draft-constainer">
-  
-  <div class="bans">
-    <div *ngFor='let hero of dire?.bans'>
-      <img class="hero-ban" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+<div (window:resize)="onResize($event)">
+  <div *ngIf="smallerScreenSize === false" class="container">
+
+    <div class="titles">
+      <span class="bansTitle">Bans</span>
+      <span class="direName">Dire</span>
+      <span class="teamName"><b>{{radiantTeamName}}</b></span>
+    </div>
+
+    <div class="draft-container">
+      <div class="column">
+        <div class="ban-cell" *ngFor='let hero of dire?.bans'>
+          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+        </div>
+      </div>
+      <div class="row">
+        <div class="pick-cell" *ngFor='let hero of dire?.picks'>
+          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
+        </div>
+      </div>
+      <div class="player">
+        <div *ngFor='let player of dire?.players'>
+          <span>{{player.name | shortenName }}</span>
+        </div>
+      </div>
+
+      <div class="line-break"></div>
+
+      <div class="column">
+        <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
+          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+        </div>
+      </div>
+      <div class="row">
+        <div class="pick-cell" *ngFor='let hero of radiant?.picks'>
+          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
+        </div>
+      </div>
+      <div class="player">
+        <div *ngFor='let player of radiant?.players'>
+          <span>{{player.name | shortenName }}</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="titles">
+      <span class="bansTitle">Bans</span>
+      <span class="radiantName">Radiant</span>
+      <span class="teamName"><b>{{direTeamName}}</b></span>
+    </div>
+  <!--<div *ngIf="smallerScreenSize === true" class="draft-constainer">
+    <div class="column">
+      <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
+        hello
+      </div>
+    </div>
+    <div class="row">
+      <div class="pick-cell" *ngFor='let hero of dire?.picks'>
+        you
+      </div>
+    </div>
+    <div class ="radiant">
+      <div class="bans">
+        <div  *ngFor='let hero of radiant?.bans'>
+          <img class="hero-ban" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+        </div>
+      </div>
+      <div class="picks" *ngFor='let hero of radiant?.picks'>
+        <img class="hero-pick" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
+      </div>
     </div>
   </div>
-  <div class="picks" *ngFor='let hero of dire?.picks'>
-    <img class="hero-pick" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
-  </div>
-
-  <div class="bans">
-    <div  *ngFor='let hero of radiant?.bans'>
-      <img class="hero-ban" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
-    </div>
-  </div>
-  <div class="picks" *ngFor='let hero of radiant?.picks'>
-    <img class="hero-pick" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
-  </div>
-
+  </div>-->
 </div>
+<div>

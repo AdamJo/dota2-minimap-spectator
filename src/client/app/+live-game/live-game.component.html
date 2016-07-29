@@ -1,9 +1,11 @@
-<div *ngIf='scoreboard'>
+<div class="scoreboard" *ngIf='scoreboard'>
   <h4 class="heading">{{radiantTeamName}} vs {{direTeamName}}</h4>
   <app-draft
     *ngIf='scoreboard.duration <= 0'
     [radiant]='scoreboard.radiant'
     [dire]='scoreboard.dire'
+    [radiantTeamName]='radiantTeamName'
+    [direTeamName]='direTeamName'
     ></app-draft>
   <app-map 
     *ngIf='scoreboard.duration > 0'

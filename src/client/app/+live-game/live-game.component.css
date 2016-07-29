@@ -2,4 +2,9 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  white-space: nowrap;
+}
+.scoreboard {
+  margin-left: 1%;
+  margin-right: 1%;
 }
