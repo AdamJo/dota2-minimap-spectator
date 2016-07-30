@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { MobileDraftComponent } from './mobile-draft/index';
 
@@ -9,7 +9,8 @@ import { MobileDraftComponent } from './mobile-draft/index';
   styleUrls: ['draft.component.css'],
   directives: [
     MobileDraftComponent
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class DraftComponent implements OnInit {
@@ -20,6 +21,7 @@ export class DraftComponent implements OnInit {
   @Input() direTeamName: string;
 
   smallerScreenSize: boolean;
+
   ngOnInit() {
     // 1020 is  max of current css setup for draft
     if (window.innerWidth < 1000) {

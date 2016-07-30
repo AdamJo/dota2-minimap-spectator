@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'app-buildings',
   templateUrl: 'buildings.component.html',
-  styleUrls: ['buildings.component.css', './resources/buildings.css']
+  styleUrls: ['buildings.component.css', './resources/buildings.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuildingsComponent {
   @Input() direBarracks: Array<number>;

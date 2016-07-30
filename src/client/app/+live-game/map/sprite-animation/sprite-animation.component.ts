@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Renderer, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { SpritesComponent } from '../sprites/index';
 
 @Component({
@@ -21,7 +21,8 @@ import { SpritesComponent } from '../sprites/index';
         z-index: 2
       }
     `
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpriteAnimationComponent implements OnInit {
   @Input() team: boolean;

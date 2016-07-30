@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CalculateXPipe, CalculateYPipe, SplitNumbersPipe } from '../../pipes/index';
 //import { testData } from '../resources/testData';
 import { SpritesComponent } from './sprites/index';
@@ -24,7 +24,8 @@ import { BuildingsComponent } from './buildings/index';
     SpriteAnimationComponent,
     BuildingsComponent
   ],
-  providers: []
+  providers: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class  MapComponent {
   width = 395;
