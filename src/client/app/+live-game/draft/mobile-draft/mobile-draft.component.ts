@@ -14,7 +14,4 @@ export class MobileDraftComponent {
   @Input() radiantTeamName: string;
   @Input() direTeamName: string;
 
-  constructor() {
-    console.log('mobile - DraftComponent');
-  }
 }

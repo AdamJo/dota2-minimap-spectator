@@ -20,11 +20,6 @@ export class DraftComponent implements OnInit {
   @Input() direTeamName: string;
 
   smallerScreenSize: boolean;
-
-  constructor() {
-    console.log('cons - DraftComponent');
-  }
-
   ngOnInit() {
     // 1020 is  max of current css setup for draft
     if (window.innerWidth < 1000) {
