@@ -1,0 +1,86 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.draft-container {
+  /*background-color: yellow;*/
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-flow: nowrap;
+  /*background-color:green;*/
+}
+
+.dire {
+  display:flex;
+  /*background-color: yellow;*/
+}
+
+.radiant {
+  display:flex;
+  /*background-color: grey;*/
+}
+
+.grid-container {
+  /*background-color: pink;*/
+  width: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.bans, .picks {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.pick-cell:nth-child(odd) {
+  margin-right: 5px;
+}
+
+.ban-cell:nth-child(odd) {
+  margin-right: 5px;
+}
+
+.players {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.player-cell {
+  /* Required for text-overflow to do anything */
+  font-size: .6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-break {
+  width: 100%;
+}
+
+.phase {
+  /*background-color: red;*/
+  font-size: .6rem;
+}
+.teamName {
+  font-size: 1rem;
+  /*background-color: blue;*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

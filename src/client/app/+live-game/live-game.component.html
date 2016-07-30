@@ -1,17 +1,20 @@
 <div class="scoreboard" *ngIf='scoreboard'>
-  <h4 class="heading">{{radiantTeamName}} vs {{direTeamName}}</h4>
-  <app-draft
-    *ngIf='scoreboard.duration <= 0'
-    [radiant]='scoreboard.radiant'
-    [dire]='scoreboard.dire'
-    [radiantTeamName]='radiantTeamName'
-    [direTeamName]='direTeamName'
+  
+  <div *ngIf='scoreboard.duration <= 0'>
+    <app-draft
+      [radiant]='scoreboard.radiant'
+      [dire]='scoreboard.dire'
+      [radiantTeamName]='radiantTeamName'
+      [direTeamName]='direTeamName'
     ></app-draft>
-  <app-map 
-    *ngIf='scoreboard.duration > 0'
-    [radiant]='scoreboard.radiant'
-    [dire]='scoreboard.dire'
-    [dayNightCycle]='scoreboard.day_cycle'
-    [roshanTimer]='scoreboard.roshan_respawn_timer'
-  ></app-map>
+  </div>
+  <div *ngIf='scoreboard.duration > 0'>
+    <h4 class="heading">{{radiantTeamName}} vs {{direTeamName}}</h4>
+    <app-map 
+      [radiant]='scoreboard.radiant'
+      [dire]='scoreboard.dire'
+      [dayNightCycle]='scoreboard.day_cycle'
+      [roshanTimer]='scoreboard.roshan_respawn_timer'
+    ></app-map>
+  </div>
 </div>

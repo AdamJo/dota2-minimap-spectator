@@ -1,52 +1,43 @@
-import { Component, Input } from '@angular/core';
-import { ShortenName } from '../../pipes/index'
+import { Component, Input, OnInit } from '@angular/core';
+
+import { MobileDraftComponent } from './mobile-draft/index';
 
 @Component({
   moduleId: module.id,
   selector: 'app-draft',
   templateUrl: 'draft.component.html',
   styleUrls: ['draft.component.css'],
-  pipes: [
-    ShortenName
+  directives: [
+    MobileDraftComponent
   ]
 })
-export class DraftComponent {
+
+export class DraftComponent implements OnInit {
 
   @Input() radiant: any;
   @Input() dire: any;
   @Input() radiantTeamName: string;
   @Input() direTeamName: string;
-  
+
   smallerScreenSize: boolean;
-  notCaptainsMode: any;
 
   constructor() {
     console.log('cons - DraftComponent');
   }
+
   ngOnInit() {
-    // setTimeout(() => {
-    //   console.log('here')
-    //   this.radiant.picks = this.dire.picks.slice(-4);
-    // }, 500 );
     // 1020 is  max of current css setup for draft
-    if (window.innerWidth < 1020) {
+    if (window.innerWidth < 1000) {
       this.smallerScreenSize = true;
-    }
-    else {
+    } else {
       this.smallerScreenSize = false;
     }
   }
-  ngDoCheck() {
-    // this.dire.bans = this.dire.bans.slice(-3);
-    // this.dire.picks = this.dire.picks.slice(-5);
-  }
+
   onResize(event:any) {
-    if (event.target.innerWidth < 1020) {
-      console.log('less than')
+    if (event.target.innerWidth < 1000) {
       this.smallerScreenSize = true;
-    }
-    else {
-      console.log('greater than')
+    } else {
       this.smallerScreenSize = false;
     }
   }
