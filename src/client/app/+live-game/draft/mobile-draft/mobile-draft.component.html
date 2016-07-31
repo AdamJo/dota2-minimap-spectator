@@ -11,9 +11,9 @@
           <span class="teamName">{{direTeamName}}</span>
 
           <div class="line-break"></div>
-          
           <span class="phase">Bans</span>
           <div class="line-break"></div>
+
           <div class="bans">
             <div class="ban-cell" *ngFor='let hero of dire?.bans'>
               <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
@@ -21,7 +21,6 @@
           </div>
 
           <div class="line-break"></div>
-
           <span class="phase">Picks</span>
           <div class="line-break"></div>
 
@@ -32,9 +31,9 @@
           </div>
 
           <div class="line-break"></div>
-
-          <span>Players</span>
+          <span class="sideName">Dire Players</span>
           <div class="line-break"></div>
+
           <div class="players">
             <div class="player-cell" *ngFor='let player of dire?.players'>
               <span>{{player.name}}</span>
@@ -43,25 +42,26 @@
         </div>
       </div>
     </div>
+
     <div class="radiant">
       <div class="grid-container">
         <div class="grid">
           <span class="teamName">{{radiantTeamName}}</span>
-          
+
           <div class="line-break"></div>
-          
           <span class="phase">Bans</span>
+          <div class="line-break"></div>
+
           <div class="bans">
-            <div class="line-break"></div>
             <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
               <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
             </div>
           </div>
 
           <div class="line-break"></div>
-
           <span class="phase">Picks</span>
           <div class="line-break"></div>
+
           <div class="picks">
             <div class="pick-cell" *ngFor='let hero of radiant?.picks'>
               <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
@@ -69,9 +69,9 @@
           </div>
 
           <div class="line-break"></div>
-
-          <span>Players</span>
+          <span class="sideName">Radiant Players</span>
           <div class="line-break"></div>
+
           <div class="players">
             <div class="player-cell" *ngFor='let player of radiant?.players'>
               <span>{{player.name}}</span>

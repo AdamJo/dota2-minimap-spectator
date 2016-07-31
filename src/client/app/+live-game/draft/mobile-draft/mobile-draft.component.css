@@ -42,8 +42,18 @@
   height: 130px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   flex-flow: row wrap;
+}
+
+.ban-cell:nth-child(5) {
+  width: 130px;
+  text-align: center;
+}
+
+.pick-cell:nth-child(5) {
+  width: 130px;
+  text-align: center;
 }
 
 .pick-cell:nth-child(odd) {
@@ -58,6 +68,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  width: 130px;
   min-width: 0;
 }
 
@@ -78,9 +89,17 @@
   font-size: .6rem;
 }
 .teamName {
-  font-size: 1rem;
+  margin-top: 10px;
+  font-size: .9rem;
   /*background-color: blue;*/
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.radiant .sideName {
+  color: darkgreen;
+}
+.dire .sideName {
+  color: maroon;
 }
