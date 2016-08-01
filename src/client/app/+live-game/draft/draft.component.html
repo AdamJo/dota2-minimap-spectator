@@ -1,12 +1,11 @@
 <div (window:resize)="onResize($event)">
   <div *ngIf="smallerScreenSize === false" class="container">
-    
-    <div class="line-break"></div>
-    
+
+    <h2 class="leagueName">{{league.name}}</h2>    
     <div class="titles">
       <span class="bansTitle">Bans</span>
       <span class="direName">Dire</span>
-      <span class="teamName"><b>{{radiantTeamName}}</b></span>
+      <span class="teamName"><b>{{direTeamName}}</b></span>
     </div>
 
     <div class="draft-container">
@@ -48,7 +47,7 @@
     <div class="titles">
       <span class="bansTitle">Bans</span>
       <span class="radiantName">Radiant</span>
-      <span class="teamName"><b>{{direTeamName}}</b></span>
+      <span class="teamName"><b>{{radiantTeamName}}</b></span>
     </div>
   </div>
   <div *ngIf="smallerScreenSize === true">
@@ -57,6 +56,7 @@
       [dire]='dire'
       [radiantTeamName]='radiantTeamName'
       [direTeamName]='direTeamName'
+      [league]='league'
     ></mobile-draft>
   </div>
 <div>

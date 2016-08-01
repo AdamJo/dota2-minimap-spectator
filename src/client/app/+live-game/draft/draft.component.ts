@@ -19,6 +19,7 @@ export class DraftComponent implements OnInit {
   @Input() dire: any;
   @Input() radiantTeamName: string;
   @Input() direTeamName: string;
+  @Input() league: any;
 
   smallerScreenSize: boolean;
 

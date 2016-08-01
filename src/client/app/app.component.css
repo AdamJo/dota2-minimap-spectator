@@ -1,14 +1,16 @@
 .main-nav {
   background: #eee;
 }
+
 .main-nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  list-style: none;
 }
+
 .main-nav a {
   padding: 1.25rem 0.5rem;
   font-size: 1.6rem;
@@ -19,6 +21,7 @@
   align-items: flex-start;
   color: #333;
 }
+
 .main-nav a:hover, .main-nav a:focus {
   background: #ccc;
   color: black;

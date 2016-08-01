@@ -39,6 +39,7 @@
 .teamName {
   width: 710px;
   text-align: right;
+  font-size: 1.5rem;
 }
 
 .row {
@@ -93,4 +94,9 @@
 .line-break {
   width: 100%;
   margin-top: 50px;
+}
+
+.leagueName {
+  margin-left: 50px;
+
 }

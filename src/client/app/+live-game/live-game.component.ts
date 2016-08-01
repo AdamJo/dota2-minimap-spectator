@@ -19,6 +19,7 @@ export class LiveGameComponent implements DoCheck {
   game: any;
   radiantTeamName: any;
   direTeamName: any;
+  league: any;
 
   constructor(private apiService: ApiService ) {}
 
@@ -27,7 +28,8 @@ export class LiveGameComponent implements DoCheck {
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
-      this.scoreboard.duration = 0;
+      this.league = this.apiService.currentGame.league
+      // this.scoreboard.duration = 0; // testing
     }
   }
 }

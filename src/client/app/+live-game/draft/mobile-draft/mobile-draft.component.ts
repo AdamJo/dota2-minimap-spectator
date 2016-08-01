@@ -13,4 +13,5 @@ export class MobileDraftComponent {
   @Input() dire: any;
   @Input() radiantTeamName: string;
   @Input() direTeamName: string;
+  @Input() league: any;
 }

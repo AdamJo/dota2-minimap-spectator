@@ -97,9 +97,24 @@
   text-overflow: ellipsis;
 }
 
-.radiant .sideName {
+.sideName {
+  width: 130px;
+  text-align: center;
+}
+
+.radiant .sideName div:nth-child(1) {
+  font-size: .6rem;
   color: darkgreen;
 }
-.dire .sideName {
+
+.dire .sideName div:nth-child(1) {
+  text-align: center;
+  font-size: .6rem;
   color: maroon;
+}
+
+.leagueName {
+  text-align: center;
+  margin: 0 auto;
+  font-weight: bold;
 }
