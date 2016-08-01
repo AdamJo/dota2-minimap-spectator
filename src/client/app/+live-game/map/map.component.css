@@ -18,3 +18,10 @@
 .icons {
   position: absolute;
 }
+
+img:nth-child(1) {
+  position: relative;
+}
+img:nth-child(2) {
+  position: absolute;
+}

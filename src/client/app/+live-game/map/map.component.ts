@@ -1,9 +1,17 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from '@angular/core';
+
 import { CalculateXPipe, CalculateYPipe, SplitNumbersPipe } from '../../pipes/index';
-//import { testData } from '../resources/testData';
 import { SpritesComponent } from './sprites/index';
 import { SpriteAnimationComponent } from './sprite-animation/index';
-//import { ApiService, LiveLeagueGame, Players } from '../services/index';
 import { BuildingsComponent } from './buildings/index';
 
 
@@ -25,6 +33,26 @@ import { BuildingsComponent } from './buildings/index';
     BuildingsComponent
   ],
   providers: [],
+  animations: [
+    trigger('dayCycle', [
+      state('day', style({
+        opacity: 1
+      })),
+      state('night', style({
+        opacity: 0
+      })),
+      transition('day <=> night', animate('1000ms ease-in-out'))
+    ]),
+    trigger('nightCycle', [
+      state('day', style({
+        opacity: 0
+      })),
+      state('night', style({
+        opacity: 1
+      })),
+      transition('day <=> night', animate('500ms ease-in-out'))
+    ])
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class  MapComponent {

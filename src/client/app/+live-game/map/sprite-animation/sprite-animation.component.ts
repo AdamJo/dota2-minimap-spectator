@@ -24,6 +24,7 @@ import { SpritesComponent } from '../sprites/index';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class SpriteAnimationComponent implements OnInit {
   @Input() team: boolean;
   @Input() heroId: number;

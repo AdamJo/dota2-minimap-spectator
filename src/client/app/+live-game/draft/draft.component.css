@@ -73,7 +73,6 @@
 }
 
 .player-cell {
-  /* Required for text-overflow to do anything */
   margin-bottom: 8px;
   font-size: .7rem;
   white-space: nowrap;
