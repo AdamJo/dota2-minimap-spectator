@@ -51,7 +51,8 @@
 }
 
 .column {
-  width: 60px;
+  width: 59px;
+  height: 175px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -108,6 +109,9 @@
 .pick-cell > img {
     height: 174px; /* old 174 */
     width: auto;
+}
+.ban-cell > img {
+    height: 33px;
 }
 
 .line-break {

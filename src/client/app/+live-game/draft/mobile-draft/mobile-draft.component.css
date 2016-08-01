@@ -64,8 +64,8 @@
   text-align: center;
 }
 
-.ban-cell:last-child div,
-.pick-cell:last-child div {
+.ban-cell:nth-child(5) div,
+.pick-cell:nth-child(5) div {
   background-color: black;
   height: 33px;
   width: 59px;
