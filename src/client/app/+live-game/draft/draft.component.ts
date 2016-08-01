@@ -1,4 +1,8 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy, trigger,
+  state,
+  style,
+  transition,
+  animate  } from '@angular/core';
 
 import { MobileDraftComponent } from './mobile-draft/index';
 
@@ -10,7 +14,18 @@ import { MobileDraftComponent } from './mobile-draft/index';
   directives: [
     MobileDraftComponent
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('draft', [
+      state('void', style({
+        opacity: 0
+      })),
+      state('*', style({
+        opacity: 1
+      })),
+      transition('void => *', animate('500ms ease-in'))
+    ])
+  ]
 })
 
 export class DraftComponent implements OnInit {

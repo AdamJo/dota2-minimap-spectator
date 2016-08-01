@@ -66,10 +66,27 @@
   flex: 1;
   /*background-color: cyan;*/
 }
+.players:last-child {
+  justify-content: flex-end;
+}
+
+.players:last-child .player-cell {
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
 
 .ban-cell {
-  height: 35px; 
-  /*background: red;*/
+  height: 33px;
+  margin-bottom: 2px;
+  background: black;
+}
+
+.player-cell {
+  margin-bottom: 8px;
+  font-size: .7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .player-cell {
@@ -82,11 +99,14 @@
 
 .pick-cell {
   /*background: green;*/
+  margin-left: 5px;
+  height: 174px; /* old 174 */
+  width: 150.33px;
+  background-color: black;
 }
 
 .pick-cell > img {
-    margin-left: 5px;
-    height: 174px;
+    height: 174px; /* old 174 */
     width: auto;
 }
 

@@ -11,12 +11,12 @@
     <div class="draft-container">
       <div class="column">
         <div class="ban-cell" *ngFor='let hero of dire?.bans'>
-          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+          <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
         </div>
       </div>
       <div class="row">
         <div class="pick-cell" *ngFor='let hero of dire?.picks'>
-          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
+          <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
         </div>
       </div>
       <div class="players">
@@ -29,12 +29,12 @@
 
       <div class="column">
         <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
-          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+          <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
         </div>
       </div>
       <div class="row">
         <div class="pick-cell" *ngFor='let hero of radiant?.picks'>
-          <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
+          <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg'>
         </div>
       </div>
       <div class="players">

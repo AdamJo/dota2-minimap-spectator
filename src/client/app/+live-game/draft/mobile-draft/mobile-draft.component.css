@@ -44,25 +44,39 @@
   flex-direction: row;
   justify-content: flex-start;
   flex-flow: row wrap;
+  
 }
 
-.ban-cell:nth-child(5) {
-  width: 130px;
-  text-align: center;
+.ban-cell,
+.pick-cell {
+  height: 33px;
+  width: 59px;
 }
 
+.ban-cell:nth-child(-n+4),
+.pick-cell:nth-child(-n+4) {
+  background-color: black;
+}
+
+.ban-cell:nth-child(5),
 .pick-cell:nth-child(5) {
   width: 130px;
   text-align: center;
 }
 
-.pick-cell:nth-child(odd) {
-  margin-right: 5px;
+.ban-cell:last-child div,
+.pick-cell:last-child div {
+  background-color: black;
+  height: 33px;
+  width: 59px;
+  margin: 0px auto;
 }
 
+.pick-cell:nth-child(odd),
 .ban-cell:nth-child(odd) {
   margin-right: 5px;
 }
+
 
 .players {
   display: flex;

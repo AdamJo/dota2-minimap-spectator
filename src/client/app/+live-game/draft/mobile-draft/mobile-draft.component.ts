@@ -1,11 +1,26 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, trigger,
+  state,
+  style,
+  transition,
+  animate } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'mobile-draft',
   templateUrl: 'mobile-draft.component.html',
   styleUrls: ['mobile-draft.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('draft', [
+      state('void', style({
+        opacity: 0
+      })),
+      state('*', style({
+        opacity: 1
+      })),
+      transition('void => *', animate('500ms ease-in'))
+    ])
+  ]
 })
 
 export class MobileDraftComponent {
