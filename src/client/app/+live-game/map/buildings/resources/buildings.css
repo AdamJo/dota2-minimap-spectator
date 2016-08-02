@@ -22,6 +22,8 @@
 
 .buildings.radiant_ancient {
   background-position: -96px 0;
+  width: 30px;
+  height: 30px;
 }
 
 .buildings.radiant_barracks {

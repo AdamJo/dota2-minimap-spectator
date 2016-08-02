@@ -52,8 +52,8 @@ import { BuildingsComponent } from './buildings/index';
       })),
       transition('day <=> night', animate('750ms ease-out'))
     ])
-  ]//,
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class  MapComponent {
   // width = 395;
@@ -70,4 +70,11 @@ export class  MapComponent {
   @Input() dire: any;
   @Input() dayNightCycle: any;
   @Input() roshanRespawnTimer: any;
+
+  // ngOnInit() {
+    // this.dayNightCycle = 'day'
+    // setTimeout(() => {
+    //   this.dayNightCycle = 'night'
+    // }, 1000)
+  // }
 }

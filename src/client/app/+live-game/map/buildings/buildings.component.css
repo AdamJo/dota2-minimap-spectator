@@ -6,167 +6,172 @@
 * dire ancient
 */
 .dire_ancient_building {
-  top: 15.5%;
-  left: 82%;
+  top: 15.7%;
+  left: 82.3%;
+}
+.dire_ancient_1 {
+  top: 17.5%;
+  left: 78.5%;
+}
+.dire_ancient_2 {
+  top: 19.5%;
+  left: 81.5%;
+  z-index: 1;
 }
 
 /*
 * dire barracks
 */
 .dire_barracks_bottom_ranged {
-  top: 26%;
-  left: 84%;
+  top: 27%;
+  left: 85%;
 }
 .dire_barracks_bottom_melee {
-  top: 26%;
-  left: 86.55%;
+  top: 27%;
+  left: 87.55%;
 }
 .dire_bottom_3 {
-  top: 28%;
-  left: 85.3%;
+  top: 29%;
+  left: 86.3%;
 }
 .dire_barracks_middle_ranged {
-  top: 22.1%;
-  left: 73.8%;
+  top: 22.5%;
+  left: 73.7%;
 }
 .dire_barracks_middle_melee {
-  top: 23.3%;
-  left: 75.5%;
+  top: 23.8%;
+  left: 75.7%;
 }
 .dire_middle_3 {
-  top: 24.1%;
-  left: 72.8%;
+  top: 24.5%;
+  left: 73.2%;
 }
 .dire_barracks_top_ranged {
-  top: 10%;
-  left: 71.5%;
+  top: 10.5%;
+  left: 71.3%;
 }
 .dire_barracks_top_melee {
-  top: 12.5%;
-  left: 71.5%;
+  top: 13.2%;
+  left: 71.3%;
   z-index: 1;
 }
 .dire_top_3 {
-  top: 11.5%;
-  left: 69.5%;
+  top: 12%;
+  left: 69.3%;
 }
 /*
 * dire towers
 */
-.dire_ancient_1 {
-  top: 17.5%;
-  left: 78%;
-}
-.dire_ancient_2 {
-  top: 19.5%;
-  left: 81%;
-  z-index: 1;
-}
 .dire_bottom_1 {
-  top: 240px;
-  left: 363px;
+  top: 45.5%;
+  left: 86.3%;
 }
 .dire_bottom_2 {
-  top: 190px;
-  left: 363px;
+  top: 57.8%;
+  left: 85.6%;
 }
 .dire_middle_1 {
-  top: 190px;
-  left: 230px;
+  top: 34.5%;
+  left: 63.2%;
 }
 .dire_middle_2 {
-  top: 145px;
-  left: 270px;
+  top: 45.5%;
+  left: 53.2%;
 }
 .dire_top_1 {
-  top: 45px;
-  left: 85px;
+  top: 10.4%;
+  left: 18.5%;
 }
 .dire_top_2 {
-  top: 45px;
-  left: 205px;
+  top: 11%;
+  left: 47.5%;
 }
 
 /*
 * radiant ancient
 */
 .radiant_ancient_building {
-  top: 330px;
-  left: 56px;
+  top: 80%;
+  left: 11.5%;
 }
-
-/*
-* radiant towers
-*/
 .radiant_ancient_1 {
-  top: 320px;
-  left: 60px;
+  top: 77%;
+  left: 12%;
 }
 .radiant_ancient_2 {
-  top: 327px;
-  left: 71px;
+  top: 79%;
+  left: 14.5%;
 }
-.radiant_bottom_1 {
-  top: 345px;
-  left: 330px;
-}
-.radiant_bottom_2 {
-  top: 352px;
-  left: 195px;
-}
-.radiant_bottom_3 {
-  top: 350px;
-  left: 110px;
-}
-.radiant_middle_1 {
-  top: 230px;
-  left: 165px;
-}
-.radiant_middle_2 {
-  top: 265px;
-  left: 125px;
-}
-.radiant_middle_3 {
-  top: 296px;
-  left: 91px;
-}
-.radiant_top_1 {
-  top: 150px;
-  left: 45px;
-}
-.radiant_top_2 {
-  top: 220px;
-  left: 45px;
-}
-.radiant_top_3 {
-  top: 280px;
-  left: 40px;
-}
+
 
 /*
 * radiant barracks
 */
 .radiant_barracks_bottom_ranged {
-  top: 345px;
-  left: 100px;
+  top: 82.7%;
+  left: 21.2%;
 }
 .radiant_barracks_bottom_melee {
-  top: 355px;
-  left: 100px;
+  top: 85.2%;
+  left: 21.2%;
+  z-index: 2;
+}
+.radiant_bottom_3 {
+  top: 84%;
+  left: 23.5%;
+  z-index: 1;
 }
 .radiant_barracks_middle_ranged {
-  top: 300px;
-  left: 81px;
+  top: 72.5%;
+  left: 16.3%;
 }
 .radiant_barracks_middle_melee {
-  top: 305px;
-  left: 88px;
+  top: 73.7%;
+  left: 18.3%;
+}
+.radiant_middle_3 {
+  top: 71.5%;
+  left: 19%;
 }
 .radiant_barracks_top_ranged {
-  top: 288px;
-  left: 35px;
+  top: 69.5%;
+  left: 8.3%;
 }
 .radiant_barracks_top_melee {
-  top: 288px;
-  left: 45px;
+  top: 69.5%;
+  left: 5.6%;
+}
+.radiant_top_3 {
+  top: 67.5%;
+  left: 7%;
+}
+
+
+/*
+* radiant towers
+*/
+
+.radiant_bottom_1 {
+  top: 83.5%;
+  left: 77.5%;
+}
+.radiant_bottom_2 {
+  top: 84%;
+  left: 44.5%;
+}
+.radiant_middle_1 {
+  top: 55%;
+  left: 38.5%;
+}
+.radiant_middle_2 {
+  top: 64%;
+  left: 26.5%;
+}
+.radiant_top_1 {
+  top: 36%;
+  left: 10.5%;
+}
+.radiant_top_2 {
+  top: 52%;
+  left: 10%;
 }
