@@ -39,7 +39,7 @@ import { BuildingsComponent } from './buildings/index';
         opacity: 1
       })),
       state('night', style({
-        opacity: 0
+        opacity: .5
       })),
       transition('day <=> night', animate('750ms ease-in'))
     ]),
@@ -52,12 +52,20 @@ import { BuildingsComponent } from './buildings/index';
       })),
       transition('day <=> night', animate('750ms ease-out'))
     ])
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  ]//,
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class  MapComponent {
-  width = 395;
-  height = 380;
+  // width = 395;
+  // height = 380;
+  // maxWidth = 410
+  // maxHeight = 410
+
+
+  width = 578; //.036 of original
+  height = 556; //.073 of original
+  maxWidth = 600;
+  maxHeight = 600;
   @Input() radiant: any;
   @Input() dire: any;
   @Input() dayNightCycle: any;

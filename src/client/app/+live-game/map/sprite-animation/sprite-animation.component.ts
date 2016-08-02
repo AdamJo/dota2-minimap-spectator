@@ -58,8 +58,8 @@ export class SpriteAnimationComponent implements OnInit {
           'animate',
           [
             [
-              {left: this.oldPosX+'px', top: this.oldPosY +'px'},
-              {left: this.posX+'px', top: this.posY +'px'}
+              {left: this.oldPosX+'%', top: this.oldPosY +'%'},
+              {left: this.posX+'%', top: this.posY +'%'}
             ],
             {
               duration: 2000,
@@ -69,8 +69,8 @@ export class SpriteAnimationComponent implements OnInit {
           ]
         );
       } else {
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX+'px');
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY+'px');
+        this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX+'%');
+        this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY+'%');
       }
   }
   animateDeath() {

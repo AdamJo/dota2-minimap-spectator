@@ -1,9 +1,10 @@
 .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    min-width:410px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* mobile max transform: scale(0.53); */
+  /*min-width:410px;*/
 }
 .content {
   position: absolute;
@@ -12,16 +13,15 @@
   transform: translate(-50%, -50%);
   padding: 1em;
   z-index: 0;
-  min-width:410px;
+  /*min-width:410px;*/
 }
 
 .icons {
   position: absolute;
 }
 
-img:nth-child(1) {
-  position: relative;
-}
-img:nth-child(2) {
-  position: absolute;
+.image {
+  background-color: black;
+  width: 600px;
+  height: 600px;
 }

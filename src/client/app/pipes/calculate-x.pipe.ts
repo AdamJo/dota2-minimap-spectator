@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CalculateXPipe implements PipeTransform {
 
-  transform(value: number, width : number): number {
-    return  Math.floor(((value) + (16000 / 2)) / (16000 / width));
+  transform(value: number, width : number, maxWdithHeight: number): number {
+    return  (((value) + (16000 / 2)) / (16000 / width) / maxWdithHeight) * 100;
   }
 }
