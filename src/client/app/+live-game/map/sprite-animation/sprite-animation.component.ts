@@ -33,11 +33,11 @@ import { SpritesComponent } from '../sprites/index';
       .dire {
         background: radial-gradient(ellipse at center, rgba(255,0,0,1) 0%,rgba(255,0,0,0) 75%); 
       }
-
       .roshan {
         border-radius: 25px;
         padding-top: 4px;
         background: radial-gradient(ellipse at center, rgba(128,128,128,0.75) 0%,rgba(128,128,128,0) 75%);
+        z-index: 5;
       }
     `
   ],
@@ -63,7 +63,6 @@ export class SpriteAnimationComponent implements OnInit {
     if (this.respawnTimer > 0) {
       this.animateDeath();
     }
-
   }
   /* 
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart
