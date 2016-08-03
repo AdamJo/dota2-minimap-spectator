@@ -2,6 +2,7 @@ import { Component, DoCheck } from '@angular/core';
 import { ApiService } from '../services/index';
 import { MapComponent } from './map/index';
 import { DraftComponent } from './draft/index';
+import { ScoreboardComponent } from './scoreboard/index';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +11,8 @@ import { DraftComponent } from './draft/index';
   styleUrls: ['live-game.component.css'],
   directives: [
     MapComponent,
-    DraftComponent
+    DraftComponent,
+    ScoreboardComponent
   ]
 })
 export class LiveGameComponent implements DoCheck {
