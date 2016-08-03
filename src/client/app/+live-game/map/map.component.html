@@ -12,7 +12,7 @@
     </app-buildings>
     <div *ngFor="let player of radiant?.players">
       <app-sprite-animation
-        [team]='true'
+        [team]='"radiant"'
         [heroId]='player?.hero_id'
         [posX]='player?.position_x | calculateX:width:maxWidth'
         [posY]='player?.position_y | calculateY:height:maxHeight'
@@ -23,7 +23,7 @@
     </div>
     <div *ngFor="let hero of dire?.players">
       <app-sprite-animation
-        [team]='false'
+        [team]='"dire"'
         [heroId]='hero?.hero_id'
         [posX]='hero?.position_x | calculateX:width:maxWidth'
         [posY]='hero?.position_y | calculateY:height:maxHeight'
@@ -32,5 +32,11 @@
         [respawnTimer]='hero?.respawn_timer'>
       </app-sprite-animation>
     </div>
+    <app-sprite-animation
+      [heroId]='"roshan"'
+      [posX]='72.5'
+      [posY]='58'
+      [respawnTimer]='roshanRespawnTimer'
+    ></app-sprite-animation>
   </div>
 </div>

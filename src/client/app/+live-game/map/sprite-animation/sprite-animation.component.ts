@@ -7,7 +7,7 @@ import { SpritesComponent } from '../sprites/index';
   directives: [SpritesComponent],
   template: `
     <div #position
-      class="icons">
+      ngClass="icons {{ team === 'radiant' ? 'radiant' : team === 'dire' ? 'dire' : 'roshan' }}">
       <app-sprites 
         [team]='team' 
         [heroId]='heroId'>
@@ -18,7 +18,26 @@ import { SpritesComponent } from '../sprites/index';
     `
       .icons {
         position: absolute;
-        z-index: 2
+        text-align: center;
+        z-index: 10;
+      }
+      .radiant, .dire {
+        border-radius: 25px;
+        padding-top: 4px;
+        width: 38px;
+        height: 38px;
+      }
+      .radiant {
+        background: radial-gradient(ellipse at center, rgba(0,255,0,1) 0%,rgba(0,255,0,0) 75%);
+      }
+      .dire {
+        background: radial-gradient(ellipse at center, rgba(255,0,0,1) 0%,rgba(255,0,0,0) 75%); 
+      }
+
+      .roshan {
+        border-radius: 25px;
+        padding-top: 4px;
+        background: radial-gradient(ellipse at center, rgba(128,128,128,0.75) 0%,rgba(128,128,128,0) 75%);
       }
     `
   ],
@@ -27,7 +46,7 @@ import { SpritesComponent } from '../sprites/index';
 
 export class SpriteAnimationComponent implements OnInit {
   @Input() team: boolean;
-  @Input() heroId: number;
+  @Input() heroId: number|string;
   @Input() posX: number;
   @Input() posY: number;
   @Input() oldPosX: number;
@@ -44,13 +63,14 @@ export class SpriteAnimationComponent implements OnInit {
     if (this.respawnTimer > 0) {
       this.animateDeath();
     }
+
   }
   /* 
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart
   * Using this instead of onChanges since onChanges only captures actual values and not object references like int he *ngFor
   */
   animateMovement() {
-    if (!Number.isNaN(this.oldPosX )) {
+    if (!Number.isNaN(this.oldPosX) && this.oldPosX !== undefined ) {
         //console.log('heroId ' + this.heroId + 'posX ' + this.posX, 'posY ' +  this.posY, 'X ' +  this.oldPosX, 'Y ' + this.oldPosY)
         //[this.oldPosX, this.oldPosY] = this.transformPosition(this.oldPosX, this.oldPosY)
         this.renderer.invokeElementMethod(

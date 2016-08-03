@@ -29,7 +29,7 @@ export class LiveGameComponent implements DoCheck {
       this.direTeamName = this.apiService.currentGame.dire_team_name;
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
-      this.scoreboard.duration = 60; // testing
+      // this.scoreboard.duration = 60; // testing
     }
   }
 }

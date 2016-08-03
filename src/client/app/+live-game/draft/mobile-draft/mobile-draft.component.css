@@ -130,5 +130,6 @@
 .leagueName {
   text-align: center;
   margin: 0 auto;
+  padding-top: 5px;
   font-weight: bold;
 }

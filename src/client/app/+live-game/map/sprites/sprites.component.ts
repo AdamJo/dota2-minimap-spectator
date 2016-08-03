@@ -4,14 +4,14 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   moduleId: module.id,
   selector: 'app-sprites',
   template: `
-    <i 
-      ngClass="d2mh hero-{{heroId}} {{ team ? 'radiant' : 'dire' }}"
-      ></i>
+    <div
+      ngClass="d2mh hero-{{heroId}}"
+      ></div>
   `,
   styleUrls: ['sprites.component.css', './resources/dota2minimapheroes.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpritesComponent {
-  @Input() heroId: number;
+  @Input() heroId: number|string;
   @Input() team: string;
 }
