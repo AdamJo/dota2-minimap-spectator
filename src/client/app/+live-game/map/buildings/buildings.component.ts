@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, SimpleChange } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -40,9 +40,9 @@ export class BuildingsComponent {
     'top_2',
     'top_1'
   ];
-
+  
   // ngOnInit() {
-  //   this.radiantTowers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-  //   this.direTowers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    // this.radiantTowers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    // this.direTowers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   // }
 }

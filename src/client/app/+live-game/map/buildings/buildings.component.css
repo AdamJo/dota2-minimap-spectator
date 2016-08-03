@@ -63,12 +63,12 @@
 * dire towers
 */
 .dire_bottom_1 {
-  top: 45.5%;
-  left: 86.3%;
-}
-.dire_bottom_2 {
   top: 57.8%;
   left: 85.6%;
+}
+.dire_bottom_2 {
+  top: 45.5%;
+  left: 86.3%;
 }
 .dire_middle_1 {
   top: 34.5%;
