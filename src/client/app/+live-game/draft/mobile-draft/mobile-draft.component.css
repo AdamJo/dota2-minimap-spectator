@@ -49,6 +49,7 @@
 
 .ban-cell,
 .pick-cell {
+  position: relative;
   height: 33px;
   width: 59px;
 }
@@ -77,6 +78,9 @@
   margin-right: 5px;
 }
 
+.yeup::before {
+  background: black;
+}
 
 .players {
   display: flex;
@@ -132,4 +136,27 @@
   margin: 0 auto;
   padding-top: 5px;
   font-weight: bold;
+}
+
+.active-ban::before {
+  position: absolute;
+  content: "";
+  left: -3px;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  color: darkred;
+  transform: rotate(-25deg);
+  width: 65px;
+}
+.ban-cell:nth-child(5) .active-ban::before {
+  position: absolute;
+  content: "";
+  left: 24%;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  color: darkred;
+  transform: rotate(-25deg);
+  width: 65px;
 }

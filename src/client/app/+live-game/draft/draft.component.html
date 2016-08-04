@@ -11,7 +11,9 @@
     <div class="draft-container">
       <div class="column">
         <div class="ban-cell" *ngFor='let hero of dire?.bans'>
-          <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+          <div class="active-ban" *ngIf='hero !== -1'>
+            <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -29,7 +31,9 @@
 
       <div class="column">
         <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
-          <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+          <div class="active-ban" *ngIf='hero !== -1'>
+            <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+          </div>
         </div>
       </div>
       <div class="row">

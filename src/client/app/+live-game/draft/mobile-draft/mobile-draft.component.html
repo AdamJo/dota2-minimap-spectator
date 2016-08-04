@@ -12,8 +12,10 @@
 
           <div class="bans">
             <div class="ban-cell" *ngFor='let hero of dire?.bans'>
-              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
-              <div *ngIf='hero === -1' >&nbsp;</div>
+              <div class="active-ban" *ngIf='hero !== -1'>
+                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+              </div>
+              <div class="yeup" *ngIf='hero === -1' >&nbsp;</div>
             </div>
           </div>
 
@@ -55,7 +57,9 @@
 
           <div class="bans">
             <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
-              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+              <div class="active-ban" *ngIf='hero !== -1'>
+                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+              </div>
               <div *ngIf='hero === -1' >&nbsp;</div>
             </div>
           </div>

@@ -1,9 +1,19 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .heading {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  flex: 1;
   white-space: nowrap;
+  margin: 7px 0;
 }
-.scoreboard {
+
+.content {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

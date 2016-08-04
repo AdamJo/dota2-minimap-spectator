@@ -1,3 +1,24 @@
-<div>
-  hello this works?
+<div class="container">
+  <div><button>V</button> GAME STATS</div>
+  <ul class="nav-menu">
+    <li>GAME STATS</li>
+    <li>(Q) KILL/DEATH/ASSISTS</li>
+    <li>(W) LAST HITS/DENIES</li>
+    <li>(E) HERO LEVEL</li>
+    <li>(R) XP PER MINUTE</li>
+    <li>(T) CURRENT GOLD</li>
+    <li>(Y) NET WORTH</li>
+    <li>(U) GOLD PER MINUTE</li>
+    <li>(I) ULTIMATE COOLDOWN</li>
+    <li>(O) RESPAWN TIMER</li>
+  </ul>
+  <ul>
+    <li *ngFor="let player of combinedPlayers">
+      <div class="player_scores">
+        <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_sb.png" alt="">
+        <!--<span>{{player.name}}</span>-->
+        <span>{{player.gold}}</span>
+      </div>
+    </li>
+  </ul>
 </div>
