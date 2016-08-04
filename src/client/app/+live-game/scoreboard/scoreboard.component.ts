@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'selector',
+  selector: 'app-scoreboard',
   templateUrl: 'scoreboard.component.html',
   styleUrls: ['scoreboard.component.css']
 })
 export class ScoreboardComponent implements OnInit {
-
+  @Input() scoreboard: any;
+  
   constructor() { }
 
-  ngOnInit() { 
-
+  ngOnInit() {
+    
+  }
+  ngOnChanges() {
+    this.scoreboard.dire.players.forEach((element:any) => {
+      console.log(element)
+    });
   }
 
 }

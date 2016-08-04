@@ -1,5 +1,4 @@
-<div class="scoreboard" *ngIf='scoreboard'>
-  
+<div *ngIf='scoreboard'>
   <div *ngIf='scoreboard.duration <= 0'>
     <app-draft
       [radiant]='scoreboard.radiant'
@@ -9,7 +8,7 @@
       [league]='league'
     ></app-draft>
   </div>
-  <div *ngIf='scoreboard.duration > 0'>
+  <div class="scoreboard" *ngIf='scoreboard.duration > 0'>
     <h5 class="heading">{{league.name}}</h5>
     <h4 class="heading">{{radiantTeamName}} vs {{direTeamName}}</h4>
     <app-map 
@@ -18,5 +17,8 @@
       [dayNightCycle]='scoreboard.day_cycle'
       [roshanRespawnTimer]='scoreboard.roshan_respawn_timer'
     ></app-map>
+    <app-scoreboard
+      [scoreboard]='scoreboard'>
+    </app-scoreboard>
   </div>
 </div>

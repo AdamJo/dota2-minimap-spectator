@@ -3,9 +3,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   white-space: nowrap;
-  margin
 }
 .scoreboard {
-  /*margin-left: 1%;
-  margin-right: 1%;*/
+  display: flex;
 }
