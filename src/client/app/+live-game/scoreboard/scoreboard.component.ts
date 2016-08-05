@@ -1,8 +1,12 @@
 import { Component, OnChanges, Input } from '@angular/core';
+import { AddCommasPipe } from '../../pipes/index'
 
 @Component({
   moduleId: module.id,
   selector: 'app-scoreboard',
+  pipes: [
+    AddCommasPipe
+  ],
   templateUrl: 'scoreboard.component.html',
   styleUrls: ['scoreboard.component.css']
 })
@@ -10,9 +14,11 @@ export class ScoreboardComponent implements OnChanges {
   @Input() scoreboard: any;
   combinedPlayers: any;
   active: boolean;
+  sortedValue: string;
   
   constructor() {
     this.active = true;
+    this.sortedValue = 'net_worth';
   }
 
   ngOnChanges() {
@@ -21,6 +27,8 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   sortValues(value: string) {
+    this.sortedValue = value;
+    
     return this.combinedPlayers.sort((a:any, b:any) => {
       if (a[value] < b[value]) {
         return 1;

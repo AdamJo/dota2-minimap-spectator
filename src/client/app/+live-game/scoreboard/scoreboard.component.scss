@@ -71,11 +71,15 @@ img {
 }
 
 .value {
-  align-self: flex-end;
+  margin-left: auto;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .player-name {
-  margin-left: 15px;
-  width: 100px;
+  margin-left: 10px;
+  width: 125px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -94,7 +98,7 @@ img {
   width: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid #f00;
+  border-top: 10px solid grey;
 }
 
 .arrow-box {
