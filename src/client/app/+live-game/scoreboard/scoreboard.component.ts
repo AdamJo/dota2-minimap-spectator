@@ -1,5 +1,7 @@
-import { Component, OnChanges, Input, ElementRef } from '@angular/core';
-import { AddCommasPipe } from '../../pipes/index'
+import { Component, OnChanges, Input, ElementRef, HostListener } from '@angular/core';
+import { AddCommasPipe } from '../../pipes/index';
+
+// (todo) Use @HostBindings and @HostListeners instead of the host property (https://goo.gl/zrdmKr)
 
 @Component({
   moduleId: module.id,
@@ -8,10 +10,7 @@ import { AddCommasPipe } from '../../pipes/index'
     AddCommasPipe
   ],
   templateUrl: 'scoreboard.component.html',
-  styleUrls: ['scoreboard.component.css'],
-  host: {
-    '(document:click)': 'onClick($event)',
-  }
+  styleUrls: ['scoreboard.component.css']
 })
 
 //(TODO) keep previous sortedValue from each push of new value;
@@ -24,8 +23,8 @@ export class ScoreboardComponent implements OnChanges {
   active: boolean;
   sortedValue: string;
   menuTitle: string;
-  
-  menuOptions = [ 
+
+  menuOptions = [
     {name: 'kills', option: '(Q) KILL/DEATH/ASSISTS' },
     {name: 'last_hits', option: '(W) LAST HITS/DENIES' },
     {name: 'level', option: '(E) HERO LEVEL' },
@@ -35,19 +34,18 @@ export class ScoreboardComponent implements OnChanges {
     {name: 'gold_per_min', option: '(U) GOLD PER MINUTE' },
     {name: 'ultimate_cooldown', option: '(I) ULTIMATE COOLDOWN' },
     {name: 'respawn_timer', option: '(O) RESPAWN TIMER' },
-  ]
-
+  ];
 
   constructor(private _eref: ElementRef) {
     this.active = true;
     this.sortedValue = 'net_worth';
-    this.menuTitle = 'GAME STATS'
+    this.menuTitle = 'GAME STATS';
   }
 
   ngOnChanges() {
     this.addTeamToPlayers(this.scoreboard);
     this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
-    this.combinedPlayers = this.sortValues(this.sortedValue)
+    this.combinedPlayers = this.sortValues(this.sortedValue);
   }
 
   sortValues(value: string) {
@@ -83,8 +81,10 @@ export class ScoreboardComponent implements OnChanges {
   toggle() {
     this.active = this.active ? false : true;
   }
+
+  @HostListener(`document:click`, ['$event.target'])
   onClick(event: any) {
-  if (!this._eref.nativeElement.contains(event.target)) // or some similar check
+  if (!this._eref.nativeElement.contains(event)) // or some similar check
      this.active = true;
   }
 }
