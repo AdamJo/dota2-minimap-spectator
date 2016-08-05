@@ -42,15 +42,6 @@ import { BuildingsComponent } from './buildings/index';
         opacity: .5
       })),
       transition('day <=> night', animate('750ms ease-in'))
-    ]),
-    trigger('nightCycle', [
-      state('day', style({
-        opacity: 0
-      })),
-      state('night', style({
-        opacity: 1
-      })),
-      transition('day <=> night', animate('750ms ease-out'))
     ])
   ],
   changeDetection: ChangeDetectionStrategy.OnPush

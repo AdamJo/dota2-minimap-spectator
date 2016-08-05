@@ -1,4 +1,9 @@
-import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetectionStrategy,
+  trigger,
+  state,
+  style,
+  transition,
+  animate } from '@angular/core';
 import { SpritesComponent } from '../sprites/index';
 
 @Component({
@@ -6,7 +11,11 @@ import { SpritesComponent } from '../sprites/index';
   selector: 'app-sprite-animation',
   directives: [SpritesComponent],
   template: `
-    <div #position
+    <div 
+      #position
+      (mouseenter)=toggle()
+      (mouseleave)=toggle()
+      @shrink='shrink'
       ngClass="icons {{ team === 'radiant' ? 'radiant' : team === 'dire' ? 'dire' : 'roshan' }}">
       <app-sprites 
         [team]='team' 
@@ -41,6 +50,17 @@ import { SpritesComponent } from '../sprites/index';
       }
     `
   ],
+  animations: [
+    trigger('shrink', [
+      state('regular', style({
+        transform: 'scale(1)'
+      })),
+      state('small', style({
+        transform: 'scale(.5)'
+      })),
+      transition('small <=> regular', animate('500ms ease'))
+    ])
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -55,6 +75,8 @@ export class SpriteAnimationComponent implements OnInit {
 
   @ViewChild('position') coordinates : ElementRef;
   @Input() respawnTimer: number;
+
+  shrink = 'regular';
 
   constructor(public renderer: Renderer) {}
 
@@ -109,5 +131,10 @@ export class SpriteAnimationComponent implements OnInit {
         }
       ]
     );
+  }
+
+  toggle() {
+    this.shrink = this.shrink === "small" ? 'regular' : 'small';
+    console.log(this.shrink);
   }
 }
