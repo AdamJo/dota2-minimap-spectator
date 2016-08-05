@@ -4,20 +4,14 @@
         <div class="down-arrow"></div>
       </div>
       <div id="stat-title">
-        GAME STATS
+        {{menuTitle}}
       </div>
   </div>
   <ul [hidden]="active" class="nav-menu">
-    <li >GAME STATS</li>
-    <li (click)="sortValues('kills')">(Q) KILL/DEATH/ASSISTS</li>
-    <li (click)="sortValues('last_hits')">(W) LAST HITS/DENIES</li>
-    <li (click)="sortValues('level')">(E) HERO LEVEL</li>
-    <li (click)="sortValues('xp_per_min')">(R) XP PER MINUTE</li>
-    <li (click)="sortValues('gold')">(T) CURRENT GOLD</li>
-    <li (click)="sortValues('net_worth')">(Y) NET WORTH</li>
-    <li (click)="sortValues('gold_per_min')">(U) GOLD PER MINUTE</li>
-    <li (click)="sortValues('ultimate_cooldown')">(I) ULTIMATE COOLDOWN</li>
-    <li (click)="sortValues('respawn_timer')">(O) RESPAWN TIMER</li>
+    <li>GAME STATS</li>
+    <li (click)="sortPlayers(choice.name, choice.option)" *ngFor="let choice of menuOptions">
+      {{choice.option}}
+    </li>
   </ul>
 
   <ul [hidden]="!active" class="nav-players">

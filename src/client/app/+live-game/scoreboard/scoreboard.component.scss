@@ -2,9 +2,8 @@ li {
   height: 33px;
   display: flex;
   list-style-type: none;
-  padding: 5px 0;
+  padding: 2px 0;
   border: 1px solid rgb(47, 39, 36);
-  
 }
 
 ul {
@@ -31,29 +30,31 @@ img {
   width: 300px;
 }
 
+.nav-menu {
+  background-color: #1e2020;
+}
+
 .nav-menu li {
   display: flex;
   align-items: center;
-  background-color: #1e2020;
+}
+
+.nav-menu li:nth-child(n+2):hover {
+  background-color: #2e3030;
 }
 
 .dire {
   background: linear-gradient(to right, rgb(90, 23, 29), rgb(0, 0, 0));
+  // border-top: 3px solid rgba(90, 23, 29, 0.05);
+  // border-bottom: 3px solid rgba(90, 23, 29, 0.05);
   // background: linear-gradient(to right, rgb(90, 23, 29), rgb(0, 0, 0));
 }
 
 .radiant {
   background: linear-gradient(to right, rgb(74, 155, 76), rgb(0, 0, 0));
+  // border-top: 3px solid rgba(74, 155, 76, 0.05);
+  // border-bottom: 3px solid rgba(74, 155, 76, 0.05);
   // background: linear-gradient(to right, rgb(45, 74, 28), rgb(0, 0, 0));
-}
-
-.nav-menu {
-  // background: pink;
-  // background: radial-gradient(circle, rgb(42, 27, 27), rgba(30, 25, 025));
-}
-
-.nav-players {
-  
 }
 
 .nav-players li {
@@ -67,7 +68,7 @@ img {
 }
 
 img {
-  margin-left: 5px;
+  margin-left: 3px;
 }
 
 .value {
@@ -91,6 +92,12 @@ img {
   justify-content: flex-start;
   padding: 4px;
   margin-bottom: 7px;
+  border: 1px solid rgb(47, 39, 36);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.75);
+}
+
+.drop-down-menu:hover {
+  background: rgba(34, 98, 126, 0.50);
 }
 
 .down-arrow {
@@ -102,7 +109,8 @@ img {
 }
 
 .arrow-box {
-  background: lightgrey;
+  background: transparent;
+  border: 1px solid darkgrey;
   width: 40px;
   height: 30px;
   display: flex;
@@ -112,6 +120,6 @@ img {
 
 #stat-title {
   display: flex;
-  align-items: center;
+  padding-top: 6px;
   margin: 0 5px;
 }

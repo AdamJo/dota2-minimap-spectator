@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, ElementRef } from '@angular/core';
 import { AddCommasPipe } from '../../pipes/index'
 
 @Component({
@@ -8,28 +8,50 @@ import { AddCommasPipe } from '../../pipes/index'
     AddCommasPipe
   ],
   templateUrl: 'scoreboard.component.html',
-  styleUrls: ['scoreboard.component.css']
+  styleUrls: ['scoreboard.component.css'],
+  host: {
+    '(document:click)': 'onClick($event)',
+  }
 })
+
+//(TODO) keep previous sortedValue from each push of new value;
 export class ScoreboardComponent implements OnChanges {
+
   @Input() scoreboard: any;
   combinedPlayers: any;
+  newValues: any;
+  sortedPlayers: any;
   active: boolean;
   sortedValue: string;
+  menuTitle: string;
   
-  constructor() {
+  menuOptions = [ 
+    {name: 'kills', option: '(Q) KILL/DEATH/ASSISTS' },
+    {name: 'last_hits', option: '(W) LAST HITS/DENIES' },
+    {name: 'level', option: '(E) HERO LEVEL' },
+    {name: 'xp_per_min', option: '(R) XP PER MINUTE' },
+    {name: 'gold', option: '(T) CURRENT GOLD' },
+    {name: 'net_worth', option: '(Y) NET WORTH' },
+    {name: 'gold_per_min', option: '(U) GOLD PER MINUTE' },
+    {name: 'ultimate_cooldown', option: '(I) ULTIMATE COOLDOWN' },
+    {name: 'respawn_timer', option: '(O) RESPAWN TIMER' },
+  ]
+
+
+  constructor(private _eref: ElementRef) {
     this.active = true;
     this.sortedValue = 'net_worth';
+    this.menuTitle = 'GAME STATS'
   }
 
   ngOnChanges() {
     this.addTeamToPlayers(this.scoreboard);
-    this.combinedPlayers = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
+    this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
+    this.combinedPlayers = this.sortValues(this.sortedValue)
   }
 
   sortValues(value: string) {
-    this.sortedValue = value;
-    
-    return this.combinedPlayers.sort((a:any, b:any) => {
+    return this.newValues.sort((a:any, b:any) => {
       if (a[value] < b[value]) {
         return 1;
       }
@@ -38,6 +60,13 @@ export class ScoreboardComponent implements OnChanges {
       }
       return 0;
     });
+  }
+
+  sortPlayers(value: string, menuTitleOption: string) {
+    this.sortValues(value);
+    this.sortedValue = value;
+    this.menuTitle = menuTitleOption;
+    this.active = true;
   }
 
   addTeamToPlayers(scoreboard:any) {
@@ -50,8 +79,12 @@ export class ScoreboardComponent implements OnChanges {
       return player;
     }));
   }
+
   toggle() {
-    console.log('inside toggle');
     this.active = this.active ? false : true;
+  }
+  onClick(event: any) {
+  if (!this._eref.nativeElement.contains(event.target)) // or some similar check
+     this.active = true;
   }
 }
