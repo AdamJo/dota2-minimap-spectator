@@ -1,6 +1,13 @@
 <div class="container">
-  <div><button>V</button> GAME STATS</div>
-  <ul class="nav-menu">
+  <div (click)='toggle()' class="drop-down-menu">
+      <div class="arrow-box">
+        <div class="down-arrow"></div>
+      </div>
+      <div id="stat-title">
+        GAME STATS
+      </div>
+  </div>
+  <ul [hidden]="active" class="nav-menu">
     <li>GAME STATS</li>
     <li>(Q) KILL/DEATH/ASSISTS</li>
     <li>(W) LAST HITS/DENIES</li>
@@ -12,13 +19,12 @@
     <li>(I) ULTIMATE COOLDOWN</li>
     <li>(O) RESPAWN TIMER</li>
   </ul>
-  <ul>
-    <li *ngFor="let player of combinedPlayers">
-      <div class="player_scores">
+
+  <ul [hidden]="!active" class="nav-players">
+    <li ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
         <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_sb.png" alt="">
-        <!--<span>{{player.name}}</span>-->
-        <span>{{player.gold}}</span>
-      </div>
+        <div class="player-name">{{player.name}}</div>
+        <span class="value">{{player.gold}}</span>
     </li>
   </ul>
 </div>

@@ -9,6 +9,11 @@ import { Component, OnChanges, Input } from '@angular/core';
 export class ScoreboardComponent implements OnChanges {
   @Input() scoreboard: any;
   combinedPlayers: any;
+  active: boolean;
+  
+  constructor() {
+    this.active = true;
+  }
 
   ngOnChanges() {
     this.addTeamToPlayers(this.scoreboard);
@@ -36,5 +41,9 @@ export class ScoreboardComponent implements OnChanges {
       player['team'] = 'radiant';
       return player;
     }));
+  }
+  toggle() {
+    console.log('inside toggle');
+    this.active = this.active ? false : true;
   }
 }

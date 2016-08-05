@@ -1,0 +1,113 @@
+li {
+  height: 33px;
+  display: flex;
+  list-style-type: none;
+  padding: 5px 0;
+  border: 1px solid rgb(47, 39, 36);
+  
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  // height: 33px;
+  // width: 59px;
+}
+
+.button:hover {
+  background: blue;
+}
+
+.button {
+  height: 33px;
+}
+
+.container {
+  color: darkgrey;
+  font-size: 0.8rem;
+  width: 300px;
+}
+
+.nav-menu li {
+  display: flex;
+  align-items: center;
+  background-color: #1e2020;
+}
+
+.dire {
+  background: linear-gradient(to right, rgb(90, 23, 29), rgb(0, 0, 0));
+  // background: linear-gradient(to right, rgb(90, 23, 29), rgb(0, 0, 0));
+}
+
+.radiant {
+  background: linear-gradient(to right, rgb(74, 155, 76), rgb(0, 0, 0));
+  // background: linear-gradient(to right, rgb(45, 74, 28), rgb(0, 0, 0));
+}
+
+.nav-menu {
+  // background: pink;
+  // background: radial-gradient(circle, rgb(42, 27, 27), rgba(30, 25, 025));
+}
+
+.nav-players {
+  
+}
+
+.nav-players li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.players {
+  margin: 0;
+}
+
+img {
+  margin-left: 5px;
+}
+
+.value {
+  align-self: flex-end;
+}
+.player-name {
+  margin-left: 15px;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drop-down-menu {
+  font-size: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  padding: 4px;
+  margin-bottom: 7px;
+}
+
+.down-arrow {
+  height: 0;
+  width: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f00;
+}
+
+.arrow-box {
+  background: lightgrey;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#stat-title {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
