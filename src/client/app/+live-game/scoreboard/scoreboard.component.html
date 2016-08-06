@@ -15,7 +15,8 @@
   </ul>
 
   <ul [hidden]="!active" class="nav-players">
-    <li ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
+    <!--<li (mouseenter)="playerItems(player.items)" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">-->
+    <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
         <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_sb.png" alt="">
         <div class="player-name">{{player.name}}</div>
         <div class="value" [ngSwitch]="sortedValue">
@@ -26,3 +27,7 @@
     </li>
   </ul>
 </div>
+<app-hero-items
+  [items]='items'
+>
+</app-hero-items>

@@ -1,7 +1,6 @@
 import { Component, OnChanges, Input, ElementRef, HostListener } from '@angular/core';
 import { AddCommasPipe } from '../../pipes/index';
-
-// (todo) Use @HostBindings and @HostListeners instead of the host property (https://goo.gl/zrdmKr)
+import { HeroItemsComponent } from './hero-items/index';
 
 @Component({
   moduleId: module.id,
@@ -9,11 +8,13 @@ import { AddCommasPipe } from '../../pipes/index';
   pipes: [
     AddCommasPipe
   ],
+  directives: [
+    HeroItemsComponent
+  ],
   templateUrl: 'scoreboard.component.html',
   styleUrls: ['scoreboard.component.css']
 })
 
-//(TODO) keep previous sortedValue from each push of new value;
 export class ScoreboardComponent implements OnChanges {
 
   @Input() scoreboard: any;
@@ -23,6 +24,7 @@ export class ScoreboardComponent implements OnChanges {
   active: boolean;
   sortedValue: string;
   menuTitle: string;
+  items: Array<string>;
 
   menuOptions = [
     {name: 'kills', option: '(Q) KILL/DEATH/ASSISTS' },
@@ -86,5 +88,9 @@ export class ScoreboardComponent implements OnChanges {
   onClick(event: any) {
   if (!this._eref.nativeElement.contains(event)) // or some similar check
      this.active = true;
+  }
+
+  playerItems(value: Array<string>) {
+    this.items = value;
   }
 }

@@ -1,0 +1,26 @@
+$height: 64px;
+$width: 85px;
+
+// gradiants 32, 36, 35
+// gradiants 32, 36, 35 / 28 28 28 / 19 21 16 / 15 17 14
+
+.flex-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 300px;
+}
+
+.item {
+  background: black;
+  border: 2px solid rgb(47, 39, 36);
+  height: $height;
+}
+
+.blank {
+  width: $width;
+  height: $height;
+  background: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.2) 0,rgba(0, 0, 0, 0.65) 100%);
+}

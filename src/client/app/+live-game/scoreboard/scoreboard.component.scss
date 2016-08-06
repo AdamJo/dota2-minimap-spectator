@@ -25,9 +25,11 @@ img {
 }
 
 .container {
-  color: darkgrey;
+  color: #d9d9d9;
   font-size: 0.8rem;
   width: 300px;
+  // transform-origin: top left;
+  // transform: scale(0.90);
 }
 
 .nav-menu {

@@ -132,9 +132,7 @@ export class SpriteAnimationComponent implements OnInit {
       ]
     );
   }
-
   toggle() {
     this.shrink = this.shrink === 'small' ? 'regular' : 'small';
-    console.log(this.shrink);
   }
 }
