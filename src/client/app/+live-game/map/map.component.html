@@ -14,7 +14,7 @@
     <div *ngFor="let player of radiant?.players">
       <app-sprite-animation
         [team]='"radiant"'
-        [heroId]='player?.hero_id'
+        [heroId]='player?.hero'
         [posX]='player?.position_x | calculateX:width:maxWidth'
         [posY]='player?.position_y | calculateY:height:maxHeight'
         [oldPosX]='player?.old_position_x | calculateX:width:maxWidth'
@@ -22,15 +22,15 @@
         [respawnTimer]='player?.respawn_timer'>
       </app-sprite-animation>
     </div>
-    <div *ngFor="let hero of dire?.players">
+    <div *ngFor="let player of dire?.players">
       <app-sprite-animation
         [team]='"dire"'
-        [heroId]='hero?.hero_id'
-        [posX]='hero?.position_x | calculateX:width:maxWidth'
-        [posY]='hero?.position_y | calculateY:height:maxHeight'
-        [oldPosX]='hero?.old_position_x | calculateX:width:maxWidth'
-        [oldPosY]='hero?.old_position_y | calculateY:height:maxHeight'
-        [respawnTimer]='hero?.respawn_timer'>
+        [heroId]='player?.hero'
+        [posX]='player?.position_x | calculateX:width:maxWidth'
+        [posY]='player?.position_y | calculateY:height:maxHeight'
+        [oldPosX]='player?.old_position_x | calculateX:width:maxWidth'
+        [oldPosY]='player?.old_position_y | calculateY:height:maxHeight'
+        [respawnTimer]='player?.respawn_timer'>
       </app-sprite-animation>
     </div>
     <app-sprite-animation

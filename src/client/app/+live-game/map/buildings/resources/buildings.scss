@@ -6,32 +6,32 @@
   width: 32px;
 }
 
-.buildings.dire_ancient {
+.dire-ancient {
   background-position: 0 0;
 }
 
-.buildings.dire_barracks {
+.dire-barracks {
   background-position: -32px 0;
   transform: scale(0.5);
 }
 
-.buildings.dire_tower {
+.dire-tower {
   background-position: -64px 0;
   transform: scale(0.75);
 }
 
-.buildings.radiant_ancient {
+.radiant-ancient {
   background-position: -96px 0;
   height: 30px;
   width: 30px;
 }
 
-.buildings.radiant_barracks {
+.radiant-barracks {
   background-position: -128px 0;
   transform: scale(0.5);
 }
 
-.buildings.radiant_tower {
+.radiant-tower {
   background-position: -160px 0;
   transform: scale(0.75);
 }

@@ -1,34 +1,37 @@
 $img-height: 33px;
 $img-width: 59px;
+$border-color: #2f2724;
+$text-color: #d9d9d9;
+$nav-menu-color: #1e2020;
+$nav-menu-color-hover: #2e3030;
+$menu-gradiant-dire: #5a171d;
+$menu-gradiant-radiant: #4a9b4c;
+$black: #000;
+$grey: #808080;
+$darkgrey: #a9a9a9;
+$box-shadow-color: rgba(0, 0, 0, 0.75);
+$box-shadow-color-hover: rgba(34, 98, 126, 0.5);
+
 
 li {
-  height: $img-height;
+  border: 1px solid $border-color;
   display: flex;
+  height: $img-height;
   list-style-type: none;
   padding: 2px 0;
-  border: 1px solid rgb(47, 39, 36);
 }
 
 ul {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 img {
-  // height: $img-height;
-  // width: $img-width;
-}
-
-.button:hover {
-  background: blue;
-}
-
-.button {
-  height: $img-height;
+  margin-left: 3px;
 }
 
 .container {
-  color: #d9d9d9;
+  color: $text-color;
   font-size: 0.8rem;
   width: 300px;
   // transform-origin: top left;
@@ -36,119 +39,104 @@ img {
 }
 
 .nav-menu {
-  background-color: #1e2020;
-}
+  background-color: $nav-menu-color;
 
-.nav-menu li {
-  display: flex;
-  align-items: center;
-}
+  li {
+    align-items: center;
+    display: flex;
 
-.nav-menu li:nth-child(n+2):hover {
-  background-color: #2e3030;
+    &:nth-child(n+2) {
+
+      &:hover {
+        background-color: $nav-menu-color-hover;
+      }
+    }
+  }
+
 }
 
 .dire {
-  background: linear-gradient(to right, rgb(90, 23, 29), rgb(0, 0, 0));
+  background: linear-gradient(to right, $menu-gradiant-dire, $black);
   // border-top: 3px solid rgba(90, 23, 29, 0.05);
   // border-bottom: 3px solid rgba(90, 23, 29, 0.05);
   // background: linear-gradient(to right, rgb(90, 23, 29), rgb(0, 0, 0));
 }
 
 .radiant {
-  background: linear-gradient(to right, rgb(74, 155, 76), rgb(0, 0, 0));
+  background: linear-gradient(to right, $menu-gradiant-radiant, $black);
   // border-top: 3px solid rgba(74, 155, 76, 0.05);
   // border-bottom: 3px solid rgba(74, 155, 76, 0.05);
   // background: linear-gradient(to right, rgb(45, 74, 28), rgb(0, 0, 0));
 }
 
-.nav-players li {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.nav-players {
+  li {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 
 .players {
   margin: 0;
 }
 
-img {
-  margin-left: 3px;
-}
-
 .value {
   margin-left: auto;
+  overflow: hidden;
   padding-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
 .player-name {
+  font-size: 0.7rem;
   margin-left: 10px;
-  width: 125px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 140px;
 }
 
 .drop-down-menu {
-  font-size: 1rem;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 7px 1px $box-shadow-color;
   display: flex;
+  font-size: 1rem;
   justify-content: flex-start;
-  padding: 4px;
   margin-bottom: 7px;
-  border: 1px solid rgb(47, 39, 36);
-  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.75);
-}
+  padding: 4px;
 
-.drop-down-menu:hover {
-  background: rgba(34, 98, 126, 0.50);
+  &:hover {
+    background: $box-shadow-color-hover;
+  }
 }
 
 .down-arrow {
-  height: 0;
-  width: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid grey;
+  border-top: 10px solid $grey;
+  height: 0;
+  width: 0;
 }
 
 .arrow-box {
-  background: transparent;
-  border: 1px solid darkgrey;
-  width: 40px;
-  height: 30px;
-  display: flex;
   align-items: center;
+  background: transparent;
+  border: 1px solid $darkgrey;
+  display: flex;
+  height: 30px;
   justify-content: center;
+  width: 40px;
 }
 
-#stat-title {
+.stat-title {
   display: flex;
-  padding-top: 6px;
   margin: 0 5px;
+  padding-top: 6px;
 }
 
 .repsawn-img {
   display: flex;
   position: relative;
 }
-
-// .respawn {
-//   background: black;
-//   opacity: 0.75;
-//   height: $img-height;
-//   width: $img-width;
-//   position: absolute;
-//   // top: 0;
-//   left: 3px;
-// }
-
-// .respawn div {
-//   height: $img-height;
-//   width: $img-width;
-//   vertical-align: middle;
-//   text-align: center;
-//   background: #000;
-//   display: table-cell;
-// }

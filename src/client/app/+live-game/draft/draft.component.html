@@ -1,11 +1,11 @@
 <div (window:resize)="onResize($event)">
   <div *ngIf="smallerScreenSize === false" class="container">
 
-    <h2 class="leagueName">{{league.name}}</h2>    
+    <h2 class="league-name">{{league.name}}</h2>    
     <div class="titles">
-      <span class="bansTitle">Bans</span>
-      <span class="direName">Dire</span>
-      <span class="teamName"><b>{{direTeamName}}</b></span>
+      <span class="bans-title">Bans</span>
+      <span class="dire-name">Dire</span>
+      <span class="team-name"><b>{{direTeamName}}</b></span>
     </div>
 
     <div class="draft-container">
@@ -49,9 +49,9 @@
     </div>
 
     <div class="titles">
-      <span class="bansTitle">Bans</span>
-      <span class="radiantName">Radiant</span>
-      <span class="teamName"><b>{{radiantTeamName}}</b></span>
+      <span class="bans-title">Bans</span>
+      <span class="radiant-name">Radiant</span>
+      <span class="team-name"><b>{{radiantTeamName}}</b></span>
     </div>
   </div>
   <div *ngIf="smallerScreenSize === true">

@@ -5,11 +5,11 @@
 
 .heading {
   display: flex;
+  flex: 1;
   flex-wrap: nowrap;
   justify-content: center;
-  flex: 1;
-  white-space: nowrap;
   margin: 7px 0;
+  white-space: nowrap;
 }
 
 .content {

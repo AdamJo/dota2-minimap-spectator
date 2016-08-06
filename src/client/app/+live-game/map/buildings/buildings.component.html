@@ -1,40 +1,40 @@
 <div *ngFor="let barrack of direBarracks; let i = index;">
-  <div *ngIf="barrack" ngClass="icons dire_{{barracks[i]}}">
+  <div *ngIf="barrack" ngClass="icons dire-{{barracks[i]}}">
     <i
-      ngClass="buildings dire_barracks"
+      ngClass="buildings dire-barracks"
     ></i>
   </div>
 </div>
 <div *ngFor="let tower of direTowers; let i = index;">
-  <div *ngIf="tower" ngClass="icons dire_{{towers[i]}}">
+  <div *ngIf="tower" ngClass="icons dire-{{towers[i]}}">
     <i
-      ngClass="buildings dire_tower"
+      ngClass="buildings dire-tower"
     ></i>
   </div>
 </div>
 
 <div *ngFor="let tower of radiantTowers; let i = index;">
-  <div *ngIf='tower' ngClass="icons radiant_{{towers[i]}}">
+  <div *ngIf='tower' ngClass="icons radiant-{{towers[i]}}">
     <i
-      ngClass="buildings radiant_tower"
+      ngClass="buildings radiant-tower"
     ></i>
   </div>
 </div>
 <div *ngFor="let barrack of radiantBarracks; let i = index;">
-  <div *ngIf="barrack" ngClass="icons radiant_{{barracks[i]}}">
+  <div *ngIf="barrack" ngClass="icons radiant-{{barracks[i]}}">
     <i
-      ngClass="buildings radiant_barracks"
+      ngClass="buildings radiant-barracks"
     ></i>
   </div>
 </div>
 
-<div class="icons dire_ancient_building">
+<div class="icons dire-ancient-building">
   <i
-    ngClass="buildings dire_ancient"
+    ngClass="buildings dire-ancient"
   ></i>
 </div>
-<div class="icons radiant_ancient_building">
+<div class="icons radiant-ancient-building">
   <i
-    ngClass="buildings radiant_ancient"
+    ngClass="buildings radiant-ancient"
   ></i>
 </div>

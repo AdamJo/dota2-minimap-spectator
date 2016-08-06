@@ -1,101 +1,105 @@
+$black: #000;
+$dire-color: #800000;
+$radiant-color: #006400;
+$slash-color: #8b0000;
+
 .container {
-  width: 100%;
   margin: 0 auto;
+  width: 100%;
 }
 
 .draft-container {
-  /*background-color: yellow;*/
-  width: 100%;
   display: flex;
-  justify-content: center;
   flex-flow: nowrap;
-  /*background-color:green;*/
+  justify-content: center;
+  width: 100%;
 }
 
 .dire {
-  display:flex;
-  /*background-color: yellow;*/
+  display: flex;
+
+  .side {
+    color: $dire-color;
+    font-size: 0.6rem;
+  }
 }
 
 .radiant {
-  display:flex;
-  /*background-color: grey;*/
+  display: flex;
+
+  .side {
+    color: $radiant-color;
+    font-size: 0.6rem;
+  }
 }
 
 .grid-container {
-  /*background-color: pink;*/
-  width: 150px;
   display: flex;
   justify-content: center;
+  width: 150px;
 }
 
 .grid {
-  width: 140px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-flow: row wrap;
+  justify-content: center;
+  width: 140px;
 }
 
-.bans, .picks {
-  width: 130px;
-  height: 130px;
+.bans,
+.picks {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   flex-flow: row wrap;
-  
+  height: 130px;
+  justify-content: flex-start;
+  width: 130px;
 }
 
 .ban-cell,
 .pick-cell {
+  height: 33px;
   position: relative;
-  height: 33px;
   width: 59px;
+
+  &:nth-child(-n+4) {
+    background-color: $black;
+  }
+
+  &:nth-child(5) {
+    text-align: center;
+    width: 130px;
+
+    div {
+      background-color: $black;
+      height: 33px;
+      margin: 0 auto;
+      width: 59px;
+    }
+  }
 }
 
-.ban-cell:nth-child(-n+4),
-.pick-cell:nth-child(-n+4) {
-  background-color: black;
-}
-
-.ban-cell:nth-child(5),
-.pick-cell:nth-child(5) {
-  width: 130px;
-  text-align: center;
-}
-
-.ban-cell:nth-child(5) div,
-.pick-cell:nth-child(5) div {
-  background-color: black;
-  height: 33px;
-  width: 59px;
-  margin: 0px auto;
-}
-
-.pick-cell:nth-child(odd),
-.ban-cell:nth-child(odd) {
-  margin-right: 5px;
-}
-
-.yeup::before {
-  background: black;
+.pick-cell,
+.ban-cell {
+  &:nth-child(odd) {
+    margin-right: 5px;
+  }
 }
 
 .players {
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
-  width: 130px;
+  justify-content: flex-start;
   min-width: 0;
+  width: 130px;
 }
 
 .player-cell {
-  /* Required for text-overflow to do anything */
-  font-size: .6rem;
-  white-space: nowrap;
+  font-size: 0.6rem;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .line-break {
@@ -103,60 +107,57 @@
 }
 
 .phase {
-  /*background-color: red;*/
-  font-size: .6rem;
+  font-size: 0.6rem;
 }
-.teamName {
+
+.team-name {
+  font-size: 0.7rem;
   margin-top: 10px;
-  font-size: .7rem;
-  /*background-color: blue;*/
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.sideName {
+.side-name {
+  text-align: center;
   width: 130px;
-  text-align: center;
 }
 
-.radiant .sideName div:nth-child(1) {
-  font-size: .6rem;
-  color: darkgreen;
-}
-
-.dire .sideName div:nth-child(1) {
-  text-align: center;
-  font-size: .6rem;
-  color: maroon;
-}
-
-.leagueName {
-  text-align: center;
+.league-name {
+  font-weight: bold;
   margin: 0 auto;
   padding-top: 5px;
-  font-weight: bold;
+  text-align: center;
 }
 
-.active-ban::before {
-  position: absolute;
-  content: "";
-  left: -3px;
-  top: 50%;
-  right: 0;
-  border-top: 1px solid;
-  color: darkred;
-  transform: rotate(-25deg);
-  width: 65px;
+.active-ban {
+  &::before {
+    border-top: 1px solid;
+    color: $slash-color;
+    content: '';
+    left: -3px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotate(-25deg);
+    width: 65px;
+  }
 }
-.ban-cell:nth-child(5) .active-ban::before {
-  position: absolute;
-  content: "";
-  left: 24%;
-  top: 50%;
-  right: 0;
-  border-top: 1px solid;
-  color: darkred;
-  transform: rotate(-25deg);
-  width: 65px;
+
+.ban-cell {
+  &:nth-child(5) {
+    .active-ban {
+      &::before {
+        border-top: 1px solid;
+        color: $slash-color;
+        content: '';
+        left: 24%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: rotate(-25deg);
+        width: 65px;
+      }
+    }
+  }
 }

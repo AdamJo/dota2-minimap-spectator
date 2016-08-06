@@ -66,7 +66,7 @@ import { SpritesComponent } from '../sprites/index';
 
 export class SpriteAnimationComponent implements OnInit {
   @Input() team: boolean;
-  @Input() heroId: number|string;
+  @Input() heroId: string;
   @Input() posX: number;
   @Input() posY: number;
   @Input() oldPosX: number;

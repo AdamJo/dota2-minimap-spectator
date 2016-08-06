@@ -38,30 +38,7 @@ export class HeroRespawnComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    //game paused
-    if (this.oldDuration === this.duration) {
-      //TODO REMOVE FOR PROD
-      console.log('game paused ', this.oldDuration, this.duration);
-      this.deathTimer = this.respawn;
-      if (this.respawnTimer) {
-        if (!this.respawnTimer.isUnsubscribed) {
-          this.respawnTimer.unsubscribe();
-        }
-      }
-    } else if (this.respawn > this.deathTimer) {
-      // player bought background
-      //TODO REMOVE FOR PROD
-      console.log('bought back ', this.respawn, this.deathTimer);
-      if (this.respawnTimer) {
-        if (!this.respawnTimer.isUnsubscribed) {
-          this.respawnTimer.unsubscribe();
-        }
-      }
-      this.countdownTimer();
-    } else {
-      this.countdownTimer();
-    }
-    this.oldDuration = this.duration;
+    this.countdownTimer();
   }
   countdownTimer() {
     // has a respawn timer

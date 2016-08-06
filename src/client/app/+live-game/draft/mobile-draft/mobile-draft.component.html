@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="leagueName">{{league.name}}</div>
+  <div class="league-name">{{league.name}}</div>
   <div class="draft-container">
     <div class="dire">
       <div class="grid-container">
         <div class="grid">
-          <span class="teamName">{{direTeamName}}</span>
+          <span class="team-name">{{direTeamName}}</span>
 
           <div class="line-break"></div>
           <span class="phase">Bans</span>
@@ -15,7 +15,7 @@
               <div class="active-ban" *ngIf='hero !== -1'>
                 <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
               </div>
-              <div class="yeup" *ngIf='hero === -1' >&nbsp;</div>
+              <div *ngIf='hero === -1' >&nbsp;</div>
             </div>
           </div>
 
@@ -31,8 +31,8 @@
           </div>
 
           <div class="line-break"></div>
-          <span class="sideName">
-            <div>Dire</div>
+          <span class="side-name">
+            <div class="side">Dire</div>
             <span>Players</span>
           </span>
           <div class="line-break"></div>
@@ -49,7 +49,7 @@
     <div class="radiant">
       <div class="grid-container">
         <div class="grid">
-          <span class="teamName">{{radiantTeamName}}</span>
+          <span class="team-name">{{radiantTeamName}}</span>
 
           <div class="line-break"></div>
           <span class="phase">Bans</span>
@@ -76,8 +76,8 @@
           </div>
 
           <div class="line-break"></div>
-          <span class="sideName">
-            <div>Radiant</div>
+          <span class="side-name">
+            <div class="side">Radiant</div>
             <span>Players</span>
           </span>
           <div class="line-break"></div>

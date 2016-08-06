@@ -39,6 +39,7 @@ export class DraftComponent implements OnInit {
   smallerScreenSize: boolean;
 
   ngOnInit() {
+    // this.dire.picks = this.dire.picks.slice(3);
     // 1020 is  max of current css setup for draft
     if (window.innerWidth < 1000) {
       this.smallerScreenSize = true;

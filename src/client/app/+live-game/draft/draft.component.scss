@@ -1,129 +1,130 @@
+$background-cell-color: #444;
+$black: #000;
+$dire-color: #800000;
+$radiant-color: #006400;
+$slash-color: #8b0000;
+
 .container {
-  width: 1020px;
   margin: 0 auto;
+  width: 1020px;
 }
 
 .draft-container {
-  /*background-color: yellow;*/
   display: flex;
-  justify-content: flex-start;
   flex-flow: wrap;
+  justify-content: flex-start;
 }
 
 .titles {
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
 }
 
-.direName {
+.dire-name {
+  color: $dire-color;
   padding-left: 5px;
   width: 60px;
-  color: maroon;
 }
 
-.radiantName {
+.radiant-name {
+  color: $radiant-color;
   padding-left: 5px;
   width: 60px;
-  color: darkgreen;  
 }
 
-.bansTitle {
-  display: flex;
-  width: 60px;
-  justify-content: center;
+.bans-title {
   align-self: center;
+  display: flex;
   font-size: .6rem;
+  justify-content: center;
+  width: 60px;
 }
 
-.teamName {
-  width: 710px;
-  text-align: right;
+.team-name {
   font-size: 1.5rem;
+  text-align: right;
+  width: 710px;
 }
 
 .row {
-  width: 800px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  /*background-color:grey;*/
+  width: 800px;
 }
 
 .column {
-  width: 59px;
-  height: 175px;
   display: flex;
   flex-direction: column;
+  height: 175px;
   justify-content: flex-start;
-  /*background-color: blue;*/
+  width: 59px;
 }
 
 .players {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: flex-start;
   min-width: 0;
-  flex: 1;
-  /*background-color: cyan;*/
-}
-.players:last-child {
-  justify-content: flex-end;
-}
 
-.players:last-child .player-cell {
-  margin-bottom: 0px;
-  margin-top: 8px;
+  &:last-child {
+    justify-content: flex-end;
+
+    .player-cell {
+      margin-bottom: 0;
+      margin-top: 8px;
+    }
+  }
 }
 
 .ban-cell {
-  position: relative;
+  background: $background-cell-color;
   height: 33px;
   margin-bottom: 2px;
-  background: black;
+  position: relative;
 }
 
 .player-cell {
-  margin-bottom: 8px;
   font-size: 0.7rem;
-  white-space: nowrap;
+  margin-bottom: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pick-cell {
-  /*background: green;*/
+  background-color: background-cell-color;
+  height: 174px;
   margin-left: 5px;
-  height: 174px; /* old 174 */
   width: 150.33px;
-  background-color: black;
-}
 
-.pick-cell > img {
-    height: 174px; /* old 174 */
+  img {
+    height: 174px;
     width: auto;
-}
-.ban-cell > img {
-    height: 33px;
+  }
 }
 
 .line-break {
-  width: 100%;
   margin-top: 50px;
+  width: 100%;
 }
 
-.leagueName {
+.league-name {
   margin-left: 50px;
 }
 
-.active-ban::before {
-  position: absolute;
-  content: "";
-  left: -3px;
-  top: 50%;
-  right: 0;
-  border-top: 1px solid;
-  color: darkred;
-  transform: rotate(-25deg);
-  width: 65px;
+.active-ban {
+  &::before {
+    border-top: 1px solid;
+    color: $slash-color;
+    content: '';
+    left: -3px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotate(-25deg);
+    width: 65px;
+  }
 }

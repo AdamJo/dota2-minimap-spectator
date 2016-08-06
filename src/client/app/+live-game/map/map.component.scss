@@ -1,27 +1,21 @@
-/* transform: scale(0.53); */
-/* min-width:410px; */
-
-.container {
-}
+$black: #000;
 
 .flex-container {
   display: flex;
   justify-content: center;
   position: relative;
-  /*transform: scale(0.75);*/
-  /*transform-origin: top right;*/
+  // transform: scale(0.75);
+  // transform-origin: top right;
 }
 
 .content {
+  left: 50%;
+  padding: 22px 11px;
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
-
-  /*padding: 1em;*/
-  padding: 22px 11px;
   z-index: 0;
-  /*min-width:410px;*/
+  // min-width:410px;
 }
 
 .icons {
@@ -29,7 +23,7 @@
 }
 
 .image {
-  background-color: black;
-  width: 600px;
+  background-color: $black;
   height: 600px;
+  width: 600px;
 }
