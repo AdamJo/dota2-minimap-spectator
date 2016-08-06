@@ -1,1 +1,1 @@
-export * from './hero-items.component'
+export * from './hero-items.component';

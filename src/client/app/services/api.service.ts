@@ -38,6 +38,7 @@ export class ApiService {
     this.currentGame = data;
     console.log(data);
   }
+
   getCurrentGame() {
     return this.currentGame;
   }

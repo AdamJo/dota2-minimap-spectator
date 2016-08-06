@@ -1,6 +1,14 @@
-import { Component, OnChanges, Input, ElementRef, HostListener } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  Input,
+  ElementRef,
+  HostListener,
+// ChangeDetectionStrategy
+} from '@angular/core';
 import { AddCommasPipe } from '../../pipes/index';
 import { HeroItemsComponent } from './hero-items/index';
+import { HeroRespawnComponent } from './hero-respawn/index';
 
 @Component({
   moduleId: module.id,
@@ -9,10 +17,12 @@ import { HeroItemsComponent } from './hero-items/index';
     AddCommasPipe
   ],
   directives: [
-    HeroItemsComponent
+    HeroItemsComponent,
+    HeroRespawnComponent
   ],
   templateUrl: 'scoreboard.component.html',
   styleUrls: ['scoreboard.component.css']
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ScoreboardComponent implements OnChanges {
@@ -25,6 +35,8 @@ export class ScoreboardComponent implements OnChanges {
   sortedValue: string;
   menuTitle: string;
   items: Array<string>;
+  deathTimer: number;
+  deathList: Array<any>;
 
   menuOptions = [
     {name: 'kills', option: '(Q) KILL/DEATH/ASSISTS' },
@@ -42,13 +54,40 @@ export class ScoreboardComponent implements OnChanges {
     this.active = true;
     this.sortedValue = 'net_worth';
     this.menuTitle = 'GAME STATS';
+    this.deathList = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+    this.deathTimer = 0;
   }
 
   ngOnChanges() {
     this.addTeamToPlayers(this.scoreboard);
     this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
+    // this.checkDeathTimer()
     this.combinedPlayers = this.sortValues(this.sortedValue);
   }
+
+  // checkDeathTimer() {
+  //   let you = Observable;
+  //   let me:any;
+
+  //   this.newValues.map((data:any, index:number) => {
+  //     // console.log(index);
+  //     if (data.respawn_timer > 0) {
+  //       console.log('there')
+  //       if (this.deathTimer === 0) {
+  //         console.log(data)
+  //         this.deathList[index] = Observable
+  //         .interval(1000)
+  //         .take(data.respawn_timer)
+  //         .subscribe(data => {
+  //           this.deathTimer = data;
+  //         });
+  //       }
+  //     }
+  //     else {
+  //       console.log(this.deathList[index])
+  //     }
+  //   })
+  // }
 
   sortValues(value: string) {
     return this.newValues.sort((a:any, b:any) => {
@@ -92,5 +131,11 @@ export class ScoreboardComponent implements OnChanges {
 
   playerItems(value: Array<string>) {
     this.items = value;
+  }
+
+  onVoted(agreed: boolean) {
+    console.log(this.combinedPlayers[0].respawn_timer);
+    this.combinedPlayers[0].respawn_timer = 0;
+    console.log(this.combinedPlayers[0].respawn_timer);
   }
 }

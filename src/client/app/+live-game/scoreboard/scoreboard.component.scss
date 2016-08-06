@@ -1,5 +1,8 @@
+$img-height: 33px;
+$img-width: 59px;
+
 li {
-  height: 33px;
+  height: $img-height;
   display: flex;
   list-style-type: none;
   padding: 2px 0;
@@ -12,8 +15,8 @@ ul {
 }
 
 img {
-  // height: 33px;
-  // width: 59px;
+  // height: $img-height;
+  // width: $img-width;
 }
 
 .button:hover {
@@ -21,7 +24,7 @@ img {
 }
 
 .button {
-  height: 33px;
+  height: $img-height;
 }
 
 .container {
@@ -125,3 +128,27 @@ img {
   padding-top: 6px;
   margin: 0 5px;
 }
+
+.repsawn-img {
+  display: flex;
+  position: relative;
+}
+
+// .respawn {
+//   background: black;
+//   opacity: 0.75;
+//   height: $img-height;
+//   width: $img-width;
+//   position: absolute;
+//   // top: 0;
+//   left: 3px;
+// }
+
+// .respawn div {
+//   height: $img-height;
+//   width: $img-width;
+//   vertical-align: middle;
+//   text-align: center;
+//   background: #000;
+//   display: table-cell;
+// }
