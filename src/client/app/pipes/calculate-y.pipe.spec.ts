@@ -6,7 +6,8 @@ export function main() {
 
   describe('Pipe: CalculateY', () => {
     let pipe: CalculateYPipe;
-    let height = 380;
+    let height = 556;
+    let maxWdithHeight = 600;
     let testIntegers = [
         7999,
         6000,
@@ -29,14 +30,14 @@ export function main() {
 
     it('transforms (possible) float to integer', () => {
       testIntegers.map(testData => {
-        expect(pipe.transform(testData, height)).toEqual(jasmine.any(Number));
+        expect(pipe.transform(testData, height, maxWdithHeight)).toEqual(jasmine.any(Number));
       });
     });
     it(`transforms are < ${height} && > -1`, () => {
       testIntegers.map(testData => {
         // console.log(testData, pipe.transform(testData, height))
-        expect(pipe.transform(testData, height)).toBeLessThan(height);
-        expect(pipe.transform(testData, height)).toBeGreaterThan(-1);
+        expect(pipe.transform(testData, height, maxWdithHeight)).toBeLessThan(height);
+        expect(pipe.transform(testData, height, maxWdithHeight)).toBeGreaterThan(-1);
       });
     });
   });
