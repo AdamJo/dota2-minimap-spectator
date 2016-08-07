@@ -13,27 +13,27 @@ export function main() {
     }));
     it('should have barracks defined correctly', inject([ BuildingsComponent ], (app:any) => {
       expect(app.barracks).toEqual([
-        'barracks_bottom_ranged',
-        'barracks_bottom_melee',
-        'barracks_middle_ranged',
-        'barracks_middle_melee',
-        'barracks_top_ranged',
-        'barracks_top_melee'
+        'barracks-bottom-ranged',
+        'barracks-bottom-melee',
+        'barracks-middle-ranged',
+        'barracks-middle-melee',
+        'barracks-top-ranged',
+        'barracks-top-melee'
       ]);
     }));
     it('should have towers defined correctly', inject([ BuildingsComponent ], (app:any) => {
       expect(app.towers).toEqual([
-        'ancient_1',
-        'ancient_2',
-        'bottom_3',
-        'bottom_2',
-        'bottom_1',
-        'middle_3',
-        'middle_2',
-        'middle_1',
-        'top_3',
-        'top_2',
-        'top_1'
+        'ancient-1',
+        'ancient-2',
+        'bottom-3',
+        'bottom-2',
+        'bottom-1',
+        'middle-3',
+        'middle-2',
+        'middle-1',
+        'top-3',
+        'top-2',
+        'top-1'
       ]);
     }));
   });
