@@ -12,7 +12,7 @@
       [radiantTowers]='radiant?.tower_state | splitToNumbers'>
     </app-buildings>
     <div *ngFor="let player of radiant?.players">
-      <app-sprite-animation
+      <app-sprite-animation *ngIf="player?.hero !== 'None'"
         [team]='"radiant"'
         [heroId]='player?.hero'
         [posX]='player?.position_x | calculateX:width:maxWidth'
@@ -23,7 +23,7 @@
       </app-sprite-animation>
     </div>
     <div *ngFor="let player of dire?.players">
-      <app-sprite-animation
+      <app-sprite-animation *ngIf="player?.hero !== 'None'"
         [team]='"dire"'
         [heroId]='player?.hero'
         [posX]='player?.position_x | calculateX:width:maxWidth'

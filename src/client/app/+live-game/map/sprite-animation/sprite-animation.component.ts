@@ -17,7 +17,7 @@ import { SpritesComponent } from '../sprites/index';
       (mouseleave)=toggle()
       @shrink='shrink'
       ngClass="icons {{ team === 'radiant' ? 'radiant' : team === 'dire' ? 'dire' : 'roshan' }}">
-      <app-sprites 
+      <app-sprites
         [team]='team' 
         [heroId]='heroId'>
         </app-sprites>
@@ -71,7 +71,6 @@ export class SpriteAnimationComponent implements OnInit {
   @Input() posY: number;
   @Input() oldPosX: number;
   @Input() oldPosY: number;
-  @Input() index: number;
 
   @ViewChild('position') coordinates : ElementRef;
   @Input() respawnTimer: number;

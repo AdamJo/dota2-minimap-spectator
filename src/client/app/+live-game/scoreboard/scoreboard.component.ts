@@ -54,40 +54,16 @@ export class ScoreboardComponent implements OnChanges {
     this.active = true;
     this.sortedValue = 'net_worth';
     this.menuTitle = 'GAME STATS';
-    this.deathList = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
-    this.deathTimer = 0;
   }
 
   ngOnChanges() {
     this.addTeamToPlayers(this.scoreboard);
     this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
-    // this.checkDeathTimer()
+    this.newValues = this.newValues.filter((data:any) => {
+      return data.hero !== 'None';
+    });
     this.combinedPlayers = this.sortValues(this.sortedValue);
   }
-
-  // checkDeathTimer() {
-  //   let you = Observable;
-  //   let me:any;
-
-  //   this.newValues.map((data:any, index:number) => {
-  //     // console.log(index);
-  //     if (data.respawn_timer > 0) {
-  //       console.log('there')
-  //       if (this.deathTimer === 0) {
-  //         console.log(data)
-  //         this.deathList[index] = Observable
-  //         .interval(1000)
-  //         .take(data.respawn_timer)
-  //         .subscribe(data => {
-  //           this.deathTimer = data;
-  //         });
-  //       }
-  //     }
-  //     else {
-  //       console.log(this.deathList[index])
-  //     }
-  //   })
-  // }
 
   sortValues(value: string) {
     return this.newValues.sort((a:any, b:any) => {
