@@ -13,7 +13,7 @@
           <div class="bans">
             <div class="ban-cell" *ngFor='let hero of dire?.bans'>
               <div class="active-ban" *ngIf='hero !== -1'>
-                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
               </div>
               <div *ngIf='hero === -1' >&nbsp;</div>
             </div>
@@ -25,7 +25,7 @@
 
           <div class="picks">
             <div class="pick-cell" *ngFor='let hero of dire?.picks'>
-              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
               <div *ngIf='hero === -1' >&nbsp;</div>
             </div>
           </div>
@@ -58,7 +58,7 @@
           <div class="bans">
             <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
               <div class="active-ban" *ngIf='hero !== -1'>
-                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
               </div>
               <div *ngIf='hero === -1' >&nbsp;</div>
             </div>
@@ -70,7 +70,7 @@
 
           <div class="picks">
             <div class="pick-cell" *ngFor='let hero of radiant?.picks'>
-              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png'>
+              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
               <div *ngIf='hero === -1' >&nbsp;</div>
             </div>
           </div>
