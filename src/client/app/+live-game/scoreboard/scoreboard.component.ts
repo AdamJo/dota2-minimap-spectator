@@ -30,7 +30,6 @@ export class ScoreboardComponent implements OnChanges {
   @Input() scoreboard: any;
   combinedPlayers: any;
   newValues: any;
-  sortedPlayers: any;
   active: boolean;
   sortedValue: string;
   menuTitle: string;
@@ -109,9 +108,45 @@ export class ScoreboardComponent implements OnChanges {
     this.items = value;
   }
 
-  onVoted(agreed: boolean) {
-    console.log(this.combinedPlayers[0].respawn_timer);
-    this.combinedPlayers[0].respawn_timer = 0;
-    console.log(this.combinedPlayers[0].respawn_timer);
+  @HostListener(`document:keypress`, ['$event'])
+  keypress(e: KeyboardEvent) {
+      switch(e.key) {
+        case 'q':
+        case 'Q':
+          this.sortPlayers('kills', '(Q) KILL/DEATH/ASSISTS');
+          break;
+        case 'w':
+        case 'W':
+          this.sortPlayers('last_hits', '(W) LAST HITS/DENIES');
+          break;
+        case 'e':
+        case 'E':
+          this.sortPlayers('level', '(E) HERO LEVEL');
+          break;
+        case 'r':
+        case 'R':
+          this.sortPlayers('xp_per_min', '(R) XP PER MINUTE');
+          break;
+        case 't':
+        case 'T':
+          this.sortPlayers('gold', '(T) CURRENT GOLD');
+          break;
+        case 'y':
+        case 'Y':
+          this.sortPlayers('net_worth', '(Y) NET WORTH');
+          break;
+        case 'u':
+        case 'U':
+          this.sortPlayers('gold_per_min', '(U) GOLD PER MINUTE');
+          break;
+        case 'i':
+        case 'I':
+          this.sortPlayers('ultimate_cooldown', '(I) ULTIMATE COOLDOWN');
+          break;
+        case 'o':
+        case 'O':
+          this.sortPlayers('respawn_timer', '(O) RESPAWN TIMER');
+          break;
+      }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs/rx';
 
 @Component({
@@ -27,11 +27,8 @@ import { Observable } from 'rxjs/rx';
 })
 export class HeroRespawnComponent implements OnChanges {
   @Input() respawn: number;
-  @Input() duration: number;
-  @Output() respawnEnd = new EventEmitter<boolean>();
   deathTimer: number;
   respawnTimer: any;
-  oldDuration: number;
 
   constructor() {
     this.deathTimer = 0;
