@@ -3,6 +3,7 @@ import { ApiService } from '../services/index';
 import { MapComponent } from './map/index';
 import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
+import { TeamInfoComponent } from './team-info/index';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +13,8 @@ import { ScoreboardComponent } from './scoreboard/index';
   directives: [
     MapComponent,
     DraftComponent,
-    ScoreboardComponent
+    ScoreboardComponent,
+    TeamInfoComponent
   ]
 })
 export class LiveGameComponent implements DoCheck {
@@ -22,6 +24,7 @@ export class LiveGameComponent implements DoCheck {
   radiantTeamName: any;
   direTeamName: any;
   league: any;
+  series: any;
 
   constructor(private apiService: ApiService ) {}
 
@@ -31,6 +34,7 @@ export class LiveGameComponent implements DoCheck {
       this.direTeamName = this.apiService.currentGame.dire_team_name;
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
+      this.series = this.apiService.currentGame.series;
       // this.scoreboard.duration = 0 // testing 
       // this.scoreboard.dire.players[0].respawn_timer = 8 // testing
       // this.scoreboard.dire.players[0].hero = 'ursa' // testing

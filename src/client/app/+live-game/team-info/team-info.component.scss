@@ -1,0 +1,76 @@
+$team-background: #222;
+$ultimate-ready: #005500;
+.flex-conatiner {
+  background: $team-background;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: .5rem;
+}
+
+.team-side {
+  display: flex;
+  // align-content: space-between;
+  justify-content: space-around;
+
+  height: 90px;
+  width: 750px;
+}
+
+.items {
+  //  transform: scale(0.35);
+  //  transform-origin: top left;
+  width: 75px;
+  margin-bottom: 2px;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  // width: 150px;
+  // height: 75px;
+}
+
+.player-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  margin-right: 5px;
+}
+
+span {
+  // width: 80px;
+}
+
+img {
+  height: 33px;
+  width: 59px;
+  border: 1px solid #333;
+  // margin-bottom: 10px;
+}
+
+.ultimate {
+  // background: $ultimate-ready;
+  border: 1px solid #080;
+  height: 18px;
+  margin-top: 8px;
+  opacity: .8;
+  transform: rotate(45deg);
+  width: 18px;
+
+}
+
+.ultimate-active {
+  background: $ultimate-ready;
+}
+
+.ultimate-inactive {
+  background: #444;
+}
+
+.ultimate-cooldown {
+  position: absolute;
+  top: 48px;
+}

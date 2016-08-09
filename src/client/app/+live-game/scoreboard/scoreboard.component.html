@@ -15,11 +15,9 @@
   </ul>
 
   <ul [hidden]="!active" class="nav-players">
-    <!--<li (mouseenter)="playerItems(player.items)" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">-->
     <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
         <div class="repsawn-img">
           <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_sb.png" alt="{{player.hero}}">
-          <!--<div *ngIf="player.respawn_timer" class="respawn"></div>-->
           <app-hero-respawn *ngIf="player.respawn_timer > 0"
             [respawn]="player.respawn_timer"
             [duration]="scoreboard.duration"

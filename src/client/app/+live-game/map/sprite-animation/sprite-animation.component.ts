@@ -11,7 +11,7 @@ import { SpritesComponent } from '../sprites/index';
   selector: 'app-sprite-animation',
   directives: [SpritesComponent],
   template: `
-    <div 
+    <div
       #position
       (mouseenter)=toggle()
       (mouseleave)=toggle()
@@ -77,19 +77,23 @@ export class SpriteAnimationComponent implements OnInit {
 
   shrink = 'regular';
 
-  constructor(public renderer: Renderer) {}
+  constructor(public renderer: Renderer) {
+    
+  }
 
   ngOnInit() {
-    this.animateMovement();
-    if (this.respawnTimer > 0) {
-      this.animateDeath();
-    }
+      console.log(this.heroId)
+      this.animateMovement();
+      if (this.respawnTimer > 0) {
+        this.animateDeath();
+      }
   }
   /* 
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart
   * Using this instead of onChanges since onChanges only captures actual values and not object references like int he *ngFor
   */
   animateMovement() {
+
     if (!Number.isNaN(this.oldPosX) && this.oldPosX !== undefined ) {
         //console.log('heroId ' + this.heroId + 'posX ' + this.posX, 'posY ' +  this.posY, 'X ' +  this.oldPosX, 'Y ' + this.oldPosY)
         //[this.oldPosX, this.oldPosY] = this.transformPosition(this.oldPosX, this.oldPosY)

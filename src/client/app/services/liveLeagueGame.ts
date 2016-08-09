@@ -39,6 +39,7 @@ export interface LiveLeagueGame {
     roshan_respawn_timer: number
   };
   series_id: number;
+  series: Series;
   series_type: string;
   spectators: number;
   stage_name: string;
@@ -56,6 +57,12 @@ export interface Bans {
 
 export interface Picks {
   hero_id : number;
+}
+
+export interface Series {
+  dire_series_wins: number
+  radiant_series_wins: number
+  series_type: number
 }
 
 export interface Players {

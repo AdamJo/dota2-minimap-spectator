@@ -9,11 +9,10 @@
     ></app-draft>
   </div>
   <div class="flex-container" *ngIf='scoreboard.duration > 0'>
-    
     <h5 class="heading">{{league.name}}</h5>
     <h4 class="heading">{{radiantTeamName}} vs {{direTeamName}}</h4>
     <div class="content">
-      <app-map 
+      <!--<app-map 
         [radiant]='scoreboard.radiant'
         [dire]='scoreboard.dire'
         [dayNightCycle]='scoreboard.day_cycle'
@@ -21,7 +20,10 @@
       ></app-map>
       <app-scoreboard
         [scoreboard]='scoreboard'>
-      </app-scoreboard>
+      </app-scoreboard>-->
+      <app-team-info
+        [team]='scoreboard.dire.players'
+      ></app-team-info>
     </div>
   </div>
 </div>
