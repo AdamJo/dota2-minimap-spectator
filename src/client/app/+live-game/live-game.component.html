@@ -12,17 +12,20 @@
     <h5 class="heading">{{league.name}}</h5>
     <h4 class="heading">{{radiantTeamName}} vs {{direTeamName}}</h4>
     <div class="content">
-      <!--<app-map 
+      <app-team-info
+        [team]='scoreboard.dire.players'
+      ></app-team-info>
+      <app-map class="map"
         [radiant]='scoreboard.radiant'
         [dire]='scoreboard.dire'
         [dayNightCycle]='scoreboard.day_cycle'
         [roshanRespawnTimer]='scoreboard.roshan_respawn_timer'
       ></app-map>
-      <app-scoreboard
+      <app-scoreboard class="scoreboard"
         [scoreboard]='scoreboard'>
-      </app-scoreboard>-->
+      </app-scoreboard>
       <app-team-info
-        [team]='scoreboard.dire.players'
+        [team]='scoreboard.radiant.players'
       ></app-team-info>
     </div>
   </div>

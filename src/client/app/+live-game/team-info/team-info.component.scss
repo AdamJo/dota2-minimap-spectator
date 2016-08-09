@@ -1,5 +1,9 @@
 $team-background: #222;
-$ultimate-ready: #005500;
+$ultimate-ready: #050;
+$ultimate-inactive: #444;
+$ultimate-border: #080;
+$img-border: #333;
+
 .flex-conatiner {
   background: $team-background;
   display: flex;
@@ -10,56 +14,44 @@ $ultimate-ready: #005500;
 
 .team-side {
   display: flex;
-  // align-content: space-between;
-  justify-content: space-around;
-
   height: 90px;
+  justify-content: space-around;
   width: 750px;
 }
 
 .items {
-  //  transform: scale(0.35);
-  //  transform-origin: top left;
-  width: 75px;
   margin-bottom: 2px;
+  width: 75px;
 }
 
 .team {
-  display: flex;
   align-items: center;
-  // width: 150px;
-  // height: 75px;
+  display: flex;
 }
 
 .player-stats {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  position: relative;
   margin-right: 5px;
-}
-
-span {
-  // width: 80px;
+  position: relative;
 }
 
 img {
+  border: 1px solid $img-border;
   height: 33px;
   width: 59px;
-  border: 1px solid #333;
-  // margin-bottom: 10px;
 }
 
 .ultimate {
   // background: $ultimate-ready;
-  border: 1px solid #080;
+  border: 1px solid $ultimate-border;
   height: 18px;
   margin-top: 8px;
   opacity: .8;
   transform: rotate(45deg);
   width: 18px;
-
 }
 
 .ultimate-active {
@@ -67,7 +59,7 @@ img {
 }
 
 .ultimate-inactive {
-  background: #444;
+  background: $ultimate-inactive;
 }
 
 .ultimate-cooldown {

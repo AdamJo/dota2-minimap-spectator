@@ -77,12 +77,9 @@ export class SpriteAnimationComponent implements OnInit {
 
   shrink = 'regular';
 
-  constructor(public renderer: Renderer) {
-    
-  }
+  constructor(public renderer: Renderer) {}
 
   ngOnInit() {
-      console.log(this.heroId)
       this.animateMovement();
       if (this.respawnTimer > 0) {
         this.animateDeath();
