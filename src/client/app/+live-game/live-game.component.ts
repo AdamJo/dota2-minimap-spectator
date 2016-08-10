@@ -4,6 +4,7 @@ import { MapComponent } from './map/index';
 import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
 import { TeamInfoComponent } from './team-info/index';
+import { GameTimePipe } from '../pipes/index';
 
 @Component({
   moduleId: module.id,
@@ -15,7 +16,8 @@ import { TeamInfoComponent } from './team-info/index';
     DraftComponent,
     ScoreboardComponent,
     TeamInfoComponent
-  ]
+  ],
+  pipes: [GameTimePipe]
 })
 export class LiveGameComponent implements DoCheck {
 
@@ -35,7 +37,9 @@ export class LiveGameComponent implements DoCheck {
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
-      // this.scoreboard.duration = 0 // testing 
+      this.series.radiant_series_wins = [1, 1, -1];
+      this.series.dire_series_wins = [1, -1, -1];
+      // this.scoreboard.duration = 60 // testing 
       // this.scoreboard.dire.players[0].respawn_timer = 8 // testing
       // this.scoreboard.dire.players[0].hero = 'ursa' // testing
       // this.scoreboard.dire.bans[3] = -1 // testing

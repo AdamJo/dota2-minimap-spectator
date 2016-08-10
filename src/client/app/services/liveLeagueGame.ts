@@ -62,7 +62,6 @@ export interface Picks {
 export interface Series {
   dire_series_wins: number;
   radiant_series_wins: number;
-  series_type: number;
 }
 
 export interface Players {

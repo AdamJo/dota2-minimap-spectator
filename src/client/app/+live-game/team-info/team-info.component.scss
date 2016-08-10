@@ -2,10 +2,11 @@ $team-background: #222;
 $ultimate-ready: #050;
 $ultimate-inactive: #444;
 $ultimate-border: #080;
-$img-border: #333;
+$img-border: #2f2724;
 
 .flex-conatiner {
   background: $team-background;
+  border: 1px solid $img-border;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -65,4 +66,11 @@ img {
 .ultimate-cooldown {
   position: absolute;
   top: 48px;
+}
+
+@-moz-document url-prefix() {
+    .ultimate-cooldown {
+      left: 28px;
+      position: absolute;
+    }
 }

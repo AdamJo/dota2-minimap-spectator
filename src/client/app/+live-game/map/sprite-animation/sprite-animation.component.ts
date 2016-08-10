@@ -77,13 +77,16 @@ export class SpriteAnimationComponent implements OnInit {
 
   shrink = 'regular';
 
-  constructor(public renderer: Renderer) {}
+  constructor(public renderer: Renderer) {
+  }
 
   ngOnInit() {
-      this.animateMovement();
-      if (this.respawnTimer > 0) {
-        this.animateDeath();
-      }
+    this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX+'%');
+    this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY+'%');
+    this.animateMovement();
+    if (this.respawnTimer > 0) {
+      this.animateDeath();
+    }
   }
   /* 
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart
