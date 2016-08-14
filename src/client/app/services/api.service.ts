@@ -12,7 +12,12 @@ export class ApiService {
   constructor(private af: AngularFire) {}
 
   grabCurrentGame() {
-    return this.af.database.object('currentGame');
+    return this.af.database.list('sortedGames', {
+      query: {
+        orderByChild: 'spectators',
+        limitToLast: 5
+      }
+    });
   }
 
   //returns the radiant and dire players
@@ -23,12 +28,12 @@ export class ApiService {
 
     if (this.firstCheckDone) {
       this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
-          data.scoreboard.radiant.players[i].old_position_x = d.position_x;
-          data.scoreboard.radiant.players[i].old_position_y = d.position_y;
+        data.scoreboard.radiant.players[i].old_position_x = d.position_x;
+        data.scoreboard.radiant.players[i].old_position_y = d.position_y;
       });
       this.currentGame.scoreboard.dire.players.map((d: any, i: any) => {
-          data.scoreboard.dire.players[i].old_position_x = d.position_x;
-          data.scoreboard.dire.players[i].old_position_y = d.position_y;
+        data.scoreboard.dire.players[i].old_position_x = d.position_x;
+        data.scoreboard.dire.players[i].old_position_y = d.position_y;
       });
     } else {
       this.match_id = data.match_id;

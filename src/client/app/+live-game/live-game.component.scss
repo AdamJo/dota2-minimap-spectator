@@ -2,6 +2,7 @@ $team-background: #222;
 $inactive-series: #935C08;
 $active-series: #b8860b;
 $gradient-black: #211602;
+$border-color: #2f2724;
 
 .flex-container {
   align-items: center;
@@ -25,6 +26,7 @@ $gradient-black: #211602;
   justify-content: center;
   width: 800px;
   background: #111;
+  border: 1px solid $border-color;
 }
 
 .map {

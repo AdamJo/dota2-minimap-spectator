@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ApiService } from './services/index';
-import { FirebaseObjectObservable } from 'angularfire2';
+import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
@@ -17,12 +17,13 @@ import { FirebaseObjectObservable } from 'angularfire2';
   ]
 })
 export class AppComponent {
-  currentGame: FirebaseObjectObservable<any>;
+  currentGame: FirebaseListObservable<any>;
 
   constructor(private apiService: ApiService ) {
     this.currentGame = apiService.grabCurrentGame();
     this.currentGame.subscribe(data => {
-      apiService.sortScoreboard(data);
+      console.log(data)
+      apiService.sortScoreboard(data[data.length - 1]);
     });
   }
 }

@@ -1,5 +1,5 @@
 <div *ngIf='scoreboard'>
-  <div *ngIf='scoreboard.duration <= 0'>
+  <div *ngIf='!scoreboard.did_game_start'>
     <app-draft
       [radiant]='scoreboard.radiant'
       [dire]='scoreboard.dire'
@@ -8,13 +8,13 @@
       [league]='league'
     ></app-draft>
   </div>
-  <div class="flex-container" *ngIf='scoreboard.duration > 0'>
+  <div class="flex-container" *ngIf='scoreboard.did_game_start || scoreboard.duration > 0'>
     
     <div class="content">
 
       <div class="team">
       <h4 class="team-names">
-        {{radiantTeamName}}
+        {{direTeamName}}
         <div class="series-games">
           <div ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"  *ngFor="let wins of series.dire_series_wins">
           </div>
@@ -42,7 +42,7 @@
           [team]='scoreboard.radiant.players'
         ></app-team-info>
         <h4 class="team-names">
-          {{direTeamName}}
+          {{radiantTeamName}}
           <div class="series-games">
             <div ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"  *ngFor="let wins of series.radiant_series_wins"></div>
           </div>
