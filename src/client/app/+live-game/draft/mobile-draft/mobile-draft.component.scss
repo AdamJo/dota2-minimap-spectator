@@ -1,18 +1,30 @@
+$dire-alpha: rgba(255, 200, 200, 0.15);
+$radiant-alpha: rgba(200, 255, 200, 0.15);
 $black: #000;
 $dire-color: #800000;
 $radiant-color: #006400;
 $slash-color: #8b0000;
+$grey-alpha: rgba(200, 200, 200, 0.15);
+$black-alpha: rgba(0, 0, 0, 0.65);
+$border-color: #2f2724;
+$draft-background: #111;
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  width: 100%;
 }
 
 .draft-container {
   display: flex;
   flex-flow: nowrap;
   justify-content: center;
-  width: 100%;
+  width: 300px;
+  background: $draft-background;
+  border: 1px solid $border-color;
+  flex-direction: column;
 }
 
 .dire {
@@ -36,7 +48,7 @@ $slash-color: #8b0000;
 .grid-container {
   display: flex;
   justify-content: center;
-  width: 150px;
+  width: 300px;
 }
 
 .grid {
@@ -63,8 +75,12 @@ $slash-color: #8b0000;
   position: relative;
   width: 59px;
 
+  &:nth-child(odd) {
+    margin-right: 5px;
+  }
+
   &:nth-child(-n+4) {
-    background-color: $black;
+    background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
   }
 
   &:nth-child(5) {
@@ -72,7 +88,7 @@ $slash-color: #8b0000;
     width: 130px;
 
     div {
-      background-color: $black;
+      background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
       height: 33px;
       margin: 0 auto;
       width: 59px;
@@ -80,10 +96,59 @@ $slash-color: #8b0000;
   }
 }
 
-.pick-cell,
-.ban-cell {
-  &:nth-child(odd) {
-    margin-right: 5px;
+.dire-picks {
+  .pick-cell {
+    height: 33px;
+    position: relative;
+    width: 59px;
+
+    &:nth-child(odd) {
+      margin-right: 5px;
+    }
+
+    &:nth-child(-n+4) {
+      background: radial-gradient(ellipse at top, $dire-alpha, $black-alpha 110%);
+    }
+
+    &:nth-child(5) {
+      text-align: center;
+      width: 130px;
+
+      div {
+        background: radial-gradient(ellipse at top, $dire-alpha, $black-alpha 110%);
+        height: 33px;
+        margin: 0 auto;
+        width: 59px;
+      }
+    }
+  }
+}
+
+.radiant-picks {
+  .pick-cell {
+    height: 33px;
+    position: relative;
+    width: 59px;
+
+    &:nth-child(odd) {
+      margin-right: 5px;
+    }
+
+    &:nth-child(-n+4) {
+      background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 110%);
+    }
+
+    &:nth-child(5) {
+      text-align: center;
+      width: 130px;
+
+      div {
+        background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 110%);
+        height: 33px;
+        margin: 0 auto;
+        width: 59px;
+      }
+    }
   }
 }
 
@@ -128,6 +193,7 @@ $slash-color: #8b0000;
   margin: 0 auto;
   padding-top: 5px;
   text-align: center;
+  width: 300px;
 }
 
 .active-ban {

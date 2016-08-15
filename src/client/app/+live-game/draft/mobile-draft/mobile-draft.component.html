@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="league-name">{{league.name}}</div>
   <div class="draft-container">
+    <h3 class="league-name">{{league.name}}</h3>
+  <div class="grid-container">
+    
+    <div class="draft">
     <div class="dire">
-      <div class="grid-container">
-        <div class="grid">
-          <span class="team-name">{{direTeamName}}</span>
+      <div class="grid">
+        <span class="team-name">{{direTeamName}}</span>
 
           <div class="line-break"></div>
           <span class="phase">Bans</span>
@@ -23,7 +25,7 @@
           <span class="phase">Picks</span>
           <div class="line-break"></div>
 
-          <div class="picks">
+          <div class="dire-picks picks">
             <div class="pick-cell" *ngFor='let hero of dire?.picks'>
               <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
               <div *ngIf='hero === -1' >&nbsp;</div>
@@ -47,7 +49,6 @@
     </div>
 
     <div class="radiant">
-      <div class="grid-container">
         <div class="grid">
           <span class="team-name">{{radiantTeamName}}</span>
 
@@ -68,10 +69,10 @@
           <span class="phase">Picks</span>
           <div class="line-break"></div>
 
-          <div class="picks">
+          <div class="radiant-picks picks">
             <div class="pick-cell" *ngFor='let hero of radiant?.picks'>
               <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
-              <div *ngIf='hero === -1' >&nbsp;</div>
+              <div class="radiant-cell" *ngIf='hero === -1' >&nbsp;</div>
             </div>
           </div>
 
@@ -88,7 +89,7 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
     </div>
   </div>
 </div>

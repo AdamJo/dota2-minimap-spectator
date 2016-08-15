@@ -2,8 +2,9 @@ $nav-backround: #ccc;
 $black: #333;
 $black-hover: #000;
 $main-nav-background: #eee;
-$button-border: #a9a9a9;
+$button-border: #2f2724;
 $arrow-border: #808080;
+// $button-border: #a9a9a9;
 
 .main-nav {
   background: $main-nav-background;
@@ -101,4 +102,8 @@ h1 {
 
 .inactive {
   opacity: .5;
+}
+
+@media not all and (min-width: 800px) {
+  .content { width: 300px; }
 }
