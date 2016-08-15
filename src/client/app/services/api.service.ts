@@ -1,15 +1,32 @@
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './liveLeagueGame';
+import { FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class ApiService {
 
   public firstCheckDone = false;
   public currentGame: LiveLeagueGame;
+  public gameCount: number;
+  public dataLength: number;
+  public allData: any;
+  public loadDone = false;
   private match_id: number;
+  private gameObservable: FirebaseListObservable<any>;
 
-  constructor(private af: AngularFire) {}
+  constructor(private af: AngularFire) {
+    this.gameCount = 1; //top game
+  }
+
+  main() {
+    this.gameObservable = this.grabCurrentGame();
+    this.gameObservable.subscribe((data:any) => {
+      this.dataLength = data.length;
+      this.allData = data;
+      this.sortScoreboard(data[data.length - this.gameCount]);
+    });
+  }
 
   grabCurrentGame() {
     return this.af.database.list('sortedGames', {
@@ -22,8 +39,10 @@ export class ApiService {
 
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
-    if (this.match_id !== data.match_id) {
-      this.firstCheckDone = false;
+    if (data.match_id) {
+      if (this.match_id !== data.match_id) {
+        this.firstCheckDone = false;
+      }
     }
 
     if (this.firstCheckDone) {
@@ -41,10 +60,23 @@ export class ApiService {
     }
 
     this.currentGame = data;
-    console.log(data);
+    this.loadDone = true;
   }
 
   getCurrentGame() {
     return this.currentGame;
+  }
+
+  decrementTotal() {
+    if (this.gameCount <= this.dataLength - 1) {
+      this.gameCount = this.gameCount + 1;
+      this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
+    }
+  }
+  incrementTotal() {
+    if (this.gameCount > 1) {
+      this.gameCount = this.gameCount - 1;
+      this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
+    }
   }
 }

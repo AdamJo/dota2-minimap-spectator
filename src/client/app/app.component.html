@@ -1,11 +1,24 @@
 <nav role='navigation' class="main-nav" id="main-nav">
   <ul id="main-nav-list">
     <li>
-      <a routerLink='live'>
-        Current
-      </a>
+      Minimap Spectator for Dota 2 - Top 5 Games
     </li>
   </ul>
 </nav>
 
+<div *ngIf='apiService.loadDone;' class="flex-container">
+  <div class="content">
+    <button [disabled]="apiService.gameCount === 1 ? true : false" (click)="incrementTotal()" ngClass="arrow-btn {{apiService.gameCount === 1 ? 'inactive' : 'active' }}">
+      <div @transfer="leftButton" class="left-arrow">
+      </div>
+    </button>
+    <div class="spectators">
+      Spectators: {{apiService.currentGame.spectators}}
+    </div>
+    <button [disabled]="apiService.gameCount === apiService.allData.length ? true : false" (click)="decrementTotal()" ngClass="arrow-btn {{apiService.gameCount === apiService.allData.length ? 'inactive' : 'active' }}">
+      <div @transfer="rightButton" class="right-arrow">
+      </div>
+    </button>
+  </div>
+</div>
 <router-outlet></router-outlet>

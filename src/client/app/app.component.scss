@@ -2,11 +2,14 @@ $nav-backround: #ccc;
 $black: #333;
 $black-hover: #000;
 $main-nav-background: #eee;
+$button-border: #a9a9a9;
+$arrow-border: #808080;
 
 .main-nav {
   background: $main-nav-background;
 
   ul {
+    color: $black;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -17,7 +20,6 @@ $main-nav-background: #eee;
 
   a {
     align-items: flex-start;
-    color: $black;
     display: flex;
     font-size: 1.3rem;
     font-weight: bold;
@@ -35,4 +37,64 @@ $main-nav-background: #eee;
       color: $black-hover;
     }
   }
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.flex-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 800px;
+}
+
+.left-arrow {
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid $arrow-border;
+  border-top: 10px solid transparent;
+  height: 0;
+  width: 0;
+}
+
+.right-arrow {
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid $arrow-border;
+  border-top: 10px solid transparent;
+  height: 0;
+  width: 0;
+}
+
+.arrow-btn {
+  align-items: center;
+  background: transparent;
+  border: 1px solid $button-border;
+  display: flex;
+  flex: 1;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.spectators {
+  flex: 2;
+  line-height: 42px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.inactive {
+  opacity: .5;
 }

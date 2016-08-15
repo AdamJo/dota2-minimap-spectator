@@ -1,8 +1,10 @@
 $team-background: #222;
-$inactive-series: #935C08;
+$inactive-series: #935c08;
 $active-series: #b8860b;
 $gradient-black: #211602;
 $border-color: #2f2724;
+$content-background: #111;
+$series-border: #000;
 
 .flex-container {
   align-items: center;
@@ -11,49 +13,41 @@ $border-color: #2f2724;
   margin-top: 30px;
 }
 
-// .heading {
-//   display: flex;
-//   flex: 1;
-//   flex-wrap: nowrap;
-  
-//   white-space: nowrap;
-// }
-
 .content {
+  background: $content-background;
+  border: 1px solid $border-color;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   width: 800px;
-  background: #111;
-  border: 1px solid $border-color;
 }
 
 .map {
   height: 450px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  margin-top: 5px;
   transform: scale(0.75);
   transform-origin: top;
   width: 450px;
-  margin-right: 2px;
-  margin-bottom: 5px;
-  margin-top: 5px;
 }
 
 .series-games {
-  display: flex;
   align-items: center;
-  width: 40px;
-  margin-left: 15px;
+  display: flex;
   margin-bottom: 3px;
+  margin-left: 15px;
+  width: 40px;
 }
 
 .series {
-  border: 1px solid #000;
+  border: 1px solid $series-border;
   height: 15px;
-  width: 7px;
   margin: 0 2px;
-  transform: skew(-15deg);
   outline: 1px solid transparent;
+  transform: skew(-15deg);
+  width: 7px;
 }
 
 .active {
@@ -65,7 +59,6 @@ $border-color: #2f2724;
 }
 
 .team-names {
-  background: #111;
   display: flex;
   flex-grow: 2;
   justify-content: flex-start;
@@ -79,14 +72,14 @@ $border-color: #2f2724;
   }
 
   &:last-child {
-    margin-top: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
   }
-  
+
   .heading {
-    margin: 0;
     align-self: flex-end;
     flex-grow: 1;
+    margin: 0;
   }
 }
 

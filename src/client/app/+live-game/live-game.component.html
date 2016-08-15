@@ -8,10 +8,9 @@
       [league]='league'
     ></app-draft>
   </div>
-  <div class="flex-container" *ngIf='scoreboard.did_game_start || scoreboard.duration > 0'>
-    
+  <div class="flex-container" *ngIf='scoreboard.did_game_start'>
     <div class="content">
-
+      
       <div class="team">
       <h4 class="team-names">
         {{direTeamName}}
@@ -49,7 +48,6 @@
           <h5 class="heading">{{league.name}}</h5>
         </h4>
       </div>
-
     </div>
   </div>
 </div>
