@@ -21,4 +21,7 @@
     </button>
   </div>
 </div>
+
 <router-outlet></router-outlet>
+
+<h1 *ngIf="!apiService.isApiUp">Steam API is down or no games are being played.</h1>

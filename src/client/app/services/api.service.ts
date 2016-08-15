@@ -12,11 +12,13 @@ export class ApiService {
   public dataLength: number;
   public allData: any;
   public loadDone = false;
+  public isApiUp: boolean;
   private match_id: number;
   private gameObservable: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
     this.gameCount = 1; //top game
+    this.isApiUp = true;
   }
 
   main() {
@@ -24,7 +26,12 @@ export class ApiService {
     this.gameObservable.subscribe((data:any) => {
       this.dataLength = data.length;
       this.allData = data;
-      this.sortScoreboard(data[data.length - this.gameCount]);
+      if (this.dataLength !== 0) {
+        this.sortScoreboard(data[data.length - this.gameCount]);
+        this.isApiUp = true;
+      } else {
+        this.isApiUp = false;
+      }
     });
   }
 
