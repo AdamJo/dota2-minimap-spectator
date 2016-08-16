@@ -1,40 +1,16 @@
-//default imports
-import { APP_BASE_HREF } from '@angular/common';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import { enableProdMode } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-
-//import { APP_ROUTER_PROVIDERS } from './app.routes';
-import { AppComponent } from './app.component';
-import { APP_ROUTER_PROVIDERS } from './app.routes';
-
-//Service and 3rd party libs
-import {FIREBASE_PROVIDERS, defaultFirebase} from 'angularfire2';
-import { ApiService } from './services/index';
-
-if ('<%= ENV %>' === 'prod') { enableProdMode(); }
-
 /**
  * Bootstraps the application and makes the ROUTER_PROVIDERS and the APP_BASE_HREF available to it.
  * @see https://angular.io/docs/ts/latest/api/platform-browser-dynamic/index/bootstrap-function.html
  */
-bootstrap(AppComponent, [
-  ...APP_ROUTER_PROVIDERS,
-  ...FIREBASE_PROVIDERS,
-  defaultFirebase({
-    apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',
-    authDomain: 'dota2-project-c0fd5.firebaseapp.com',
-    databaseURL: 'https://dota2-project-c0fd5.firebaseio.com',
-    storageBucket: 'dota2-project-c0fd5.appspot.com',
-  }),
-  disableDeprecatedForms(),
-  provideForms(),
-  {
-    provide: APP_BASE_HREF,
-    useValue: '<%= APP_BASE %>'
-  },
-  ApiService
-]);
+
+// The browser platform with a compiler
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+// The app module
+import { AppModule } from './app.module';
+
+// Compile and launch the module
+platformBrowserDynamic().bootstrapModule(AppModule);
 
 // In order to start the Service Worker located at "./worker.js"
 // uncomment this line. More about Service Workers here
