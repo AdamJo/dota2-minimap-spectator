@@ -23,7 +23,8 @@ const firebaseConfig = {
     BrowserModule,
     RouterModule.forRoot(routes),
   // ],
-    AngularFireModule.initializeApp(firebaseConfig)],
+    AngularFireModule.initializeApp(firebaseConfig)
+  ],
   declarations: [ LiveGameComponent, AppComponent ],
   providers: [{
     provide: APP_BASE_HREF,
