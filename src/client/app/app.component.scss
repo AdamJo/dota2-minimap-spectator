@@ -1,10 +1,8 @@
-$nav-backround: #ccc;
-$black: #333;
-$black-hover: #000;
 $main-nav-background: #eee;
-$button-border: #2f2724;
 $arrow-border: #808080;
-// $button-border: #a9a9a9;
+$button-border: #2f2724;
+$black: #000;
+$content-background: #111;
 
 .main-nav {
   background: $main-nav-background;
@@ -17,26 +15,6 @@ $arrow-border: #808080;
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-
-  a {
-    align-items: flex-start;
-    display: flex;
-    font-size: 1.3rem;
-    font-weight: bold;
-    max-width: 140px;
-    padding: 0.75rem;
-    text-decoration: none;
-
-    &:hover {
-      background: $nav-backround;
-      color: $black-hover;
-    }
-
-    &:focus {
-      background: $nav-backround;
-      color: $black-hover;
-    }
   }
 }
 
@@ -91,6 +69,11 @@ h1 {
   height: 40px;
   justify-content: center;
   width: 40px;
+}
+
+.btn-content {
+  display: flex;
+  justify-content: center;
 }
 
 .spectators {

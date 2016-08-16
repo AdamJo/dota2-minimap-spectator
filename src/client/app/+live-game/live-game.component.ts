@@ -37,7 +37,8 @@ export class LiveGameComponent implements DoCheck {
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
-      // this.scoreboard.duration = 60 // testing 
+      // this.scoreboard.duration = 60 // testing
+      //  this.scoreboard.did_game_start = false; 
       // this.scoreboard.dire.players[0].respawn_timer = 8 // testing
       // this.scoreboard.dire.players[0].hero = 'ursa' // testing
       // this.scoreboard.dire.bans[3] = -1 // testing
