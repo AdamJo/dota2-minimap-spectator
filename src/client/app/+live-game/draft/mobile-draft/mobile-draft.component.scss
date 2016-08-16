@@ -29,7 +29,8 @@ $slash-color: #8b0000;
 
 .dire {
   display: flex;
-
+  // width: 150px;
+  // margin: 0;
   .side {
     color: $dire-color;
     font-size: 0.6rem;
@@ -45,10 +46,16 @@ $slash-color: #8b0000;
   }
 }
 
+.draft {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .grid-container {
   display: flex;
-  justify-content: center;
-  width: 300px;
+  flex-direction: column;
+  justify-content: center;  
 }
 
 .grid {
