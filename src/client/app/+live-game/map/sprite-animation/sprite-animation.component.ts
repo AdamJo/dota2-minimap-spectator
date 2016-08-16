@@ -15,7 +15,7 @@ import { SpritesComponent } from '../sprites/index';
       #position
       (mouseenter)=toggle()
       (mouseleave)=toggle()
-      @shrink='shrink'
+      [@shrink]='shrink'
       ngClass="icons {{ team === 'radiant' ? 'radiant' : team === 'dire' ? 'dire' : 'roshan' }}">
       <app-sprites
         [team]='team' 

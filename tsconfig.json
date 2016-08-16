@@ -23,5 +23,8 @@
     "typings/modules",
     "src"
   ],
+  "types": [
+    "firebase"
+  ],
   "compileOnSave": false
 }
