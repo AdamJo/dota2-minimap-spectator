@@ -1,6 +1,5 @@
 import { Component, HostListener,
   trigger, state, style, transition, animate } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ApiService } from './services/index';
 
 /**
@@ -12,9 +11,6 @@ import { ApiService } from './services/index';
   selector: 'root-app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [
-    ROUTER_DIRECTIVES
-  ],
   animations: [
     trigger('transfer', [
       state('left', style({
@@ -32,8 +28,7 @@ import { ApiService } from './services/index';
       transition('left <=> leftGo', animate('300ms linear')),
       transition('right <=> rightGo', animate('300ms linear'))
     ])
-  ],
-  providers: [ApiService, ]
+  ]
 })
 
 export class AppComponent {

@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
-// import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-// import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { LiveGameComponent } from './+live-game/live-game.component';
@@ -22,17 +20,20 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-  // ],
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  declarations: [ LiveGameComponent, AppComponent ],
-  providers: [{
+  declarations: [
+    AppComponent,
+    LiveGameComponent
+  ],
+  providers: [
+    ApiService,
+    {
     provide: APP_BASE_HREF,
-    useValue: '<%= APP_BASE %>',
-    ApiService
-  }],
+    useValue: '<%= APP_BASE %>'
+    }
+  ],
   bootstrap: [AppComponent]
-
 })
 
 export class AppModule { }
