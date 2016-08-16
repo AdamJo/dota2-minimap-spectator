@@ -20,7 +20,6 @@
           <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_sb.png" alt="{{player.hero}}">
           <app-hero-respawn *ngIf="player.respawn_timer > 0"
             [respawn]="player.respawn_timer"
-            [duration]="scoreboard.duration"
             (respawnEnd)="onVoted($event)"></app-hero-respawn>
         </div>
         <div class="player-name">{{player.name}}</div>

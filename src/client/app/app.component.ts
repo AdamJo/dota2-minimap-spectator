@@ -32,7 +32,8 @@ import { ApiService } from './services/index';
       transition('left <=> leftGo', animate('300ms linear')),
       transition('right <=> rightGo', animate('300ms linear'))
     ])
-  ]
+  ],
+  providers: [ApiService, ]
 })
 
 export class AppComponent {
