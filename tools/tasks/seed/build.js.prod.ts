@@ -28,6 +28,7 @@ export = () => {
     .pipe(plugins.plumber())
     .pipe(plugins.inlineNg2Template(INLINE_OPTIONS))
     .pipe(plugins.typescript(tsProject));
+    // (TODO) add when firebase@beta.3 and errors are removed from build
     // .once('error', function () {
     //   this.once('finish', () => process.exit(1));
     // });
