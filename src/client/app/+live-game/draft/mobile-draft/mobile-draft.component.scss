@@ -1,30 +1,30 @@
-$dire-alpha: rgba(255, 200, 200, 0.15);
-$radiant-alpha: rgba(200, 255, 200, 0.15);
-$black: #000;
+$content-background: #111;
+$border-color: #2f2724;
 $dire-color: #800000;
 $radiant-color: #006400;
-$slash-color: #8b0000;
-$grey-alpha: rgba(200, 200, 200, 0.15);
 $black-alpha: rgba(0, 0, 0, 0.65);
-$border-color: #2f2724;
-$draft-background: #111;
+$dire-alpha: rgba(255, 200, 200, 0.15);
+$radiant-alpha: rgba(200, 255, 200, 0.15);
+$grey-alpha: rgba(200, 200, 200, 0.15);
+$slash-color: #8b0000;
 
 .container {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   margin: 0 auto;
 }
 
 .draft-container {
+  background: $content-background;
+  border: 1px solid $border-color;
   display: flex;
+  flex-direction: column;
   flex-flow: nowrap;
+  height: 475px;
   justify-content: center;
   width: 300px;
-  background: $draft-background;
-  border: 1px solid $border-color;
-  flex-direction: column;
 }
 
 .dire {

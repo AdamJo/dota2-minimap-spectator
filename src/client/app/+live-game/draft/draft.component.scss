@@ -1,15 +1,18 @@
+$content-background: #111;
+$border-color: #2f2724;
+$dire-color: #800000;
+$radiant-color: #006400;
+$black-alpha: rgba(0, 0, 0, 0.65);
 $dire-alpha: rgba(255, 200, 200, 0.15);
 $radiant-alpha: rgba(200, 255, 200, 0.15);
 $grey-alpha: rgba(200, 200, 200, 0.15);
-$black-alpha: rgba(0, 0, 0, 0.65);
-$background-cell-color: #444;
-$black: #000;
-$dire-color: #800000;
-$radiant-color: #006400;
 $slash-color: #8b0000;
 
 .container {
+  background-color: $content-background;
+  border: 1px solid $border-color;
   margin: 0 auto;
+  margin-top: 15px;
   width: 1020px;
 }
 
@@ -17,23 +20,29 @@ $slash-color: #8b0000;
   display: flex;
   flex-flow: wrap;
   justify-content: flex-start;
+  margin: 0 5px;
 }
 
 .titles {
   align-items: center;
   display: flex;
   flex-wrap: nowrap;
+
+  &:last-child {
+    margin-bottom: 5px;
+    margin-top: 2px;
+  }
 }
 
 .dire-name {
   color: $dire-color;
-  padding-left: 5px;
+  padding-left: 8px;
   width: 60px;
 }
 
 .radiant-name {
   color: $radiant-color;
-  padding-left: 5px;
+  padding-left: 10px;
   width: 60px;
 }
 
@@ -123,7 +132,9 @@ $slash-color: #8b0000;
 }
 
 .league-name {
+  margin-bottom: 10px;
   margin-left: 50px;
+  margin-top: 10px;
 }
 
 .active-ban {
