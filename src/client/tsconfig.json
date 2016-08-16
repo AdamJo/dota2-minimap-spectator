@@ -16,8 +16,8 @@
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true
   },
-  "files": [
-    "firebase.ts"
+  "types": [
+    "firebase"
   ],
   "compileOnSave": false
 }
