@@ -16,8 +16,5 @@
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true
   },
-  "types": [
-    "firebase"
-  ],
   "compileOnSave": false
 }

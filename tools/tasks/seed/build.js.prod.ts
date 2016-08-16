@@ -27,10 +27,10 @@ export = () => {
   let result = gulp.src(src)
     .pipe(plugins.plumber())
     .pipe(plugins.inlineNg2Template(INLINE_OPTIONS))
-    .pipe(plugins.typescript(tsProject))
-    .once('error', function () {
-      this.once('finish', () => process.exit(1));
-    });
+    .pipe(plugins.typescript(tsProject));
+    // .once('error', function () {
+    //   this.once('finish', () => process.exit(1));
+    // });
 
 
   return result.js
