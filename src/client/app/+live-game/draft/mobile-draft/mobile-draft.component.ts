@@ -3,12 +3,14 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
   style,
   transition,
   animate } from '@angular/core';
+import { MiniDraftComponent } from './mini-draft/index';
 
 @Component({
   moduleId: module.id,
   selector: 'mobile-draft',
   templateUrl: 'mobile-draft.component.html',
   styleUrls: ['mobile-draft.component.css'],
+  directives: [MiniDraftComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('draft', [

@@ -7,29 +7,10 @@
       <div class="grid">
         <span class="team-name">{{direTeamName}}</span>
         
-          <div class="line-break"></div>
-          <span class="phase">Bans</span>
-          <div class="line-break"></div>
-
-          <div class="bans">
-            <div class="ban-cell" *ngFor='let hero of dire?.bans'>
-              <div class="active-ban" *ngIf='hero !== -1'>
-                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
-              </div>
-              <div *ngIf='hero === -1' >&nbsp;</div>
-            </div>
-          </div>
-
-          <div class="line-break"></div>
-          <span class="phase">Picks</span>
-          <div class="line-break"></div>
-
-          <div class="dire-picks picks">
-            <div class="pick-cell" *ngFor='let hero of dire?.picks'>
-              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
-              <div *ngIf='hero === -1' >&nbsp;</div>
-            </div>
-          </div>
+          <app-mini-draft
+            [side]='"dire"'
+            [team]='dire'
+          ></app-mini-draft>
 
           <div class="line-break"></div>
           <span class="side-name">
@@ -50,29 +31,10 @@
         <div class="grid">
           <span class="team-name">{{radiantTeamName}}</span>
 
-          <div class="line-break"></div>
-          <span class="phase">Bans</span>
-          <div class="line-break"></div>
-
-          <div class="bans">
-            <div class="ban-cell" *ngFor='let hero of radiant?.bans'>
-              <div class="active-ban" *ngIf='hero !== -1'>
-                <img @draft src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
-              </div>
-              <div *ngIf='hero === -1' >&nbsp;</div>
-            </div>
-          </div>
-
-          <div class="line-break"></div>
-          <span class="phase">Picks</span>
-          <div class="line-break"></div>
-
-          <div class="radiant-picks picks">
-            <div class="pick-cell" *ngFor='let hero of radiant?.picks'>
-              <img @draft *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_sb.png' alt="{{hero}}">
-              <div class="radiant-cell" *ngIf='hero === -1' >&nbsp;</div>
-            </div>
-          </div>
+          <app-mini-draft
+            [side]='"radiant"'
+            [team]='radiant'
+          ></app-mini-draft>
 
           <div class="line-break"></div>
           <span class="side-name">
