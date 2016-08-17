@@ -1,0 +1,180 @@
+$content-background: #111;
+$border-color: #2f2724;
+$dire-color: #800000;
+$radiant-color: #006400;
+$black-alpha: rgba(0, 0, 0, 0.65);
+$dire-alpha: rgba(255, 200, 200, 0.15);
+$radiant-alpha: rgba(200, 255, 200, 0.15);
+$grey-alpha: rgba(200, 200, 200, 0.15);
+$slash-color: #8b0000;
+
+.mini-draft {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 140px;
+}
+
+.phase {
+  font-size: 0.6rem;
+}
+
+.bans,
+.picks {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  height: 130px;
+  justify-content: flex-start;
+  width: 130px;
+}
+
+.ban-cell,
+.pick-cell {
+  height: 33px;
+  position: relative;
+  width: 59px;
+
+  &:nth-child(odd) {
+    margin-right: 5px;
+  }
+
+  &:nth-child(-n+4) {
+    background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
+  }
+
+  &:nth-child(5) {
+    text-align: center;
+    width: 130px;
+
+    div {
+      background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
+      height: 33px;
+      margin: 0 auto;
+      width: 59px;
+    }
+  }
+}
+
+.active-ban {
+  &::before {
+    border-top: 1px solid;
+    color: $slash-color;
+    content: '';
+    left: -3px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotate(-25deg);
+    width: 65px;
+  }
+}
+
+.ban-cell {
+  &:nth-child(5) {
+    .active-ban {
+      &::before {
+        border-top: 1px solid;
+        color: $slash-color;
+        content: '';
+        left: 24%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: rotate(-25deg);
+        width: 65px;
+      }
+    }
+  }
+}
+
+.dire-picks {
+  .pick-cell {
+    height: 33px;
+    position: relative;
+    width: 59px;
+
+    &:nth-child(odd) {
+      margin-right: 5px;
+    }
+
+    &:nth-child(-n+4) {
+      background: radial-gradient(ellipse at top, $dire-alpha, $black-alpha 110%);
+    }
+
+    &:nth-child(5) {
+      text-align: center;
+      width: 130px;
+
+      div {
+        background: radial-gradient(ellipse at top, $dire-alpha, $black-alpha 110%);
+        height: 33px;
+        margin: 0 auto;
+        width: 59px;
+      }
+    }
+  }
+}
+
+.radiant-picks {
+  .pick-cell {
+    height: 33px;
+    position: relative;
+    width: 59px;
+
+    &:nth-child(odd) {
+      margin-right: 5px;
+    }
+
+    &:nth-child(-n+4) {
+      background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 110%);
+    }
+
+    &:nth-child(5) {
+      text-align: center;
+      width: 130px;
+
+      div {
+        background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 110%);
+        height: 33px;
+        margin: 0 auto;
+        width: 59px;
+      }
+    }
+  }
+}
+
+.line-break {
+  width: 100%;
+}
+
+.side-name {
+  text-align: center;
+  width: 130px;
+}
+
+.dire {
+  color: $dire-color;
+  font-size: 0.6rem;
+}
+
+.radiant {
+  color: $radiant-color;
+  font-size: 0.6rem;
+}
+
+.players {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  width: 130px;
+}
+
+.player-cell {
+  font-size: 0.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
