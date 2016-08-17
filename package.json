@@ -120,7 +120,6 @@
     "@angular/platform-browser": "2.0.0-rc.5",
     "@angular/platform-browser-dynamic": "2.0.0-rc.5",
     "@angular/router": "3.0.0-rc.1",
-    "@types/hammerjs": "^2.0.30",
     "angularfire2": "^2.0.0-beta.3-pre2",
     "core-js": "^2.4.0",
     "es6-module-loader": "^0.17.8",

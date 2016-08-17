@@ -42,7 +42,6 @@ export class AppComponent {
     this.loaded = this.apiService.loadDone;
   }
 
-
   decrementTotal() {
     console.log('inside swipe');
     this.apiService.decrementTotal();
