@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { routes } from './app.routes';
+
+import { AngularFireModule } from 'angularfire2';
+
+import { AppComponent } from './app.component';
 import { LiveGameComponent } from './+live-game/live-game.component';
 import { ApiService } from './services/index';
 
-import { AngularFireModule } from 'angularfire2';
+import 'hammerjs/hammer.min';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',

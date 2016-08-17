@@ -37,6 +37,14 @@ export class ProjectConfig extends SeedConfig {
     ];
 
     this.SYSTEM_CONFIG_DEV.paths['firebase'] =
+      `${this.APP_BASE}node_modules/hammerjs/hammer.min`;
+
+    this.SYSTEM_BUILDER_CONFIG.packages['hammer'] = {
+        main: 'hammer.min.js',
+        defaultExtension : 'js'
+    };
+
+    this.SYSTEM_CONFIG_DEV.paths['firebase'] =
       `${this.APP_BASE}node_modules/firebase/firebase`;
 
     this.SYSTEM_CONFIG_DEV.paths['angularfire2'] =

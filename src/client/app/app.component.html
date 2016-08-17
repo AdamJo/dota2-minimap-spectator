@@ -1,10 +1,11 @@
-<nav role='navigation' class="main-nav" id="main-nav">
+<div (swipeleft)="incrementTotal()" (swiperight)="decrementTotal()">
+<nav class="main-nav" id="main-nav">
   <ul id="main-nav-list">
     <li *ngIf="apiService.isApiUp">
       Minimap Spectator for Dota 2
     </li>
     <li *ngIf="!apiService.isApiUp">
-      Steam API down or no games are being played.
+      Steam API down or no games up.
     </li>
   </ul>
 </nav>
@@ -18,7 +19,7 @@
       </div>
     </button>
     <div class="spectators">
-      Game {{apiService.gameCount}} of {{apiService.dataLength}} - Spectators: {{apiService.currentGame.spectators}}
+      {{apiService.gameCount}} of {{apiService.dataLength}} - Spectators: {{apiService.currentGame.spectators}}
     </div>
     <button [disabled]="apiService.gameCount === apiService.allData.length ? true : false" (click)="decrementTotal()" ngClass="arrow-btn {{apiService.gameCount === apiService.allData.length ? 'inactive' : 'active' }}">
       <div class="btn-content">
@@ -30,3 +31,4 @@
 </div>
 
 <router-outlet></router-outlet>
+</div>

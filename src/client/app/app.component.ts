@@ -33,22 +33,36 @@ import { ApiService } from './services/index';
 
 export class AppComponent {
   loaded: boolean;
-  leftButton = 'left';
-  rightButton = 'right';
+  leftButton: string = 'left';
+  rightButton: string = 'right';
+  swipeDirection: string = '-';
 
   constructor(private apiService: ApiService ) {
     this.apiService.main();
     this.loaded = this.apiService.loadDone;
   }
 
+
   decrementTotal() {
+    console.log('inside swipe');
     this.apiService.decrementTotal();
     this.rightButton = this.rightButton === 'right' ? 'rightGo' : 'right';
   }
 
   incrementTotal() {
+    console.log('inside swipe');
     this.apiService.incrementTotal();
     this.leftButton = this.leftButton === 'left' ? 'leftGo' : 'left';
+  }
+
+  onSwipe(event: any) {
+    console.log('inside swipe');
+    this.apiService.currentGame.spectators = 99;
+    if (event.deltaX > 0) {
+      this.decrementTotal();
+    } else {
+      this.incrementTotal();
+    }
   }
 
   @HostListener(`document:keydown`, ['$event'])
