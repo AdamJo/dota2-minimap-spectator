@@ -13,6 +13,9 @@ import { ApiService } from './services/index';
 
 import 'hammerjs/hammer.min';
 
+//(TODO) remove with new firebase version
+import 'firebase';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',
   authDomain: 'dota2-project-c0fd5.firebaseapp.com',
