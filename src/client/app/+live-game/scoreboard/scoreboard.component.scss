@@ -11,6 +11,7 @@ $box-shadow-color: rgba(0, 0, 0, 0.75);
 $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
 $border-color: #2f2724;
 $black: #000;
+$background: #111;
 
 li {
   border: 1px solid $border-color;
@@ -27,13 +28,56 @@ ul {
 
 img {
   margin-left: 3px;
+  height: 33px;
+  width: 59px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: center;
+  // border: 1px solid $border-color;
+  // padding-top: 7px;
+}
+
+.players-name {
+  text-align: left;
+  min-width: 0;
+  width: 130px;
+  font-size: .5rem;
+}
+
+.side {
+  width: 150px;
+  // height: 286px;
+  display: flex;
+  justify-content: center;
+
+  // background: linear-gradient(to bottom, $menu-gradiant-radiant, $background);
+}
+
+.dire-draft {
+  // border: 1px solid $border-color;
+  border-top: 1px solid $border-color;
+  // border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  background: linear-gradient(to bottom, $menu-gradiant-dire, $background);
+}
+
+.radiant-draft {
+  // border: 1px solid $border-color;
+  border-top: 1px solid $border-color;
+  border-left: 1px solid $border-color;
+  // border-right: 1px solid $border-color;
+  background: linear-gradient(to bottom, $menu-gradiant-radiant, $background);
 }
 
 .container {
   color: $text-color;
   font-size: 0.8rem;
   height: 450px;
-  width: 300px;
+  width: 310px;
   // transform-origin: top left;
   // transform: scale(0.90);
 }

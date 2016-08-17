@@ -10,6 +10,8 @@ import { AddCommasPipe } from '../../pipes/index';
 import { HeroItemsComponent } from './hero-items/index';
 import { HeroRespawnComponent } from './hero-respawn/index';
 
+import { MiniDraftComponent } from '../draft/mobile-draft/mini-draft/index';
+
 @Component({
   moduleId: module.id,
   selector: 'app-scoreboard',
@@ -18,7 +20,8 @@ import { HeroRespawnComponent } from './hero-respawn/index';
   ],
   directives: [
     HeroItemsComponent,
-    HeroRespawnComponent
+    HeroRespawnComponent,
+    MiniDraftComponent
   ],
   templateUrl: 'scoreboard.component.html',
   styleUrls: ['scoreboard.component.css']
@@ -30,12 +33,13 @@ export class ScoreboardComponent implements OnChanges {
   @Input() scoreboard: any;
   combinedPlayers: any;
   newValues: any;
-  active: boolean;
+  active: string;
   sortedValue: string;
   menuTitle: string;
   items: Array<string>;
   deathTimer: number;
   deathList: Array<any>;
+  isDraft: string;
 
   menuOptions = [
     {name: 'kills', option: '(Q) KILL/DEATH/ASSISTS' },
@@ -46,11 +50,11 @@ export class ScoreboardComponent implements OnChanges {
     {name: 'net_worth', option: '(Y) NET WORTH' },
     {name: 'gold_per_min', option: '(U) GOLD PER MINUTE' },
     {name: 'ultimate_cooldown', option: '(I) ULTIMATE COOLDOWN' },
-    {name: 'respawn_timer', option: '(O) RESPAWN TIMER' },
+    {name: 'draft', option: '(O) DRAFT' },
   ];
 
   constructor(private _eref: ElementRef) {
-    this.active = true;
+    this.active = 'scoreboard';
     this.sortedValue = 'net_worth';
     this.menuTitle = 'GAME STATS';
   }
@@ -77,10 +81,14 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   sortPlayers(value: string, menuTitleOption: string) {
-    this.sortValues(value);
-    this.sortedValue = value;
-    this.menuTitle = menuTitleOption;
-    this.active = true;
+    if (value === 'draft') {
+      this.callDraft(value, menuTitleOption);
+    } else {
+      this.sortValues(value);
+      this.sortedValue = value;
+      this.menuTitle = menuTitleOption;
+      this.active = 'scoreboard';
+    }
   }
 
   addTeamToPlayers(scoreboard:any) {
@@ -95,17 +103,28 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   toggle() {
-    this.active = this.active ? false : true;
+    this.active = this.active === 'menu' ? 'scoreboard' : 'menu';
   }
 
   @HostListener(`document:click`, ['$event.target'])
   onClick(event: any) {
-  if (!this._eref.nativeElement.contains(event)) // or some similar check
-     this.active = true;
+    if (!this._eref.nativeElement.contains(event)) {
+      // need the if since draft is not in the scoreboard area
+      if (this.menuTitle === '(O) DRAFT') {
+        this.active = 'draft';
+      } else {
+        this.active = 'scoreboard';
+      }
+    }
   }
 
   playerItems(value: Array<string>) {
     this.items = value;
+  }
+
+  callDraft(value: string, menuTitleOption: string) {
+    this.menuTitle = menuTitleOption;
+    this.active = 'draft';
   }
 
   @HostListener(`document:keypress`, ['$event'])
@@ -145,7 +164,7 @@ export class ScoreboardComponent implements OnChanges {
           break;
         case 'o':
         case 'O':
-          this.sortPlayers('respawn_timer', '(O) RESPAWN TIMER');
+          this.callDraft('draft', '(O) DRAFT');
           break;
       }
   }

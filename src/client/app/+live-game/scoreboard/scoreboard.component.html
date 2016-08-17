@@ -7,14 +7,14 @@
         {{menuTitle}}
       </div>
   </div>
-  <ul [hidden]="active" class="nav-menu">
+  <ul [hidden]="active === 'scoreboard' || active === 'draft'" class="nav-menu">
     <li>GAME STATS</li>
     <li (click)="sortPlayers(choice.name, choice.option)" *ngFor="let choice of menuOptions">
       {{choice.option}}
     </li>
   </ul>
 
-  <ul [hidden]="!active" class="nav-players">
+  <ul [hidden]="active === 'menu' || active === 'draft'" class="nav-players">
     <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
         <div class="repsawn-img">
           <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_sb.png" alt="{{player.hero}}">
@@ -30,6 +30,21 @@
         </div>
     </li>
   </ul>
+  <div class="grid">
+    <div class="side dire-draft">
+    <app-mini-draft [hidden]="active === 'menu' || active === 'scoreboard'"
+      [side]="'dire'"
+      [team]="scoreboard.dire"
+    >
+    </app-mini-draft>
+    </div>
+    
+    <div class="side radiant-draft">
+    <app-mini-draft [hidden]="active === 'menu' || active === 'scoreboard'"
+      [side]="'radiant'"
+      [team]="scoreboard.radiant"
+    >
+    </app-mini-draft>
+    </div>
+  </div>
 </div>
-<!--<app-hero-items
-  [items]='items'></app-hero-items> -->
