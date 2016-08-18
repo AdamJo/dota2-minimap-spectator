@@ -17,7 +17,7 @@
   <ul [hidden]="active === 'menu' || active === 'draft'" class="nav-players">
     <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
         <div class="repsawn-img">
-          <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_sb.png" alt="{{player.hero}}">
+          <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
           <app-hero-respawn *ngIf="player.respawn_timer > 0"
             [respawn]="player.respawn_timer"
             (respawnEnd)="onVoted($event)"></app-hero-respawn>
