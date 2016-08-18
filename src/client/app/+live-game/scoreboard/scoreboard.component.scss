@@ -27,8 +27,8 @@ ul {
 }
 
 img {
-  margin-left: 3px;
   height: 33px;
+  margin-left: 3px;
   width: 59px;
 }
 
@@ -42,35 +42,28 @@ img {
 }
 
 .players-name {
-  text-align: left;
-  min-width: 0;
-  width: 130px;
   font-size: .5rem;
+  min-width: 0;
+  text-align: left;
+  width: 130px;
 }
 
 .side {
-  width: 150px;
-  // height: 286px;
   display: flex;
   justify-content: center;
-
-  // background: linear-gradient(to bottom, $menu-gradiant-radiant, $background);
+  width: 150px;
 }
 
 .dire-draft {
-  // border: 1px solid $border-color;
-  border-top: 1px solid $border-color;
-  // border-left: 1px solid $border-color;
-  border-right: 1px solid $border-color;
   background: linear-gradient(to bottom, $menu-gradiant-dire, $background);
+  border-right: 1px solid $border-color;
+  border-top: 1px solid $border-color;
 }
 
 .radiant-draft {
-  // border: 1px solid $border-color;
-  border-top: 1px solid $border-color;
-  border-left: 1px solid $border-color;
-  // border-right: 1px solid $border-color;
   background: linear-gradient(to bottom, $menu-gradiant-radiant, $background);
+  border-left: 1px solid $border-color;
+  border-top: 1px solid $border-color;
 }
 
 .container {
@@ -78,8 +71,6 @@ img {
   font-size: 0.8rem;
   height: 450px;
   width: 310px;
-  // transform-origin: top left;
-  // transform: scale(0.90);
 }
 
 .nav-menu {
@@ -101,16 +92,10 @@ img {
 
 .dire {
   background: linear-gradient(to right, $menu-gradiant-dire, $black);
-  // border-top: 3px solid rgba(90, 23, 29, 0.05);
-  // border-bottom: 3px solid rgba(90, 23, 29, 0.05);
-  // background: linear-gradient(to right, rgb(90, 23, 29), rgb(0, 0, 0));
 }
 
 .radiant {
   background: linear-gradient(to right, $menu-gradiant-radiant, $black);
-  // border-top: 3px solid rgba(74, 155, 76, 0.05);
-  // border-bottom: 3px solid rgba(74, 155, 76, 0.05);
-  // background: linear-gradient(to right, rgb(45, 74, 28), rgb(0, 0, 0));
 }
 
 .nav-players {

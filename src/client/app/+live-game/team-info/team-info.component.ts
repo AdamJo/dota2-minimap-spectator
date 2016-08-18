@@ -14,8 +14,4 @@ import { HeroItemsComponent } from '../scoreboard/hero-items/index';
 export class TeamInfoComponent {
   @Input() side: any;
   @Input() team: any;
-
-  ngOnInit() {
-    console.log(this.team)
-  }
 }

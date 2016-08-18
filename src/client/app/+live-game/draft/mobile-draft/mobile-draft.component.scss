@@ -17,6 +17,7 @@ $slash-color: #8b0000;
 }
 
 .draft-container {
+  align-content: center;
   background: $content-background;
   border: 1px solid $border-color;
   display: flex;
@@ -24,7 +25,6 @@ $slash-color: #8b0000;
   flex-flow: nowrap;
   height: 475px;
   justify-content: center;
-  align-content: center;
   width: 300px;
 }
 
