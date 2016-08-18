@@ -9,15 +9,15 @@ import { Observable } from 'rxjs/rx';
     .respawn {
       background: black;
       opacity: 0.75;
-      height: 33px;
-      width: 59px;
+      height: 46px;
+      width: 82.27px;
       position: absolute;
       left: 3px;
     }
 
     .respawn div {
-      height: 33px;
-      width: 59px;
+      height: 46px;
+      width: 82.27px;
       vertical-align: middle;
       text-align: center;
       background: #000;

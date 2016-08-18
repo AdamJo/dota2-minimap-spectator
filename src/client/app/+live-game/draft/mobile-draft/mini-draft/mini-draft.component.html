@@ -1,7 +1,4 @@
 <div class="mini-draft">
-  <div class="line-break"></div>
-    <span class="phase">Bans</span>
-  <div class="line-break"></div>
   <div class="bans">
     <div class="ban-cell" *ngFor='let hero of team?.bans'>
       <div class="active-ban" *ngIf='hero !== -1'>
@@ -10,10 +7,6 @@
       <div *ngIf='hero === -1' >&nbsp;</div>
     </div>
   </div>
-
-  <div class="line-break"></div>
-  <span class="phase">Picks</span>
-  <div class="line-break"></div>
 
   <div ngClass="{{side}}-picks picks">
     <div class="pick-cell" *ngFor='let hero of team?.picks'>

@@ -18,14 +18,15 @@ $radiant-color: #006400;
 .team-side {
   background: $team-background;
   display: flex;
-  height: 90px;
-  justify-content: space-around;
-  width: 750px;
+  height: 105px;
+  justify-content: center;
+  width: 1000px;
 }
 
 .items {
   margin-bottom: 2px;
-  width: 75px;
+  width: 90px;
+  margin-top: 2px;
 }
 
 .team {
@@ -38,21 +39,22 @@ $radiant-color: #006400;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-right: 5px;
+  // margin-right: 5px;
   position: relative;
+  width: 110px;
 }
 
 img {
   border: 1px solid $border-color;
-  height: 33px;
-  width: 59px;
+  // height: 33px;
+  width: 70%;
 }
 
 .ultimate {
   // background: $ultimate-ready;
   border: 1px solid $ultimate-border;
   height: 18px;
-  margin-top: 8px;
+  margin-top: 12px;
   opacity: .8;
   transform: rotate(45deg);
   width: 18px;
@@ -68,12 +70,12 @@ img {
 
 .ultimate-cooldown {
   position: absolute;
-  top: 48px;
+  top: 63px;
 }
 
 @-moz-document url-prefix() {
     .ultimate-cooldown {
-      left: 28px;
+      left: 43px;
       position: absolute;
     }
 }

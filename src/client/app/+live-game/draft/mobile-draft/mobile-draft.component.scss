@@ -23,9 +23,9 @@ $slash-color: #8b0000;
   display: flex;
   flex-direction: column;
   flex-flow: nowrap;
-  height: 475px;
+  // height: 475px;
   justify-content: center;
-  width: 300px;
+  width: 600px;
 }
 
 .dire {
@@ -33,7 +33,7 @@ $slash-color: #8b0000;
 
   .side {
     color: $dire-color;
-    font-size: 0.6rem;
+    // font-size: 0.6rem;
   }
 }
 
@@ -42,7 +42,7 @@ $slash-color: #8b0000;
 
   .side {
     color: $radiant-color;
-    font-size: 0.6rem;
+    // font-size: 0.6rem;
   }
 }
 
@@ -57,7 +57,7 @@ $slash-color: #8b0000;
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: center;
-  width: 140px;
+  width: 300px;
 }
 
 .bans,
@@ -158,11 +158,11 @@ $slash-color: #8b0000;
   flex-direction: column;
   justify-content: flex-start;
   min-width: 0;
-  width: 130px;
+  width: 260px;
 }
 
 .player-cell {
-  font-size: 0.6rem;
+  // font-size: 0.6rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -177,8 +177,9 @@ $slash-color: #8b0000;
 }
 
 .team-name {
-  font-size: 0.7rem;
+  font-size: 1.4rem;
   margin-top: 10px;
+  margin-bottom: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

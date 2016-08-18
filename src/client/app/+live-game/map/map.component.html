@@ -1,7 +1,7 @@
 <div class="container">
-<div class="flex-container">
+<div class="flex-container" [@dayCycle]='dayNightCycle'>
   <div class="image">
-    <img [@dayCycle]='dayNightCycle' src="app/assets/images/map-7q-c.jpg" alt="mini-map">
+    <img src="app/assets/images/map-7q-c.jpg" alt="mini-map">
   </div>
   <!--<img @nightCycle='dayNightCycle' src="app/assets/images/night-600-7q-tiny.jpg" alt="">-->
   <div class="content" [style.width.px]='width' [style.height.px]='height'>

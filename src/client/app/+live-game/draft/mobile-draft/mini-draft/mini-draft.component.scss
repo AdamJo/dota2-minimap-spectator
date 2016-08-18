@@ -8,16 +8,19 @@ $radiant-alpha: rgba(200, 255, 200, 0.15);
 $grey-alpha: rgba(200, 200, 200, 0.15);
 $slash-color: #8b0000;
 
+$height: 66px;
+$width: 118px;
+
 .mini-draft {
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: center;
-  width: 140px;
+  width: 280px;
 }
 
 .phase {
-  font-size: 0.6rem;
+  // font-size: 0.6rem;
 }
 
 .bans,
@@ -25,16 +28,15 @@ $slash-color: #8b0000;
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
-  height: 130px;
-  justify-content: flex-start;
-  width: 130px;
+  height: 250px;
+  justify-content: center;
+  width: 260px;
 }
 
-.ban-cell,
-.pick-cell {
-  height: 33px;
+.ban-cell {
+  height: $height;
   position: relative;
-  width: 59px;
+  width: $width;
 
   &:nth-child(odd) {
     margin-right: 5px;
@@ -46,28 +48,30 @@ $slash-color: #8b0000;
 
   &:nth-child(5) {
     text-align: center;
-    width: 130px;
+    width: 260px;
 
     div {
       background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
-      height: 33px;
+      height: $height;
       margin: 0 auto;
-      width: 59px;
+      width: $width;
     }
   }
 }
 
 .active-ban {
+  opacity: .6;
+  
   &::before {
     border-top: 1px solid;
     color: $slash-color;
     content: '';
-    left: -3px;
+    left: -6px;
     position: absolute;
     right: 0;
     top: 50%;
     transform: rotate(-25deg);
-    width: 65px;
+    width: 130px;
   }
 }
 
@@ -78,12 +82,12 @@ $slash-color: #8b0000;
         border-top: 1px solid;
         color: $slash-color;
         content: '';
-        left: 24%;
+        left: 25%;
         position: absolute;
         right: 0;
         top: 50%;
         transform: rotate(-25deg);
-        width: 65px;
+        width: 130px;
       }
     }
   }
@@ -91,9 +95,9 @@ $slash-color: #8b0000;
 
 .dire-picks {
   .pick-cell {
-    height: 33px;
+    height: $height;
     position: relative;
-    width: 59px;
+    width: $width;
 
     &:nth-child(odd) {
       margin-right: 5px;
@@ -105,13 +109,13 @@ $slash-color: #8b0000;
 
     &:nth-child(5) {
       text-align: center;
-      width: 130px;
+      width: 260px;
 
       div {
         background: radial-gradient(ellipse at top, $dire-alpha, $black-alpha 110%);
-        height: 33px;
+        height: $height;
         margin: 0 auto;
-        width: 59px;
+        width: $width;
       }
     }
   }
@@ -119,9 +123,9 @@ $slash-color: #8b0000;
 
 .radiant-picks {
   .pick-cell {
-    height: 33px;
+    height: $height;
     position: relative;
-    width: 59px;
+    width: $width;
 
     &:nth-child(odd) {
       margin-right: 5px;
@@ -133,13 +137,13 @@ $slash-color: #8b0000;
 
     &:nth-child(5) {
       text-align: center;
-      width: 130px;
+      width: 260px;
 
       div {
         background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 110%);
-        height: 33px;
+        height: $height;
         margin: 0 auto;
-        width: 59px;
+        width: $width;
       }
     }
   }
@@ -177,4 +181,9 @@ $slash-color: #8b0000;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+img {
+  height: $height;
+  width: $width;
 }
