@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
+import { enableProdMode } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -11,10 +12,13 @@ import { AppComponent } from './app.component';
 import { LiveGameComponent } from './+live-game/live-game.component';
 import { ApiService } from './services/index';
 
+
 import 'hammerjs/hammer.min';
 
 //(TODO) remove with new firebase version
 import 'firebase';
+
+if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',
