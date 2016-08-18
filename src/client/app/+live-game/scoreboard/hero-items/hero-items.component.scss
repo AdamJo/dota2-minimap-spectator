@@ -6,12 +6,12 @@ $white-alpha: rgba(255, 255, 255, 0.2);
 $black-alpha: rgba(0, 0, 0, 0.65);
 
 .flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 110px;
+  height: 100px;
 }
 
 .item {
+  float: left;
   background: $black;
   border: 1px solid $border-color;
   height: $height;

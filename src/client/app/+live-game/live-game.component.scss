@@ -20,8 +20,9 @@ $content-background: #111;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  // background: pink;
-  // transform: scale(.90);
+  // transform: scale(1.40);
+  // transform-origin: top;
+  // zoom: .5;
   width: 1100px;
 }
 
@@ -88,3 +89,10 @@ $content-background: #111;
 .scoreboard {
   margin-top: 25px;
 }
+
+// @-moz-document url-prefix() {
+//     .content {
+//       transform: scale(.5);
+//       transform-origin: top;
+//     }
+// }
