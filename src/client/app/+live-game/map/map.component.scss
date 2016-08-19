@@ -1,11 +1,14 @@
 $black: #000;
 
-.flex-container {
+.container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 630px;
+}
+
+.flex-container {
   position: relative;
-  // transform: scale(0.75);
-  // transform-origin: top right;
 }
 
 .content {
@@ -15,7 +18,6 @@ $black: #000;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
-  // min-width:410px;
 }
 
 .icons {
@@ -25,6 +27,5 @@ $black: #000;
 .image {
   background-color: $black;
   height: 600px;
-  margin-top: 20px;
   width: 600px;
 }
