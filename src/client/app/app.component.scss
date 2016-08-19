@@ -6,7 +6,7 @@ $content-background: #111;
 
 .main-nav {
   background: $main-nav-background;
-  margin: 0;
+  margin: 0 auto;
   width: 100%;
 
   ul {
@@ -32,19 +32,16 @@ h1 {
 }
 
 .flex-container {
-  margin: 0;
-  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   margin-top: 15px;
-
 }
 
 .content {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 0 auto;
   width: 1100px;
 }
 
@@ -68,25 +65,17 @@ h1 {
   align-items: center;
   background: transparent;
   border: 1px solid $button-border;
-  display: flex;
-  // flex: 1;
-  
+  display: flex;  
   height: 40px;
   justify-content: center;
-  width: 40px;
   width: 282px;
 }
 
 .btn-content {
   display: flex;
-  
-  // justify-content: center;
-  // width: 282px;
 }
 
 .spectators {
-  // flex: 2;
-
   line-height: 42px;
   text-align: center;
   vertical-align: middle;
@@ -97,13 +86,12 @@ h1 {
   opacity: .5;
 }
 
-// @media not all and (min-width: 800px) {
-//   .flex-container {
-//     margin: 2px 0;
-//   }
+@media not all and (min-width: 800px) {
+  .flex-container {
+    margin: 4px 0;
+  }
 
-//   .content {
-//     font-size: .7rem;
-//     width: 300px;
-//   }
-// }
+  .content {
+    width: 560px;
+  }
+}
