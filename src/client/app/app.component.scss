@@ -6,17 +6,16 @@ $content-background: #111;
 
 .main-nav {
   background: $main-nav-background;
-  margin: 0 auto;
-  width: 100%;
+  // margin: 0 auto;
+  min-width: 1102px;
 
   ul {
-    
     color: $black;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
   }
 }
@@ -87,6 +86,11 @@ h1 {
 }
 
 @media not all and (min-width: 800px) {
+
+  .main-nav {
+    min-width: 562px;
+  }
+
   .flex-container {
     margin: 4px 0;
   }
