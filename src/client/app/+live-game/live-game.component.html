@@ -1,3 +1,4 @@
+<div>
 <div *ngIf='scoreboard'>
   <div *ngIf='!scoreboard.did_game_start'>
     <app-draft
@@ -8,7 +9,7 @@
       [league]='league'
     ></app-draft>
   </div>
-  <div class="flex-container" *ngIf='scoreboard.did_game_start'>
+  <div #screen class="flex-container" *ngIf='scoreboard.did_game_start'>
     <div class="content">
       
       <div class="team">
@@ -20,7 +21,7 @@
         </div>
         <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
       </h4>
-      <app-team-info
+      <app-team-info (faved)="onResize($event)"
         [side]="'dire'"
         [team]='scoreboard.dire.players'
       ></app-team-info>
@@ -38,7 +39,7 @@
       </app-scoreboard>
 
       <div class="team">
-        <app-team-info
+        <app-team-info (faved)="onResize($event)"
           [side]="'radiant'"
           [team]='scoreboard.radiant.players'
         ></app-team-info>
@@ -52,4 +53,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

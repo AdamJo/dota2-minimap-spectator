@@ -79,4 +79,8 @@ export class AppComponent {
           break;
       }
   }
+
+  onLoad(event:any) {
+    console.log('working?', event);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, HostListener, ViewChild, ElementRef, Renderer, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../services/index';
 import { MapComponent } from './map/index';
 import { DraftComponent } from './draft/index';
@@ -28,9 +28,15 @@ export class LiveGameComponent implements DoCheck {
   league: any;
   series: any;
 
-  constructor(private apiService: ApiService ) {}
+  @ViewChild('screen') screen: ElementRef;
+  @Output() docLoaded: EventEmitter<any> = new EventEmitter();
+
+  constructor(private apiService: ApiService, public renderer: Renderer) {
+    this.docLoaded.emit('yeup');
+  }
 
   ngDoCheck() {
+    
     if (this.apiService.currentGame) {
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;
@@ -49,5 +55,21 @@ export class LiveGameComponent implements DoCheck {
       // this.scoreboard.dire.picks[4] = -1 // testing
       // console.log(this.scoreboard) // testing
     }
+  }
+  
+  ngAfterViewInit() {
+    
+  }
+
+  // @HostListener(`window:resize`, ['$event'])
+  onResize(event:any) {
+    // console.log(event.target.outerWidth);
+    console.log(event);
+    // this.renderer.setElementStyle(this.screen.nativeElement, 'transform-origin', `top`);
+  }
+
+  resize(event:any) {
+    let newWindow = (event.target.innerWidth / 1102).toFixed(2);
+    this.renderer.setElementStyle(this.screen.nativeElement, 'zoom', `${newWindow}`);
   }
 }

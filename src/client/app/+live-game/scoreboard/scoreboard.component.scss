@@ -28,18 +28,18 @@ ul {
 
 img {
   height: 46px;
-  width: 82.28px;
   margin-left: 3px;
+  width: 82.28px;
 }
 
 .grid {
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
+  height: 500px;
   justify-content: center;
   // border: 1px solid $border-color;
   // padding-top: 7px;
-  height: 500px;
 }
 
 .player-name {

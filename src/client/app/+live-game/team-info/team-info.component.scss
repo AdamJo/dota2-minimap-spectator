@@ -25,8 +25,8 @@ $radiant-color: #006400;
 
 .items {
   margin-bottom: 2px;
-  width: 90px;
   margin-top: 2px;
+  width: 90px;
 }
 
 .team {
@@ -78,12 +78,4 @@ img {
       left: 52px;
       position: absolute;
     }
-}
-
-.dire {
-  box-shadow: 0px 0px 15px 0px $dire-color;
-}
-
-.radiant {
-  box-shadow: 0px 0px 15px 0px $radiant-color;
 }

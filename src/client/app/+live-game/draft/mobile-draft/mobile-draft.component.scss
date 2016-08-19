@@ -3,8 +3,8 @@ $border-color: #2f2724;
 $dire-color: #800000;
 $radiant-color: #006400;
 $black-alpha: rgba(0, 0, 0, 0.65);
-$dire-alpha: rgba(255, 200, 200, 0.15);
-$radiant-alpha: rgba(200, 255, 200, 0.15);
+$dire-alpha: rgba(255, 0, 0, 0.15);
+$radiant-alpha: rgba(100, 255, 100, 0.15);
 $grey-alpha: rgba(200, 200, 200, 0.15);
 $slash-color: #8b0000;
 
@@ -25,11 +25,15 @@ $slash-color: #8b0000;
   flex-flow: nowrap;
   // height: 475px;
   justify-content: center;
-  width: 600px;
+  width: 560px;
 }
 
 .dire {
   display: flex;
+
+  .grid {
+    background: radial-gradient(ellipse at bottom, $dire-alpha 20%, $content-background 80%);
+  }
 
   .side {
     color: $dire-color;
@@ -39,6 +43,10 @@ $slash-color: #8b0000;
 
 .radiant {
   display: flex;
+
+  .grid {
+    background: radial-gradient(ellipse at bottom, $radiant-alpha 20%, $content-background 80%);
+  }
 
   .side {
     color: $radiant-color;
@@ -57,7 +65,7 @@ $slash-color: #8b0000;
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: center;
-  width: 300px;
+  width: 280px;
 }
 
 .bans,
@@ -178,8 +186,8 @@ $slash-color: #8b0000;
 
 .team-name {
   font-size: 1.4rem;
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
