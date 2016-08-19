@@ -39,7 +39,7 @@ import { BuildingsComponent } from './buildings/index';
         opacity: 1
       })),
       state('night', style({
-        opacity: .5
+        opacity: .7
       })),
       transition('day <=> night', animate('750ms ease-in'))
     ])
