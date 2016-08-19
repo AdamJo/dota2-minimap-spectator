@@ -6,14 +6,14 @@ $active-series: #b8860b;
 $content-background: #111;
 
 .flex-container {
+  // align-items: center;
   display: flex;
   flex-direction: column;
+  font-size: 1.5rem;
   margin-top: 15px;
 }
 
 .content {
-
-  margin: 0 auto;
 
   background: $content-background;
   border: 1px solid $border-color;
@@ -21,17 +21,19 @@ $content-background: #111;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  // transform: scale(1.40);
-  // transform-origin: top;
+  margin: 0 auto;
+
+  // transform: scale(.7);
+  // transform-origin: 0 0;
   // zoom: .5;
   width: 1100px;
 }
 
 .map {
   // height: 450px;
-  margin-bottom: 5px;
-  margin-right: 2px;
-  margin-top: 5px;
+  // margin-bottom: 5px;
+  // margin-right: 2px;
+  // margin-top: 5px;
   // transform: scale(0.75);
   // transform-origin: top;
   // width: 450px;
@@ -47,11 +49,11 @@ $content-background: #111;
 
 .series {
   border: 1px solid $black;
-  height: 15px;
+  height: 20px;
   margin: 0 2px;
   outline: 1px solid transparent;
   transform: skew(-15deg);
-  width: 7px;
+  width: 10px;
 }
 
 .active {

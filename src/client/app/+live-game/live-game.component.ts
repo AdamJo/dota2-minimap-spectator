@@ -1,4 +1,7 @@
-import { Component, DoCheck, HostListener, ViewChild, ElementRef, Renderer, Output, EventEmitter } from '@angular/core';
+import { Component, DoCheck, HostListener, ViewChild, ElementRef, Renderer,
+  // Output,
+  // EventEmitter
+} from '@angular/core';
 import { ApiService } from '../services/index';
 import { MapComponent } from './map/index';
 import { DraftComponent } from './draft/index';
@@ -19,6 +22,7 @@ import { GameTimePipe } from '../pipes/index';
   ],
   pipes: [GameTimePipe]
 })
+
 export class LiveGameComponent implements DoCheck {
 
   scoreboard: any;
@@ -29,14 +33,13 @@ export class LiveGameComponent implements DoCheck {
   series: any;
 
   @ViewChild('screen') screen: ElementRef;
-  @Output() docLoaded: EventEmitter<any> = new EventEmitter();
+  // @Output() docLoaded: EventEmitter<any> = new EventEmitter();
 
   constructor(private apiService: ApiService, public renderer: Renderer) {
-    this.docLoaded.emit('yeup');
+    // this.docLoaded.emit('yeup');
   }
 
   ngDoCheck() {
-    
     if (this.apiService.currentGame) {
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;
@@ -56,12 +59,8 @@ export class LiveGameComponent implements DoCheck {
       // console.log(this.scoreboard) // testing
     }
   }
-  
-  ngAfterViewInit() {
-    
-  }
 
-  // @HostListener(`window:resize`, ['$event'])
+  @HostListener(`window:resize`, ['$event'])
   onResize(event:any) {
     // console.log(event.target.outerWidth);
     console.log(event);

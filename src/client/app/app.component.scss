@@ -6,8 +6,11 @@ $content-background: #111;
 
 .main-nav {
   background: $main-nav-background;
+  margin: 0;
+  width: 100%;
 
   ul {
+    
     color: $black;
     display: flex;
     flex-wrap: nowrap;
@@ -87,13 +90,13 @@ h1 {
   opacity: .5;
 }
 
-@media not all and (min-width: 800px) {
-  .flex-container {
-    margin: 2px 0;
-  }
+// @media not all and (min-width: 800px) {
+//   .flex-container {
+//     margin: 2px 0;
+//   }
 
-  .content {
-    font-size: .7rem;
-    width: 300px;
-  }
-}
+//   .content {
+//     font-size: .7rem;
+//     width: 300px;
+//   }
+// }

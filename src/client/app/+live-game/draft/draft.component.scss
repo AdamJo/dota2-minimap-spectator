@@ -13,7 +13,7 @@ $slash-color: #8b0000;
   border: 1px solid $border-color;
   margin: 0 auto;
   margin-top: 15px;
-  width: 1020px;
+  width: 1100px;
 }
 
 .draft-container {
@@ -28,43 +28,52 @@ $slash-color: #8b0000;
   display: flex;
   flex-wrap: nowrap;
 
+  &.radiant {
+    .side {
+      color: $radiant-color;
+    }
+  }
+
+  &.dire {
+    .side {
+      color: $dire-color;
+    }
+  }
+
   &:last-child {
     margin-bottom: 5px;
     margin-top: 2px;
   }
 }
 
-.dire-name {
-  color: $dire-color;
-  padding-left: 8px;
-  width: 60px;
-}
-
-.radiant-name {
-  color: $radiant-color;
-  padding-left: 10px;
+.side {
+  padding-left: 17px;
   width: 60px;
 }
 
 .bans-title {
-  align-self: center;
+  // align-self: flex-end;
+  // text-align: bottom;
   display: flex;
-  font-size: .6rem;
+  font-size: .8rem;
   justify-content: center;
-  width: 60px;
+  margin-left: 5px;
+  width: 59px;
 }
 
 .team-name {
   font-size: 1.5rem;
   text-align: right;
-  width: 710px;
+  width: 745px;
 }
 
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  width: 800px;
+  justify-content: space-around;
+  margin-left: 8px;
+  margin-right: 12px;
+  width: 820px;
 }
 
 .column {
@@ -137,7 +146,8 @@ $slash-color: #8b0000;
 }
 
 .league-name {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
+  font-weight: bold;
   margin-left: 50px;
   margin-top: 10px;
 }

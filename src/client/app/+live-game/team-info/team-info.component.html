@@ -4,7 +4,7 @@
       <div class="player-stats">
         <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
         <div ngClass="ultimate {{player.ultimate_cooldown === 0 ? 'ultimate-active' : 'ultimate-inactive'}}">&nbsp;</div>
-        <span class="ultimate-cooldown">{{player.ultimate_cooldown}}</span>
+        <!--<span class="ultimate-cooldown">{{player.ultimate_cooldown}}</span>-->
       </div>
       <app-hero-items class="items"
         [items]='player.items'></app-hero-items>
