@@ -32,6 +32,7 @@ h1 {
 }
 
 .flex-container {
+  margin: 0;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -68,22 +69,28 @@ h1 {
   background: transparent;
   border: 1px solid $button-border;
   display: flex;
-  flex: 1;
+  // flex: 1;
+  
   height: 40px;
   justify-content: center;
   width: 40px;
+  width: 282px;
 }
 
 .btn-content {
   display: flex;
-  justify-content: center;
+  
+  // justify-content: center;
+  // width: 282px;
 }
 
 .spectators {
-  flex: 2;
+  // flex: 2;
+
   line-height: 42px;
   text-align: center;
   vertical-align: middle;
+  width: 536px;
 }
 
 .inactive {
