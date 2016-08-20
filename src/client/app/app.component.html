@@ -2,11 +2,8 @@
   <!--(swipeleft)="incrementTotal()" (swiperight)="decrementTotal()"-->
 <nav class="main-nav">
   <ul id="main-nav-list">
-    <li *ngIf="apiService.isApiUp">
+    <li >
       Minimap Spectator for Dota 2
-    </li>
-    <li *ngIf="!apiService.isApiUp">
-      Steam API down or no games up.
     </li>
   </ul>
 </nav>
@@ -19,8 +16,19 @@
         </div>
       </div>
     </button>
-    <div class="spectators">
-      {{apiService.gameCount}} of {{apiService.dataLength}} - Spectators: {{apiService.currentGame.spectators}}
+    <div>
+      <div class="spectators" *ngIf="apiService.isApiUp">
+        <div class="eye-icon">
+          <span class="eye"></span>
+        </div>
+        <div class="spectators-amount" >
+          {{apiService.currentGame.spectators}}
+        </div>
+        <!--{{apiService.gameCount}} of {{apiService.dataLength}} - Spectators: {{apiService.currentGame.spectators}}-->
+      </div>
+      <div *ngIf="!apiService.isApiUp">
+        The Steam API is down or no games are up.
+      </div>
     </div>
     <button [disabled]="apiService.gameCount === apiService.allData.length ? true : false" (click)="decrementTotal()" ngClass="arrow-btn {{apiService.gameCount === apiService.allData.length ? 'inactive' : 'active' }}">
       <div class="btn-content">

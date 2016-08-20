@@ -39,7 +39,7 @@ import { BuildingsComponent } from './buildings/index';
         opacity: 1
       })),
       state('night', style({
-        opacity: .7
+        opacity: .8
       })),
       transition('day <=> night', animate('750ms ease-in'))
     ])
@@ -47,12 +47,6 @@ import { BuildingsComponent } from './buildings/index';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class  MapComponent {
-  // width = 395;
-  // height = 380;
-  // maxWidth = 410
-  // maxHeight = 410
-
-
   width = 578; //.036 of original
   height = 556; //.073 of original
   maxWidth = 600;

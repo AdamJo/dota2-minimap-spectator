@@ -4,6 +4,9 @@ $button-border: #2f2724;
 $black: #000;
 $content-background: #111;
 
+$eye-color: #333;
+$eye-white-space: #ddd;
+
 .main-nav {
   background: $main-nav-background;
   // margin: 0 auto;
@@ -72,28 +75,87 @@ h1 {
 
 .btn-content {
   display: flex;
+  justify-content: center;
 }
 
 .spectators {
-  line-height: 42px;
+  // (TODO) NEED TO CHANGE FOR RESIZE
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+  width: 536px;
+}
+
+.spectators-amount {
   text-align: center;
   vertical-align: middle;
-  width: 536px;
+  // line-height: 42px;
+  // width: 40px;
+  // height: 38;
+}
+
+.eye-icon {
+  height: 30px;
+  margin-top: 6px;
+  width: 30px;
+}
+
+// found @ http://jameskoster.co.uk/snippets/css-only-eye-icon/
+.eye {
+  background: $eye-color;
+  border-radius: 65% 0;
+  display: inline-block;
+  height: 1em;
+
+  // margin-top: 20px;
+  // margin-left: 20px;
+  position: relative;
+  transform: rotate(45deg);
+  width: 1em;
+
+
+  &::before,
+  &::after {
+    border-radius: 100%;
+    content: '';
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+  }
+
+  &::before {
+    background: $eye-white-space;
+    height: .5em;
+    margin-left: -.25em;
+    margin-top: -.25em;
+    width: .5em;
+  }
+
+  &::after {
+    background: $eye-color;
+    height: .25em;
+    margin-left: -.125em;
+    margin-top: -.125em;
+    width: .25em;
+  }
 }
 
 .inactive {
   opacity: .5;
 }
 
-@media not all and (min-width: 800px) {
+@media not all and (min-width: 600px) {
 
   .main-nav {
     min-width: 562px;
   }
 
-  .flex-container {
-    margin: 4px 0;
-  }
+  // .flex-container {
+  //   margin: 4px 0;
+  // }
 
   .content {
     width: 560px;
