@@ -1,4 +1,4 @@
-import { Component, DoCheck, HostListener, ViewChild, ElementRef, Renderer,
+import { Component, DoCheck, HostListener, ViewChild, ElementRef, Renderer, Output, EventEmitter
   // Output,
   // EventEmitter
 } from '@angular/core';
@@ -8,6 +8,7 @@ import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
 import { TeamInfoComponent } from './team-info/index';
 import { GameTimePipe } from '../pipes/index';
+import { Observable } from 'rxjs';
 
 @Component({
   moduleId: module.id,
@@ -35,9 +36,7 @@ export class LiveGameComponent implements DoCheck {
   @ViewChild('screen') screen: ElementRef;
   // @Output() docLoaded: EventEmitter<any> = new EventEmitter();
 
-  constructor(private apiService: ApiService, public renderer: Renderer) {
-    // this.docLoaded.emit('yeup');
-  }
+  constructor(private apiService: ApiService, public renderer: Renderer) {}
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
@@ -46,6 +45,8 @@ export class LiveGameComponent implements DoCheck {
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
+
+
       // this.scoreboard.duration = 60 // testing
       // this.scoreboard.did_game_start = false
       // this.scoreboard.dire.players[0].respawn_timer = 8 // testing
@@ -60,12 +61,12 @@ export class LiveGameComponent implements DoCheck {
     }
   }
 
-  @HostListener(`window:resize`, ['$event'])
-  onResize(event:any) {
-    // console.log(event.target.outerWidth);
-    console.log(event);
-    // this.renderer.setElementStyle(this.screen.nativeElement, 'transform-origin', `top`);
-  }
+  // @HostListener(`window:resize`, ['$event'])
+  // onResize(event:any) {
+  //   // console.log(event.target.outerWidth);
+  //   console.log(event);
+  //   // this.renderer.setElementStyle(this.screen.nativeElement, 'transform-origin', `top`);
+  // }
 
   resize(event:any) {
     let newWindow = (event.target.innerWidth / 1102).toFixed(2);

@@ -1,4 +1,4 @@
-<div>
+<div #screen>
 <div *ngIf='scoreboard'>
   <div *ngIf='!scoreboard.did_game_start'>
     <app-draft
@@ -48,7 +48,6 @@
           <div class="series-games">
             <div ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"  *ngFor="let wins of series.radiant_series_wins"></div>
           </div>
-          <h5 class="heading">{{league.name}}</h5>
         </h4>
       </div>
     </div>

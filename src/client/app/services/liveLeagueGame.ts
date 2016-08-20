@@ -26,6 +26,7 @@ export interface LiveLeagueGame {
       score: number,
       tower_state: number
     },
+    did_game_start: boolean,
     duration: number,
     radiant: {
       abilities: Array<Abilities>,

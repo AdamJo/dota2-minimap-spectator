@@ -1,11 +1,8 @@
-import { Component, HostListener,
-  trigger, state, style, transition, animate } from '@angular/core';
+import { Component, HostListener, ElementRef, Renderer, ViewChild,
+  trigger, state, style, transition, animate,  } from '@angular/core';
 import { ApiService } from './services/index';
+import { Observable } from 'rxjs';
 
-/**
- * This class represents the main application component. Within the @Routes annotation is the configuration of the
- * applications routes, configuring the paths for the lazy loaded components (HomeComponent, AboutComponent).
- */
 @Component({
   moduleId: module.id,
   selector: 'root-app',
@@ -36,26 +33,46 @@ export class AppComponent {
   leftButton: string = 'left';
   rightButton: string = 'right';
   swipeDirection: string = '-';
+  @ViewChild('screen') screen: ElementRef;
 
-  constructor(private apiService: ApiService ) {
+  newWidth: string;
+
+  constructor(private apiService: ApiService, private renderer: Renderer ) {
     this.apiService.main();
     this.loaded = this.apiService.loadDone;
+    Observable.fromEvent(window, 'resize')
+        .debounceTime(200)
+        .subscribe((event: any) => {
+          this.onResize(event);
+    });
+  }
+
+  onResize(event: any) {
+    console.log(event);
+    // this.apiService.currentGame.
+    if (!this.apiService.currentGame.scoreboard.did_game_start) {
+      this.newWidth = ((event.target.innerWidth / 1102) * .85).toFixed(2);
+    } else {
+      // if (event.target.innerHeight > )
+      console.log(event.target.innerHeight);
+      this.newWidth = ((event.target.innerHeight / 1102)).toFixed(2);
+    }
+    console.log(this.newWidth);
+    this.renderer.setElementStyle(this.screen.nativeElement, 'zoom', `${this.newWidth}`);
   }
 
   decrementTotal() {
-    console.log('inside swipe');
     this.apiService.decrementTotal();
     this.rightButton = this.rightButton === 'right' ? 'rightGo' : 'right';
   }
 
   incrementTotal() {
-    console.log('inside swipe');
     this.apiService.incrementTotal();
     this.leftButton = this.leftButton === 'left' ? 'leftGo' : 'left';
   }
 
   onSwipe(event: any) {
-    console.log('inside swipe');
+    // console.log('inside swipe');
     this.apiService.currentGame.spectators = 99;
     if (event.deltaX > 0) {
       this.decrementTotal();
@@ -78,9 +95,5 @@ export class AppComponent {
           }
           break;
       }
-  }
-
-  onLoad(event:any) {
-    console.log('working?', event);
   }
 }

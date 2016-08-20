@@ -7,6 +7,7 @@ $content-background: #111;
 $eye-color: #333;
 $eye-white-space: #ddd;
 
+
 .main-nav {
   background: $main-nav-background;
   // margin: 0 auto;
@@ -65,7 +66,7 @@ h1 {
 
 .arrow-btn {
   align-items: center;
-  background: transparent;
+  background: $content-background;
   border: 1px solid $button-border;
   display: flex;
   height: 40px;
@@ -78,14 +79,26 @@ h1 {
   justify-content: center;
 }
 
+.spectator-info {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 536px;
+
+  background: $content-background;
+  border: 1px solid $button-border;
+  
+  margin: 0 10px;
+}
+
 .spectators {
   // (TODO) NEED TO CHANGE FOR RESIZE
   align-items: center;
   display: flex;
   flex-direction: row;
-  height: 40px;
   justify-content: center;
-  width: 536px;
+  
 }
 
 .spectators-amount {
@@ -146,6 +159,7 @@ h1 {
 .inactive {
   opacity: .5;
 }
+
 
 @media not all and (min-width: 600px) {
 

@@ -8,6 +8,8 @@ $radiant-alpha: rgba(150, 255, 150, 0.15);
 $grey-alpha: rgba(200, 200, 200, 0.15);
 $slash-color: #8b0000;
 
+$black: #000;
+
 .container {
   background-color: $content-background;
   border: 1px solid $border-color;
@@ -52,8 +54,6 @@ $slash-color: #8b0000;
 }
 
 .bans-title {
-  // align-self: flex-end;
-  // text-align: bottom;
   display: flex;
   font-size: .8rem;
   justify-content: center;
@@ -79,7 +79,7 @@ $slash-color: #8b0000;
 .column {
   display: flex;
   flex-direction: column;
-  height: 175px;
+  height: 185px;
   justify-content: flex-start;
   width: 59px;
 }
@@ -102,8 +102,10 @@ $slash-color: #8b0000;
 }
 
 .ban-cell {
+  border: 1px solid black;
   background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
   height: 33px;
+  width: 59px;
   margin-bottom: 2px;
   position: relative;
 
@@ -130,12 +132,13 @@ $slash-color: #8b0000;
 }
 
 .pick-cell {
-  height: 174px;
+  border: 1px solid black;
+  height: 180px;
   margin-left: 5px;
   width: 150.33px;
 
   img {
-    height: 174px;
+    height: 180px;
     width: auto;
   }
 }
@@ -146,7 +149,6 @@ $slash-color: #8b0000;
 }
 
 .league-name {
-  // margin-bottom: 10px;
   font-weight: bold;
   margin-left: 50px;
   margin-top: 10px;
