@@ -25,7 +25,6 @@ export class ApiService {
     this.gameObservable = this.grabCurrentGame();
     this.gameObservable.subscribe((data:any) => {
       this.dataLength = data.length;
-
       // if watching last game this statement 
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
@@ -36,6 +35,7 @@ export class ApiService {
         this.sortScoreboard(data[data.length - this.gameCount]);
         this.isApiUp = true;
       } else {
+        this.gameCount = 1;
         this.isApiUp = false;
       }
     });
@@ -53,7 +53,6 @@ export class ApiService {
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
     // console.log('inside scorebaord')
-
     if (data.match_id) {
       if (this.match_id !== data.match_id) {
         this.firstCheckDone = false;
