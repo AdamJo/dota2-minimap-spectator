@@ -13,7 +13,10 @@
 <div #screen>
 <div *ngIf='apiService.loadDone;' class="flex-container">
   <div class="content">
-    <button [disabled]="apiService.gameCount === 1 ? true : false" (click)="incrementTotal()" ngClass="arrow-btn {{apiService.gameCount === 1 ? 'inactive' : 'active' }}">
+    <button 
+      [disabled]="apiService.gameCount === 1 ? true : false"
+      (click)="incrementTotal()"
+      ngClass="arrow-btn {{apiService.gameCount === 1 ? 'inactive' : 'active' }}">
       <div class="btn-content">
         <div [@transfer]="leftButton" class="left-arrow">
         </div>

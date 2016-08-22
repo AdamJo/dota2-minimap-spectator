@@ -7,6 +7,7 @@ $content-background: #111;
 $eye-color: #333;
 $eye-white-space: #ddd;
 
+$box-shadow-color-hover: rgba(34, 98, 126, 0.5);
 
 .main-nav {
   background: $main-nav-background;
@@ -158,6 +159,12 @@ h1 {
 
 .inactive {
   opacity: .5;
+}
+
+.active {
+  &:hover {
+    background: $box-shadow-color-hover;
+  }
 }
 
 
