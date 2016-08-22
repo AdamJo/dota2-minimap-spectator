@@ -1,7 +1,7 @@
   <!--(swipeleft)="incrementTotal()" (swiperight)="decrementTotal()"-->
 <nav class="main-nav">
   <ul id="main-nav-list">
-    <li >
+    <li *ngIf="apiService.isApiUp">
       Minimap Spectator for Dota 2
     </li>
     <li *ngIf="!apiService.isApiUp">
@@ -19,7 +19,7 @@
         </div>
       </div>
     </button>
-    <div class="spectator-info" *ngIf="apiService.isApiUp">
+    <div class="spectator-info">
       <span class="league">{{apiService.currentGame.league.name}}</span>
       <span>{{apiService.gameCount}} of {{apiService.dataLength}}</span>
       <div class="spectators">

@@ -1,4 +1,5 @@
-import { Component, DoCheck, HostListener, ViewChild, ElementRef, Renderer, Output, EventEmitter
+import { Component, DoCheck, ViewChild, ElementRef, Renderer
+  // HostListener,
   // Output,
   // EventEmitter
 } from '@angular/core';
@@ -8,7 +9,6 @@ import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
 import { TeamInfoComponent } from './team-info/index';
 import { GameTimePipe } from '../pipes/index';
-import { Observable } from 'rxjs';
 
 @Component({
   moduleId: module.id,
@@ -25,7 +25,6 @@ import { Observable } from 'rxjs';
 })
 
 export class LiveGameComponent implements DoCheck {
-
   scoreboard: any;
   game: any;
   radiantTeamName: any;
@@ -45,8 +44,6 @@ export class LiveGameComponent implements DoCheck {
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
-
-
       // this.scoreboard.duration = 60 // testing
       // this.scoreboard.did_game_start = false
       // this.scoreboard.dire.players[0].respawn_timer = 8 // testing

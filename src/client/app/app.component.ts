@@ -1,7 +1,7 @@
 import { Component, HostListener, ElementRef, Renderer, ViewChild,
   trigger, state, style, transition, animate,  } from '@angular/core';
 import { ApiService } from './services/index';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
 @Component({
   moduleId: module.id,
@@ -40,25 +40,26 @@ export class AppComponent {
   constructor(private apiService: ApiService, private renderer: Renderer ) {
     this.apiService.main();
     this.loaded = this.apiService.loadDone;
-    Observable.fromEvent(window, 'resize')
-        .debounceTime(200)
-        .subscribe((event: any) => {
-          this.onResize(event);
-    });
+    // Observable.fromEvent(window, 'resize')
+    //     .debounceTime(200)
+    //     .subscribe((event: any) => {
+    //       this.onResize(event);
+    // });
   }
 
   onResize(event: any) {
-    console.log(event);
-    // this.apiService.currentGame.
-    if (!this.apiService.currentGame.scoreboard.did_game_start) {
-      this.newWidth = ((event.target.innerWidth / 1102) * .85).toFixed(2);
-    } else {
-      // if (event.target.innerHeight > )
-      console.log(event.target.innerHeight);
-      this.newWidth = ((event.target.innerHeight / 1102)).toFixed(2);
-    }
-    console.log(this.newWidth);
-    this.renderer.setElementStyle(this.screen.nativeElement, 'zoom', `${this.newWidth}`);
+    // console.log(event);
+    // if (!this.apiService.currentGame.scoreboard.did_game_start) {
+    //   this.newWidth = ((event.target.innerWidth / 1102) * .85).toFixed(2);
+    // } else {
+    //   // if (event.target.innerHeight > )
+    //   console.log(event.target.innerHeight);
+    //   this.newWidth = ((event.target.innerHeight / 1102)).toFixed(2);
+    // }
+    // console.log(this.newWidth);
+    // this.renderer.setElementStyle(this.screen.nativeElement, 'zoom', `${this.newWidth}`);
+    // this.renderer.setElementStyle(this.screen.nativeElement, 'transform', `scale(${this.newWidth})`);
+    // this.renderer.setElementStyle(this.screen.nativeElement, 'transform-origin', `top`);
   }
 
   decrementTotal() {
