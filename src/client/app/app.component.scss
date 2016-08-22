@@ -11,7 +11,6 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
 
 .main-nav {
   background: $main-nav-background;
-  // margin: 0 auto;
   min-width: 1102px;
 
   ul {
@@ -82,19 +81,16 @@ h1 {
 
 .spectator-info {
   align-items: center;
+  background: $content-background;
+  border: 1px solid $button-border;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 536px;
-
-  background: $content-background;
-  border: 1px solid $button-border;
-  
   margin: 0 10px;
+  width: 536px;
 }
 
 .spectators {
-  // (TODO) NEED TO CHANGE FOR RESIZE
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -105,9 +101,6 @@ h1 {
 .spectators-amount {
   text-align: center;
   vertical-align: middle;
-  // line-height: 42px;
-  // width: 40px;
-  // height: 38;
 }
 
 .eye-icon {
@@ -122,9 +115,6 @@ h1 {
   border-radius: 65% 0;
   display: inline-block;
   height: 1em;
-
-  // margin-top: 20px;
-  // margin-left: 20px;
   position: relative;
   transform: rotate(45deg);
   width: 1em;
@@ -165,20 +155,4 @@ h1 {
   &:hover {
     background: $box-shadow-color-hover;
   }
-}
-
-
-@media not all and (min-width: 600px) {
-
-  // .main-nav {
-  //   min-width: 562px;
-  // }
-
-  // // .flex-container {
-  // //   margin: 4px 0;
-  // // }
-
-  // .content {
-  //   width: 560px;
-  // }
 }

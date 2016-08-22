@@ -1,5 +1,5 @@
-<div (window:resize)="onResize($event)">
-  <div *ngIf="smallerScreenSize === false" class="container">
+<div>
+  <div class="container">
 
     <div class="league-name">{{league.name}}</div>    
     <div class="titles dire">
@@ -54,7 +54,7 @@
       <span class="team-name"><b>{{radiantTeamName}}</b></span>
     </div>
   </div>
-  <div *ngIf="smallerScreenSize === true">
+  <!--<div *ngIf="smallerScreenSize === true">
     <mobile-draft
       [radiant]='radiant'
       [dire]='dire'
@@ -62,5 +62,5 @@
       [direTeamName]='direTeamName'
       [league]='league'
     ></mobile-draft>
-  </div>
+  </div>-->
 <div>
