@@ -102,12 +102,12 @@ $black: #000;
 }
 
 .ban-cell {
-  border: 1px solid black;
   background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
+  border: 1px solid $black;
   height: 33px;
-  width: 59px;
   margin-bottom: 2px;
   position: relative;
+  width: 59px;
 
   img {
     height: 33px;
@@ -132,7 +132,7 @@ $black: #000;
 }
 
 .pick-cell {
-  border: 1px solid black;
+  border: 1px solid $black;
   height: 180px;
   margin-left: 5px;
   width: 150.33px;
