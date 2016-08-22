@@ -7,8 +7,6 @@ $dire-color: #800000;
 $radiant-color: #006400;
 
 .flex-conatiner {
-  // background: $team-background;
-  // border: 1px solid $dire-color;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -39,19 +37,16 @@ $radiant-color: #006400;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  // margin-right: 5px;
   position: relative;
   width: 110px;
 }
 
 img {
   border: 1px solid $border-color;
-  // height: 33px;
   width: 70%;
 }
 
 .ultimate {
-  // background: $ultimate-ready;
   border: 1px solid $ultimate-border;
   height: 18px;
   margin-top: 12px;
@@ -79,7 +74,6 @@ img {
       position: absolute;
     }
 }
-
 
 .dire {
   box-shadow: 0px 0px 15px 0px $dire-color;

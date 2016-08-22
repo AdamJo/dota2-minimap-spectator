@@ -3,7 +3,7 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
   style,
   transition,
   animate } from '@angular/core';
-import { MiniDraftComponent } from './mini-draft/index';
+import { MiniDraftComponent } from '../mini-draft/index';
 
 @Component({
   moduleId: module.id,

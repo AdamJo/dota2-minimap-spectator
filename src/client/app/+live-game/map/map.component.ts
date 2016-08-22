@@ -55,11 +55,4 @@ export class  MapComponent {
   @Input() dire: any;
   @Input() dayNightCycle: any;
   @Input() roshanRespawnTimer: any;
-
-  // ngOnInit() {
-    // this.dayNightCycle = 'day'
-    // setTimeout(() => {
-    //   this.dayNightCycle = 'night'
-    // }, 1000)
-  // }
 }

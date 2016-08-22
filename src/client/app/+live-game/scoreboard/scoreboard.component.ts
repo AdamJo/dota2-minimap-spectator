@@ -4,13 +4,13 @@ import {
   Input,
   ElementRef,
   HostListener,
-// ChangeDetectionStrategy
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { AddCommasPipe } from '../../pipes/index';
 import { HeroItemsComponent } from './hero-items/index';
 import { HeroRespawnComponent } from './hero-respawn/index';
 
-import { MiniDraftComponent } from '../draft/mobile-draft/mini-draft/index';
+import { MiniDraftComponent } from '../draft/mini-draft/index';
 
 @Component({
   moduleId: module.id,
@@ -24,8 +24,8 @@ import { MiniDraftComponent } from '../draft/mobile-draft/mini-draft/index';
     MiniDraftComponent
   ],
   templateUrl: 'scoreboard.component.html',
-  styleUrls: ['scoreboard.component.css']
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['scoreboard.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ScoreboardComponent implements OnChanges {
@@ -37,9 +37,6 @@ export class ScoreboardComponent implements OnChanges {
   sortedValue: string;
   menuTitle: string;
   items: Array<string>;
-  deathTimer: number;
-  deathList: Array<any>;
-  isDraft: string;
 
   menuOptions = [
     {name: 'kills', option: '(Q) KILL/DEATH/ASSISTS' },

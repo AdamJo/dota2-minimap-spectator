@@ -1,8 +1,4 @@
-import { Component, DoCheck, ViewChild, ElementRef, Renderer
-  // HostListener,
-  // Output,
-  // EventEmitter
-} from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { ApiService } from '../services/index';
 import { MapComponent } from './map/index';
 import { DraftComponent } from './draft/index';
@@ -32,10 +28,7 @@ export class LiveGameComponent implements DoCheck {
   league: any;
   series: any;
 
-  @ViewChild('screen') screen: ElementRef;
-  // @Output() docLoaded: EventEmitter<any> = new EventEmitter();
-
-  constructor(private apiService: ApiService, public renderer: Renderer) {}
+  constructor(private apiService: ApiService) {}
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
@@ -44,29 +37,6 @@ export class LiveGameComponent implements DoCheck {
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
-      // this.scoreboard.duration = 60 // testing
-      // this.scoreboard.did_game_start = false
-      // this.scoreboard.dire.players[0].respawn_timer = 8 // testing
-      // this.scoreboard.dire.players[0].hero = 'ursa' // testing
-      // this.scoreboard.dire.bans[3] = -1 // testing
-      // this.scoreboard.dire.picks[3] = -1 // testing
-      // this.scoreboard.radiant.bans[4] = -1 // testing
-      // this.scoreboard.radiant.picks[4] = -1 // testing
-      // this.scoreboard.dire.bans[4] = -1 // testing
-      // this.scoreboard.dire.picks[4] = -1 // testing
-      // console.log(this.scoreboard) // testing
     }
-  }
-
-  // @HostListener(`window:resize`, ['$event'])
-  // onResize(event:any) {
-  //   // console.log(event.target.outerWidth);
-  //   console.log(event);
-  //   // this.renderer.setElementStyle(this.screen.nativeElement, 'transform-origin', `top`);
-  // }
-
-  resize(event:any) {
-    let newWindow = (event.target.innerWidth / 1102).toFixed(2);
-    this.renderer.setElementStyle(this.screen.nativeElement, 'zoom', `${newWindow}`);
   }
 }

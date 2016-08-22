@@ -38,12 +38,9 @@ img {
   flex-flow: row wrap;
   height: 500px;
   justify-content: center;
-  // border: 1px solid $border-color;
-  // padding-top: 7px;
 }
 
 .player-name {
-  // font-size: 1rem;
   margin-left: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -55,7 +52,6 @@ img {
   display: flex;
   justify-content: center;
   width: 195px;
-  // height: 100%;
 }
 
 .draft {
