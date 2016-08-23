@@ -1,4 +1,4 @@
-import { Component, HostListener, ElementRef, Renderer, ViewChild,
+import { Component, HostListener,
   trigger, state, style, transition, animate,  } from '@angular/core';
 import { ApiService } from './services/index';
 // import { Observable } from 'rxjs';
@@ -34,7 +34,7 @@ export class AppComponent {
   rightButton: string = 'right';
   swipeDirection: string = '-';
 
-  constructor(private apiService: ApiService, private renderer: Renderer ) {
+  constructor(private apiService: ApiService) {
     this.apiService.main();
     this.loaded = this.apiService.loadDone;
   }
