@@ -33,9 +33,6 @@ export class AppComponent {
   leftButton: string = 'left';
   rightButton: string = 'right';
   swipeDirection: string = '-';
-  @ViewChild('screen') screen: ElementRef;
-
-  newWidth: string;
 
   constructor(private apiService: ApiService, private renderer: Renderer ) {
     this.apiService.main();

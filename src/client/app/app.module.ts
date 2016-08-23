@@ -12,10 +12,7 @@ import { AppComponent } from './app.component';
 import { LiveGameComponent } from './+live-game/live-game.component';
 import { ApiService } from './services/index';
 
-
-import 'hammerjs/hammer.min';
-
-//(TODO) remove with new firebase version
+//This is needed to remove namespace errors for windows version.
 import 'firebase';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
