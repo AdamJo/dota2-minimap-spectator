@@ -26,8 +26,4 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
 export class MiniDraftComponent {
   @Input() side: any;
   @Input() team: any;
-
-  // ngOnInit() {
-  // this.side = this.side[0].toUpperCase() + this.side.slice(1))
-  // }
 }

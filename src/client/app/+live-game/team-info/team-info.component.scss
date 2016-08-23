@@ -68,13 +68,6 @@ img {
   top: 63px;
 }
 
-@-moz-document url-prefix() {
-    .ultimate-cooldown {
-      left: 52px;
-      position: absolute;
-    }
-}
-
 .dire {
   box-shadow: 0px 0px 15px 0px $dire-color;
 }
