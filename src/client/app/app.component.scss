@@ -8,6 +8,20 @@ $eye-color: #333;
 $eye-white-space: #ddd;
 
 $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
+$font-color: #d9d9d9;
+
+a {
+  color: $font-color;
+  font-weight: bold;
+
+  &:active {
+    color: #646400;
+  }
+
+  &:visited {
+    $font-color: #b9b9b9;
+  }
+}
 
 .main-nav {
   background: $main-nav-background;
