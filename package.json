@@ -51,6 +51,7 @@
     "express": "~4.14.0",
     "express-history-api-fallback": "^2.0.0",
     "extend": "^3.0.0",
+    "google-closure-compiler": "^20160713.2.0",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.0",
     "gulp-clean-css": "^2.0.11",
