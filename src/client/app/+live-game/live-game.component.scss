@@ -76,3 +76,19 @@ $content-background: #111;
 .scoreboard {
   margin-top: 25px;
 }
+
+.score {
+  font-size: 1rem;
+  // vertical-align: middle;
+  height: 36px;
+  line-height: 36px;
+  margin-left: 5px;
+}
+
+.stream-delay {
+  align-items: flex-end;
+  display: flex;
+  font-size: .7rem;
+  margin-bottom: 6px;
+  margin-left: 5px;
+}
