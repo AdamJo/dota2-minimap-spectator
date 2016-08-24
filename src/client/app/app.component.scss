@@ -9,17 +9,19 @@ $eye-white-space: #ddd;
 
 $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
 $font-color: #d9d9d9;
+$link-color: #646400;
+$visted-link: #b9b9b9;
 
 a {
   color: $font-color;
   font-weight: bold;
 
   &:active {
-    color: #646400;
+    color: $link-color;
   }
 
   &:visited {
-    $font-color: #b9b9b9;
+    $font-color: $visted-link;
   }
 }
 
