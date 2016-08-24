@@ -23,7 +23,13 @@ export class ApiService {
 
   main() {
     this.gameObservable = this.grabCurrentGame();
-    this.gameObservable.subscribe((data:any) => {
+    this.gameObservable
+    // since there are a max of 5 values being changes at a time this
+    // would be called five times on every change.  The debouce grabs
+    // one then waits 500 milliseconds (could be anything below 5 seconds)
+    // to wait for a new one to come in.
+    .debounceTime(500)
+      .subscribe((data:any) => {
       this.dataLength = data.length;
       // if watching last game this statement 
       if (this.gameCount > this.dataLength) {
@@ -32,6 +38,7 @@ export class ApiService {
 
       this.allData = data;
       if (this.dataLength !== 0) {
+
         this.sortScoreboard(data[data.length - this.gameCount]);
         this.isApiUp = true;
       } else {
@@ -52,6 +59,7 @@ export class ApiService {
 
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
+    console.log(data);
     if (data.match_id) {
       if (this.match_id !== data.match_id) {
         this.firstCheckDone = false;
