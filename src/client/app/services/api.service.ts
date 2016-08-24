@@ -59,7 +59,6 @@ export class ApiService {
 
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
-    console.log(data);
     if (data.match_id) {
       if (this.match_id !== data.match_id) {
         this.firstCheckDone = false;

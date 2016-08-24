@@ -9,6 +9,7 @@ const closureCompiler = require('google-closure-compiler').gulp();
 const getTask = (target: string, destDir: string) => {
   return gulp.src(join(destDir, target))
     .pipe(closureCompiler({
+        // upstream had used ECMASCRIPT_STRICT but that cause errors with some modules (possible firebase or shim.js)
         language_out: 'ECMASCRIPT5',
         js_output_file: target
       }))
