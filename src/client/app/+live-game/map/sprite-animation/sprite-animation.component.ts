@@ -11,7 +11,7 @@ import { SpritesComponent } from '../sprites/index';
   selector: 'app-sprite-animation',
   directives: [SpritesComponent],
   template: `
-    <div
+    <div class="animation"
       #position
       (mouseenter)=toggle()
       (mouseleave)=toggle()
@@ -28,6 +28,7 @@ import { SpritesComponent } from '../sprites/index';
       .icons {
         position: absolute;
         text-align: center;
+        will-change: transform;
         z-index: 10;
       }
       .radiant, .dire {
