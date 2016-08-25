@@ -10,7 +10,7 @@ import { AddCommasPipe } from '../../pipes/index';
 import { HeroItemsComponent } from './hero-items/index';
 import { HeroRespawnComponent } from './hero-respawn/index';
 
-import { MiniDraftComponent } from '../draft/mini-draft/index';
+import { MiniDraftComponent } from '../../shared/mini-draft/index';
 
 @Component({
   moduleId: module.id,

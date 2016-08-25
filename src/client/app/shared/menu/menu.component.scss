@@ -1,0 +1,17 @@
+$main-nav-background: #eee;
+$black: #000;
+
+.main-nav {
+  background: $main-nav-background;
+  min-width: 1102px;
+
+  ul {
+    color: $black;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+  }
+}

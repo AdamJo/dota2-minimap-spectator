@@ -10,6 +10,7 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { LiveGameComponent } from './+live-game/live-game.component';
+import { MenuComponent, ButtonInfoComponent } from './shared/index';
 import { ApiService } from './services/index';
 
 //This is needed to remove namespace errors for windows version.
@@ -32,7 +33,9 @@ const firebaseConfig = {
   ],
   declarations: [
     AppComponent,
-    LiveGameComponent
+    LiveGameComponent,
+    ButtonInfoComponent,
+    MenuComponent
   ],
   providers: [
     ApiService,

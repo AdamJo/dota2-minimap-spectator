@@ -1,48 +1,8 @@
-<nav class="main-nav">
-  <ul id="main-nav-list">
-    <li *ngIf="apiService.isApiUp">
-      Minimap Spectator for Dota 2
-    </li>
-    <li *ngIf="!apiService.isApiUp">
-      The Steam API is down or no games are up.
-    </li>
-  </ul>
-</nav>
+<app-menu
+  [apiStatus]='apiService.isApiUp'
+></app-menu>
 
-<div #screen>
-<div *ngIf='apiService.loadDone;' class="flex-container">
-  <div class="content">
-    <button 
-      [disabled]="apiService.gameCount === 1 ? true : false"
-      (click)="incrementTotal()"
-      ngClass="arrow-btn {{apiService.gameCount === 1 ? 'inactive' : 'active' }}">
-      <div class="btn-content">
-        <div [@transfer]="leftButton" class="left-arrow">
-        </div>
-      </div>
-    </button>
-    <div class="spectator-info">
-      <a *ngIf="apiService.currentGame.league.tournament_url" href="{{apiService.currentGame.league.tournament_url}}">
-        <span class="league">{{apiService.currentGame.league.name}}</span>
-      </a>
-      <span>{{apiService.gameCount}} of {{apiService.dataLength}}</span>
-      <div class="spectators">
-        <div class="eye-icon">
-          <span class="eye"></span>
-        </div>
-        <div class="spectators-amount" >
-          {{apiService.currentGame.spectators}}
-        </div>
-      </div>
-    </div>
-    <button [disabled]="apiService.gameCount === apiService.allData.length ? true : false" (click)="decrementTotal()" ngClass="arrow-btn {{apiService.gameCount === apiService.allData.length ? 'inactive' : 'active' }}">
-      <div class="btn-content">
-        <div [@transfer]="rightButton" class="right-arrow">
-        </div>
-      </div>
-    </button>
-  </div>
-</div>
+<app-button-info
+></app-button-info>
 
 <router-outlet></router-outlet>
-</div>

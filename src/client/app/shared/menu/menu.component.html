@@ -1,0 +1,10 @@
+<nav class="main-nav">
+  <ul id="main-nav-list">
+    <li *ngIf="apiStatus">
+      Minimap Spectator for Dota 2
+    </li>
+    <li *ngIf="!apiStatus">
+      The Steam API is down or no games are up.
+    </li>
+  </ul>
+</nav>
