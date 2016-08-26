@@ -1,13 +1,15 @@
-<nav class="main-nav">
+<nav (click)="toggle()" class="main-nav">
    <!--- by <a href="https://github.com/AdamJo">this guy</a>-->
-  <ul id="main-nav-list">
-    <li (click)="toggle()" class="lines"></li>
-    <div *ngIf="!menuOpen">
+  <ul>
+    <div class="hamburger">
+      <li [@menu]="menuOption" class="lines"></li>
+    </div>
+    <div *ngIf="menuOption === 'open'">
       <li>
-        Made by <a href="https://github.com/AdamJo">this guy</a>
+        Made by <a href="https://github.com/AdamJo" target="_blank">this guy</a>
       </li>
     </div>
-    <div *ngIf="menuOpen">
+    <div *ngIf="menuOption === 'closed'">
       <li *ngIf="apiStatus">
         Minimap Spectator for Dota 2
       </li>

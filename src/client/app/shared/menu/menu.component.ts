@@ -13,26 +13,27 @@ import { Component, Input,
   styleUrls: ['menu.component.css'],
   animations: [
     trigger('menu', [
-      state('true', style({
-        opacity: 1
+      state('closed', style({
+        borderBottom: '17px double black'
       })),
-      state('false', style({
-        opacity: .8
+      state('open', style({
+        borderBottom: '6px solid black'
       })),
-      transition('true <=> false', animate('750ms ease-in'))
+      transition('closed => open', animate('200ms ease-in')),
+      transition('open => closed', animate('200ms ease-out'))
     ])
   ]
 })
 
 export class MenuComponent {
   @Input() apiStatus: boolean;
-  menuOpen: boolean;
+  menuOption: string;
 
   constructor() {
-    this.menuOpen = true;
+    this.menuOption = 'closed';
   }
 
   toggle() {
-    this.menuOpen = this.menuOpen ? false : true;
+    this.menuOption = this.menuOption === 'open' ? 'closed' : 'open';
   }
 }
