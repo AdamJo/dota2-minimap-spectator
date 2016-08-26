@@ -2,7 +2,8 @@
   <div class="team-side">
     <div class="team" *ngFor="let player of team">
       <div class="player-stats">
-        <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
+        <img *ngIf="player.hero !== 'None'" src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
+        <div class="blank" *ngIf="player.hero === 'None'"></div>
         <div ngClass="ultimate {{player.ultimate_cooldown === 0 ? 'ultimate-active' : 'ultimate-inactive'}}">&nbsp;</div>
       </div>
       <app-hero-items class="items"

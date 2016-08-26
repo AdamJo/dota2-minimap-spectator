@@ -30,7 +30,7 @@ export class ApiService {
 
   main() {
     this.gameObservable = this.grabCurrentGame();
-    
+
     // since there are a max of 5 values being changes at a time this
     // would be called five times on every change.  The debouce grabs
     // one then waits 500 milliseconds (could be anything below 5 seconds)
@@ -67,6 +67,7 @@ export class ApiService {
 
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
+    console.log(data);
     if (data.match_id) {
       if (this.match_id !== data.match_id) {
         this.firstCheckDone = false;

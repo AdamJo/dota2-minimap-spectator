@@ -1,10 +1,19 @@
 <nav class="main-nav">
+   <!--- by <a href="https://github.com/AdamJo">this guy</a>-->
   <ul id="main-nav-list">
-    <li *ngIf="apiStatus">
-      Minimap Spectator for Dota 2
-    </li>
-    <li *ngIf="!apiStatus">
-      The Steam API is down or no games are up.
-    </li>
+    <li (click)="toggle()" class="lines"></li>
+    <div *ngIf="!menuOpen">
+      <li>
+        Made by <a href="https://github.com/AdamJo">this guy</a>
+      </li>
+    </div>
+    <div *ngIf="menuOpen">
+      <li *ngIf="apiStatus">
+        Minimap Spectator for Dota 2
+      </li>
+      <li *ngIf="!apiStatus">
+        The Steam API is down or no games are up.
+      </li>
+    </div>
   </ul>
 </nav>

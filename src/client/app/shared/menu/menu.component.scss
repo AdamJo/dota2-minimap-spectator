@@ -2,10 +2,22 @@ $main-nav-background: #eee;
 $black: #000;
 
 .main-nav {
+  align-items: center;
   background: $main-nav-background;
-  min-width: 1102px;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+  height: 40px;
+  justify-content: center;
 
+  a {
+    &:visited {
+      color: $black;
+    }
+  }
+  
   ul {
+    align-items: center;
     color: $black;
     display: flex;
     flex-wrap: nowrap;
@@ -13,5 +25,19 @@ $black: #000;
     list-style: none;
     margin: 0 auto;
     padding: 0;
+  }
+
+  li {
+    margin: 0 20px;
+    width: 450px;
+  }
+
+  // http://alwaystwisted.com/articles/2012-05-12-create-a-pure-css-menu-button
+  .lines {
+    border-bottom: 17px double $black;
+    border-top: 6px solid $black;
+    content: '';
+    height: 5px;
+    width: 30px;
   }
 }

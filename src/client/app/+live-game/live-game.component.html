@@ -19,7 +19,7 @@
           </div>
         </div>
         <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
-        <span class="stream-delay" *ngIf="apiService.currentGame.stream_delay_s">({{apiService.currentGame.stream_delay_s}}s delay)</span>
+        <span class="stream-delay" *ngIf="streamDeplay">({{streamDeplay}}s delay)</span>
       </h4>
       <app-team-info
         [side]="'dire'"

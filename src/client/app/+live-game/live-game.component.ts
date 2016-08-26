@@ -5,6 +5,7 @@ import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
 import { TeamInfoComponent } from './team-info/index';
 import { GameTimePipe } from '../pipes/index';
+import { loading } from '../assets/loading';
 
 @Component({
   moduleId: module.id,
@@ -27,8 +28,16 @@ export class LiveGameComponent implements DoCheck {
   direTeamName: any;
   league: any;
   series: any;
+  streamDeplay: number;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {
+    this.scoreboard = loading.scoreboard;
+    this.direTeamName = loading.dire_team_name;
+    this.radiantTeamName = loading.radiant_team_name;
+    this.league = loading.league;
+    this.series = loading.series;
+    this.streamDeplay = loading.stream_delay_s;
+  }
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
@@ -37,6 +46,7 @@ export class LiveGameComponent implements DoCheck {
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
+      this.streamDeplay = this.apiService.currentGame.stream_delay_s;
     }
   }
 }

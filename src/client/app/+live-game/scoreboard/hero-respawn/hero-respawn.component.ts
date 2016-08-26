@@ -1,5 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { Observable } from 'rxjs/rx';
+import { Component, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
