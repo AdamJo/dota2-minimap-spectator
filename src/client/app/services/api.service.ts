@@ -3,6 +3,8 @@ import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './liveLeagueGame';
 import { FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/rx';
+import { loading } from './../assets/loading'
+
 // import 'rxjs/operators/debounceTime';
 
 
@@ -22,6 +24,9 @@ export class ApiService {
 
   constructor(private af: AngularFire) {
     this.gameCount = 1; //top game
+    this.dataLength = 1;
+    this.currentGame = loading;
+    this.allData = [];
     this.isApiUp = true;
     // (TODO) to get debounce to work with firebaseListObservable I have to declare 
     // an observable somewhere in my code for whatever reason.  
@@ -29,6 +34,7 @@ export class ApiService {
   }
 
   main() {
+    
     this.gameObservable = this.grabCurrentGame();
 
     // since there are a max of 5 values being changes at a time this
@@ -67,7 +73,6 @@ export class ApiService {
 
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
-    console.log(data);
     if (data.match_id) {
       if (this.match_id !== data.match_id) {
         this.firstCheckDone = false;

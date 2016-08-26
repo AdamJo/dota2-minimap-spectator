@@ -1,4 +1,4 @@
-<div *ngIf='apiService.loadDone;' class="flex-container">
+<div class="flex-container">
   <div class="content">
     <button 
       [disabled]="apiService.gameCount === 1 ? true : false"
@@ -13,6 +13,7 @@
       <a *ngIf="apiService.currentGame.league.tournament_url" href="{{apiService.currentGame.league.tournament_url}}">
         <span class="league">{{apiService.currentGame.league.name}}</span>
       </a>
+      <span *ngIf="!apiService.currentGame.league.tournament_url" class="league">{{apiService.currentGame.league.name}}</span>
       <span>{{apiService.gameCount}} of {{apiService.dataLength}}</span>
       <div class="spectators">
         <div class="eye-icon">
