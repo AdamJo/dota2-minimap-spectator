@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/rx';
 @Component({
   moduleId: module.id,
   selector: 'app-hero-respawn',
-  template: '<div class="respawn" *ngIf="deathTimer > 0"><div>{{deathTimer}}</div></div>',
+  template: '<div class="respawn"><div>{{respawn}}</div></div>',
   styles: [`
     .respawn {
       background: black;
@@ -25,28 +25,7 @@ import { Observable } from 'rxjs/rx';
     }
   `]
 })
-export class HeroRespawnComponent implements OnChanges {
+
+export class HeroRespawnComponent {
   @Input() respawn: number;
-  deathTimer: number;
-  respawnTimer: any;
-
-  constructor() {
-    this.deathTimer = 0;
-  }
-
-  ngOnChanges() {
-    this.countdownTimer();
-  }
-  countdownTimer() {
-    // has a respawn timer
-    if (this.respawn > 0) {
-      this.deathTimer = this.respawn;
-      this.respawnTimer = Observable
-      .interval(1000)
-      .take(this.respawn)
-      .subscribe(() => {
-        this.deathTimer = this.deathTimer - 1;
-      });
-    }
-  }
 }

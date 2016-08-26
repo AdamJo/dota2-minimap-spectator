@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './liveLeagueGame';
 import { FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/rx';
+// import 'rxjs/operators/debounceTime';
+
 
 @Injectable()
 export class ApiService {
@@ -13,21 +16,26 @@ export class ApiService {
   public allData: any;
   public loadDone = false;
   public isApiUp: boolean;
+  public whyDoIneedThis: any;
   private match_id: number;
   private gameObservable: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
     this.gameCount = 1; //top game
     this.isApiUp = true;
+    // (TODO) to get debounce to work with firebaseListObservable I have to declare 
+    // an observable somewhere in my code for whatever reason.  
+    this.whyDoIneedThis = Observable;
   }
 
   main() {
     this.gameObservable = this.grabCurrentGame();
-    this.gameObservable
+    
     // since there are a max of 5 values being changes at a time this
     // would be called five times on every change.  The debouce grabs
     // one then waits 500 milliseconds (could be anything below 5 seconds)
     // to wait for a new one to come in.
+    this.gameObservable
     .debounceTime(500)
       .subscribe((data:any) => {
       this.dataLength = data.length;
