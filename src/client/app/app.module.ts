@@ -3,13 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { enableProdMode } from '@angular/core';
 
-import { RouterModule } from '@angular/router';
-import { routes } from './app.routes';
-
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
-import { LiveGameComponent } from './+live-game/live-game.component';
+import { LiveGameComponent } from './live-game/live-game.component';
 import { MenuComponent, ButtonInfoComponent } from './shared/index';
 import { ApiService } from './services/index';
 
@@ -28,7 +25,6 @@ const firebaseConfig = {
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   declarations: [
