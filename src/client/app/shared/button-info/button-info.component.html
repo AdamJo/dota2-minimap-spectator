@@ -10,7 +10,7 @@
       </div>
     </button>
     <div class="spectator-info">
-      <a class="league" *ngIf="apiService.currentGame.league.tournament_url" href="{{apiService.currentGame.league.tournament_url}}">
+      <a class="league" *ngIf="apiService.currentGame.league.tournament_url" href="{{apiService.currentGame.league.tournament_url}}" target="_blank">
         <span >{{apiService.currentGame.league.name}}</span>
       </a>
       <span *ngIf="!apiService.currentGame.league.tournament_url" class="league">{{apiService.currentGame.league.name}}</span>
