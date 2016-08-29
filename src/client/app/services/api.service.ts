@@ -3,7 +3,7 @@ import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './liveLeagueGame';
 import { FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/rx';
-import { loading } from './../assets/loading'
+import { loading } from './../assets/loading';
 
 // import 'rxjs/operators/debounceTime';
 
@@ -34,7 +34,6 @@ export class ApiService {
   }
 
   main() {
-    
     this.gameObservable = this.grabCurrentGame();
 
     // since there are a max of 5 values being changes at a time this

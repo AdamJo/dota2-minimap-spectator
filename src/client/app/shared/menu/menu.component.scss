@@ -1,5 +1,7 @@
 $main-nav-background: #eee;
 $black: #000;
+$dark-blue: #246;
+$light-blue: #358;
 
 .main-nav {
   align-items: center;
@@ -11,11 +13,15 @@ $black: #000;
   justify-content: center;
 
   a {
+    &:active {
+      color: $light-blue;
+    }
+
     &:visited {
-      color: $black;
+      color: $dark-blue;
     }
   }
-  
+
   ul {
     align-items: center;
     color: $black;
