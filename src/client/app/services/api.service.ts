@@ -70,6 +70,10 @@ export class ApiService {
     });
   }
 
+  getUpcomingGames() {
+    return this.af.database.list('upcomingGames');
+  }
+
   //returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
     if (data.match_id) {
