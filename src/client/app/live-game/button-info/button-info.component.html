@@ -1,0 +1,34 @@
+<div class="flex-container">
+  <div class="content">
+    <button 
+      [disabled]="gameCount === 1 ? true : false"
+      (click)="incrementTotal()"
+      ngClass="arrow-btn {{gameCount === 1 ? 'inactive' : 'active' }}">
+      <div class="btn-content">
+        <div [@transfer]="leftButton" class="left-arrow">
+        </div>
+      </div>
+    </button>
+    <div class="spectator-info">
+      <a class="league" *ngIf="leagueUrl" href="{{leagueUrl}}" target="_blank">
+        <span >{{leagueName}}</span>
+      </a>
+      <span *ngIf="!leagueUrl" class="league">{{leagueName}}</span>
+      <span>{{gameCount}} of {{gamesLength}}</span>
+      <div class="spectators">
+        <div class="eye-icon">
+          <span class="eye"></span>
+        </div>
+        <div class="spectators-amount" >
+          {{spectators}}
+        </div>
+      </div>
+    </div>
+    <button [disabled]="gameCount === allGamesLength ? true : false" (click)="decrementTotal()" ngClass="arrow-btn {{gameCount === allGamesLength ? 'inactive' : 'active' }}">
+      <div class="btn-content">
+        <div [@transfer]="rightButton" class="right-arrow">
+        </div>
+      </div>
+    </button>
+  </div>
+</div>

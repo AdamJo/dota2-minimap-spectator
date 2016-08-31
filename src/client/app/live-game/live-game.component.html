@@ -1,3 +1,12 @@
+<app-button-info
+  [gameCount]="apiService.gameCount"
+  [leagueUrl]="apiService.currentGame.league.tournament_url"
+  [leagueName]="apiService.currentGame.league.name"
+  [gamesLength]="apiService.dataLength"
+  [spectators]="apiService.currentGame.spectators"
+  [allGamesLength]="apiService.allData.length"
+></app-button-info>
+
 <div *ngIf='scoreboard'>
   <div *ngIf='!scoreboard.did_game_start'>
     <app-draft

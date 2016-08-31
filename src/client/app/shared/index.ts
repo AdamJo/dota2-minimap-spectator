@@ -3,5 +3,3 @@
  */
 
 export * from './menu/menu.component'
-export * from './button-info/button-info.component'
-export * from './mini-draft/mini-draft.component'

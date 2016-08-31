@@ -1,4 +1,4 @@
-import { Component, HostListener,
+import { Component, HostListener, Input,
   trigger, state, style, transition, animate,  } from '@angular/core';
 import { ApiService } from '../../services/index';
 
@@ -29,14 +29,19 @@ import { ApiService } from '../../services/index';
 })
 
 export class ButtonInfoComponent {
+  @Input() gameCount: number;
+  @Input() leagueUrl: string;
+  @Input() leagueName: string;
+  @Input() gamesLength: number;
+  @Input() spectators: number;
+  @Input() allGamesLength: number
+
   loaded: boolean;
   leftButton: string = 'left';
   rightButton: string = 'right';
   swipeDirection: string = '-';
 
-  constructor(private apiService: ApiService) {
-    // this.loaded = this.apiService.loadDone;
-  }
+  constructor(private apiService: ApiService) {}
 
   decrementTotal() {
     this.apiService.decrementTotal();
@@ -52,12 +57,12 @@ export class ButtonInfoComponent {
   keypress(e: KeyboardEvent) {
       switch(e.key) {
         case 'ArrowLeft':
-          if (this.apiService.gameCount !== 1) {
+          if (this.gameCount !== 1) {
             this.incrementTotal();
           }
           break;
         case 'ArrowRight':
-          if (this.apiService.gameCount !== this.apiService.allData.length) {
+          if (this.gameCount !== this.allGamesLength) {
             this.decrementTotal();
           }
           break;
