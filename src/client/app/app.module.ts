@@ -13,8 +13,10 @@ import { AppComponent } from './app.component';
 import { ApiService } from './services/index';
 
 import { LiveGameModule } from './live-game/live-game.module';
+import { UpcomingMatchesModule } from './upcoming-matches/upcoming-matches.module';
 import { SharedModule } from './shared/shared.module';
 
+import { routes } from './app.routes';
 
 //This is needed to remove namespace errors for windows version.
 import 'firebase';
@@ -31,7 +33,9 @@ const firebaseConfig = {
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     LiveGameModule,
-    SharedModule
+    UpcomingMatchesModule,
+    SharedModule,
+    RouterModule.forRoot(routes)
   ],
   declarations: [AppComponent],
   providers: [
