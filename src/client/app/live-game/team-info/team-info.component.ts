@@ -1,14 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { HeroItemsComponent } from '../scoreboard/hero-items/index';
 
 @Component({
   moduleId: module.id,
   selector: 'app-team-info',
   templateUrl: 'team-info.component.html',
-  styleUrls: ['team-info.component.css'],
-  directives: [
-    HeroItemsComponent
-  ]
+  styleUrls: ['team-info.component.css']
 })
 
 export class TeamInfoComponent {

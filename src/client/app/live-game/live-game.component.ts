@@ -1,9 +1,5 @@
 import { Component, DoCheck } from '@angular/core';
 import { ApiService } from '../services/index';
-import { MapComponent } from './map/index';
-import { DraftComponent } from './draft/index';
-import { ScoreboardComponent } from './scoreboard/index';
-import { TeamInfoComponent } from './team-info/index';
 import { GameTimePipe } from '../pipes/index';
 import { loading } from '../assets/loading';
 
@@ -12,12 +8,6 @@ import { loading } from '../assets/loading';
   selector: 'app-live-game',
   templateUrl: 'live-game.component.html',
   styleUrls: ['live-game.component.css'],
-  directives: [
-    MapComponent,
-    DraftComponent,
-    ScoreboardComponent,
-    TeamInfoComponent
-  ],
   pipes: [GameTimePipe]
 })
 

@@ -7,21 +7,12 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { AddCommasPipe } from '../../pipes/index';
-import { HeroItemsComponent } from './hero-items/index';
-import { HeroRespawnComponent } from './hero-respawn/index';
-
-import { MiniDraftComponent } from '../../shared/mini-draft/index';
 
 @Component({
   moduleId: module.id,
   selector: 'app-scoreboard',
   pipes: [
     AddCommasPipe
-  ],
-  directives: [
-    HeroItemsComponent,
-    HeroRespawnComponent,
-    MiniDraftComponent
   ],
   templateUrl: 'scoreboard.component.html',
   styleUrls: ['scoreboard.component.css'],

@@ -10,10 +10,6 @@ import {
 } from '@angular/core';
 
 import { CalculateXPipe, CalculateYPipe, SplitNumbersPipe } from '../../pipes/index';
-import { SpritesComponent } from './sprites/index';
-import { SpriteAnimationComponent } from './sprite-animation/index';
-import { BuildingsComponent } from './buildings/index';
-
 
 @Component({
   moduleId: module.id,
@@ -26,11 +22,6 @@ import { BuildingsComponent } from './buildings/index';
     CalculateXPipe,
     CalculateYPipe,
     SplitNumbersPipe
-  ],
-  directives: [
-    SpritesComponent,
-    SpriteAnimationComponent,
-    BuildingsComponent
   ],
   providers: [],
   animations: [

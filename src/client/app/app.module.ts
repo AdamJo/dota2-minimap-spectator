@@ -10,6 +10,20 @@ import { LiveGameComponent } from './live-game/live-game.component';
 import { MenuComponent, ButtonInfoComponent } from './shared/index';
 import { ApiService } from './services/index';
 
+import { SpritesComponent } from './live-game/map/sprites/index';
+import { SpriteAnimationComponent } from './live-game/map/sprite-animation/index';
+import { BuildingsComponent } from './live-game/map/buildings/index';
+
+import { HeroItemsComponent } from './live-game/scoreboard/hero-items/index';
+import { HeroRespawnComponent } from './live-game/scoreboard/hero-respawn/index';
+
+import { MiniDraftComponent } from './shared/mini-draft/index';
+
+import { MapComponent } from './live-game/map/index';
+import { DraftComponent } from './live-game/draft/index';
+import { ScoreboardComponent } from './live-game/scoreboard/index';
+import { TeamInfoComponent } from './live-game/team-info/index';
+
 //This is needed to remove namespace errors for windows version.
 import 'firebase';
 
@@ -31,7 +45,17 @@ const firebaseConfig = {
     AppComponent,
     LiveGameComponent,
     ButtonInfoComponent,
-    MenuComponent
+    MenuComponent,
+    SpritesComponent,
+    SpriteAnimationComponent,
+    BuildingsComponent,
+    HeroItemsComponent,
+    HeroRespawnComponent,
+    MiniDraftComponent,
+    MapComponent,
+    DraftComponent,
+    ScoreboardComponent,
+    TeamInfoComponent
   ],
   providers: [
     ApiService,

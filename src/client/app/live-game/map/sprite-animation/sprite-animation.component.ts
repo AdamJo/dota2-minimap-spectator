@@ -4,12 +4,10 @@ import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetect
   style,
   transition,
   animate } from '@angular/core';
-import { SpritesComponent } from '../sprites/index';
 
 @Component({
   moduleId: module.id,
   selector: 'app-sprite-animation',
-  directives: [SpritesComponent],
   template: `
     <div class="animation"
       #position
