@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
-import { LiveLeagueGame } from './liveLeagueGame';
+import { LiveLeagueGame } from './live-league-game.model';
+import { UpcomingGames } from './upcoming-game.model';
 import { FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/rx';
 import { loading } from './../assets/loading';
-
-// import 'rxjs/operators/debounceTime';
-
 
 @Injectable()
 export class ApiService {
@@ -19,6 +17,7 @@ export class ApiService {
   public loadDone = false;
   public isApiUp: boolean;
   public whyDoIneedThis: any;
+  public upcomingGames: any;
   private match_id: number;
   private gameObservable: FirebaseListObservable<any>;
 
@@ -34,8 +33,8 @@ export class ApiService {
   }
 
   main() {
-    this.gameObservable = this.grabCurrentGame();
-
+    this.gameObservable = this.getCurrentGames();
+    this.upcomingGames = this.getUpcomingGames();
     // since there are a max of 5 values being changes at a time this
     // would be called five times on every change.  The debouce grabs
     // one then waits 500 milliseconds (could be anything below 5 seconds)
@@ -61,7 +60,7 @@ export class ApiService {
     });
   }
 
-  grabCurrentGame() {
+  getCurrentGames() {
     return this.af.database.list('sortedGames', {
       query: {
         orderByChild: 'spectators',
@@ -95,7 +94,6 @@ export class ApiService {
       this.match_id = data.match_id;
       this.firstCheckDone = true;
     }
-
     this.currentGame = data;
     this.loadDone = true;
   }
