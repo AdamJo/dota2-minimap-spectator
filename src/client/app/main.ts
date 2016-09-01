@@ -5,7 +5,7 @@ import { enableProdMode } from '@angular/core';
 import { AppModule } from './app.module';
 
 
-if ('<%= ENV %>' === 'prod') { enableProdMode(); }
+if (String('<%= ENV %>') === 'prod') { enableProdMode(); }
 
 // Compile and launch the module
 platformBrowserDynamic().bootstrapModule(AppModule);

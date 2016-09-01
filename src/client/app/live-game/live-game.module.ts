@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 import { ButtonInfoComponent } from './button-info/index';
@@ -19,6 +18,8 @@ import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
 import { TeamInfoComponent } from './team-info/index';
 
+import { CalculateXPipe, CalculateYPipe, GameTimePipe, SplitNumbersPipe, AddCommasPipe } from '../pipes/index';
+
 @NgModule({
   imports: [CommonModule],
   declarations: [
@@ -33,7 +34,12 @@ import { TeamInfoComponent } from './team-info/index';
     MapComponent,
     DraftComponent,
     ScoreboardComponent,
-    TeamInfoComponent
+    TeamInfoComponent,
+    CalculateXPipe,
+    CalculateYPipe,
+    GameTimePipe,
+    SplitNumbersPipe,
+    AddCommasPipe
   ],
   exports: [LiveGameComponent]
 })

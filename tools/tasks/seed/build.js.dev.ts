@@ -2,9 +2,9 @@ import * as gulp from 'gulp';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
 import * as merge from 'merge-stream';
 import * as util from 'gulp-util';
-import { join } from 'path';
+import { join/*, sep, relative*/ } from 'path';
 
-import { APP_DEST, APP_SRC, TOOLS_DIR, TYPED_COMPILE_INTERVAL } from '../../config';
+import { APP_DEST, APP_SRC, /*PROJECT_ROOT, */TOOLS_DIR, TYPED_COMPILE_INTERVAL } from '../../config';
 import { makeTsProject, templateLocals } from '../../utils';
 
 const plugins = <any>gulpLoadPlugins();

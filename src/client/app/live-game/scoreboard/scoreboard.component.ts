@@ -6,14 +6,10 @@ import {
   HostListener,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { AddCommasPipe } from '../../pipes/index';
 
 @Component({
   moduleId: module.id,
   selector: 'app-scoreboard',
-  pipes: [
-    AddCommasPipe
-  ],
   templateUrl: 'scoreboard.component.html',
   styleUrls: ['scoreboard.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

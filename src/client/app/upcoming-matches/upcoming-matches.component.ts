@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/index';
 
-import { testData } from '../assets/testData'
+import { testData } from '../assets/testData';
 
 
 @Component({
@@ -20,8 +20,9 @@ export class UpcomingMatchesComponent implements OnInit {
     .subscribe((data:any) => {
       this.newGames = data;
       if (this.newGames.length === 0) {
-        this.newGames = testData
+        this.newGames = testData;
       }
-    })
+      console.log(this.newGames, new Date());
+    });
   }
 }

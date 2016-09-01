@@ -9,19 +9,12 @@ import {
   animate
 } from '@angular/core';
 
-import { CalculateXPipe, CalculateYPipe, SplitNumbersPipe } from '../../pipes/index';
-
 @Component({
   moduleId: module.id,
   selector: 'app-map',
   templateUrl: 'map.component.html',
   styleUrls: [
     'map.component.css'
-  ],
-  pipes: [
-    CalculateXPipe,
-    CalculateYPipe,
-    SplitNumbersPipe
   ],
   providers: [],
   animations: [

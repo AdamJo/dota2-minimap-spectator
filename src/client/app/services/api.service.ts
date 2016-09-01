@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
-import { UpcomingGames } from './upcoming-game.model';
 import { FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/rx';
 import { loading } from './../assets/loading';

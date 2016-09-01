@@ -1,14 +1,12 @@
 import { Component, DoCheck } from '@angular/core';
 import { ApiService } from '../services/index';
-import { GameTimePipe } from '../pipes/index';
 import { loading } from '../assets/loading';
 
 @Component({
   moduleId: module.id,
   selector: 'app-live-game',
   templateUrl: 'live-game.component.html',
-  styleUrls: ['live-game.component.css'],
-  pipes: [GameTimePipe]
+  styleUrls: ['live-game.component.css']
 })
 
 export class LiveGameComponent implements DoCheck {

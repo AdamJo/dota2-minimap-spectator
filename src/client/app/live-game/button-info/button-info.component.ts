@@ -34,7 +34,7 @@ export class ButtonInfoComponent {
   @Input() leagueName: string;
   @Input() gamesLength: number;
   @Input() spectators: number;
-  @Input() allGamesLength: number
+  @Input() allGamesLength: number;
 
   loaded: boolean;
   leftButton: string = 'left';

@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { addProviders, async, inject } from '@angular/core/testing';
-import { SplitNumbersPipe } from './split-to-numbers.pipe';
+import { SplitNumbersPipe } from './split-numbers.pipe';
 
 export function main() {
   describe('Pipe: SplitNumbersPipe', () => {

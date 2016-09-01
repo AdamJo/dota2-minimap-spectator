@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { LiveGameComponent } from './live-game/index';
 import { UpcomingMatchesComponent } from './upcoming-matches/index';
 
