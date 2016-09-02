@@ -1,5 +1,5 @@
 .d2mh {
-  background-image: url('app/live-game/map/sprites/resources/minimap_hero_sheet_v3_tiny.png');
+  background-image: url('app/live-game/map/sprites/resources/minimap_hero_sheet_v4-min.png');
   background-repeat: no-repeat;
   display: inline-block;
   height: 32px;
@@ -480,6 +480,10 @@
 
 .arc_warden {
   background-position: -96px -224px;
+}
+
+.abyssal_underlord {
+  background-position: -32px -224px;
 }
 
 .roshan {
