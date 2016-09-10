@@ -43,7 +43,7 @@ export class ScoreboardComponent implements OnChanges {
     this.menuTitle = 'GAME STATS';
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: any) {
     this.addTeamToPlayers(this.scoreboard);
     this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
     this.newValues = this.newValues.filter((data:any) => {

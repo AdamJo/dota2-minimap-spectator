@@ -16,9 +16,9 @@ export class LiveGameComponent implements DoCheck {
   direTeamName: any;
   league: any;
   series: any;
-  streamDeplay: number;
+  streamDeplay: any;
 
-  constructor(private apiService: ApiService) {
+  constructor(public apiService: ApiService) {
     this.scoreboard = loading.scoreboard;
     this.direTeamName = loading.dire_team_name;
     this.radiantTeamName = loading.radiant_team_name;

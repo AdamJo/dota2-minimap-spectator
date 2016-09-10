@@ -24,6 +24,7 @@ import { CalculateXPipe, CalculateYPipe, GameTimePipe, SplitNumbersPipe, AddComm
   imports: [CommonModule],
   declarations: [
     LiveGameComponent,
+    ScoreboardComponent,
     ButtonInfoComponent,
     SpritesComponent,
     SpriteAnimationComponent,
@@ -33,7 +34,6 @@ import { CalculateXPipe, CalculateYPipe, GameTimePipe, SplitNumbersPipe, AddComm
     MiniDraftComponent,
     MapComponent,
     DraftComponent,
-    ScoreboardComponent,
     TeamInfoComponent,
     CalculateXPipe,
     CalculateYPipe,

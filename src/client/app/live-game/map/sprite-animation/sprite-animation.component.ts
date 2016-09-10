@@ -64,7 +64,7 @@ import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetect
 })
 
 export class SpriteAnimationComponent implements OnInit {
-  @Input() team: boolean;
+  @Input() team: string;
   @Input() heroId: string;
   @Input() posX: number;
   @Input() posY: number;

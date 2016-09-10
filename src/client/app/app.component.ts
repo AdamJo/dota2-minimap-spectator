@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ApiService } from './services/index';
-// import { Observable } from 'rxjs';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +9,7 @@ import { ApiService } from './services/index';
 
 export class AppComponent {
 
-  constructor(private apiService: ApiService) {
+  constructor(public apiService: ApiService) {
     this.apiService.main();
   }
 }

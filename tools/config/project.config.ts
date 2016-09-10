@@ -17,7 +17,7 @@ export class ProjectConfig extends SeedConfig {
 
   constructor() {
     super();
-    this.APP_TITLE = 'Mini Dota 2 Spectator';
+    // this.APP_TITLE = 'Put name of your app here';
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
@@ -35,7 +35,6 @@ export class ProjectConfig extends SeedConfig {
       // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
       // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
     ];
-
     this.SYSTEM_CONFIG_DEV.paths['firebase'] =
       `${this.APP_BASE}node_modules/firebase/firebase`;
 
@@ -51,7 +50,6 @@ export class ProjectConfig extends SeedConfig {
         main: 'angularfire2.js',
         defaultExtension : 'js'
     };
-
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
   }
