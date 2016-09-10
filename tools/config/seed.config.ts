@@ -138,7 +138,7 @@ export class SeedConfig {
    * `index.html`.
    * @type {string}
    */
-  APP_TITLE = 'Minimap Spectator';
+  APP_TITLE = 'Mini Dota 2 Spectator';
 
   /**
    * The base folder of the applications source files.
