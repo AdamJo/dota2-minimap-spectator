@@ -22,7 +22,7 @@ export class UpcomingMatchesComponent implements OnInit {
       if (this.newGames.length === 0) {
         this.newGames = testData;
       }
-      console.log(this.newGames, new Date());
+      console.log(this.newGames);
     });
   }
 }
