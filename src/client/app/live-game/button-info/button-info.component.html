@@ -9,7 +9,7 @@
         </div>
       </div>
     </button>
-    <div class="spectator-info">
+    <div class="spectator-info" *ngIf="apiStatus">
       <a class="league" *ngIf="leagueUrl" href="{{leagueUrl}}" target="_blank">
         <span >{{leagueName}}</span>
       </a>
@@ -23,6 +23,9 @@
           {{spectators}}
         </div>
       </div>
+    </div>
+    <div class="apiStatus" *ngIf="!apiStatus">
+      The Steam API is down or no games are up.
     </div>
     <button [disabled]="gameCount === allGamesLength ? true : false" (click)="decrementTotal()" ngClass="arrow-btn {{gameCount === allGamesLength ? 'inactive' : 'active' }}">
       <div class="btn-content">

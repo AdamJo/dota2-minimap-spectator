@@ -35,6 +35,7 @@ export class ButtonInfoComponent {
   @Input() gamesLength: number;
   @Input() spectators: number;
   @Input() allGamesLength: number;
+  @Input() apiStatus: boolean;
 
   loaded: boolean;
   leftButton: string = 'left';

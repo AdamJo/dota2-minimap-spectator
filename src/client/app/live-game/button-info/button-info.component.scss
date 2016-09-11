@@ -90,6 +90,16 @@ button {
   width: 536px;
 }
 
+.apiStatus {
+  align-items: center;
+  background: $content-background;
+  border: 1px solid $button-border;
+  display: flex;
+  justify-content: center;
+  margin: 0 10px;
+  width: 536px;
+}
+
 .spectators {
   align-items: center;
   display: flex;

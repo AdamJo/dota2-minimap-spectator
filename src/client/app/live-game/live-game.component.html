@@ -1,4 +1,5 @@
 <app-button-info
+  [apiStatus]="apiService.isApiUp"
   [gameCount]="apiService.gameCount"
   [leagueUrl]="apiService.currentGame.league.tournament_url"
   [leagueName]="apiService.currentGame.league.name"
