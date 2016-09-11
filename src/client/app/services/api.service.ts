@@ -5,6 +5,8 @@ import { FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/rx';
 import { loading } from './../assets/loading';
 
+import { testData } from '../assets/testData';
+
 @Injectable()
 export class ApiService {
 
@@ -17,6 +19,7 @@ export class ApiService {
   public isApiUp: boolean;
   public whyDoIneedThis: any;
   public upcomingGames: any;
+  public upcomingMatches: any;
   private match_id: number;
   private gameObservable: FirebaseListObservable<any>;
 
@@ -31,9 +34,22 @@ export class ApiService {
     this.whyDoIneedThis = Observable;
   }
 
-  main() {
-    this.gameObservable = this.getCurrentGames();
+  NewGames() {
     this.upcomingGames = this.getUpcomingGames();
+    this.upcomingGames
+    .debounceTime(500)
+    .subscribe((data:any) => {
+      this.upcomingMatches = data;
+      if (this.upcomingMatches.length === 0) {
+        this.upcomingMatches = testData;
+      }
+      console.log(this.upcomingMatches);
+    });
+  }
+
+  liveGames() {
+    this.gameObservable = this.getCurrentGames();
+    
     // since there are a max of 5 values being changes at a time this
     // would be called five times on every change.  The debouce grabs
     // one then waits 500 milliseconds (could be anything below 5 seconds)
