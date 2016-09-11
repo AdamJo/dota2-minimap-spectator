@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
-import { UpcomingMatchesComponent } from './upcoming-matches.component';
+import { UpcomingMatchesComponent } from './index';
+import { UpcomingMatchComponent } from './upcoming-match/index';
+import { CommonModule } from '@angular/common';
+import { UpcomingGameStartPipe } from '../pipes/index'
+
 
 @NgModule({
-  imports: [],
+  imports: [CommonModule],
   declarations: [
-    UpcomingMatchesComponent
+    UpcomingMatchesComponent,
+    UpcomingMatchComponent,
+    UpcomingGameStartPipe
   ],
   exports: [
     UpcomingMatchesComponent

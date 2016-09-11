@@ -7,10 +7,12 @@ import { testData } from '../assets/testData';
 @Component({
   moduleId: module.id,
   selector: 'app-upcoming-matches',
-  templateUrl: 'upcoming-matches.component.html'
+  templateUrl: 'upcoming-matches.component.html',
+  styleUrls: ['upcoming-matches.component.css']
 })
 export class UpcomingMatchesComponent implements OnInit {
-  newGames: any;
+
+  upcomingMatches: any;
 
   constructor(private apiService: ApiService) {}
 
@@ -18,11 +20,11 @@ export class UpcomingMatchesComponent implements OnInit {
     this.apiService.upcomingGames
     .debounceTime(300)
     .subscribe((data:any) => {
-      this.newGames = data;
-      if (this.newGames.length === 0) {
-        this.newGames = testData;
+      this.upcomingMatches = data;
+      if (this.upcomingMatches.length === 0) {
+        this.upcomingMatches = testData;
       }
-      console.log(this.newGames);
+      console.log(this.upcomingMatches);
     });
   }
 }

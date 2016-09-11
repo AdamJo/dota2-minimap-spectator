@@ -3,3 +3,4 @@ export * from './calculate-y.pipe';
 export * from './split-numbers.pipe';
 export * from './add-commas.pipe';
 export * from './game-time.pipe';
+export * from './upcoming-game-start.pipe'
