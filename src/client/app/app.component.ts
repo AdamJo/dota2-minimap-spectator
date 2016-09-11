@@ -10,6 +10,8 @@ import { ApiService } from './services/index';
 export class AppComponent {
 
   constructor(public apiService: ApiService) {
-    this.apiService.main();
+    this.apiService.liveGames();
+    this.apiService.NewGames();
+
   }
 }

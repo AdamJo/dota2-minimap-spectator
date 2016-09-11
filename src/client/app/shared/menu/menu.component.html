@@ -1,20 +1,7 @@
-<nav (click)="toggle()" class="main-nav">
+<nav class="main-nav">
   <ul>
-    <div class="hamburger">
-      <li [@menu]="menuOption" class="lines"></li>
-    </div>
-    <div *ngIf="menuOption === 'open'">
-      <li>
-        Made by <a href="https://github.com/AdamJo" target="_blank">this guy</a>
-      </li>
-    </div>
-    <div *ngIf="menuOption === 'closed'">
-      <li *ngIf="apiStatus">
-        Minimap Spectator for Dota 2
-      </li>
-      <li *ngIf="!apiStatus">
-        The Steam API is down or no games are up.
-      </li>
-    </div>
+    <li class="author"><a href="https://github.com/adamjo">Author</a></li>
+    <li><a [routerLink]="['/']">Live</a></li>
+    <li><a [routerLink]="['/upcoming']">Upcoming</a></li>
   </ul>
 </nav>

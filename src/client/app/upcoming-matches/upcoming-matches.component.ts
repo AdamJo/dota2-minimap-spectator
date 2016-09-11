@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { ApiService } from '../services/index';
-
-import { testData } from '../assets/testData';
 
 
 @Component({
@@ -10,21 +8,25 @@ import { testData } from '../assets/testData';
   templateUrl: 'upcoming-matches.component.html',
   styleUrls: ['upcoming-matches.component.css']
 })
-export class UpcomingMatchesComponent implements OnInit {
+export class UpcomingMatchesComponent {
 
   upcomingMatches: any;
+  status: string;
+
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
+    this.upcomingMatches = this.apiService.upcomingMatches;
+    this.upcomingMatches = this.apiService.upcomingMatches
     this.apiService.upcomingGames
-    .debounceTime(300)
     .subscribe((data:any) => {
       this.upcomingMatches = data;
       if (this.upcomingMatches.length === 0) {
-        this.upcomingMatches = testData;
+        this.status = 'No scheduled games'
+      } else {
+        this.status = '';
       }
-      console.log(this.upcomingMatches);
-    });
+    }) 
   }
 }

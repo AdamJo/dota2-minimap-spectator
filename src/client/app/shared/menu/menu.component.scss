@@ -1,7 +1,7 @@
 $main-nav-background: #eee;
 $black: #000;
-$dark-blue: #246;
-$light-blue: #358;
+$grey: #555;
+$light-grey: #777;
 
 .main-nav {
   align-items: center;
@@ -11,15 +11,18 @@ $light-blue: #358;
   font-size: 1.2rem;
   height: 40px;
   justify-content: center;
-  min-width: 1102px;
+
+  .author {
+    
+  }
 
   a {
     &:active {
-      color: $light-blue;
+      color: $light-grey;
     }
 
     &:visited {
-      color: $dark-blue;
+      color: $grey;
     }
   }
 
@@ -36,7 +39,6 @@ $light-blue: #358;
 
   li {
     margin: 0 20px;
-    width: 450px;
   }
 
   // http://alwaystwisted.com/articles/2012-05-12-create-a-pure-css-menu-button

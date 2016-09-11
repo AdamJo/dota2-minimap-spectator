@@ -1,6 +1,12 @@
+$font-color: #d9d9d9;
+
 .upcoming-content {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+a {
+  color: $font-color
 }

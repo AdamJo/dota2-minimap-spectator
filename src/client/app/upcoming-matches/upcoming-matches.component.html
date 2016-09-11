@@ -1,5 +1,11 @@
 <div class="upcoming-content">
-  <app-upcoming-match *ngFor="let match of upcomingMatches"
-    [match]='match'
-  ></app-upcoming-match>
+  <h2>Upcoming games API by <a href="http://dailydota2.com/">DailyDota2</a></h2>
+  <div *ngIf='!status'>
+    <app-upcoming-match *ngFor="let match of upcomingMatches"
+      [match]='match'
+    ></app-upcoming-match>
+  </div>
+  <h3 *ngIf='status'>
+    {{status}}
+  </h3>
 </div>
