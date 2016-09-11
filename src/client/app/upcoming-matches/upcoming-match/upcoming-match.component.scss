@@ -8,23 +8,23 @@ $visted-link: #b9b9b9;
 .container {
   background: $team-background;
   border: 1px solid $border-color;
-  width: 100%;
-  max-width: 500px;
   margin: 10px 0;
+  max-width: 500px;
+  width: 100%;
 }
 
 .match {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .league {
+  font-size: 1.4rem;
   overflow: hidden;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 1.4rem;
-  text-align: center;
   width: 475px;
 }
 
@@ -34,30 +34,26 @@ $visted-link: #b9b9b9;
 }
 
 .team1 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   font-size: 1.2rem;
   margin-right: 20px;
+  overflow: hidden;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 200px;
 }
 
 .team2 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   font-size: 1.2rem;
   margin-left: 20px;
+  overflow: hidden;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 200px;
 }
 
-.separator {
-  
-}
-
 .series-type {
+  font-size: .8rem;
   margin: 3px 0;
-  font-size: 0.8rem;
 }
