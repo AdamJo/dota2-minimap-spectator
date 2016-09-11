@@ -34,10 +34,46 @@
       background-color: #000;
       color: #d9d9d9;
     }
+
+    @keyframes jitter {
+      0% {
+        opacity: 1;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      animation:
+        jitter 5s ease-in-out infinite;
+    }
+
+
+
   </style>
 </head>
 <body>
-  <root-app>Loading...</root-app>
+<!--
+    <div class="loading">
+      <img src="./mstile-310x310.png"></img>
+    </div>-->
+  <root-app>
+    <div class="loading">
+      <img src="./mstile-150x150.png"></img>
+    </div>
+  </root-app>
 
   <script>
   // Fixes undefined module function in SystemJS bundle
