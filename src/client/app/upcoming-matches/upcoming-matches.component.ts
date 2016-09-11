@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/index';
 
 
@@ -8,7 +8,7 @@ import { ApiService } from '../services/index';
   templateUrl: 'upcoming-matches.component.html',
   styleUrls: ['upcoming-matches.component.css']
 })
-export class UpcomingMatchesComponent {
+export class UpcomingMatchesComponent implements OnInit {
 
   upcomingMatches: any;
   status: string;
@@ -18,15 +18,15 @@ export class UpcomingMatchesComponent {
 
   ngOnInit() {
     this.upcomingMatches = this.apiService.upcomingMatches;
-    this.upcomingMatches = this.apiService.upcomingMatches
+    this.upcomingMatches = this.apiService.upcomingMatches;
     this.apiService.upcomingGames
-    .subscribe((data:any) => {
-      this.upcomingMatches = data;
-      if (this.upcomingMatches.length === 0) {
-        this.status = 'No scheduled games'
-      } else {
-        this.status = '';
-      }
-    }) 
+      .subscribe((data:any) => {
+        this.upcomingMatches = data;
+        if (this.upcomingMatches.length === 0) {
+          this.status = 'No scheduled games';
+        } else {
+          this.status = '';
+        }
+      });
   }
 }

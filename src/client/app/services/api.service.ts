@@ -49,7 +49,6 @@ export class ApiService {
 
   liveGames() {
     this.gameObservable = this.getCurrentGames();
-    
     // since there are a max of 5 values being changes at a time this
     // would be called five times on every change.  The debouce grabs
     // one then waits 500 milliseconds (could be anything below 5 seconds)
