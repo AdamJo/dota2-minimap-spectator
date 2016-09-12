@@ -1,4 +1,4 @@
-$team-background: #222;
+$content-background: #111;
 $border-color: #2f2724;
 
 $font-color: #d9d9d9;
@@ -6,10 +6,11 @@ $link-color: #646400;
 $visted-link: #b9b9b9;
 
 .container {
-  background: $team-background;
+  background: $content-background;
   border: 1px solid $border-color;
   margin: 10px 0;
   max-width: 500px;
+  padding: 10px 0;
   width: 100%;
 }
 

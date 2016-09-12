@@ -22,14 +22,10 @@ import { Component } from '@angular/core';
         }
       }
       footer {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        text-align: center;
         background: #000;
         color: #fff;
         margin-top: 10px;
+        text-align: center;
       }
     `
   ]
