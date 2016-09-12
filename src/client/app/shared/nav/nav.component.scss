@@ -13,8 +13,8 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
   display: flex;
   flex-direction: row;
   font-size: 1.2rem;
-  height: 40px;
   justify-content: center;
+  margin: 10px 0;
 
   ul {
     align-items: center;
@@ -22,6 +22,7 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
     border: 1px solid $border;
     display: flex;
     flex-wrap: nowrap;
+    height: 40px;
     justify-content: center;
     list-style: none;
     margin: 0 auto;
@@ -30,6 +31,7 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
   }
 
   li {
+    
     text-align: center;
     width: 150px;
 
@@ -41,6 +43,8 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
   a {
     color: $font-color;
     margin: 0 5px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     text-decoration: none;
     width: 150px;
