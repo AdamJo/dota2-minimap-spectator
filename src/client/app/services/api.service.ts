@@ -43,7 +43,6 @@ export class ApiService {
       if (this.upcomingMatches.length === 0) {
         this.upcomingMatches = testData;
       }
-      console.log(this.upcomingMatches);
     });
   }
 
