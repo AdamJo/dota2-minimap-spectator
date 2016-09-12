@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="apiStatus" *ngIf="!apiStatus">
+    <div class="api-status" *ngIf="!apiStatus">
       The Steam API is down or no games are up.
     </div>
     <button [disabled]="gameCount === allGamesLength ? true : false" (click)="decrementTotal()" ngClass="arrow-btn {{gameCount === allGamesLength ? 'inactive' : 'active' }}">

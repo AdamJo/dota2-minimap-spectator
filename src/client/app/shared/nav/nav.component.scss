@@ -18,8 +18,8 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
 
   ul {
     align-items: center;
-    border: 1px solid $border;
     background: $content-background;
+    border: 1px solid $border;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -30,8 +30,8 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
   }
 
   li {
-    width: 150px;
     text-align: center;
+    width: 150px;
 
     &:hover {
       background: $grey;
@@ -41,9 +41,9 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
   a {
     color: $font-color;
     margin: 0 5px;
+    text-align: center;
     text-decoration: none;
     width: 150px;
-    text-align: center;
 
     &:hover {
       background: $box-shadow-color-hover;
