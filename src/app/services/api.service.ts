@@ -17,7 +17,6 @@ export class ApiService {
   public allData: any;
   public loadDone = false;
   public isApiUp: boolean;
-  public whyDoIneedThis: any;
   public upcomingGames: any;
   public upcomingMatches: any;
   private match_id: number;
