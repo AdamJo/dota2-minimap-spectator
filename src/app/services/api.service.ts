@@ -29,13 +29,14 @@ export class ApiService {
     this.currentGame = loading;
     this.allData = [];
     this.isApiUp = true;
-    // (TODO) to get debounce to work with firebaseListObservable I have to declare 
-    // an observable somewhere in my code for whatever reason.  
-    this.whyDoIneedThis = Observable;
   }
 
   NewGames() {
     this.upcomingGames = this.getUpcomingGames();
+    // since there are a max of 5 values being changes at a time this
+    // would be called five times on every change.  The debouce grabs
+    // one then waits 500 milliseconds (could be anything below 5 seconds)
+    // to wait for a new one to come in.
     this.upcomingGames
     .debounceTime(500)
     .subscribe((data:any) => {
@@ -48,10 +49,6 @@ export class ApiService {
 
   liveGames() {
     this.gameObservable = this.getCurrentGames();
-    // since there are a max of 5 values being changes at a time this
-    // would be called five times on every change.  The debouce grabs
-    // one then waits 500 milliseconds (could be anything below 5 seconds)
-    // to wait for a new one to come in.
     this.gameObservable
     .debounceTime(500)
       .subscribe((data:any) => {
