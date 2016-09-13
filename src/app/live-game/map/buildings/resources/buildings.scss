@@ -1,0 +1,37 @@
+.buildings {
+  background-image: url('assets/img/full_buildings_tiny.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
+
+.dire-ancient {
+  background-position: 0 0;
+}
+
+.dire-barracks {
+  background-position: -32px 0;
+  transform: scale(0.5);
+}
+
+.dire-tower {
+  background-position: -64px 0;
+  transform: scale(0.75);
+}
+
+.radiant-ancient {
+  background-position: -96px 0;
+  height: 30px;
+  width: 30px;
+}
+
+.radiant-barracks {
+  background-position: -128px 0;
+  transform: scale(0.5);
+}
+
+.radiant-tower {
+  background-position: -160px 0;
+  transform: scale(0.75);
+}
