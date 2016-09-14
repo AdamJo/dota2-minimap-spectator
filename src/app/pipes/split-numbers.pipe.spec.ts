@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { addProviders, async, inject } from '@angular/core/testing';
+import { async, inject } from '@angular/core/testing';
 import { SplitNumbersPipe } from './split-numbers.pipe';
 
 export function main() {
@@ -16,7 +16,7 @@ export function main() {
     });
 
     it('transforms "11" to ["1","1"]', () => {
-      expect(pipe.transform('11')).toEqual([1,1]);
+      expect(pipe.transform('11')).toEqual([1, 1]);
     });
 
     it('transforms null to undefined', () => {

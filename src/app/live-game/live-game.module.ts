@@ -18,7 +18,13 @@ import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
 import { TeamInfoComponent } from './team-info/index';
 
-import { CalculateXPipe, CalculateYPipe, GameTimePipe, SplitNumbersPipe, AddCommasPipe } from '../pipes/index';
+import {
+  CalculateXPipe,
+  CalculateYPipe,
+  GameTimePipe,
+  SplitNumbersPipe,
+  AddCommasPipe
+} from '../pipes/index';
 
 @NgModule({
   imports: [CommonModule],

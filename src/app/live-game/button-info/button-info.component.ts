@@ -1,7 +1,6 @@
 import { Component, HostListener, Input,
-  trigger, state, style, transition, animate,  } from '@angular/core';
+  trigger, state, style, transition, animate } from '@angular/core';
 import { ApiService } from '../../services/index';
-
 
 @Component({
   selector: 'app-button-info',
@@ -55,17 +54,14 @@ export class ButtonInfoComponent {
 
   @HostListener(`document:keydown`, ['$event'])
   keypress(e: KeyboardEvent) {
-      switch(e.key) {
-        case 'ArrowLeft':
-          if (this.gameCount !== 1) {
-            this.incrementTotal();
-          }
-          break;
-        case 'ArrowRight':
-          if (this.gameCount !== this.allGamesLength) {
-            this.decrementTotal();
-          }
-          break;
+    if (e.key === 'ArrowLeft') {
+      if (this.gameCount !== 1) {
+        this.incrementTotal();
       }
+    } else {
+      if (this.gameCount !== this.allGamesLength) {
+        this.decrementTotal();
+      }
+    }
   }
 }

@@ -27,7 +27,8 @@ export function main() {
     it('should create an instance', () => {
       expect(pipe).toBeTruthy();
     });
-    it('transforms float to integer', () => {
+
+    it('transforms (possible) float to integer', () => {
       testIntegers.map(testData => {
         expect(pipe.transform(testData, width, maxWdithHeight)).toEqual(jasmine.any(Number));
       });

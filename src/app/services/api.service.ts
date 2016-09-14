@@ -19,11 +19,11 @@ export class ApiService {
   public isApiUp: boolean;
   public upcomingGames: any;
   public upcomingMatches: any;
-  private match_id: number;
+  private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
-    this.gameCount = 1; //top game
+    this.gameCount = 1; // top spectated game
     this.dataLength = 1;
     this.currentGame = loading;
     this.allData = [];
@@ -38,7 +38,7 @@ export class ApiService {
     // to wait for a new one to come in.
     this.upcomingGames
     .debounceTime(500)
-    .subscribe((data:any) => {
+    .subscribe((data: any) => {
       this.upcomingMatches = data;
       if (this.upcomingMatches.length === 0) {
         this.upcomingMatches = testData;
@@ -50,7 +50,7 @@ export class ApiService {
     this.gameObservable = this.getCurrentGames();
     this.gameObservable
     .debounceTime(500)
-      .subscribe((data:any) => {
+      .subscribe((data: any) => {
       this.dataLength = data.length;
       // if watching last game this statement 
       if (this.gameCount > this.dataLength) {
@@ -82,10 +82,10 @@ export class ApiService {
     return this.af.database.list('upcomingGames');
   }
 
-  //returns the radiant and dire players
+  // returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
     if (data.match_id) {
-      if (this.match_id !== data.match_id) {
+      if (this.matchId !== data.match_id) {
         this.firstCheckDone = false;
       }
     }
@@ -100,7 +100,7 @@ export class ApiService {
         data.scoreboard.dire.players[i].old_position_y = d.position_y;
       });
     } else {
-      this.match_id = data.match_id;
+      this.matchId = data.match_id;
       this.firstCheckDone = true;
     }
     this.currentGame = data;

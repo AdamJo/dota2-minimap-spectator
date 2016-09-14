@@ -1,17 +1,13 @@
-import { beforeEachProviders, inject } from '@angular/core/testing';
+import { inject } from '@angular/core/testing';
 import { BuildingsComponent } from './buildings.component';
 
 export function main() {
   describe('Buildings Component', () => {
 
-    beforeEachProviders(() => [
-      BuildingsComponent
-    ]);
-
-    it('should create an instance', inject([ BuildingsComponent ], (app:any) => {
+    it('should create an instance', inject([ BuildingsComponent ], (app: any) => {
       expect(app.barracks).toBeTruthy();
     }));
-    it('should have barracks defined correctly', inject([ BuildingsComponent ], (app:any) => {
+    it('should have barracks defined correctly', inject([ BuildingsComponent ], (app: any) => {
       expect(app.barracks).toEqual([
         'barracks-bottom-ranged',
         'barracks-bottom-melee',
@@ -21,7 +17,7 @@ export function main() {
         'barracks-top-melee'
       ]);
     }));
-    it('should have towers defined correctly', inject([ BuildingsComponent ], (app:any) => {
+    it('should have towers defined correctly', inject([ BuildingsComponent ], (app: any) => {
       expect(app.towers).toEqual([
         'ancient-1',
         'ancient-2',

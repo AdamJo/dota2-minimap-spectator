@@ -17,7 +17,7 @@ export class SplitNumbersPipe implements PipeTransform {
     * else return undefined ( most likely hasn't loaded in yet )
     */
     if (value) {
-      return (value.split('').map((data:any) => parseInt(data)));
+      return (value.split('').map((data: any) => parseInt(data, 10)));
     } else {
       return undefined;
     }

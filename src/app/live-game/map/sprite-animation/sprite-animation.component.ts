@@ -43,7 +43,8 @@ import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetect
       .roshan {
         border-radius: 25px;
         padding-top: 4px;
-        background: radial-gradient(ellipse at center, rgba(128,128,128,0.75) 0%,rgba(128,128,128,0) 75%);
+        background: 
+          radial-gradient(ellipse at center, rgba(128,128,128,0.75) 0%,rgba(128,128,128,0) 75%);
         z-index: 5;
       }
     `
@@ -70,7 +71,7 @@ export class SpriteAnimationComponent implements OnInit {
   @Input() oldPosX: number;
   @Input() oldPosY: number;
 
-  @ViewChild('position') coordinates : ElementRef;
+  @ViewChild('position') coordinates: ElementRef;
   @Input() respawnTimer: number;
 
   shrink = 'regular';
@@ -79,8 +80,8 @@ export class SpriteAnimationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX+'%');
-    this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY+'%');
+    this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
+    this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
     this.animateMovement();
     if (this.respawnTimer > 0) {
       this.animateDeath();
@@ -88,20 +89,19 @@ export class SpriteAnimationComponent implements OnInit {
   }
   /* 
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart
-  * Using this instead of onChanges since onChanges only captures actual values and not object references like int he *ngFor
+  * Using this instead of onChanges since onChanges only captures actual values and 
+  * not object references like int he *ngFor
   */
   animateMovement() {
 
     if (!Number.isNaN(this.oldPosX) && this.oldPosX !== undefined ) {
-        //console.log('heroId ' + this.heroId + 'posX ' + this.posX, 'posY ' +  this.posY, 'X ' +  this.oldPosX, 'Y ' + this.oldPosY)
-        //[this.oldPosX, this.oldPosY] = this.transformPosition(this.oldPosX, this.oldPosY)
         this.renderer.invokeElementMethod(
           this.coordinates.nativeElement,
           'animate',
           [
             [
-              {left: this.oldPosX+'%', top: this.oldPosY +'%'},
-              {left: this.posX+'%', top: this.posY +'%'}
+              {left: this.oldPosX + '%', top: this.oldPosY + '%'},
+              {left: this.posX + '%', top: this.posY + '%'}
             ],
             {
               duration: 2000,
@@ -111,8 +111,8 @@ export class SpriteAnimationComponent implements OnInit {
           ]
         );
       } else {
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX+'%');
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY+'%');
+        this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
+        this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
       }
   }
   animateDeath() {
@@ -128,7 +128,7 @@ export class SpriteAnimationComponent implements OnInit {
         {
           duration: 3000,
           delay: 0,
-          iterations: this.respawnTimer/3
+          iterations: this.respawnTimer / 3
         }
       ]
     );

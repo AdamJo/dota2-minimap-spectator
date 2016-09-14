@@ -19,7 +19,7 @@ export class UpcomingMatchesComponent implements OnInit {
     this.upcomingMatches = this.apiService.upcomingMatches;
     this.upcomingMatches = this.apiService.upcomingMatches;
     this.apiService.upcomingGames
-      .subscribe((data:any) => {
+      .subscribe((data: any) => {
         this.upcomingMatches = data;
         if (this.upcomingMatches.length === 0) {
           this.status = 'No scheduled games';

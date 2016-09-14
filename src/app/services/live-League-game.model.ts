@@ -44,11 +44,11 @@ export interface Abilities {
 }
 
 export interface Bans {
-  hero_id : string;
+  hero_id: string;
 }
 
 export interface Picks {
-  hero_id : string;
+  hero_id: string;
 }
 
 export interface Series {

@@ -45,14 +45,15 @@ export class ScoreboardComponent implements OnChanges {
   ngOnChanges(changes: any) {
     this.addTeamToPlayers(this.scoreboard);
     this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
-    this.newValues = this.newValues.filter((data:any) => {
+    this.newValues = this.newValues.filter((data: any) => {
       return data.hero !== 'None';
     });
     this.combinedPlayers = this.sortValues(this.sortedValue);
   }
 
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
   sortValues(value: string) {
-    return this.newValues.sort((a:any, b:any) => {
+    return this.newValues.sort((a: any, b: any) => {
       if (a[value] < b[value]) {
         return 1;
       }
@@ -74,12 +75,12 @@ export class ScoreboardComponent implements OnChanges {
     }
   }
 
-  addTeamToPlayers(scoreboard:any) {
-    scoreboard.dire.players = scoreboard.dire.players.map(((player:any) => {
+  addTeamToPlayers(scoreboard: any) {
+    scoreboard.dire.players = scoreboard.dire.players.map(((player: any) => {
       player['team'] = 'dire';
       return player;
     }));
-    scoreboard.radiant.players = scoreboard.radiant.players.map(((player:any) => {
+    scoreboard.radiant.players = scoreboard.radiant.players.map(((player: any) => {
       player['team'] = 'radiant';
       return player;
     }));
@@ -112,7 +113,7 @@ export class ScoreboardComponent implements OnChanges {
 
   @HostListener(`document:keypress`, ['$event'])
   keypress(e: KeyboardEvent) {
-      switch(e.key) {
+      switch (e.key) {
         case 'q':
         case 'Q':
           this.sortPlayers('kills', '(Q) KILL/DEATH/ASSISTS');
@@ -148,6 +149,8 @@ export class ScoreboardComponent implements OnChanges {
         case 'o':
         case 'O':
           this.callDraft('draft', '(O) DRAFT');
+          break;
+        default:
           break;
       }
   }

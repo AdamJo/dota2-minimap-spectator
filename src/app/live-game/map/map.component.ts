@@ -30,8 +30,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class  MapComponent {
-  width = 578; //.036 of original
-  height = 556; //.073 of original
+  width = 578;
+  height = 556;
   maxWidth = 600;
   maxHeight = 600;
   @Input() radiant: any;
