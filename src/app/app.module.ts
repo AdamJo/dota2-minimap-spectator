@@ -20,7 +20,8 @@ import { SharedModule } from './shared/shared.module';
 import { NoContent } from './no-content';
 import { routes } from './app.routes';
 
-//This is needed to remove namespace errors for windows version.
+// TODO: this fixes the error "Cannot find namespace 'firebase'."
+//       Need for applications since errors fail build process
 import 'firebase';
 
 // Application wide providers
