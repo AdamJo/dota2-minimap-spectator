@@ -5,7 +5,8 @@ describe('App', () => {
   });
 
   it('should have a title', () => {
-    expect(browser.getTitle()).toEqual('Mini Dota 2 Watcher');
+    let subject = browser.getTitle();
+    let result = 'Mini Dota 2 Watcher'
+    expect(subject).toEqual(result);
   });
-
 });
