@@ -41,6 +41,6 @@ module.exports = {
   meta: [
     { name: 'msapplication-TileColor', content: '#d9d9d9' },
     { name: 'msapplication-TileImage', content: '/assets/icon/ms-icon-150x150.png', '=content': true },
-    { name: 'theme-color', content: '#d9d9d9' }
+    { name: 'theme-color', content: '#111111' }
   ]
 };
