@@ -1,6 +1,8 @@
 $font-color: #d9d9d9;
 $border-color: #2f2724;
 $content-background: #111;
+$active-link-color: #142958;
+$visited-link: #22627E;
 
 .upcoming-content {
   display: flex;
@@ -8,7 +10,15 @@ $content-background: #111;
 }
 
 a {
-  color: $font-color
+  color: $font-color;
+
+  &:active {
+    color: $active-link-color;
+  }
+
+  &:visited {
+    color: $visited-link;
+  }
 }
 
 .content {

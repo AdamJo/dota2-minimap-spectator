@@ -8,8 +8,10 @@ $eye-white-space: #ddd;
 
 $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
 $font-color: #d9d9d9;
-$link-color: #646400;
-$visted-link: #b9b9b9;
+$active-link-color: #142958;
+$visited-link: #22627E;
+
+
 
 .league {
   color: $font-color;
@@ -20,11 +22,11 @@ $visted-link: #b9b9b9;
   white-space: nowrap;
 
   &:active {
-    color: $link-color;
+    color: $active-link-color;
   }
 
   &:visited {
-    $font-color: $visted-link;
+    color: $visited-link;
   }
 }
 

@@ -10,19 +10,19 @@ import { Component } from '@angular/core';
   styles: [
     `
       a {
-        color: #fff;
+        color: #d9d9d9;
 
         &:active {
-          color: #777;
+          color: #142958;
         }
 
         &:visited {
-          color: #555;
+          color: #22627E;
         }
       }
       footer {
         background: #000;
-        color: #fff;
+        color: #d9d9d9;
         margin-top: 10px;
         text-align: center;
       }
