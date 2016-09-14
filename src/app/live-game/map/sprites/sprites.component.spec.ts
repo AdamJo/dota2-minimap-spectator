@@ -1,11 +1,14 @@
-import { inject } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 import { SpritesComponent } from './sprites.component';
 
-export function main() {
-  describe('Sprites Component', () => {
+describe('Sprites Component', () => {
 
-    it('should create an instance', inject([ SpritesComponent ], (app: any) => {
-      expect(app).toBeTruthy();
-    }));
-  });
-}
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [
+      SpritesComponent
+    ]}));
+
+  it('should create an instance', inject([ SpritesComponent ], (app: SpritesComponent) => {
+    expect(app).toBeTruthy();
+  }));
+});
