@@ -58,7 +58,7 @@ export class ButtonInfoComponent {
       if (this.gameCount !== 1) {
         this.incrementTotal();
       }
-    } else {
+    } else if (e.key === 'ArrowRight') {
       if (this.gameCount !== this.allGamesLength) {
         this.decrementTotal();
       }
