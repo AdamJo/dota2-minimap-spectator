@@ -1,22 +1,23 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="270.000000pt" height="270.000000pt" viewBox="0 0 270.000000 270.000000"
- preserveAspectRatio="xMidYMid meet">
-
-<g transform="translate(0.000000,270.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-<path d="M0 1350 l0 -1350 1350 0 1350 0 0 1350 0 1350 -1350 0 -1350 0 0
--1350z m1629 763 c135 -47 261 -93 280 -100 l34 -14 -7 -82 c-8 -107 -74 -676
--81 -696 -6 -21 -474 -281 -504 -281 -21 0 -460 237 -489 264 -7 7 -17 39 -22
-72 -17 106 -81 684 -78 706 3 18 44 36 278 119 151 54 290 98 309 99 18 0 144
--39 280 -87z"/>
-<path d="M995 1967 c-16 -13 6 -39 278 -324 307 -322 308 -323 387 -323 25 0
-29 6 55 91 23 77 26 93 14 104 -38 37 -677 465 -695 465 -11 0 -28 -6 -39 -13z"/>
-<path d="M1541 1949 c-30 -10 -56 -20 -58 -22 -2 -2 35 -33 81 -70 l84 -65 7
-55 c4 31 9 61 11 67 3 9 -58 58 -68 55 -2 0 -27 -9 -57 -20z"/>
-<path d="M1021 1452 l-32 -77 38 -32 c24 -21 49 -33 67 -33 33 0 136 30 136
-40 0 4 -40 45 -88 92 l-89 86 -32 -76z"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 124 132" enable-background="new 0 0 124 132" xml:space="preserve">
+<g id="Layer_1" display="none">
+	
+		<image display="inline" overflow="visible" width="270" height="270" xlink:href="E:\Projects\dota2-project\src\assets\icon\mstile-150x150.png"  transform="matrix(1 0 0 1 -72.3333 -47)">
+	</image>
+</g>
+<g id="Layer_2">
+	<path id="XMLID_11_" fill="#FFFFFF" d="M62.7,2.2L3.3,23.3l9.3,78.3l50,28l49.9-28l9.1-78.3L62.7,2.2z M88.5,25.6l6,4.5l-2.1,13.9
+		l-17-13.9L88.5,25.6z M33.7,92.4l-7.9-7.1l7.4-16.2l18.5,19.3L33.7,92.4z M96.4,91.4H84.9L23.2,25.6l11.1-0.9L102.2,72L96.4,91.4z"
+		/>
+</g>
+<g id="Layer_3" display="none">
+	<polygon id="XMLID_8_" display="inline" stroke="#000000" stroke-miterlimit="10" points="92.4,44 94.5,30.1 88.5,25.6 75.4,30.1 	
+		"/>
+	<polygon id="XMLID_7_" display="inline" stroke="#000000" stroke-miterlimit="10" points="25.7,85.3 33.1,69.1 51.6,88.4 
+		33.7,92.3 	"/>
+	<polygon id="XMLID_6_" display="inline" stroke="#000000" stroke-miterlimit="10" points="96.4,91.3 102.2,71.9 34.3,24.7 
+		23.2,25.6 84.9,91.3 	"/>
 </g>
 </svg>
