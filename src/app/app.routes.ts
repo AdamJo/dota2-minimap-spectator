@@ -5,6 +5,6 @@ import { UpcomingMatchesComponent } from './upcoming-matches/index';
 
 export const routes: Routes = [
   { path: '', component: LiveGameComponent },
-  { path: 'upcoming', component: UpcomingMatchesComponent },
+  { path: 'Upcoming', component: UpcomingMatchesComponent },
   { path: '**', component: LiveGameComponent }
 ];
