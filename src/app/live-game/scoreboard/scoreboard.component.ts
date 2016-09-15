@@ -64,6 +64,7 @@ export class ScoreboardComponent implements OnChanges {
     });
   }
 
+  // sort plays by value given
   sortPlayers(value: string, menuTitleOption: string) {
     if (value === 'draft') {
       this.callDraft(value, menuTitleOption);
@@ -75,6 +76,7 @@ export class ScoreboardComponent implements OnChanges {
     }
   }
 
+  // adds team to players array for the color in scoreboard
   addTeamToPlayers(scoreboard: any) {
     scoreboard.dire.players = scoreboard.dire.players.map(((player: any) => {
       player['team'] = 'dire';
@@ -86,10 +88,12 @@ export class ScoreboardComponent implements OnChanges {
     }));
   }
 
+  // toggles menu and scorebaord
   toggle() {
     this.active = this.active === 'menu' ? 'scoreboard' : 'menu';
   }
 
+  // un expands menu when clicked outside of the area. 
   @HostListener(`document:click`, ['$event.target'])
   onClick(event: any) {
     if (!this._eref.nativeElement.contains(event)) {
@@ -102,15 +106,18 @@ export class ScoreboardComponent implements OnChanges {
     }
   }
 
+  // send player items
   playerItems(value: Array<string>) {
     this.items = value;
   }
 
+  // grab draft board
   callDraft(value: string, menuTitleOption: string) {
     this.menuTitle = menuTitleOption;
     this.active = 'draft';
   }
 
+  // use in-game shortcuts to navigate scoreboard
   @HostListener(`document:keypress`, ['$event'])
   keypress(e: KeyboardEvent) {
       switch (e.key) {

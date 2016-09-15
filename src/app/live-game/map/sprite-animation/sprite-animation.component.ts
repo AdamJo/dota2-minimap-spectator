@@ -115,6 +115,7 @@ export class SpriteAnimationComponent implements OnInit {
         this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
       }
   }
+  // changes opacity for death animation
   animateDeath() {
     this.renderer.invokeElementMethod(
       this.coordinates.nativeElement,
@@ -133,6 +134,8 @@ export class SpriteAnimationComponent implements OnInit {
       ]
     );
   }
+
+  // shrinks and exands hero sprites
   toggle() {
     this.shrink = this.shrink === 'small' ? 'regular' : 'small';
   }

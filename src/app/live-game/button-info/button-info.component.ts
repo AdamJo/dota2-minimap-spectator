@@ -42,16 +42,19 @@ export class ButtonInfoComponent {
 
   constructor(private apiService: ApiService) {}
 
+  // moves games to the right
   decrementTotal() {
     this.apiService.decrementTotal();
     this.rightButton = this.rightButton === 'right' ? 'rightGo' : 'right';
   }
 
+  // moves games to the left
   incrementTotal() {
     this.apiService.incrementTotal();
     this.leftButton = this.leftButton === 'left' ? 'leftGo' : 'left';
   }
 
+  // use arrow keys to navigate
   @HostListener(`document:keydown`, ['$event'])
   keypress(e: KeyboardEvent) {
     if (e.key === 'ArrowLeft') {

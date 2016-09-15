@@ -2,23 +2,20 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
 import { FirebaseListObservable } from 'angularfire2';
-import { Observable } from 'rxjs/rx';
 import { loading } from './../assets/loading';
-
-import { testData } from '../assets/testData';
 
 @Injectable()
 export class ApiService {
 
-  public firstCheckDone = false;
-  public currentGame: LiveLeagueGame;
-  public gameCount: number;
-  public dataLength: number;
-  public allData: any;
-  public loadDone = false;
-  public isApiUp: boolean;
-  public upcomingGames: any;
-  public upcomingMatches: any;
+  public firstCheckDone = false; // first check of watched game done
+  public currentGame: LiveLeagueGame; // list of current games
+  public gameCount: number; // total number of games
+  public dataLength: number; // length of games
+  public allData: any; // all sorted data1
+  public loadDone = false; // load of resources status
+  public isApiUp: boolean; // api status
+  public upcomingGames: any; // list of upcming games from firebase
+  public upcomingMatches: any; // list of upcoming games
   private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
 
@@ -40,19 +37,17 @@ export class ApiService {
     .debounceTime(500)
     .subscribe((data: any) => {
       this.upcomingMatches = data;
-      if (this.upcomingMatches.length === 0) {
-        this.upcomingMatches = testData;
-      }
     });
   }
 
+  // go through live games
   liveGames() {
     this.gameObservable = this.getCurrentGames();
     this.gameObservable
     .debounceTime(500)
-      .subscribe((data: any) => {
+    .subscribe((data: any) => {
       this.dataLength = data.length;
-      // if watching last game this statement 
+      // if watching last game while the total number of games decrease it will reflect that.
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
       }
@@ -68,7 +63,7 @@ export class ApiService {
       }
     });
   }
-
+  // get live games from firebase backend
   getCurrentGames() {
     return this.af.database.list('sortedGames', {
       query: {
@@ -78,6 +73,7 @@ export class ApiService {
     });
   }
 
+  // get upcoming games from firebase backend
   getUpcomingGames() {
     return this.af.database.list('upcomingGames');
   }
@@ -107,17 +103,19 @@ export class ApiService {
     this.loadDone = true;
   }
 
+  // return current game
   getCurrentGame() {
     return this.currentGame;
   }
 
+  // decrease game number being watched 
   decrementTotal() {
     if (this.gameCount <= this.dataLength - 1) {
       this.gameCount = this.gameCount + 1;
       this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
     }
   }
-
+  // increase game number being watched
   incrementTotal() {
     if (this.gameCount > 1) {
       this.gameCount = this.gameCount - 1;

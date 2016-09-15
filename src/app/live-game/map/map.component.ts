@@ -30,10 +30,12 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class  MapComponent {
+  // values for map to fit with sprites 
   width = 578;
   height = 556;
   maxWidth = 600;
   maxHeight = 600;
+
   @Input() radiant: any;
   @Input() dire: any;
   @Input() dayNightCycle: any;

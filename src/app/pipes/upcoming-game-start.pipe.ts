@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'upcomingGameStart'
 })
 
+// determines when a new game will be up.
 export class UpcomingGameStartPipe implements PipeTransform {
   transform(value: number): any {
     let gameStart: number;

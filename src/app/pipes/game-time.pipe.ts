@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'gameTime'
 })
 
+// determines game time
 export class GameTimePipe implements PipeTransform {
   transform(time: number): string {
     let minutes = Math.floor(time / 60);

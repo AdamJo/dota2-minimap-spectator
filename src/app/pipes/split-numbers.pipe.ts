@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 /*
 * value will alwasys be positive
+* used to split the numbers of buildings for reading
 */
 export class SplitNumbersPipe implements PipeTransform {
   transform(value: any): any {
