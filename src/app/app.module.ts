@@ -17,7 +17,6 @@ import { AngularFireModule } from 'angularfire2';
 import { LiveGameModule } from './live-game/live-game.module';
 import { UpcomingMatchesModule } from './upcoming-matches/upcoming-matches.module';
 import { SharedModule } from './shared/shared.module';
-import { NoContent } from './no-content';
 import { routes } from './app.routes';
 
 // TODO: this fixes the error "Cannot find namespace 'firebase'."
