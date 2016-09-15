@@ -19,9 +19,9 @@ import 'core-js/es6/date';
 import 'core-js/es6/array';
 import 'core-js/es6/regexp';
 import 'core-js/es6/map';
-import 'core-js/es6/set';
-import 'core-js/es6/weak-map';
-import 'core-js/es6/weak-set';
+// import 'core-js/es6/set';
+// import 'core-js/es6/weak-map';
+// import 'core-js/es6/weak-set';
 import 'core-js/es6/typed';
 import 'core-js/es6/reflect';
 // see issue https://github.com/AngularClass/angular2-webpack-starter/issues/709
