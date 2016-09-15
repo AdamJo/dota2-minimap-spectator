@@ -1,11 +1,28 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, OnInit, HostBinding,
+         trigger, transition, animate,
+         style, state } from '@angular/core';
 import { ApiService } from '../services/index';
 import { loading } from '../assets/loading';
 
 @Component({
   selector: 'app-live-game',
   templateUrl: 'live-game.component.html',
-  styleUrls: ['./live-game.component.scss']
+  styleUrls: ['./live-game.component.scss'],
+  animations: [
+  trigger('routeAnimation', [
+    state('*',
+      style({
+        opacity: 1
+      })
+    ),
+    transition('void => *', [
+      style({
+        opacity: 0
+      }),
+      animate('0.2s ease-in')
+    ])
+  ])
+]
 })
 
 export class LiveGameComponent implements DoCheck {
@@ -16,8 +33,22 @@ export class LiveGameComponent implements DoCheck {
   league: any;
   series: any;
   streamDeplay: any;
+  loading: any;
+
+  @HostBinding('@routeAnimation') get routeAnimation() {
+    return true;
+  }
+
+  @HostBinding('style.display') get display() {
+    return 'block';
+  }
+
+  @HostBinding('style.position') get position() {
+    return 'relative';
+  }
 
   constructor(public apiService: ApiService) {
+    this.loading = false;
     this.scoreboard = loading.scoreboard;
     this.direTeamName = loading.dire_team_name;
     this.radiantTeamName = loading.radiant_team_name;
@@ -28,6 +59,7 @@ export class LiveGameComponent implements DoCheck {
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
+      this.loading = this.apiService.loadDone;
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;

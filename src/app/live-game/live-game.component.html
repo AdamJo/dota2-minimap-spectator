@@ -1,3 +1,4 @@
+
 <app-button-info
   [apiStatus]="apiService.isApiUp"
   [gameCount]="apiService.gameCount"
@@ -9,6 +10,7 @@
 ></app-button-info>
 
 <div *ngIf='scoreboard'>
+  <!--<div *ngIf='loading'>-->
   <div *ngIf='!scoreboard.did_game_start'>
     <app-draft
       [radiant]='scoreboard.radiant'
@@ -62,4 +64,8 @@
       </div>
     </div>
   </div>
+  <!--</div>-->
 </div>
+<!--<div class="loading" *ngIf='!loading'>
+  <img src="assets/img/loading.svg" alt="">
+</div>-->
