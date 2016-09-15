@@ -27,6 +27,7 @@ import { Component } from '@angular/core';
         background: #000;
         color: #d9d9d9;
         margin-top: 10px;
+        min-width: 1100px;
         text-align: center;
       }
     `
