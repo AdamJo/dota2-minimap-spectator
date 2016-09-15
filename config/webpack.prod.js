@@ -156,9 +156,8 @@ module.exports = function(env) {
         // }, // debug
         // comments: true, //debug
 
-
         beautify: false, //prod
-        mangle: { screw_ie8 : true, keep_fnames: true }, //prod
+        mangle: { screw_ie8 : true }, //prod
         compress: { screw_ie8: true }, //prod
         comments: false //prod
       }),
