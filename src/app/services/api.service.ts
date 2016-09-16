@@ -17,15 +17,20 @@ export class ApiService {
   public isApiUp: boolean; // api status
   public upcomingGames: any; // list of upcming games from firebase
   public upcomingMatches: any; // list of upcoming games
+  public lockedMatchId: number;
+  public locked: boolean;
+  private lockedGameFound: boolean;
   private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
+    this.lockedMatchId = 0;
     this.gameCount = 1; // top spectated game
     this.dataLength = 1;
     this.currentGame = loading;
     this.allData = [];
     this.isApiUp = true;
+    this.locked = false;
   }
 
   newGames() {
@@ -52,10 +57,27 @@ export class ApiService {
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
       }
-
       this.allData = data;
-      if (this.dataLength !== 0) {
+      if (this.lockedMatchId) {
+        data.map((d:any) => {
+          this.lockedGameFound = false;
+          if (d.match_id === this.lockedMatchId) {
+            this.sortScoreboard(d);
+            this.lockedGameFound = true; 
+          }
+        })
 
+        // if game is no longer in list and locked, jump to most watched game.
+        if (!this.lockedGameFound) {
+          this.lockedMatchId = 0;
+          this.gameCount = 1;
+          this.dataLength = data.length;
+          this.sortScoreboard(data[data.length - this.gameCount]);
+          this.locked = false;
+
+        }
+      }
+      else if (this.dataLength !== 0) {
         this.sortScoreboard(data[data.length - this.gameCount]);
         this.isApiUp = true;
       } else {
@@ -117,11 +139,25 @@ export class ApiService {
       this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
     }
   }
+
   // increase game number being watched
   incrementTotal() {
     if (this.gameCount > 1) {
       this.gameCount = this.gameCount - 1;
       this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
     }
+  }
+
+  // when unlocked sort again.
+  unlockCurrentMatch() {
+    this.lockedMatchId = 0
+    this.allData.sort((a: any,b: any) => {
+      if (a.spectators < b.spectators)
+        return -1;
+      if (a.spectators > b.spectators)
+        return 1;
+      return 0;
+    })
+    this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
   }
 }

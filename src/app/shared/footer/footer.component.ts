@@ -15,13 +15,14 @@ import { Component } from '@angular/core';
         color: #d9d9d9;
       }
 
+      a:active {
+        color: #142958;
+      }
+
       a:visited {
         color: #22627E;
       }
 
-      a:active {
-        color: #142958;
-      }
 
       footer {
         background: #000;
