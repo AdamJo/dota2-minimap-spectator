@@ -12,12 +12,14 @@ import { ApiService } from '../services/index';
     trigger('routeAnimation', [
       state('*',
         style({
-          opacity: 1
+          opacity: 1,
+          transform: 'scale(1)'
         })
       ),
       transition('void => *', [
         style({
-          opacity: 0
+          opacity: 0,
+          transform: 'scale(.95)'
         }),
         animate('0.2s ease-in')
       ])

@@ -9,20 +9,22 @@ import { loading } from '../assets/loading';
   templateUrl: 'live-game.component.html',
   styleUrls: ['./live-game.component.scss'],
   animations: [
-  trigger('routeAnimation', [
-    state('*',
-      style({
-        opacity: 1
-      })
-    ),
-    transition('void => *', [
-      style({
-        opacity: 0
-      }),
-      animate('0.2s ease-in')
+    trigger('routeAnimation', [
+      state('*',
+        style({
+          opacity: 1,
+          transform: 'scale(1)'
+        })
+      ),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'scale(.95)'
+        }),
+        animate('0.2s ease-in')
+      ])
     ])
-  ])
-]
+  ]
 })
 
 export class LiveGameComponent implements DoCheck {
