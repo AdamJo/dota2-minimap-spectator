@@ -4,6 +4,7 @@ import { LiveLeagueGame } from './live-league-game.model';
 import { FirebaseListObservable } from 'angularfire2';
 import { loading } from './../assets/loading';
 
+
 @Injectable()
 export class ApiService {
 
@@ -27,7 +28,7 @@ export class ApiService {
     this.isApiUp = true;
   }
 
-  NewGames() {
+  newGames() {
     this.upcomingGames = this.getUpcomingGames();
     // since there are a max of 5 values being changes at a time this
     // would be called five times on every change.  The debouce grabs
@@ -63,6 +64,7 @@ export class ApiService {
       }
     });
   }
+  
   // get live games from firebase backend
   getCurrentGames() {
     return this.af.database.list('sortedGames', {
