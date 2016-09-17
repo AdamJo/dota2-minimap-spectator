@@ -23,6 +23,19 @@ import { loading } from '../assets/loading';
         }),
         animate('0.2s ease-in')
       ])
+    ]),
+    trigger('lockPad', [
+      state('locked',
+        style({
+          boxShadow: "0px 0px 15px 0px #22627E"
+        })
+      ),
+      state('unlocked',
+        style({
+        })
+      ),
+      transition('unlocked => locked', animate('.5s ease-in')),
+      transition('locked => unlocked', animate('.5s ease-out'))
     ])
   ]
 })

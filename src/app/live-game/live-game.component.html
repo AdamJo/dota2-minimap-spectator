@@ -11,8 +11,8 @@
 
 <div *ngIf='scoreboard'>
   <!--<div *ngIf='loading'>-->
-  <div *ngIf='!scoreboard.did_game_start'>
-    <app-draft
+  <div [@lockPad]="apiService.locked ? 'locked' : 'unlocked'" class="container"  *ngIf='!scoreboard.did_game_start'>
+    <app-draft 
       [radiant]='scoreboard.radiant'
       [dire]='scoreboard.dire'
       [radiantTeamName]='radiantTeamName'
@@ -21,7 +21,7 @@
     ></app-draft>
   </div>
   <div #screen class="flex-container" *ngIf='scoreboard.did_game_start'>
-    <div class="content">
+    <div [@lockPad]="apiService.locked ? 'locked' : 'unlocked'" class="content">
       
       <div class="team">
       <h4 class="team-names">

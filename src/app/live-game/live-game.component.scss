@@ -12,6 +12,14 @@ $content-background: #111;
   margin-top: 10px;
 }
 
+.container {
+  background-color: $content-background;
+  border: 1px solid $border-color;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 1100px;
+}
+
 .content {
   background: $content-background;
   border: 1px solid $border-color;
