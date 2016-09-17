@@ -49,6 +49,7 @@ export class LiveGameComponent implements DoCheck {
   series: any;
   streamDeplay: any;
   loading: any;
+  paused: boolean;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
@@ -74,6 +75,7 @@ export class LiveGameComponent implements DoCheck {
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
+      this.paused = this.apiService.gamePaused;      
       this.loading = this.apiService.loadDone;
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;

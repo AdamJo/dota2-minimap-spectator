@@ -22,7 +22,7 @@
   </div>
   <div #screen class="flex-container" *ngIf='scoreboard.did_game_start'>
     <div [@lockPad]="apiService.locked ? 'locked' : 'unlocked'" class="content">
-      
+
       <div class="team">
       <h4 class="team-names">
         {{direTeamName}} - <span class="score">{{scoreboard.dire.score}}</span>
@@ -40,6 +40,7 @@
       </div>
 
       <app-map class="map"
+        [paused]='apiService.gamePaused'
         [radiant]='scoreboard.radiant'
         [dire]='scoreboard.dire'
         [dayNightCycle]='scoreboard.day_cycle'

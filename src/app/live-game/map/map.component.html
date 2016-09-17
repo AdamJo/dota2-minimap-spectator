@@ -1,5 +1,10 @@
 <div class="container">
-<div class="flex-container" [@dayCycle]='dayNightCycle'>
+<div ngClass="flex-container" [@dayCycle]='dayNightCycle'>
+  <div class="pause-menu" *ngIf="paused">
+    <div [@pause]='paused' class="pausePopUp">
+      PAUSED
+    </div>
+  </div>
   <div class="image">
     <img src="assets/img/map-7q-c.jpg" alt="mini-map">
   </div>

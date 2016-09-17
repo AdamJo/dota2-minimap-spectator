@@ -136,9 +136,8 @@ export class ApiService {
         this.duration = data.scoreboard.duration
         this.gamePaused = false;
       }
-      
-
     }
+
     this.currentGame = data;
     this.loadDone = true;
   }

@@ -25,10 +25,20 @@ import {
         opacity: .8
       })),
       transition('day <=> night', animate('750ms ease-in'))
+    ]),
+    trigger('pause', [
+      state('*', style({
+        opacity: 1
+      })),
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate('500ms ease-in-out'))
     ])
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class  MapComponent {
   // values for map to fit with sprites 
   width = 578;
@@ -40,4 +50,5 @@ export class  MapComponent {
   @Input() dire: any;
   @Input() dayNightCycle: any;
   @Input() roshanRespawnTimer: any;
+  @Input() paused: any;
 }
