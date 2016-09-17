@@ -19,11 +19,15 @@ export class ApiService {
   public upcomingMatches: any; // list of upcoming games
   public lockedMatchId: number;
   public locked: boolean;
+  public gamePaused: boolean;
+  public duration: number;
   private lockedGameFound: boolean;
   private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
+    this.duration = 0;
+    this.gamePaused = false;
     this.lockedMatchId = 0;
     this.gameCount = 1; // top spectated game
     this.dataLength = 1;
@@ -74,7 +78,6 @@ export class ApiService {
           this.dataLength = data.length;
           this.sortScoreboard(data[data.length - this.gameCount]);
           this.locked = false;
-
         }
       }
       else if (this.dataLength !== 0) {
@@ -111,6 +114,7 @@ export class ApiService {
     }
 
     if (this.firstCheckDone) {
+
       this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
         data.scoreboard.radiant.players[i].old_position_x = d.position_x;
         data.scoreboard.radiant.players[i].old_position_y = d.position_y;
@@ -120,8 +124,20 @@ export class ApiService {
         data.scoreboard.dire.players[i].old_position_y = d.position_y;
       });
     } else {
+      this.gamePaused = false;
       this.matchId = data.match_id;
       this.firstCheckDone = true;
+    }
+
+    if (data.scoreboard.duration > 0) {
+      if (this.duration === data.scoreboard.duration) {
+        this.gamePaused = true;
+      } else {
+        this.duration = data.scoreboard.duration
+        this.gamePaused = false;
+      }
+      
+
     }
     this.currentGame = data;
     this.loadDone = true;
