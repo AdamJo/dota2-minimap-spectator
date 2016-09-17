@@ -83,10 +83,16 @@ img {
   background-color: $nav-menu-color;
 
   li {
+    cursor: pointer;
     align-items: center;
     display: flex;
 
+    &:nth-child(1) {
+      cursor: default;
+    }
+
     &:nth-child(n+2) {
+      
 
       &:hover {
         background-color: $nav-menu-color-hover;
@@ -128,6 +134,7 @@ img {
 .drop-down-menu {
   border: 1px solid $border-color;
   box-shadow: 0 0 7px 1px $box-shadow-color;
+  cursor: pointer;
   display: flex;
   font-size: 1rem;
   justify-content: flex-start;

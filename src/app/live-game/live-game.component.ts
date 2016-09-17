@@ -34,8 +34,8 @@ import { loading } from '../assets/loading';
         style({
         })
       ),
-      transition('unlocked => locked', animate('.5s ease-in')),
-      transition('locked => unlocked', animate('.5s ease-out'))
+      transition('unlocked => locked', animate('.3s ease-in')),
+      transition('locked => unlocked', animate('.3s ease-out'))
     ])
   ]
 })

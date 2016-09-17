@@ -20,8 +20,8 @@ import { ApiService } from '../../services/index';
       state('rightGo', style({
         transform: 'rotate(360deg)'
       })),
-      transition('left <=> leftGo', animate('300ms linear')),
-      transition('right <=> rightGo', animate('300ms linear'))
+      transition('left <=> leftGo', animate('.3s linear')),
+      transition('right <=> rightGo', animate('.3s linear'))
     ])
   ]
 })
