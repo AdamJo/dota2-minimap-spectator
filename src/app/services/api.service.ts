@@ -59,12 +59,12 @@ export class ApiService {
       }
       this.allData = data;
       if (this.lockedMatchId) {
+        this.lockedGameFound = false;
         data.map((d:any) => {
-          this.lockedGameFound = false;
           if (d.match_id === this.lockedMatchId) {
             this.sortScoreboard(d);
             this.lockedGameFound = true; 
-          }
+          } 
         })
 
         // if game is no longer in list and locked, jump to most watched game.
