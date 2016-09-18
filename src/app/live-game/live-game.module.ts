@@ -12,11 +12,12 @@ import { BuildingsComponent } from './map/buildings/index';
 import { HeroItemsComponent } from './scoreboard/hero-items/index';
 import { HeroRespawnComponent } from './scoreboard/hero-respawn/index';
 
-
 import { MapComponent } from './map/index';
 import { DraftComponent } from './draft/index';
 import { ScoreboardComponent } from './scoreboard/index';
 import { TeamInfoComponent } from './team-info/index';
+
+import { MatchComponent } from './match/index'
 
 import {
   CalculateXPipe,
@@ -41,6 +42,7 @@ import {
     MapComponent,
     DraftComponent,
     TeamInfoComponent,
+    MatchComponent,
     CalculateXPipe,
     CalculateYPipe,
     GameTimePipe,

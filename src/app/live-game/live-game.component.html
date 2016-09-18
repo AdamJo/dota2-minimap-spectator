@@ -9,64 +9,22 @@
   [allGamesLength]="apiService.allData.length"
 ></app-button-info>
 
-<div *ngIf='scoreboard'>
-  <!--<div *ngIf='loading'>-->
-  <div [@lockPad]="apiService.locked ? 'locked' : 'unlocked'" class="container"  *ngIf='!scoreboard.did_game_start'>
-    <app-draft 
-      [radiant]='scoreboard.radiant'
-      [dire]='scoreboard.dire'
-      [radiantTeamName]='radiantTeamName'
-      [direTeamName]='direTeamName'
-      [league]='league'
-    ></app-draft>
-  </div>
-  <div #screen class="flex-container" *ngIf='scoreboard.did_game_start'>
-    <div [@lockPad]="apiService.locked ? 'locked' : 'unlocked'" class="content">
-
-      <div class="team">
-      <h4 class="team-names">
-        {{direTeamName}} - <span class="score">{{scoreboard.dire.score}}</span>
-        <div class="series-games">
-          <div ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}" *ngFor="let wins of series.dire_series_wins">
-          </div>
-        </div>
-        <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
-        <span class="stream-delay" *ngIf="streamDeplay">({{streamDeplay}}s delay)</span>
-      </h4>
-      <app-team-info
-        [side]="'dire'"
-        [team]='scoreboard.dire.players'
-      ></app-team-info>
-      </div>
-
-      <app-map class="map"
-        [paused]='apiService.gamePaused'
-        [radiant]='scoreboard.radiant'
-        [dire]='scoreboard.dire'
-        [dayNightCycle]='scoreboard.day_cycle'
-        [roshanRespawnTimer]='scoreboard.roshan_respawn_timer'
-      ></app-map>
-      
-      <app-scoreboard class="scoreboard-content"
-        [scoreboard]='scoreboard'>
-      </app-scoreboard>
-
-      <div class="team">
-        <app-team-info
-          [side]="'radiant'"
-          [team]='scoreboard.radiant.players'
-        ></app-team-info>
-        <h4 class="team-names">
-          {{radiantTeamName}} - <span class="score">{{scoreboard.radiant.score}}</span>
-          <div class="series-games">
-            <div ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"  *ngFor="let wins of series.radiant_series_wins"></div>
-          </div>
-        </h4>
-      </div>
-    </div>
-  </div>
-  <!--</div>-->
+<div
+  [@lockPad]="apiService.locked ? 'locked' : 'unlocked'"
+  class="container"
+  *ngIf='!scoreboard.did_game_start'>
+  <app-draft 
+    [radiant]='scoreboard.radiant'
+    [dire]='scoreboard.dire'
+    [radiantTeamName]='radiantTeamName'
+    [direTeamName]='direTeamName'
+    [league]='league'
+  ></app-draft>
 </div>
-<!--<div class="loading" *ngIf='!loading'>
-  <img src="assets/img/loading.svg" alt="">
-</div>-->
+
+<div
+  [@lockPad]="apiService.locked ? 'locked' : 'unlocked'"
+  class="container"
+  *ngIf='scoreboard.did_game_start'>
+  <app-match></app-match>
+</div>
