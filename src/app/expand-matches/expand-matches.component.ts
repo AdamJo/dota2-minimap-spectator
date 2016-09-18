@@ -3,10 +3,12 @@ import { Component, OnInit, HostBinding,
          style, state } from '@angular/core';
 import { ApiService } from '../services/index';
 
+import { Observable } from 'rxjs/Observable';
+
 @Component({
-  selector: 'app-upcoming-matches',
-  templateUrl: 'upcoming-matches.component.html',
-  styleUrls: ['./upcoming-matches.component.scss'],
+  selector: 'app-expand-matches',
+  templateUrl: 'expand-matches.component.html',
+  styleUrls: ['./expand-matches.component.scss'],
   animations: [
     trigger('routeAnimation', [
       state('*',
@@ -26,9 +28,9 @@ import { ApiService } from '../services/index';
   ]
 })
 
-export class UpcomingMatchesComponent implements OnInit {
+export class ExpandMatchesComponent {
 
-  upcomingMatches: any;
+  allGames: any;
   status: string;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
@@ -46,16 +48,15 @@ export class UpcomingMatchesComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.upcomingMatches = this.apiService.upcomingMatches;
-    this.upcomingMatches = this.apiService.upcomingMatches;
-    this.apiService.upcomingGames
-      .subscribe((data: any) => {
-        this.upcomingMatches = data;
-        if (this.upcomingMatches.length === 0) {
-          this.status = 'No scheduled games';
-        } else {
-          this.status = '';
-        }
-      });
+    // this.apiService._subject.subscribe((data:any) => {
+    //   console.log(data);
+    // });
+    // this.apiService.subject.subscribe((data:any) => {
+    //   console.log(data);
+    // })
   }
+
+    ngDoCheck() {
+      this.allGames = this.apiService.allData;
+    }
 }

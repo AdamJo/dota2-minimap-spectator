@@ -4,6 +4,9 @@ import { LiveLeagueGame } from './live-league-game.model';
 import { FirebaseListObservable } from 'angularfire2';
 import { loading } from './../assets/loading';
 
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ApiService {
@@ -21,6 +24,8 @@ export class ApiService {
   public locked: boolean;
   public gamePaused: boolean;
   public duration: number;
+  public _subject: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
+  public subject: Subject<Array<any>> = new Subject();
   private lockedGameFound: boolean;
   private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
@@ -35,6 +40,8 @@ export class ApiService {
     this.allData = [];
     this.isApiUp = true;
     this.locked = false;
+
+    this._subject.next(this.allData);
   }
 
   newGames() {
@@ -61,7 +68,9 @@ export class ApiService {
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
       }
+
       this.allData = data;
+      this._subject.next(this.allData);
       if (this.lockedMatchId) {
         this.lockedGameFound = false;
         data.map((d:any) => {
@@ -114,7 +123,6 @@ export class ApiService {
     }
 
     if (this.firstCheckDone) {
-
       this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
         data.scoreboard.radiant.players[i].old_position_x = d.position_x;
         data.scoreboard.radiant.players[i].old_position_y = d.position_y;

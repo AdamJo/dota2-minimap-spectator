@@ -1,0 +1,58 @@
+$content-background: #222;
+$border-color: #2f2724;
+
+$font-color: #d9d9d9;
+$link-color: #646400;
+$visted-link: #b9b9b9;
+
+.container {
+  background: $content-background;
+  border: 1px solid $border-color;
+  margin: 10px 0;
+  max-width: 600px;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.match {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.league {
+  font-size: 1.3rem;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 575px;
+}
+
+.teams {
+  display: flex;
+  flex-direction: row;
+}
+
+.team {
+  font-size: 1.2rem;
+  margin-right: 20px;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 250px;
+}
+
+.team1 {
+  margin-right: 20px;
+}
+
+.team2 {
+  margin-left: 20px;
+}
+
+.series-type {
+  font-size: .8rem;
+  margin: 3px 0;
+}

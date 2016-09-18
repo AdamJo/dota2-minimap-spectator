@@ -14,10 +14,12 @@ import { AppState, InteralStateType } from './app.service';
 import { ApiService } from './services/index';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
-import { LiveGameModule } from './live-game/live-game.module';
-import { UpcomingMatchesModule } from './upcoming-matches/upcoming-matches.module';
-import { SharedModule } from './shared/shared.module';
 import { routes } from './app.routes';
+
+import { ExpandMatchesModule } from './expand-matches/expand-matches.module'
+import { LiveGameModule } from './live-game/live-game.module';
+import { SharedModule } from './shared/shared.module';
+import { UpcomingMatchesModule } from './upcoming-matches/upcoming-matches.module';
 
 // TODO: this fixes the error "Cannot find namespace 'firebase'."
 //       Need for applications since errors fail build process
@@ -51,6 +53,7 @@ const firebaseConfig = {
     LiveGameModule,
     UpcomingMatchesModule,
     SharedModule,
+    ExpandMatchesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
