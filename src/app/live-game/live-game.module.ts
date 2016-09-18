@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ButtonInfoComponent } from './button-info/index';
-import { MiniDraftComponent } from './mini-draft/index';
+import { MiniDraftComponent } from './match/mini-draft/index';
 import { LiveGameComponent } from './live-game.component';
 
-import { SpritesComponent } from './map/sprites/index';
-import { SpriteAnimationComponent } from './map/sprite-animation/index';
-import { BuildingsComponent } from './map/buildings/index';
+import { SpritesComponent } from './match/map/sprites/index';
+import { SpriteAnimationComponent } from './match/map/sprite-animation/index';
+import { BuildingsComponent } from './match/map/buildings/index';
 
-import { HeroItemsComponent } from './scoreboard/hero-items/index';
-import { HeroRespawnComponent } from './scoreboard/hero-respawn/index';
+import { HeroItemsComponent } from './match/scoreboard/hero-items/index';
+import { HeroRespawnComponent } from './match/scoreboard/hero-respawn/index';
 
-import { MapComponent } from './map/index';
+import { MapComponent } from './match/map/index';
 import { DraftComponent } from './draft/index';
-import { ScoreboardComponent } from './scoreboard/index';
-import { TeamInfoComponent } from './team-info/index';
+import { ScoreboardComponent } from './match/scoreboard/index';
+import { TeamInfoComponent } from './match/team-info/index';
 
 import { MatchComponent } from './match/index'
 
