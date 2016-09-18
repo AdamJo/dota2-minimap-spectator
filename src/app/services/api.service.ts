@@ -15,7 +15,7 @@ export class ApiService {
   public currentGame: LiveLeagueGame; // list of current games
   public gameCount: number; // total number of games
   public dataLength: number; // length of games
-  public allData: any; // all sorted data1
+  public allData: Array<any>; // all sorted data1
   public loadDone = false; // load of resources status
   public isApiUp: boolean; // api status
   public upcomingGames: any; // list of upcming games from firebase
@@ -24,8 +24,6 @@ export class ApiService {
   public locked: boolean;
   public gamePaused: boolean;
   public duration: number;
-  public _subject: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
-  public subject: Subject<Array<any>> = new Subject();
   private lockedGameFound: boolean;
   private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
@@ -34,14 +32,13 @@ export class ApiService {
     this.duration = 0;
     this.gamePaused = false;
     this.lockedMatchId = 0;
-    this.gameCount = 1; // top spectated game
+    this.gameCount = 5; // top spectated game
     this.dataLength = 1;
     this.currentGame = loading;
     this.allData = [];
+
     this.isApiUp = true;
     this.locked = false;
-
-    this._subject.next(this.allData);
   }
 
   newGames() {
@@ -64,13 +61,13 @@ export class ApiService {
     .debounceTime(500)
     .subscribe((data: any) => {
       this.dataLength = data.length;
+      this.allData = data;
+      
       // if watching last game while the total number of games decrease it will reflect that.
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
       }
 
-      this.allData = data;
-      this._subject.next(this.allData);
       if (this.lockedMatchId) {
         this.lockedGameFound = false;
         data.map((d:any) => {
@@ -103,7 +100,7 @@ export class ApiService {
   getCurrentGames() {
     return this.af.database.list('sortedGames', {
       query: {
-        orderByChild: 'spectators',
+        // orderByChild: 'spectators',
         limitToLast: 5
       }
     });
@@ -145,7 +142,6 @@ export class ApiService {
         this.gamePaused = false;
       }
     }
-
     this.currentGame = data;
     this.loadDone = true;
   }
@@ -159,7 +155,7 @@ export class ApiService {
   decrementTotal() {
     if (this.gameCount <= this.dataLength - 1) {
       this.gameCount = this.gameCount + 1;
-      this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
+      this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
     }
   }
 
@@ -167,20 +163,32 @@ export class ApiService {
   incrementTotal() {
     if (this.gameCount > 1) {
       this.gameCount = this.gameCount - 1;
-      this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
+      this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
     }
   }
 
   // when unlocked sort again.
   unlockCurrentMatch() {
     this.lockedMatchId = 0
-    this.allData.sort((a: any,b: any) => {
-      if (a.spectators < b.spectators)
-        return -1;
+    this.allData = this.sortBySpectators(this.allData);
+    this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
+  }
+
+  // when switching from '/Expand' to ''
+  // game count is set to new game, and games is sorted.
+  SwitchToGame(index: number) {
+    this.gameCount = this.allData.length - index;
+    this.sortScoreboard(this.allData[index]);
+  }
+
+  // sort games by spectators, largest to smallest
+  sortBySpectators(games) {
+    return games.sort((a: any,b: any) => {
       if (a.spectators > b.spectators)
+        return -1;
+      if (a.spectators < b.spectators)
         return 1;
       return 0;
     })
-    this.sortScoreboard(this.allData[this.allData.length - this.gameCount]);
   }
 }

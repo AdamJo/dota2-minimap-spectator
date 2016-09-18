@@ -3,7 +3,7 @@ import { Component, OnInit, HostBinding,
          style, state } from '@angular/core';
 import { ApiService } from '../services/index';
 
-import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-expand-matches',
@@ -33,6 +33,7 @@ export class ExpandMatchesComponent {
   allGames: any;
   status: string;
 
+
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
   }
@@ -45,18 +46,10 @@ export class ExpandMatchesComponent {
     return 'relative';
   }
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
-  ngOnInit() {
-    // this.apiService._subject.subscribe((data:any) => {
-    //   console.log(data);
-    // });
-    // this.apiService.subject.subscribe((data:any) => {
-    //   console.log(data);
-    // })
+  SwitchToGame($event) {
+    this.apiService.SwitchToGame($event.index);
+    this.router.navigate(['']);
   }
-
-    ngDoCheck() {
-      this.allGames = this.apiService.allData;
-    }
 }

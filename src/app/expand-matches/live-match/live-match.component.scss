@@ -2,8 +2,19 @@ $content-background: #222;
 $border-color: #2f2724;
 
 $font-color: #d9d9d9;
-$link-color: #646400;
-$visted-link: #b9b9b9;
+$link-color: #142958;
+$visted-link: #22627E;
+
+
+a {
+  &:visited {
+    color: $visted-link;
+  }
+
+  &:active {
+    color: $link-color;
+  }
+}
 
 .container {
   background: $content-background;
@@ -12,6 +23,11 @@ $visted-link: #b9b9b9;
   max-width: 600px;
   padding: 10px 0;
   width: 100%;
+  
+
+  &:hover {
+    animation: boxShadow 0.2s ease-in-out both;
+  }
 }
 
 .match {
@@ -21,7 +37,7 @@ $visted-link: #b9b9b9;
 }
 
 .league {
-  font-size: 1.3rem;
+  font-size: .8rem;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -55,4 +71,14 @@ $visted-link: #b9b9b9;
 .series-type {
   font-size: .8rem;
   margin: 3px 0;
+}
+
+@keyframes boxShadow {
+  from {
+    box-shadow: none;
+  }
+
+  to {
+    box-shadow: 0px 0px 15px 0px #22627E;
+  }
 }
