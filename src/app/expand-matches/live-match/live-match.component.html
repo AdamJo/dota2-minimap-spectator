@@ -2,53 +2,31 @@
   <div class="match">
     <div class="league">
       {{match.league.name}}
-    </div>    
+    </div>
     <div class="side">
       <div class="team-names dire">
         {{match.dire_team_name}} - <span class="score score-dire">{{match.scoreboard.dire.score}}</span>
-        <div class="series-games series-dire">
-          <div 
-            ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
-            *ngFor="let wins of match.series.dire_series_wins">
-          </div>
-        </div>
+        <app-series
+          [gameSeries]='match.series.dire_series_wins'
+          [teamSide]='"dire"'
+        ></app-series>
       </div>
-      <div class="hero-picks">
-        <div *ngFor="let player of match.scoreboard.dire.players">
-          <img
-            *ngIf="player.hero !== 'None'"
-            src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png"
-            alt="{{player.hero}}">
-          <div
-            class="blank"
-            *ngIf="player.hero === 'None'">
-          </div>
-        </div>
-      </div>
+      <app-hero-picks
+        [players]="match.scoreboard.dire.players"
+      ></app-hero-picks>
     </div>
     vs
     <div class="side">
       <div class="team-names radiant">
-        <div class="series-games series-radiant">
-          <div 
-            ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
-            *ngFor="let wins of match.series.radiant_series_wins">
-          </div>
-        </div>
+        <app-series
+          [gameSeries]='match.series.dire_series_wins'
+          [teamSide]='"radiant"'
+        ></app-series>
         <span class="score score-radiant">{{match.scoreboard.dire.score}}</span> - {{match.radiant_team_name}}
       </div>
-      <div class="hero-picks">
-        <div class="hero-img" *ngFor="let player of match.scoreboard.radiant.players">
-          <img
-            *ngIf="player.hero !== 'None'"
-            src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png"
-            alt="{{player.hero}}">
-          <div
-            class="blank"
-            *ngIf="player.hero === 'None'">
-          </div>
-        </div>
-      </div>
+      <app-hero-picks
+        [players]="match.scoreboard.radiant.players"
+      ></app-hero-picks>
     </div>
   </div>
 <div>

@@ -98,19 +98,17 @@ a {
   align-items: center;
   display: flex;
   margin-bottom: 3px;
-  
+
   width: 40px;
 
   &.series-dire {
     justify-content: flex-start;
     margin-left: 15px;
   }
-
   &.series-radiant {
     justify-content: flex-end;
     margin-right: 15px;
   }
-
 }
 
 .series {
@@ -139,21 +137,8 @@ a {
   font-size: 1.5rem;
   width: 100%;
 
-  &.dire {
-    // background: red;
-    // margin-bottom: 10px;
-  }
-
   &.radiant {
     justify-content: flex-end;
-    // margin-bottom: 10px;
-    // margin-top: 10px;
-  }
-
-  .heading {
-    align-self: flex-end;
-    flex-grow: 1;
-    margin: 0;
   }
 }
 
@@ -171,47 +156,7 @@ a {
   }
 }
 
-.hero-picks {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-}
-
-img, .blank {
-  width: 82.27px;
-  height: 46px;
-}
-
 .side {
   margin: 0 10px;
   width: 470px;
-}
-
-.ban-cell {
-  background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
-  border: 1px solid $black;
-  height: 33px;
-  margin-bottom: 2px;
-  position: relative;
-  width: 59px;
-
-  img {
-    height: 33px;
-    width: 59px;
-  }
-}
-
-.active-ban {
-  &::before {
-    border-top: 1px solid;
-    color: $slash-color;
-    content: '';
-    left: -3px;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: rotate(-25deg);
-    width: 65px;
-  }
 }

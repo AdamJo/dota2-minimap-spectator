@@ -127,29 +127,13 @@ a {
 
 .team-names {
   display: flex;
-  flex-grow: 2;
   justify-content: flex-start;
-  // margin-bottom: 0;
-  // margin-top: 10px;
-
   font-weight: bold;
   font-size: 1.5rem;
-  // text-align: end;
   width: 100%;
 
-  &:first-child {
-    // margin-bottom: 10px;
-  }
-
-  &:last-child {
-    // margin-bottom: 10px;
-    // margin-top: 10px;
-  }
-
-  .heading {
-    align-self: flex-end;
-    flex-grow: 1;
-    margin: 0;
+  &.radiant {
+    justify-content: flex-end;
   }
 }
 
