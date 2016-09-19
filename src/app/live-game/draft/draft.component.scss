@@ -116,11 +116,11 @@ $black: #000;
 }
 
 .dire-pick {
-  background: radial-gradient(ellipse at top, $dire-alpha, $black-alpha 65%);
+  background: radial-gradient(ellipse at bottom, $dire-alpha, $black-alpha 65%);
 }
 
 .radiant-pick {
-  background: radial-gradient(ellipse at bottom, $radiant-alpha, $black-alpha 65%);
+  background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 65%);
 }
 
 .pick-cell {
