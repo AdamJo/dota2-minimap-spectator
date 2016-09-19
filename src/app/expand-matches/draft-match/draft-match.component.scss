@@ -14,6 +14,11 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
 $black-alpha: rgba(0, 0, 0, 0.65);
 $slash-color: #8b0000;
 
+$black-alpha: rgba(0, 0, 0, 0.65);
+$dire-alpha: rgba(255, 100, 100, 0.15);
+$radiant-alpha: rgba(150, 255, 150, 0.15);
+$grey-alpha: rgba(200, 200, 200, 0.15);
+
 a {
   &:visited {
     color: $visted-link;
@@ -42,16 +47,15 @@ a {
   align-items: center;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .league {
-  font-size: 1.2rem;
+  font-size: .8rem;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 1000px;
+  width: 575px;
 }
 
 .teams {
@@ -98,19 +102,9 @@ a {
   align-items: center;
   display: flex;
   margin-bottom: 3px;
+  margin-left: 15px;
   
   width: 40px;
-
-  &.series-dire {
-    justify-content: flex-start;
-    margin-left: 15px;
-  }
-
-  &.series-radiant {
-    justify-content: flex-end;
-    margin-right: 15px;
-  }
-
 }
 
 .series {
@@ -119,7 +113,6 @@ a {
   margin: 0 2px;
   outline: 1px solid transparent;
   transform: skew(-15deg);
-
   
   width: 10px;
 }
@@ -134,18 +127,21 @@ a {
 
 .team-names {
   display: flex;
+  flex-grow: 2;
   justify-content: flex-start;
+  // margin-bottom: 0;
+  // margin-top: 10px;
+
   font-weight: bold;
   font-size: 1.5rem;
+  // text-align: end;
   width: 100%;
 
-  &.dire {
-    // background: red;
+  &:first-child {
     // margin-bottom: 10px;
   }
 
-  &.radiant {
-    justify-content: flex-end;
+  &:last-child {
     // margin-bottom: 10px;
     // margin-top: 10px;
   }
@@ -161,21 +157,22 @@ a {
   font-size: 1.4rem;
   height: 36px;
   line-height: 36px;
-  
-  &.score-dire {
-    margin-left: 5px;
-  }
-
-  &.score-radiant {
-    margin-right: 5px;
-  }
+  margin-left: 5px;
 }
 
-.hero-picks {
+.heroes {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
+}
+
+.picks {
+  margin: 5px 0;
+}
+
+.bans {
+  margin: 5px 0;
 }
 
 img, .blank {
@@ -214,4 +211,24 @@ img, .blank {
     transform: rotate(-25deg);
     width: 65px;
   }
+}
+
+.pick-cell {
+  border: 1px solid $black;
+  height: 46px;
+  margin-left: 5px;
+  width: 82.27px;
+
+  img {
+    height: 46px;
+    width: auto;
+  }
+}
+
+.dire-pick {
+  background: radial-gradient(ellipse at bottom, $dire-alpha, $black-alpha 110%);
+}
+
+.radiant-pick {
+  background: radial-gradient(ellipse at bottom, $radiant-alpha, $black-alpha 110%);
 }

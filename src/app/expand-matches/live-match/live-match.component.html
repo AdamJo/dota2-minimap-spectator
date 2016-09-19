@@ -2,17 +2,52 @@
   <div class="match">
     <div class="league">
       {{match.league.name}}
-    </div>
-    <div class="series-type">
-      Best of {{match.series_type}}
-    </div>
-    <div class="teams">
-      <div class="team team1">
-        {{match.dire_team_name}}
+    </div>    
+    <div class="side">
+      <div class="team-names dire">
+        {{match.dire_team_name}} - <span class="score score-dire">{{match.scoreboard.dire.score}}</span>
+        <div class="series-games series-dire">
+          <div 
+            ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
+            *ngFor="let wins of match.series.dire_series_wins">
+          </div>
+        </div>
       </div>
-      <span class="separator">vs</span>
-      <div class="team team2">
-        {{match.radiant_team_name}}
+      <div class="hero-picks">
+        <div *ngFor="let player of match.scoreboard.dire.players">
+          <img
+            *ngIf="player.hero !== 'None'"
+            src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png"
+            alt="{{player.hero}}">
+          <div
+            class="blank"
+            *ngIf="player.hero === 'None'">
+          </div>
+        </div>
+      </div>
+    </div>
+    vs
+    <div class="side">
+      <div class="team-names radiant">
+        <div class="series-games series-radiant">
+          <div 
+            ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
+            *ngFor="let wins of match.series.radiant_series_wins">
+          </div>
+        </div>
+        <span class="score score-radiant">{{match.scoreboard.dire.score}}</span> - {{match.radiant_team_name}}
+      </div>
+      <div class="hero-picks">
+        <div class="hero-img" *ngFor="let player of match.scoreboard.radiant.players">
+          <img
+            *ngIf="player.hero !== 'None'"
+            src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png"
+            alt="{{player.hero}}">
+          <div
+            class="blank"
+            *ngIf="player.hero === 'None'">
+          </div>
+        </div>
       </div>
     </div>
   </div>

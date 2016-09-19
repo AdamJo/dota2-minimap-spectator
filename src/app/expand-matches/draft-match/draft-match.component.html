@@ -1,0 +1,51 @@
+<div class="container" (click)=sendToParent()>
+  <div class="match">
+    <div class="side">
+      <div class="team-names">
+        {{match.dire_team_name}}
+        <div class="series-games">
+          <div 
+            ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
+            *ngFor="let wins of match.series.dire_series_wins">
+          </div>
+        </div>
+      </div>
+      <div class="picks heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="pick-cell dire-pick" *ngFor='let hero of match.scoreboard.dire.picks'>
+          <img *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+        </div>
+      </div>
+      <div class="bans heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="ban-cell dire" *ngFor='let hero of match.scoreboard.dire.bans'>
+          <div class="active-ban" *ngIf='hero !== -1'>
+            <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+          </div>
+        </div>
+      </div>
+    </div>
+    vs
+    <div class="side">
+      <div class="team-names">
+        {{match.radiant_team_name}}
+        <div class="series-games">
+          <div 
+            ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
+            *ngFor="let wins of match.series.radiant_series_wins">
+          </div>
+        </div>
+      </div>
+      <div class="picks heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="pick-cell radiant-pick" *ngFor='let hero of match.scoreboard.radiant.picks'>
+          <img *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+        </div>
+      </div>
+      <div class="bans heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="ban-cell radiant" *ngFor='let hero of match.scoreboard.radiant.bans'>
+          <div class="active-ban" *ngIf='hero !== -1'>
+            <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>
