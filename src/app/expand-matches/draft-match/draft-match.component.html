@@ -1,9 +1,12 @@
 <div class="container" (click)=sendToParent()>
   <div class="match">
-    <div class="league">
-      {{match.league.name}}
-    </div>
-    <div class="side">
+    <app-league 
+      [league]='match.league'
+      [duration]='match.scoreboard.duration'
+      [spectators]='match.spectators'>
+      >
+    </app-league>
+    <div class="side side-dire">
       <div class="team-names dire">
         {{match.dire_team_name}}
         <app-series
@@ -24,8 +27,8 @@
         </div>
       </div>
     </div>
-    vs
-    <div class="side">
+    <div class="middle-vs"><span>vs</span></div>
+    <div class="side side-radiant">
       <div class="team-names radiant">
         <app-series
           [gameSeries]='match.series.radiant_series_wins'

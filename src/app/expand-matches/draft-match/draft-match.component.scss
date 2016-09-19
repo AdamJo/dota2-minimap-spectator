@@ -19,24 +19,15 @@ $dire-alpha: rgba(255, 100, 100, 0.15);
 $radiant-alpha: rgba(150, 255, 150, 0.15);
 $grey-alpha: rgba(200, 200, 200, 0.15);
 
-a {
-  &:visited {
-    color: $visted-link;
-  }
-
-  &:active {
-    color: $link-color;
-  }
-}
-
 .container {
   background: $content-background;
   box-shadow: 0px 0px 15px 0px #142958;
   border: 1px solid $border-color;
   cursor: pointer;
   margin: 10px 0;
-  width: 1000px;
-  
+  width: 1040px;
+
+  position: relative;
 
   &:hover {
     animation: boxShadow 0.2s ease-in-out both;
@@ -47,15 +38,7 @@ a {
   align-items: center;
   display: flex;
   flex-direction: row;
-}
-
-.league {
-  font-size: .8rem;
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 575px;
+  flex-wrap: wrap;
 }
 
 .teams {
@@ -65,9 +48,7 @@ a {
 
 .team {
   font-size: 1.2rem;
-  // margin-right: 20px;
   overflow: hidden;
-  // text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 250px;
@@ -166,7 +147,11 @@ img, .blank {
 
 .side {
   margin: 0 10px;
-  width: 470px;
+  width: 480px;
+
+  &.side-radiant {
+    margin: 0 5px;
+  }
 }
 
 .ban-cell {
@@ -215,4 +200,12 @@ img, .blank {
 
 .radiant-pick {
   background: radial-gradient(ellipse at bottom, $radiant-alpha, $black-alpha 110%);
+}
+
+.middle-vs {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }

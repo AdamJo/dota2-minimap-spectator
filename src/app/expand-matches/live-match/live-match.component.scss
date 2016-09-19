@@ -14,24 +14,14 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
 $black-alpha: rgba(0, 0, 0, 0.65);
 $slash-color: #8b0000;
 
-a {
-  &:visited {
-    color: $visted-link;
-  }
-
-  &:active {
-    color: $link-color;
-  }
-}
-
 .container {
   background: $content-background;
   box-shadow: 0px 0px 15px 0px #142958;
   border: 1px solid $border-color;
   cursor: pointer;
   margin: 10px 0;
-  width: 1000px;
-  
+  width: 1040px;
+  position: relative;
 
   &:hover {
     animation: boxShadow 0.2s ease-in-out both;
@@ -45,15 +35,6 @@ a {
   flex-wrap: wrap;
 }
 
-.league {
-  font-size: 1.2rem;
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 1000px;
-}
-
 .teams {
   display: flex;
   flex-direction: row;
@@ -61,9 +42,7 @@ a {
 
 .team {
   font-size: 1.2rem;
-  // margin-right: 20px;
   overflow: hidden;
-  // text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 250px;
@@ -118,7 +97,6 @@ a {
   outline: 1px solid transparent;
   transform: skew(-15deg);
 
-  
   width: 10px;
 }
 
@@ -158,5 +136,13 @@ a {
 
 .side {
   margin: 0 10px;
-  width: 470px;
+  width: 480px;
+}
+
+.middle-vs {
+  width: 40px;
+  height: 45px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }

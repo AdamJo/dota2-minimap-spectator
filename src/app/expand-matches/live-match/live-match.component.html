@@ -1,8 +1,12 @@
 <div class="container" (click)=sendToParent()>
   <div class="match">
-    <div class="league">
-      {{match.league.name}}
-    </div>
+
+    <!--<div class="duration"><span class="inside-duration">{{gameTime(match.scoreboard.duration)}}</span></div>-->
+    <app-league 
+      [league]='match.league'
+      [duration]='match.scoreboard.duration'
+      [spectators]='match.spectators'>
+    </app-league>
     <div class="side">
       <div class="team-names dire">
         {{match.dire_team_name}} - <span class="score score-dire">{{match.scoreboard.dire.score}}</span>
@@ -15,7 +19,7 @@
         [players]="match.scoreboard.dire.players"
       ></app-hero-picks>
     </div>
-    vs
+    <div class="middle-vs"><span>vs</span></div>
     <div class="side">
       <div class="team-names radiant">
         <app-series
