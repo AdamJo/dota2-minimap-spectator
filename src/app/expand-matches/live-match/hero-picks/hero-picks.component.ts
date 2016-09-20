@@ -14,9 +14,9 @@ import { Component, Input, trigger,
           class="blank"
           *ngIf="player.hero === 'None'">          
         </div>
-        <app-hero-respawn 
+        <app-player-value *ngIf='scoreboardValue !== "disabled"'
           [playerValue]="ScoreboardSelect(player)"
-        ></app-hero-respawn>
+        ></app-player-value>
       </div>
     </div>
   `,

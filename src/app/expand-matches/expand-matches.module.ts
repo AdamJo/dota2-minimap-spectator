@@ -11,7 +11,7 @@ import { SeriesComponent } from './series/index';
 import { LeagueComponent } from './league/index';
 import { SpectatorsComponent } from './league/spectators/index';
 
-import { HeroRespawnComponent } from './live-match/hero-respawn';
+import { PlayerValueComponent } from './live-match/player-value/index';
 import { ScoreboardMatchComponent } from './scoreboard-match/index';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { ScoreboardMatchComponent } from './scoreboard-match/index';
     HeroPicksComponent,
     SeriesComponent,
     LeagueComponent,
-    HeroRespawnComponent,
+    PlayerValueComponent,
     SpectatorsComponent,
     ScoreboardMatchComponent
   ],

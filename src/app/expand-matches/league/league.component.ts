@@ -46,16 +46,16 @@ import { Component, Input } from '@angular/core';
       content: '';
       background: transparent;
       border-top: none;
-      border-bottom: 3px solid #2f2724;
-      border-left: 3px solid #2f2724;
-      border-right: 3px solid #2f2724;
+      border-bottom: 2px solid #444;
+      border-left: 2px solid #444;
+      border-right: 2px solid #444;
 
       width: 130px;
-      height: 28px;
+      height: 24px;
 
       position: absolute;
       left: 453px;
-      top: 47px;
+      top: 51px;
     }
   `]
 })

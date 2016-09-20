@@ -46,7 +46,7 @@ export class ExpandMatchesComponent {
   }
 
   constructor(private apiService: ApiService, private router: Router) {
-    this.scoreboardValue = 'name';
+    this.scoreboardValue = 'kills';
   }
 
   // Switch user selected game 

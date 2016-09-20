@@ -217,18 +217,16 @@ img, .blank {
 }
 
 .middle-vs {
-  height: 70px;
+  height: 90px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
 .players {
-
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  // align-items: center;
 }
 
 .player-names {

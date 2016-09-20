@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-hero-respawn',
+  selector: 'app-player-value',
   template: `
     <div class="respawn"><div class="value">{{playerValue}}</div></div>
     `,
@@ -33,7 +33,7 @@ import { Component, Input } from '@angular/core';
   `]
 })
 
-export class HeroRespawnComponent {
+export class PlayerValueComponent {
   @Input() playerValue: number;
 
   ngChanges() {
