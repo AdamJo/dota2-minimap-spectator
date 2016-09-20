@@ -33,18 +33,6 @@ export class ExpandMatchesComponent {
   allGames: any;
   scoreboardValue: any;
 
-  menuOptions = [
-    {name: 'kills', option: 'K / D / A', shortcut: '(Q)'},
-    {name: 'last_hits', option: 'L / D', shortcut: '(W)' },
-    {name: 'level', option: 'Level', shortcut: '(E)' },
-    {name: 'xp_per_min', option: 'XPM', shortcut: '(R)' },
-    {name: 'gold', option: 'Current Gold', shortcut: '(T)' },
-    {name: 'net_worth', option: 'Net Worth', shortcut: '(Y)' },
-    {name: 'gold_per_min', option: 'GPM', shortcut: '(U)' },
-    {name: 'ultimate_cooldown', option: 'Ultimate CD', shortcut: '(I)' },
-    {name: 'respawn_timer', option: 'Respawn', shortcut: '(O)' },
-  ];
-
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
   }
@@ -58,7 +46,7 @@ export class ExpandMatchesComponent {
   }
 
   constructor(private apiService: ApiService, private router: Router) {
-    this.scoreboardValue = 'kills';
+    this.scoreboardValue = 'name';
   }
 
   // Switch user selected game 

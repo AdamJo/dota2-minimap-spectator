@@ -8,18 +8,24 @@ import { Component, Input } from '@angular/core';
   styles: [`
     .respawn {
       border: 1px solid #000;
-      background-color: rgba(0, 0, 0, .60);
+      background-color: rgba(0, 0, 0, .50);
       height: 46px;
       width: 82.27px;
       position: absolute;
       top: 0;
     }
 
-    .respawn div {
+    .value {
+
+      overflow: hidden;
+      text-overflow: clipped;
+      white-space: nowrap;
+      max-width: 82.27px;
+      min-width: 82.27px;
+
       color: #ddd;
       font-size: .8rem;
       height: 46px;
-      width: 82.27px;
       vertical-align: middle;
       text-align: center;
       display: table-cell;
@@ -29,4 +35,8 @@ import { Component, Input } from '@angular/core';
 
 export class HeroRespawnComponent {
   @Input() playerValue: number;
+
+  ngChanges() {
+    console.log(this.playerValue);
+  }
 }

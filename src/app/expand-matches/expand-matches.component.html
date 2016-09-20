@@ -17,7 +17,7 @@
       </app-live-match>
       <app-draft-match
         *ngIf="!match.scoreboard.did_game_start"
-        (change)="SwitchToGame($event)"
+        (change)="switchToGame($event)"
         [match]='match'
         [index]='i'
         [didGameStart]='match.scoreboard.did_game_start'

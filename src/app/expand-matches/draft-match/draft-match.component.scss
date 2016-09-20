@@ -222,3 +222,23 @@ img, .blank {
   align-items: flex-end;
   justify-content: center;
 }
+
+.players {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  // align-items: center;
+}
+
+.player-names {
+  font-size: .7rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 84px;
+  max-width: 84px;
+
+  text-align: center;
+}
