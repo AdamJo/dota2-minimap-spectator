@@ -3,7 +3,6 @@ import { Component, Input, Output, EventEmitter,
          style, state } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-scoreboard-match',
   template: `
     <ul class="container-scoreboard">

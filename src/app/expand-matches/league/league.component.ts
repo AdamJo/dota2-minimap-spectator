@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-league',
   template: `
     <div class="league">

@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-hero-picks',
   template: `
     <div class="hero-picks">

@@ -5,7 +5,6 @@ import { loading } from '../../assets/loading';
 import { ApiService } from '../../services/index';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-match',
   templateUrl: 'match.component.html',
   styleUrls: ['match.component.scss'],

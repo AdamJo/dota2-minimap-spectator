@@ -5,7 +5,6 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
   animate } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'mobile-draft',
   templateUrl: 'mobile-draft.component.html',
   styleUrls: ['mobile-draft.component.css'],

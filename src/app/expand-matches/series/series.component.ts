@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-series',
   template: `
     <div class="series-games {{teamSide === 'dire' ? 'series-dire' : 'series-radiant'}}">
