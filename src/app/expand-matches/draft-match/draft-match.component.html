@@ -4,7 +4,6 @@
       [league]='match.league'
       [duration]='match.scoreboard.duration'
       [spectators]='match.spectators'>
-      >
     </app-league>
     <div class="teams">
       <div class="side">
@@ -15,12 +14,12 @@
             [teamSide]='"dire"'
           ></app-series>
         </h4>
-        <div class="picks heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="picks heroes">
           <div class="pick-cell dire-pick" *ngFor='let hero of match.scoreboard.dire.picks'>
             <img *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
           </div>
         </div>
-        <div class="bans heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="bans heroes">
           <div class="ban-cell dire" *ngFor='let hero of match.scoreboard.dire.bans'>
             <div class="active-ban" *ngIf='hero !== -1'>
               <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
@@ -37,12 +36,12 @@
           ></app-series>
           <span class="team-name">{{match.dire_team_name}}</span>
         </div>
-        <div class="picks heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="picks heroes">
           <div class="pick-cell radiant-pick" *ngFor='let hero of match.scoreboard.radiant.picks'>
             <img *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
           </div>
         </div>
-        <div class="bans heroes" *ngIf="match.scoreboard.duration === 0">
+        <div class="bans heroes">
           <div class="ban-cell radiant" *ngFor='let hero of match.scoreboard.radiant.bans'>
             <div class="active-ban" *ngIf='hero !== -1'>
               <img src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">

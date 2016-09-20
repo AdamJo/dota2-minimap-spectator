@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core';
     .series-games {
       align-items: center;
       display: flex;
-      margin-bottom: 3px;
+      margin-bottom: 8px;
       height: 30px;
       width: 40px;
     }

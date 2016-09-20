@@ -87,7 +87,6 @@ export class ScoreboardMatchComponent {
   ];
 
   ngOnChanges() {
-    console.log(this.shortcut)
     this.active = this.shortcut;
   }
 
