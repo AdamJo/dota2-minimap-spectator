@@ -1,24 +1,10 @@
-import { Component, Input, Output, EventEmitter, trigger,
-  state,
-  style,
-  transition,
-  animate } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-draft-match',
   templateUrl: 'draft-match.component.html',
   styleUrls: ['./draft-match.component.scss'],
-  animations: [
-    trigger('draft', [
-      state('void', style({
-        opacity: 0
-      })),
-      state('*', style({
-        opacity: 1
-      })),
-      transition('void => *', animate('500ms ease-in'))
-    ])
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class DraftMatchComponent {

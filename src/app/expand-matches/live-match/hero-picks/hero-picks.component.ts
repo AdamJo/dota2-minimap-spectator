@@ -1,5 +1,4 @@
-import { Component, Input, trigger,
-  state, style, transition, animate } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hero-picks',
@@ -14,7 +13,7 @@ import { Component, Input, trigger,
           class="blank"
           *ngIf="player.hero === 'None'">          
         </div>
-        <app-player-value *ngIf='scoreboardValue !== "disabled"'
+        <app-player-value
           [playerValue]="ScoreboardSelect(player)"
         ></app-player-value>
       </div>
@@ -35,18 +34,7 @@ import { Component, Input, trigger,
       width: 82.27px;
       height: 46px;
     }
-  `],
-  animations: [
-    trigger('draft', [
-      state('void', style({
-        opacity: 0
-      })),
-      state('*', style({
-        opacity: 1
-      })),
-      transition('void => *', animate('500ms ease-in'))
-    ])
-  ]
+  `]
 })
 
 export class HeroPicksComponent {
@@ -54,19 +42,21 @@ export class HeroPicksComponent {
   @Input() scoreboardValue: any;
 
   ScoreboardSelect(player) {
-    // console.log(player.name);
-
     if (this.scoreboardValue === "kills") {
       return `${player['kills']} / ${player['assists']} / ${player['death']}`
     }
     else if (this.scoreboardValue === "last_hits") {
       return `${player['last_hits']} / ${player['denies']}`
     }
-    else if (this.scoreboardValue === "disabled") {
+    else if (this.scoreboardValue === "name") {
       return `${player['name']}`
     }
+    else if (this.scoreboardValue === "disabled") {
+      return this.scoreboardValue
+    }
     else {
-      return player[this.scoreboardValue]
+      //adds comma if value is a number and greater than 3
+      return player[this.scoreboardValue].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
   }
 }

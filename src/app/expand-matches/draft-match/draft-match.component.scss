@@ -79,16 +79,6 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
   margin: 3px 0;
 }
 
-@keyframes boxShadow {
-  from {
-    box-shadow: 0px 0px 15px 0px #142958;
-  }
-
-  to {
-    box-shadow: 0px 0px 15px 0px #22627E;
-  }
-}
-
 .series-games {
   align-items: center;
   display: flex;

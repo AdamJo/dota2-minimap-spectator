@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, 
+          trigger, transition, animate,
+         style, state } from '@angular/core';
 
 @Component({
   selector: 'app-player-value',
   template: `
-    <div class="respawn"><div class="value">{{playerValue}}</div></div>
+    <div [@newPlayerValue]="trigger" class="respawn"><div [@innerSwitch]="valueSwitch" class="value">{{playerValue}}</div></div>
     `,
   styles: [`
     .respawn {
@@ -16,7 +18,6 @@ import { Component, Input } from '@angular/core';
     }
 
     .value {
-
       overflow: hidden;
       text-overflow: clipped;
       white-space: nowrap;
@@ -30,13 +31,57 @@ import { Component, Input } from '@angular/core';
       text-align: center;
       display: table-cell;
     }
-  `]
+  `],
+  animations: [
+    trigger('newPlayerValue', [
+      state('on',
+        style({
+          opacity: 1,
+          transform: 'scale(1)'
+        })
+      ),
+      state('off',
+        style({
+          opacity: 0,
+          transform: 'scale(.95)'
+        })
+      ),
+      transition('on <=> off', animate('0.2s ease-in')),
+    ]),
+    trigger('innerSwitch', [
+      state('fromSwitch',
+        style({
+          opacity: 1
+        })
+      ),
+      state('toSwitch',
+        style({
+          opacity: 1
+        })
+      ),
+      transition('toSwitch <=> fromSwitch', [
+        style({
+          opacity: .4,
+        }),
+        animate('0.3s ease-in')
+      ]),
+    ]),
+  ]
 })
 
 export class PlayerValueComponent {
-  @Input() playerValue: number;
+  @Input() playerValue: string;
+  trigger;
+  valueSwitch = 'toSwitch';
 
-  ngChanges() {
-    console.log(this.playerValue);
+  ngOnChanges() {
+    if (this.playerValue === 'disabled') {
+      this.trigger = 'off';
+      this.playerValue = '';
+      this.valueSwitch = '';
+    } else {
+      this.trigger = 'on'
+      this.valueSwitch = this.valueSwitch === 'toSwitch' ? 'fromSwitch' : 'toSwitch';
+    }
   }
 }
