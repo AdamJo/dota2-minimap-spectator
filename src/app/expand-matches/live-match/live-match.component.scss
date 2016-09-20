@@ -16,15 +16,21 @@ $slash-color: #8b0000;
 
 .container {
   background: $content-background;
-  box-shadow: 0px 0px 15px 0px #142958;
+  box-shadow: 0px 0px 15px 0px $link-color;
   border: 1px solid $border-color;
   cursor: pointer;
   margin: 10px 0;
   width: 1040px;
   position: relative;
 
+
+
+  transition-property: box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+
   &:hover {
-    animation: boxShadow 0.2s ease-in-out both;
+    box-shadow: 0px 0px 15px 0px $visted-link;
   }
 }
 
@@ -32,20 +38,18 @@ $slash-color: #8b0000;
   align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .teams {
+  border: 1px solid $border-color;
+  background: #333;
   display: flex;
   flex-direction: row;
-}
-
-.team {
-  font-size: 1.2rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 250px;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 1020px;
 }
 
 .team1 {
@@ -63,15 +67,6 @@ $slash-color: #8b0000;
   margin: 3px 0;
 }
 
-@keyframes boxShadow {
-  from {
-    box-shadow: 0px 0px 15px 0px #142958;
-  }
-
-  to {
-    box-shadow: 0px 0px 15px 0px #22627E;
-  }
-}
 
 .series-games {
   align-items: center;
@@ -111,13 +106,28 @@ $slash-color: #8b0000;
 .team-names {
   display: flex;
   justify-content: flex-start;
-  font-weight: bold;
-  font-size: 1.5rem;
-  width: 100%;
+  font-size: 1.3rem;
+  width: 470px;
+  
+  margin-bottom: 0;
+  margin-top: 5px;
+
+
+
+  &.dire {
+    margin-left: 5px;
+  }
 
   &.radiant {
     justify-content: flex-end;
   }
+}
+
+.team-name {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .score {
@@ -134,14 +144,15 @@ $slash-color: #8b0000;
   }
 }
 
+
+
 .side {
   margin: 0 10px;
   width: 480px;
 }
 
 .middle-vs {
-  width: 40px;
-  height: 45px;
+  height: 60px;
   display: flex;
   align-items: flex-end;
   justify-content: center;

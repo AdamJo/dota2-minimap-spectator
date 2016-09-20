@@ -1,12 +1,18 @@
 <div class="container">
   <div class="content">
     <h2>Top 5 Games</h2>
+    <app-scoreboard-match
+      [shortcut]="scoreboardValue"
+      (change)="switchScoreboardValue($event)"
+    ></app-scoreboard-match>
     <div *ngFor="let match of apiService.allData; let i = index;">
       <app-live-match
         *ngIf="match.scoreboard.duration > 0"
-        (change)="SwitchToGame($event)"
+        (change)="switchToGame($event)"
         [match]='match'
-        [index]='i'>
+        [index]='i'
+        [scoreboardValue]="scoreboardValue"
+        >
       </app-live-match>
       <app-draft-match
         *ngIf="match.scoreboard.duration === 0"

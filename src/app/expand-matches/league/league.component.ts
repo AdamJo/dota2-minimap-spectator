@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
       flex-direction: row;
       justify-content: space-between;
       width: 1000px;
-      height: 40px;
+      height: 30px;
     }
 
     .leagueName {
@@ -38,7 +38,7 @@ import { Component, Input } from '@angular/core';
 
       position: absolute;
       left: 487px;
-      top: 60px;
+      top: 45px;
       width: 68px;
     }
   `]

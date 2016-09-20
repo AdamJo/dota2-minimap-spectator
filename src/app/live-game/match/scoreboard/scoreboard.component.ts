@@ -38,6 +38,7 @@ export class ScoreboardComponent implements OnChanges {
 
   constructor(private _eref: ElementRef) {
     this.active = 'scoreboard';
+    this.callDraft('draft', '(O) DRAFT');
     this.sortedValue = 'net_worth';
     this.menuTitle = 'GAME STATS';
   }

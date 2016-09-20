@@ -10,6 +10,7 @@ export class LiveMatchComponent {
   @Input() match: any;
   @Input() index: number;
   @Output('change') userIndexPick = new EventEmitter();
+  @Input() scoreboardValue: any;
 
   sendToParent() {
     this.userIndexPick.emit({

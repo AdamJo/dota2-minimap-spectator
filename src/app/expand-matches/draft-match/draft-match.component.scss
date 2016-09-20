@@ -21,7 +21,7 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
 
 .container {
   background: $content-background;
-  box-shadow: 0px 0px 15px 0px #142958;
+  box-shadow: 0px 0px 15px 0px $link-color;
   border: 1px solid $border-color;
   cursor: pointer;
   margin: 10px 0;
@@ -29,8 +29,12 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
 
   position: relative;
 
+  transition-property: box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+
   &:hover {
-    animation: boxShadow 0.2s ease-in-out both;
+    box-shadow: 0px 0px 15px 0px $visted-link;
   }
 }
 
@@ -38,12 +42,18 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
   align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .teams {
+  border: 1px solid $border-color;
+  background: #333;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 1020px;
 }
 
 .team {
@@ -110,19 +120,26 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
   display: flex;
   justify-content: flex-start;
   font-weight: bold;
-  font-size: 1.5rem;
-  width: 100%;
+  font-size: 1.3rem;
+  width: 470px;
+
+  margin-bottom: 0;
+  margin-top: 5px;
+
+  &.dire {
+    margin-left: 7px;
+  }
 
   &.radiant {
     justify-content: flex-end;
   }
 }
 
-.score {
-  font-size: 1.4rem;
-  height: 36px;
-  line-height: 36px;
-  margin-left: 5px;
+.team-name {
+  max-width: 450px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .heroes {
@@ -133,7 +150,7 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
 }
 
 .picks {
-  margin: 5px 0;
+  margin-bottom: 5px;
 }
 
 .bans {
@@ -146,12 +163,10 @@ img, .blank {
 }
 
 .side {
+  background: #333;
+
   margin: 0 10px;
   width: 480px;
-
-  &.side-radiant {
-    margin: 0 5px;
-  }
 }
 
 .ban-cell {
@@ -185,7 +200,6 @@ img, .blank {
 .pick-cell {
   border: 1px solid $black;
   height: 46px;
-  margin-left: 5px;
   width: 82.27px;
 
   img {
@@ -203,9 +217,8 @@ img, .blank {
 }
 
 .middle-vs {
-  width: 40px;
-  height: 40px;
+  height: 70px;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: center;
 }

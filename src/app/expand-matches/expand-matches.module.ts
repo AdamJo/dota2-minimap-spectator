@@ -11,7 +11,8 @@ import { SeriesComponent } from './series/index';
 import { LeagueComponent } from './league/index';
 import { SpectatorsComponent } from './league/spectators/index';
 
-import { GameTimePipe } from '../pipes/index';
+import { HeroRespawnComponent } from './live-match/hero-respawn';
+import { ScoreboardMatchComponent } from './scoreboard-match/index';
 
 @NgModule({
   imports: [CommonModule],
@@ -22,7 +23,9 @@ import { GameTimePipe } from '../pipes/index';
     HeroPicksComponent,
     SeriesComponent,
     LeagueComponent,
-    SpectatorsComponent
+    HeroRespawnComponent,
+    SpectatorsComponent,
+    ScoreboardMatchComponent
   ],
   exports: [ExpandMatchesComponent]
 })
