@@ -10,8 +10,8 @@ import { Component, Input } from '@angular/core';
         [spectators]='spectators'
       ></app-spectators>
     </div>
-    <div class="box" *ngIf="duration > 0"></div>
-    <div class="duration" *ngIf="duration > 0"><span class="inside-duration">{{gameTime(duration)}}</span></div>
+    <div class="box" *ngIf="didGameStart"></div>
+    <div class="duration" *ngIf="didGameStart"><span class="inside-duration">{{gameTime(duration)}}</span></div>
   `,
   styles: [`
     .league {
@@ -64,6 +64,7 @@ export class LeagueComponent {
   @Input() league: any;
   @Input() duration: number;
   @Input() spectators: number;
+  @Input() didGameStart: boolean;
 
   gameTime(time: number): string {
     let minutes = Math.floor(time / 60);

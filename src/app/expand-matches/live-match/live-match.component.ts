@@ -11,6 +11,7 @@ export class LiveMatchComponent {
   @Input() index: number;
   @Output('change') userIndexPick = new EventEmitter();
   @Input() scoreboardValue: any;
+  @Input() didGameStart: boolean;
 
   sendToParent() {
     this.userIndexPick.emit({

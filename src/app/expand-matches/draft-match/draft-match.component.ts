@@ -10,6 +10,7 @@ export class DraftMatchComponent {
   @Input() match: any;
   @Input() index: number;
   @Output('change') userIndexPick = new EventEmitter();
+  @Input() didGameStart: boolean;
 
   sendToParent() {
     this.userIndexPick.emit({
