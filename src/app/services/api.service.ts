@@ -62,7 +62,7 @@ export class ApiService {
     .subscribe((data: any) => {
       this.dataLength = data.length;
       this.allData = data;
-      
+
       // if watching last game while the total number of games decrease it will reflect that.
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
@@ -133,7 +133,6 @@ export class ApiService {
       this.matchId = data.match_id;
       this.firstCheckDone = true;
     }
-
     if (data.scoreboard.duration > 0) {
       if (this.duration === data.scoreboard.duration) {
         this.gamePaused = true;
@@ -171,7 +170,6 @@ export class ApiService {
   unlockCurrentMatch() {
     this.lockedMatchId = 0
     this.allData = this.sortBySpectators(this.allData);
-    this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
   }
 
   // when switching from '/Expand' to ''
