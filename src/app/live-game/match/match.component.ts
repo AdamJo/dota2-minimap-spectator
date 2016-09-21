@@ -1,6 +1,4 @@
-import { Component, DoCheck, OnInit, HostBinding,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
+import { Component, DoCheck, OnInit, Input } from '@angular/core';
 import { loading } from '../../assets/loading';
 import { ApiService } from '../../services/index';
 
@@ -11,6 +9,7 @@ import { ApiService } from '../../services/index';
 })
 
 export class MatchComponent implements DoCheck {
+  @Input() match: any;
   scoreboard: any;
   game: any;
   radiantTeamName: any;
@@ -42,5 +41,9 @@ export class MatchComponent implements DoCheck {
       this.series = this.apiService.currentGame.series;
       this.streamDeplay = this.apiService.currentGame.stream_delay_s;
     }
+  }
+
+  ngOnInit() {
+    this.apiService.gamePaused = false;
   }
 }
