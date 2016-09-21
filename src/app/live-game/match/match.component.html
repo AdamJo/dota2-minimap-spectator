@@ -2,11 +2,11 @@
   <div class="content">
     <div class="team">
       <h4 class="team-names">
-        {{direTeamName}} - <span class="score">{{scoreboard.dire.score}}</span>
-        <div class="series-games">
-          <div ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}" *ngFor="let wins of series.dire_series_wins">
-          </div>
-        </div>
+        {{direTeamName}}
+        <app-series
+          [gameSeries]='series.radiant_series_wins'
+        ></app-series>
+         <span class="score">{{scoreboard.dire.score}}</span>
         <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
         <span class="stream-delay" *ngIf="streamDeplay">({{streamDeplay}}s delay)</span>
       </h4>
@@ -34,10 +34,11 @@
           [team]='scoreboard.radiant.players'
         ></app-team-info>
         <h4 class="team-names">
-          {{radiantTeamName}} - <span class="score">{{scoreboard.radiant.score}}</span>
-          <div class="series-games">
-            <div ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"  *ngFor="let wins of series.radiant_series_wins"></div>
-          </div>
+          {{radiantTeamName}}
+          <app-series
+            [gameSeries]='series.dire_series_wins'
+          ></app-series>
+          <span class="score">{{scoreboard.radiant.score}}</span>
         </h4>
     </div>
   </div>

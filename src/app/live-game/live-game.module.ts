@@ -17,6 +17,7 @@ import { TeamInfoComponent } from './match/team-info/index';
 import { MiniDraftComponent } from './match/mini-draft/index';
 import { HeroItemsComponent } from './match/scoreboard/hero-items/index';
 import { HeroRespawnComponent } from './match/scoreboard/hero-respawn/index';
+import { SeriesComponent } from './series/index';
 
 import {
   CalculateXPipe,
@@ -42,6 +43,7 @@ import {
     DraftComponent,
     TeamInfoComponent,
     MatchComponent,
+    SeriesComponent,
     CalculateXPipe,
     CalculateYPipe,
     GameTimePipe,

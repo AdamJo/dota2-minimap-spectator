@@ -21,6 +21,7 @@ $black: #000;
   align-items: center;
   display: flex;
   flex-wrap: nowrap;
+  width: 887px;
 
   &.radiant {
     .side {
@@ -54,9 +55,11 @@ $black: #000;
 }
 
 .team-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   font-size: 1.5rem;
-  text-align: right;
-  width: 745px;
+  flex: 1;
 }
 
 .row {

@@ -20,13 +20,13 @@
           </div>
           <span class="score score-dire">{{match.scoreboard.dire.score}}</span>
         </h4>
-        <div class="players">
+        <!--<div class="players">
           <div class="player-names" *ngFor='let player of match.scoreboard.dire.players'>
             <div class="player-name">
             {{player.name}}
             </div>
           </div>
-        </div>
+        </div>-->
         <app-hero-picks
           [players]="match.scoreboard.dire.players"
           [scoreboardValue]="scoreboardValue"
@@ -44,13 +44,13 @@
             <span class="team-name">{{match.radiant_team_name}}</span>
           </div>
         </h4>
-        <div class="players">
+        <!--<div class="players">
           <div class="player-names" *ngFor='let player of match.scoreboard.dire.players'>
             <div class="player-name">
             {{player.name}}
             </div>
           </div>
-        </div>
+        </div>-->
         <app-hero-picks
           [players]="match.scoreboard.radiant.players"
           [scoreboardValue]="scoreboardValue"

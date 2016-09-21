@@ -10,7 +10,7 @@ import { Component, Input,
   styles: [`
     .respawn {
       border: 1px solid #000;
-      background-color: rgba(0, 0, 0, .50);
+      background-color: rgba(0, 0, 0, .5);
       height: 46px;
       width: 82.27px;
       position: absolute;

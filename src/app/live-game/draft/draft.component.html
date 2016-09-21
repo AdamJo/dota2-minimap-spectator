@@ -5,9 +5,13 @@
     <div class="titles dire">
       <span class="bans-title">Bans</span>
       <span class="side">Dire</span>
-      <span class="team-name"><b>{{direTeamName}}</b></span>
+      <div class="team-name">
+        <app-series
+          [gameSeries]='series.dire_series_wins'
+        ></app-series>
+        <span ><b>{{direTeamName}}</b></span>
+      </div>
     </div>
-
     <div class="draft-container">
       <div class="column">
         <div class="ban-cell dire" *ngFor='let hero of dire?.bans'>
@@ -51,7 +55,12 @@
     <div class="titles radiant">
       <span class="bans-title">Bans</span>
       <span class="side">Radiant</span>
-      <span class="team-name"><b>{{radiantTeamName}}</b></span>
+      <div class="team-name">
+        <app-series
+          [gameSeries]='series.dire_series_wins'
+        ></app-series>
+        <span ><b>{{radiantTeamName}}</b></span>
+      </div>
     </div>
   </div>
 <div>

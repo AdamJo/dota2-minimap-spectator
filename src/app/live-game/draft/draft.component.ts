@@ -23,10 +23,10 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
 })
 
 export class DraftComponent {
-
   @Input() radiant: any;
   @Input() dire: any;
   @Input() radiantTeamName: string;
   @Input() direTeamName: string;
   @Input() league: any;
+  @Input() series: any;
 }
