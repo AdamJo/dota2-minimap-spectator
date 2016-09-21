@@ -7,24 +7,7 @@ import { ApiService } from '../../services/index';
 @Component({
   selector: 'app-match',
   templateUrl: 'match.component.html',
-  styleUrls: ['match.component.scss'],
-  animations: [
-    trigger('routeAnimation', [
-      state('*',
-        style({
-          opacity: 1,
-          transform: 'scale(1)'
-        })
-      ),
-      transition('void => *', [
-        style({
-          opacity: 0,
-          transform: 'scale(.95)'
-        }),
-        animate('0.2s ease-in')
-      ])
-    ])
-  ]
+  styleUrls: ['match.component.scss']
 })
 
 export class MatchComponent implements DoCheck {
@@ -37,18 +20,6 @@ export class MatchComponent implements DoCheck {
   streamDeplay: any;
   loading: any;
   paused: boolean;
-
-  @HostBinding('@routeAnimation') get routeAnimation() {
-    return true;
-  }
-
-  @HostBinding('style.display') get display() {
-    return 'block';
-  }
-
-  @HostBinding('style.position') get position() {
-    return 'relative';
-  }
 
   constructor(public apiService: ApiService) {
     this.loading = false;
