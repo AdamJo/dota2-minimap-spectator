@@ -6,7 +6,7 @@
         <app-series
           [gameSeries]='series.radiant_series_wins'
         ></app-series>
-         <span class="score">{{scoreboard.dire.score}}</span>
+        - <span class="score dire-score">{{scoreboard.dire.score}}</span>
         <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
         <span class="stream-delay" *ngIf="streamDeplay">({{streamDeplay}}s delay)</span>
       </h4>
@@ -38,7 +38,7 @@
           <app-series
             [gameSeries]='series.dire_series_wins'
           ></app-series>
-          <span class="score">{{scoreboard.radiant.score}}</span>
+          - <span class="score radiant-score">{{scoreboard.radiant.score}}</span>
         </h4>
     </div>
   </div>

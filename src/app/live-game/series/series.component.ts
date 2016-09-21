@@ -42,9 +42,4 @@ import { Component, Input } from '@angular/core';
 
 export class SeriesComponent {
   @Input() gameSeries: any;
-
-  ngOnInit() {
-    console.log(this.gameSeries);
-    
-  }
 }
