@@ -19,10 +19,10 @@ import { Router } from '@angular/router';
       ),
       transition('void => *', [
         style({
-          opacity: 0,
+          opacity: .5,
           transform: 'scale(.95)'
         }),
-        animate('0.2s ease-in')
+        animate('0.3s ease-in')
       ])
     ])
   ]
@@ -46,7 +46,7 @@ export class ExpandMatchesComponent {
   }
 
   constructor(private apiService: ApiService, private router: Router) {
-    this.scoreboardValue = 'kills';
+    this.scoreboardValue = 'disabled';
   }
 
   // Switch user selected game 

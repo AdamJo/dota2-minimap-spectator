@@ -17,10 +17,10 @@ import { ApiService } from '../services/index';
       ),
       transition('void => *', [
         style({
-          opacity: 0,
+          opacity: .5,
           transform: 'scale(.95)'
         }),
-        animate('0.2s ease-in')
+        animate('0.3s ease-in')
       ])
     ])
   ]

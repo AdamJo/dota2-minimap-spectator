@@ -18,10 +18,10 @@ import { loading } from '../assets/loading';
       ),
       transition('void => *', [
         style({
-          opacity: 0,
+          opacity: .5,
           transform: 'scale(.95)'
         }),
-        animate('0.2s ease-in')
+        animate('0.3s ease-in')
       ])
     ]),
     trigger('lockPad', [
@@ -75,14 +75,14 @@ export class LiveGameComponent implements DoCheck {
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
-      this.paused = this.apiService.gamePaused;      
-      this.loading = this.apiService.loadDone;
+      // this.paused = this.apiService.gamePaused;      
+      // this.loading = this.apiService.loadDone;
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
-      this.streamDeplay = this.apiService.currentGame.stream_delay_s;
+      // this.streamDeplay = this.apiService.currentGame.stream_delay_s;
     }
   }
 }
