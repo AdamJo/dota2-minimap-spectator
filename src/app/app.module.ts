@@ -20,6 +20,7 @@ import { ExpandMatchesModule } from './expand-matches/expand-matches.module'
 import { LiveGameModule } from './live-game/live-game.module';
 import { SharedModule } from './shared/shared.module';
 import { UpcomingMatchesModule } from './upcoming-matches/upcoming-matches.module';
+import { PreviousMatchesModule } from './previous-matches/previous-matches.module'
 
 // TODO: this fixes the error "Cannot find namespace 'firebase'."
 //       Need for applications since errors fail build process
@@ -54,6 +55,7 @@ const firebaseConfig = {
     UpcomingMatchesModule,
     SharedModule,
     ExpandMatchesModule,
+    PreviousMatchesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

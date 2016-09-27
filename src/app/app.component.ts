@@ -10,5 +10,6 @@ export class AppComponent {
   constructor(public apiService: ApiService) {
     this.apiService.liveGames();
     this.apiService.newGames();
+    this.apiService.oldGames();
   }
 }

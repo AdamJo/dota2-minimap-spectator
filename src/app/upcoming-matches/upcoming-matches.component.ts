@@ -47,7 +47,6 @@ export class UpcomingMatchesComponent implements OnInit {
 
   ngOnInit() {
     this.upcomingMatches = this.apiService.upcomingMatches;
-    this.upcomingMatches = this.apiService.upcomingMatches;
     this.apiService.upcomingGames
       .subscribe((data: any) => {
         this.upcomingMatches = data;

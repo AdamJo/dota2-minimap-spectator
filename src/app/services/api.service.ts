@@ -20,6 +20,8 @@ export class ApiService {
   public isApiUp: boolean; // api status
   public upcomingGames: any; // list of upcming games from firebase
   public upcomingMatches: any; // list of upcoming games
+  public previousMatches: any;
+  public previousGames: any;
   public lockedMatchId: number;
   public locked: boolean;
   public gamePaused: boolean;
@@ -39,6 +41,15 @@ export class ApiService {
 
     this.isApiUp = true;
     this.locked = false;
+  }
+
+  oldGames() {
+    this.previousGames = this.getPreviousGames();
+    this.previousGames
+    .debounceTime(500)
+    .subscribe((data: any) => {
+      this.previousMatches = data;
+    });
   }
 
   newGames() {
@@ -109,6 +120,11 @@ export class ApiService {
   // get upcoming games from firebase backend
   getUpcomingGames() {
     return this.af.database.list('upcomingGames');
+  }
+
+  // get upcoming games from firebase backend
+  getPreviousGames() {
+    return this.af.database.list('matchHistory');
   }
 
   // returns the radiant and dire players
