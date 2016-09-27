@@ -1,5 +1,5 @@
 .d2mh {
-  background-image: url('assets/img/minimap_hero_sheet_v4-min.png');
+  background-image: url('assets/img/minimap_hero_sheet_v5-min.png');
   background-repeat: no-repeat;
   display: inline-block;
   height: 32px;
@@ -470,20 +470,25 @@
   background-position: -448px -192px;
 }
 
-.oracle {
-  background-position: -64px -224px;
-}
 
 .winter_wyvern {
   background-position: -480px -192px;
+}
+
+.abyssal_underlord {
+  background-position: -32px -224px;
+}
+
+.oracle {
+  background-position: -64px -224px;
 }
 
 .arc_warden {
   background-position: -96px -224px;
 }
 
-.abyssal_underlord {
-  background-position: -32px -224px;
+.monkey_king {
+  background-position: -128px -224px;
 }
 
 .roshan {
