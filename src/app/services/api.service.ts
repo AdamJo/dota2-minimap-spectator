@@ -33,7 +33,7 @@ export class ApiService {
   constructor(private af: AngularFire) {
     this.duration = 0;
     this.gamePaused = false;
-    this.lockedMatchId = 0;
+    this.lockedMatchId = -1;
     this.gameCount = 5; // top spectated game
     this.dataLength = 1;
     this.currentGame = loading;
@@ -41,6 +41,8 @@ export class ApiService {
 
     this.isApiUp = true;
     this.locked = false;
+
+    this.allData = [loading];
   }
 
   oldGames() {
@@ -67,13 +69,16 @@ export class ApiService {
 
   // go through live games
   liveGames() {
+    // this.lockedMatchId = 1;
     this.gameObservable = this.getCurrentGames();
     this.gameObservable
     .debounceTime(500)
     .subscribe((data: any) => {
       this.dataLength = data.length;
       this.allData = data;
-
+      if (this.lockedMatchId === -1) {
+        this.lockedMatchId = 0;
+      }
       // if watching last game while the total number of games decrease it will reflect that.
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;

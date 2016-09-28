@@ -5,10 +5,10 @@ import { ExpandMatchesComponent } from './expand-matches/index';
 import { PreviousMatchesComponent } from './previous-matches/index';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'Live', pathMatch: 'full' },
-  { path: 'Live', component: LiveGameComponent },
-  { path: 'Expand', component: ExpandMatchesComponent },
-  { path: 'Upcoming', component: UpcomingMatchesComponent },
-  { path: 'Previous', component: PreviousMatchesComponent },
+  { path: '', redirectTo: 'live', pathMatch: 'full' },
+  { path: 'live', component: LiveGameComponent },
+  { path: 'expand', component: ExpandMatchesComponent },
+  { path: 'upcoming', component: UpcomingMatchesComponent },
+  { path: 'previous', component: PreviousMatchesComponent },
   { path: '**', component: LiveGameComponent }
 ];

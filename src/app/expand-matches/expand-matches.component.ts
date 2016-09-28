@@ -2,8 +2,8 @@ import { Component, OnInit, HostBinding, HostListener,
          trigger, transition, animate,
          style, state } from '@angular/core';
 import { ApiService } from '../services/index';
-
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-expand-matches',
@@ -32,6 +32,7 @@ export class ExpandMatchesComponent {
 
   allGames: any;
   scoreboardValue: any;
+  matches: any;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
@@ -47,6 +48,7 @@ export class ExpandMatchesComponent {
 
   constructor(private apiService: ApiService, private router: Router) {
     this.scoreboardValue = 'disabled';
+
   }
 
   // Switch user selected game 

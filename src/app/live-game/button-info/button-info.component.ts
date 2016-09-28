@@ -45,12 +45,14 @@ export class ButtonInfoComponent {
 
   // moves games to the right
   decrementTotal() {
+    console.log(this.gameCount, this.allGamesLength)
     this.apiService.decrementTotal();
     this.rightButton = this.rightButton === 'right' ? 'rightGo' : 'right';
   }
 
   // moves games to the left
   incrementTotal() {
+    console.log(this.gameCount, this.allGamesLength)
     this.apiService.incrementTotal();
     this.leftButton = this.leftButton === 'left' ? 'leftGo' : 'left';
   }
@@ -58,11 +60,11 @@ export class ButtonInfoComponent {
   // use arrow keys to navigate
   @HostListener(`document:keydown`, ['$event'])
   keypress(e: KeyboardEvent) {
-    if (e.key === 'ArrowLeft' && !this.locked) {
+    if (e.key === 'ArrowRight' && !this.locked) {
       if (this.gameCount !== 1) {
         this.incrementTotal();
       }
-    } else if (e.key === 'ArrowRight' && !this.locked) {
+    } else if (e.key === 'ArrowLeft' && !this.locked) {
       if (this.gameCount !== this.allGamesLength) {
         this.decrementTotal();
       }

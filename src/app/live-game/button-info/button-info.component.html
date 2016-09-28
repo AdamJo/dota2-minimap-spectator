@@ -14,7 +14,7 @@
         <span >{{leagueName}}</span>
       </a>
       <span *ngIf="!leagueUrl" class="league">{{leagueName}}</span>
-      <a
+      <a *ngIf="apiService.loadDone"
        ngClass="lock-pad {{apiService.lockedMatchId === 0 ? 'locked' : 'unlocked'}}"
        (click)="lockMatch()">{{apiService.lockedMatchId === 0 ? 'Lock' : 'Unlock'}} Game
       </a>

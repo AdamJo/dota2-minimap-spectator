@@ -27,6 +27,7 @@ import { Component, Input, Output, EventEmitter,
       color: $text-color;
       font-size: 1rem;
       width: 1040px;
+      height: 46px;
 
       list-style-type: none;
       padding: 0;

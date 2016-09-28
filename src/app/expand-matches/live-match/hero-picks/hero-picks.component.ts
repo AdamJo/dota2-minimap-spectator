@@ -20,6 +20,8 @@ import { Component, Input } from '@angular/core';
     </div>
   `,
   styles: [`
+
+  
     .hero-picks {
       display: flex;
       flex-direction: row;
@@ -33,6 +35,10 @@ import { Component, Input } from '@angular/core';
       border: 1px solid #000;
       width: 82.27px;
       height: 46px;
+    }
+
+    .blank {
+      margin-bottom: 5px;
     }
   `]
 })
