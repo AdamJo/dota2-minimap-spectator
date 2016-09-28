@@ -45,13 +45,11 @@ export class PreviousMatchesComponent implements OnInit {
 
   constructor(private apiService: ApiService) {
     this.regionValue = 'disabled';
-    console.log('constructor');
     this.regions = [];
   }
 
   ngOnInit() {
     this.previousMatches = this.apiService.previousMatches;
-    console.log(this.previousMatches);
     this.apiService.previousGames
       .subscribe((data: any) => {
         this.previousMatches = data;
@@ -90,6 +88,6 @@ export class PreviousMatchesComponent implements OnInit {
     })
     this.regions = Array.from(new Set(this.regions));
     this.regions.sort();
-    // console.log('inside region', this.regionValue)
+    // this.regions = ['US West', 'US East', 'Europe West', 'Europe East', 'South Korea', 'Southeast Asia', 'China', 'Australia', 'Russa', 'South America', 'South Africa'];
   }
 }

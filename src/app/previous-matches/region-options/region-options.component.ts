@@ -22,9 +22,10 @@ import { Component, Input, Output, EventEmitter,
       flex-direction: row;
       align-items: center; 
       justify-content: space-around;
+      flex-wrap: wrap;
 
       color: $text-color;
-      font-size: .8rem;
+      font-size: 1rem;
       width: 1040px;
 
       list-style-type: none;
@@ -33,13 +34,18 @@ import { Component, Input, Output, EventEmitter,
     }
 
     .choices {
-      width: 100px;
       display: flex;
       flex-direction: column;
+      width: 140px;
 
       text-align: center;
 
       cursor: pointer;
+
+      margin-bottom: 15px;
+      margin-right: 5px;
+      margin-left: 5px;
+
 
       box-shadow: 0px 0px 15px 0px #142958;
       transition: box-shadow 300ms ease-in-out both;
@@ -69,12 +75,10 @@ import { Component, Input, Output, EventEmitter,
 
 export class RegionOptionsComponent {
   @Input() regions: Array<string>;
-  // @Input() shortcut: string;
   @Output('change') userRegionPick = new EventEmitter();
   active: string;
 
   ngOnChanges() {
-    // this.active = this.shortcut;
   }
 
   // toggles menu and scorebaord

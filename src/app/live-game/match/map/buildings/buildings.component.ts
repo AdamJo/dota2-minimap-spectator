@@ -39,9 +39,4 @@ export class BuildingsComponent {
     'top-2',
     'top-1'
   ];
-
-  // ngOnInit() {
-    // this.radiantTowers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    // this.direTowers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-  // }
 }

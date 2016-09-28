@@ -19,7 +19,7 @@ import '@angularclass/hmr';
 import 'rxjs/add/operator/debounceTime';
 
 // Project Specific
-import 'angularfire2'
+import 'angularfire2';
 
 if ('production' === ENV) {
   // Production

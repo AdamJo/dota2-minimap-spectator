@@ -13,9 +13,10 @@ export class PreviousMatchComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   ngOnChanges() {
-    // console.log(this.sortValue)
+    
   }
 }
