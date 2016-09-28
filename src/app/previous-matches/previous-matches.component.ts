@@ -25,6 +25,7 @@ import { ApiService } from '../services/index';
     ])
   ]
 })
+
 export class PreviousMatchesComponent implements OnInit {
   previousMatches: any;
   sortedMatches: any;
@@ -70,6 +71,7 @@ export class PreviousMatchesComponent implements OnInit {
     if (userRegion === 'disabled') {
       this.sortedMatches = this.previousMatches;
     }
+
     else if (this.regionValue !== userRegion) {
       this.sortedMatches = this.previousMatches;
       this.sortedMatches = this.sortedMatches.filter((data:any) => {
@@ -88,6 +90,5 @@ export class PreviousMatchesComponent implements OnInit {
     })
     this.regions = Array.from(new Set(this.regions));
     this.regions.sort();
-    // this.regions = ['US West', 'US East', 'Europe West', 'Europe East', 'South Korea', 'Southeast Asia', 'China', 'Australia', 'Russa', 'South America', 'South Africa'];
   }
 }

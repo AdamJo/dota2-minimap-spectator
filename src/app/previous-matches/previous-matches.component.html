@@ -1,13 +1,15 @@
-<div class="container">
-  <div class="content">
+<div class="flex-container">
+  <div class="container">
     <h2>Previous Matches</h2>
       <app-region-options
         [regions]='regions'
         (change)="switchRegionValue($event)"
       ></app-region-options>
-      <app-previous-match *ngFor="let match of sortedMatches"
-        [match]='match'
-        [sortValue]='regionValue'
-      ></app-previous-match>
+      <div class="content">
+        <app-previous-match *ngFor="let match of sortedMatches"
+          [match]='match'
+          [sortValue]='regionValue'
+        ></app-previous-match>
+      </div>
   </div>
 </div>

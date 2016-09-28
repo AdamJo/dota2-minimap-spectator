@@ -1,5 +1,14 @@
-<div>
-  <span class="dire">{{match.dire_name}}</span>
-  vs
-  <span class="radiant">{{match.radiant_name}}</span>
+<div class="container">
+  <span
+    class="dire team"
+    [class.active]="direWinner"
+    [class.inactive]="!direWinner"
+    >{{match.dire_name}}</span>
+  <!--<span class="vs">
+    spoiler
+  </span>-->
+  <span class="radiant team"
+    [class.active]="radiantWinner"
+    [class.inactive]="!radiantWinner"
+  >{{match.radiant_name}}</span>
 </div>

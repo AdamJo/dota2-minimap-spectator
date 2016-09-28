@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  width: 550px;
+  height: 30px;
+}
+
+.team {
+  text-align: center;
+  width: 220px;
+}
+
+.dire {
+  
+}
+
+.vs {
+  font-size: .8rem;
+  line-height: 20px;
+}
+
+.active {
+  background: darkcyan;
+}
+
+.inactive {
+  background: darkgreen;
+}
