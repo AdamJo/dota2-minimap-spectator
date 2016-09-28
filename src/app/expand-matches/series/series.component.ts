@@ -3,10 +3,12 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-series',
   template: `
-    <div class="series-games {{teamSide === 'dire' ? 'series-dire' : 'series-radiant'}}">
+    <div 
+      class="series-games
+      {{teamSide === 'dire' ? 'series-dire' : 'series-radiant'}}">
       <div 
-        *ngFor="let wins of gameSeries"
-        ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}">
+        ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
+        *ngFor="let wins of gameSeries">
       </div>
     </div>
   `,
