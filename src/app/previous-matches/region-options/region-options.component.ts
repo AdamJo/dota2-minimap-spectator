@@ -47,6 +47,10 @@ import { Component, Input, Output, EventEmitter,
       margin-right: 5px;
       margin-left: 5px;
 
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
 
       box-shadow: 0px 0px 15px 0px #142958;
       transition: box-shadow 300ms ease-in-out both;
