@@ -31,7 +31,6 @@ import { Component, Input } from '@angular/core';
       margin-left: 10px;
     }
 
-
     .series {
       border: 1px solid #000;
       height: 20px;

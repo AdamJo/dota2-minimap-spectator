@@ -1,12 +1,18 @@
+$border-color: #444;
+
 .container {
   display: flex;
-  width: 550px;
+  align-items: center;
+
+
+  width: 480px;
   height: 30px;
+  border-bottom: 1px solid $border-color;
 }
 
 .team {
   text-align: center;
-  width: 220px;
+  width: 240px;
 }
 
 .dire {
@@ -19,9 +25,9 @@
 }
 
 .active {
-  background: darkcyan;
+  
 }
 
 .inactive {
-  background: darkgreen;
+  opacity: .5;
 }
