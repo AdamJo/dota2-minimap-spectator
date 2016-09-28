@@ -12,7 +12,7 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
   background: $black;
   display: flex;
   flex-direction: row;
-  
+
   font-size: 1.2rem;
   margin: 10px 0;
 
@@ -29,36 +29,20 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
     margin: 0 auto;
     padding: 0;
 
+    a {
+      color: $font-color;
+      margin: 0 5px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      width: 150px;
 
-  }
-
-  li {
-    text-align: center;
-    width: 150px;
-
-    &:hover {
-      background: $grey;
+      &:hover {
+        background: $box-shadow-color-hover;
+      }
     }
   }
-
-  a {
-    color: $font-color;
-    margin: 0 5px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    text-decoration: none;
-    width: 150px;
-
-    &:hover {
-      background: $box-shadow-color-hover;
-    }
-
-    &:focus {
-      background: $grey;
-    }
-  }
-
   // http://alwaystwisted.com/articles/2012-05-12-create-a-pure-css-menu-button
   .lines {
     border-bottom: 17px double $black;
@@ -67,4 +51,15 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
     height: 5px;
     width: 30px;
   }
+}
+
+.live-match {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  border: 2px solid #444;
+}
+
+.active {
+  background: $grey;
 }

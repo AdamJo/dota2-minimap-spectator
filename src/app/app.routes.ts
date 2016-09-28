@@ -5,7 +5,8 @@ import { ExpandMatchesComponent } from './expand-matches/index';
 import { PreviousMatchesComponent } from './previous-matches/index';
 
 export const routes: Routes = [
-  { path: '', component: LiveGameComponent },
+  { path: '', redirectTo: 'Live', pathMatch: 'full' },
+  { path: 'Live', component: LiveGameComponent },
   { path: 'Expand', component: ExpandMatchesComponent },
   { path: 'Upcoming', component: UpcomingMatchesComponent },
   { path: 'Previous', component: PreviousMatchesComponent },
