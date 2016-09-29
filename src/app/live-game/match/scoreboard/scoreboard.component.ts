@@ -2,6 +2,8 @@ import {
   Component,
   OnChanges,
   Input,
+  Output,
+  EventEmitter,
   ElementRef,
   HostListener,
   ChangeDetectionStrategy
@@ -17,6 +19,8 @@ import {
 export class ScoreboardComponent implements OnChanges {
 
   @Input() scoreboard: any;
+  @Input() scoreboardValues: any;
+  @Output('change') userScoreboardPick = new EventEmitter();
   combinedPlayers: any;
   newValues: any;
   active: string;
@@ -37,23 +41,41 @@ export class ScoreboardComponent implements OnChanges {
   ];
 
   constructor(private _eref: ElementRef) {
-    this.active = 'scoreboard';
-    this.callDraft('draft', '(O) DRAFT');
     this.sortedValue = 'net_worth';
+    this.active = 'draft';
     this.menuTitle = 'GAME STATS';
+    this.callDraft('draft', '(O) DRAFT');
   }
 
   ngOnChanges(changes: any) {
+    if (this.scoreboardValues.sortedValue !== 'None') {
+      this.sortedValue = this.scoreboardValues.sortedValue;
+      this.menuTitle = this.scoreboardValues.menuTitle;
+      this.active = 'scoreboard';
+    } else {
+      this.active = 'draft';
+      this.menuTitle = this.scoreboardValues.menuTitle;
+      this.callDraft('draft', '(O) DRAFT');
+    }
     this.addTeamToPlayers(this.scoreboard);
     this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
     this.newValues = this.newValues.filter((data: any) => {
       return data.hero !== 'None';
     });
-    this.combinedPlayers = this.sortValues(this.sortedValue);
+    if (this.active === 'scoreboard') {
+      this.combinedPlayers = this.sortValues(this.sortedValue, this.scoreboardValues.menuTitle);
+    } else if (this.active === 'draft') {
+      this.callDraft('draft', '(O) DRAFT');
+    }
   }
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  sortValues(value: string) {
+  sortValues(value: string, menuOption: string) {
+    this.userScoreboardPick.emit({
+      sortedValue: value,
+      active: 'scoreboard',
+      menuTitle: menuOption
+    })
     return this.newValues.sort((a: any, b: any) => {
       if (a[value] < b[value]) {
         return 1;
@@ -70,9 +92,9 @@ export class ScoreboardComponent implements OnChanges {
     if (value === 'draft') {
       this.callDraft(value, menuTitleOption);
     } else {
-      this.sortValues(value);
       this.sortedValue = value;
       this.menuTitle = menuTitleOption;
+      this.combinedPlayers = this.sortValues(value, menuTitleOption);
       this.active = 'scoreboard';
     }
   }
@@ -89,7 +111,7 @@ export class ScoreboardComponent implements OnChanges {
     }));
   }
 
-  // toggles menu and scorebaord
+  // toggles menu and scoreboard
   toggle() {
     this.active = this.active === 'menu' ? 'scoreboard' : 'menu';
   }
@@ -116,6 +138,11 @@ export class ScoreboardComponent implements OnChanges {
   callDraft(value: string, menuTitleOption: string) {
     this.menuTitle = menuTitleOption;
     this.active = 'draft';
+    this.userScoreboardPick.emit({
+      sortedValue: 'None',
+      active: 'draft',
+      menuTitle: menuTitleOption
+    })
   }
 
   // use in-game shortcuts to navigate scoreboard

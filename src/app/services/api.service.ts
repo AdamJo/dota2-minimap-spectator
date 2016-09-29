@@ -25,6 +25,8 @@ export class ApiService {
   public gamePaused: boolean;
   public duration: number;
 
+  public scoreboardValues: any;
+
   public mmrTopObservable: FirebaseListObservable<any>;
   public mmrTopGames: any;
 
@@ -43,6 +45,12 @@ export class ApiService {
     this.allData = [];
     this.isApiUp = true;
     this.allData = [loading];
+
+    this.scoreboardValues = {
+      sortedValue: 'None',
+      active: 'draft',
+      menuTitle: 'GAME STATS'
+    }
   }
 
   oldGames() {

@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit, Input } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { loading } from '../../assets/loading';
 import { ApiService } from '../../services/index';
 
@@ -9,7 +9,6 @@ import { ApiService } from '../../services/index';
 })
 
 export class MatchComponent implements DoCheck {
-  @Input() match: any;
   scoreboard: any;
   game: any;
   radiantTeamName: any;
@@ -45,5 +44,9 @@ export class MatchComponent implements DoCheck {
 
   ngOnInit() {
     this.apiService.gamePaused = false;
+  }
+
+  addToScoreBoard(event) {
+    this.apiService.scoreboardValues = event;
   }
 }
