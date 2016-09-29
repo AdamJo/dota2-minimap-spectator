@@ -62,14 +62,11 @@ export class LiveGameComponent implements DoCheck {
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
-      // this.paused = this.apiService.gamePaused;      
-      // this.loading = this.apiService.loadDone;
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
-      // this.streamDeplay = this.apiService.currentGame.stream_delay_s;
     }
   }
 }

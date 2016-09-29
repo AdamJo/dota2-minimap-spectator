@@ -11,5 +11,6 @@ export class AppComponent {
     this.apiService.liveGames();
     this.apiService.newGames();
     this.apiService.oldGames();
+    this.apiService.mmrTop();
   }
 }

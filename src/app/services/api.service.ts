@@ -18,17 +18,17 @@ export class ApiService {
   public allData: Array<any>; // all sorted data1
   public loadDone = false; // load of resources status
   public isApiUp: boolean; // api status
-  public upcomingGames: any; // list of upcming games from firebase
+  public upcomingGames: FirebaseListObservable<any>; // list of upcming games from firebase
   public upcomingMatches: any; // list of upcoming games
   public previousMatches: any;
-  public previousGames: any;
+  public previousGames: FirebaseListObservable<any>;
   public gamePaused: boolean;
   public duration: number;
 
+  public mmrTopObservable: FirebaseListObservable<any>;
+  public mmrTopGames: any;
+
   public currentMatchId: number;
-
-
-
   private currentMatchNotFound: boolean;
   private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
@@ -41,9 +41,7 @@ export class ApiService {
     this.dataLength = 1;
     this.currentGame = loading;
     this.allData = [];
-
     this.isApiUp = true;
-
     this.allData = [loading];
   }
 
@@ -103,7 +101,6 @@ export class ApiService {
           }
         });
         if (!this.currentMatchNotFound) {
-
           this.dataLength = data.length;
           this.gameCount = this.dataLength;
           this.sortScoreboard(data[data.length - this.gameCount]);
@@ -122,6 +119,15 @@ export class ApiService {
     });
   }
 
+  mmrTop() {
+    this.mmrTopObservable = this.getMmrTop()
+    this.mmrTopObservable
+    .debounceTime(500)
+    .subscribe((data:any) => {
+      this.mmrTopGames = data;
+    }) 
+  }
+
   // get live games from firebase backend
   getCurrentGames() {
     return this.af.database.list('sortedGames');
@@ -135,6 +141,11 @@ export class ApiService {
   // get upcoming games from firebase backend
   getPreviousGames() {
     return this.af.database.list('matchHistory');
+  }
+
+  // get upcoming games from firebase backend
+  getMmrTop() {
+    return this.af.database.list('mmrTop');
   }
 
   // returns the radiant and dire players
