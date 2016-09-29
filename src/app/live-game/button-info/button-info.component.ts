@@ -45,14 +45,12 @@ export class ButtonInfoComponent {
 
   // moves games to the right
   decrementTotal() {
-    console.log(this.gameCount, this.allGamesLength)
     this.apiService.decrementTotal();
     this.rightButton = this.rightButton === 'right' ? 'rightGo' : 'right';
   }
 
   // moves games to the left
   incrementTotal() {
-    console.log(this.gameCount, this.allGamesLength)
     this.apiService.incrementTotal();
     this.leftButton = this.leftButton === 'left' ? 'leftGo' : 'left';
   }

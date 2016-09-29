@@ -1,9 +1,9 @@
 <div class="flex-container">
   <div class="content">
     <button 
-      [disabled]="(gameCount === allGamesLength || apiService.lockedMatchId) ? true : false"
+      [disabled]="(gameCount === allGamesLength || apiService.lockedMatchId || !apiService.isApiUp) ? true : false"
       (click)="decrementTotal()"
-      ngClass="arrow-btn {{(gameCount === allGamesLength || apiService.lockedMatchId) ? 'inactive' : 'active' }}">
+      ngClass="arrow-btn {{(gameCount === allGamesLength || apiService.lockedMatchId || !apiService.isApiUp) ? 'inactive' : 'active' }}">
       <div class="btn-content">
         <div [@transfer]="leftButton" class="left-arrow">
         </div>
@@ -31,9 +31,9 @@
       The Steam API is down or no games are up.
     </div>
     <button
-      [disabled]="(gameCount === 1 || apiService.lockedMatchId) ? true : false"
+      [disabled]="(gameCount === 1 || apiService.lockedMatchId || !apiService.isApiUp) ? true : false"
       (click)="incrementTotal()"
-      ngClass="arrow-btn {{(gameCount === 1 || apiService.lockedMatchId) ? 'inactive' : 'active' }}">
+      ngClass="arrow-btn {{(gameCount === 1 || apiService.lockedMatchId || !apiService.isApiUp) ? 'inactive' : 'active' }}">
       <div class="btn-content">
         <div [@transfer]="rightButton" class="right-arrow">
         </div>

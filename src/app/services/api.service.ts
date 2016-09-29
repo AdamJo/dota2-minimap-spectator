@@ -83,7 +83,6 @@ export class ApiService {
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
       }
-
       if (this.lockedMatchId) {
         this.lockedGameFound = false;
         data.map((d:any) => {
@@ -106,7 +105,7 @@ export class ApiService {
         this.sortScoreboard(data[data.length - this.gameCount]);
         this.isApiUp = true;
       } else {
-        this.gameCount = 1;
+        this.gameCount = 5;
         this.isApiUp = false;
       }
     });
@@ -114,12 +113,7 @@ export class ApiService {
   
   // get live games from firebase backend
   getCurrentGames() {
-    return this.af.database.list('sortedGames', {
-      query: {
-        // orderByChild: 'spectators',
-        limitToLast: 5
-      }
-    });
+    return this.af.database.list('sortedGames');
   }
 
   // get upcoming games from firebase backend
