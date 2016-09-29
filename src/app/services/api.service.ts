@@ -22,25 +22,27 @@ export class ApiService {
   public upcomingMatches: any; // list of upcoming games
   public previousMatches: any;
   public previousGames: any;
-  public lockedMatchId: number;
-  public locked: boolean;
   public gamePaused: boolean;
   public duration: number;
-  private lockedGameFound: boolean;
+
+  public currentMatchId: number;
+
+
+
+  private currentMatchNotFound: boolean;
   private matchId: number;
   private gameObservable: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
     this.duration = 0;
     this.gamePaused = false;
-    this.lockedMatchId = -1;
+    this.currentMatchId = -1;
     this.gameCount = 5; // top spectated game
     this.dataLength = 1;
     this.currentGame = loading;
     this.allData = [];
 
     this.isApiUp = true;
-    this.locked = false;
 
     this.allData = [loading];
   }
@@ -69,48 +71,57 @@ export class ApiService {
 
   // go through live games
   liveGames() {
-    // this.lockedMatchId = 1;
     this.gameObservable = this.getCurrentGames();
     this.gameObservable
     .debounceTime(500)
     .subscribe((data: any) => {
       this.dataLength = data.length;
       this.allData = data;
-      if (this.lockedMatchId === -1) {
-        this.lockedMatchId = 0;
+
+      // inital load
+      if (this.currentMatchId === -1) {
+        this.currentMatchId = 0;
       }
+
       // if watching last game while the total number of games decrease it will reflect that.
       if (this.gameCount > this.dataLength) {
         this.gameCount = this.dataLength;
       }
-      if (this.lockedMatchId) {
-        this.lockedGameFound = false;
-        data.map((d:any) => {
-          if (d.match_id === this.lockedMatchId) {
-            this.sortScoreboard(d);
-            this.lockedGameFound = true; 
-          } 
-        })
 
-        // if game is no longer in list and locked, jump to most watched game.
-        if (!this.lockedGameFound) {
-          this.lockedMatchId = 0;
-          this.gameCount = 1;
+      // if game exists and any length
+      if (this.currentMatchId && this.dataLength !== 0) {
+        this.currentMatchNotFound = false;
+        data.map((d:any, i:number) => {
+          if (d.match_id === this.currentMatchId) {
+            if (i === 0) {
+              this.gameCount = this.dataLength
+            } else {
+              this.gameCount = this.dataLength - i;
+            }
+            this.sortScoreboard(d);
+            this.currentMatchNotFound = true; 
+          }
+        });
+        if (!this.currentMatchNotFound) {
+
           this.dataLength = data.length;
+          this.gameCount = this.dataLength;
           this.sortScoreboard(data[data.length - this.gameCount]);
-          this.locked = false;
         }
+        this.isApiUp = true;
       }
+      // inital load or not matchID
       else if (this.dataLength !== 0) {
         this.sortScoreboard(data[data.length - this.gameCount]);
         this.isApiUp = true;
-      } else {
+      }
+      else {
         this.gameCount = 5;
         this.isApiUp = false;
       }
     });
   }
-  
+
   // get live games from firebase backend
   getCurrentGames() {
     return this.af.database.list('sortedGames');
@@ -148,6 +159,7 @@ export class ApiService {
       this.matchId = data.match_id;
       this.firstCheckDone = true;
     }
+
     if (data.scoreboard.duration > 0) {
       if (this.duration === data.scoreboard.duration) {
         this.gamePaused = true;
@@ -157,6 +169,7 @@ export class ApiService {
       }
     }
     this.currentGame = data;
+    this.currentMatchId = this.currentGame.match_id;
     this.loadDone = true;
   }
 
@@ -179,12 +192,6 @@ export class ApiService {
       this.gameCount = this.gameCount - 1;
       this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
     }
-  }
-
-  // when unlocked sort again.
-  unlockCurrentMatch() {
-    this.lockedMatchId = 0
-    this.allData = this.sortBySpectators(this.allData);
   }
 
   // when switching from '/Expand' to ''

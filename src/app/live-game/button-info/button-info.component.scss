@@ -14,7 +14,7 @@ $visited-link: #22627E;
 .league {
   color: $font-color;
   font-weight: bold;
-  max-width: 250px;
+  max-width: 350px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -166,29 +166,4 @@ button {
   &:hover {
     background: $box-shadow-color-hover;
   }
-}
-
-.lock-pad {
-  border-radius: 5px;
-  cursor: pointer;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  width: 120px;
-
-  &:active {
-    line-height: 34px;
-  }
-
-  &:hover {
-    background: $box-shadow-color-hover;
-  }
-}
-
-.locked {
-  box-shadow: 0px 0px 15px 0px $arrow-border;
-}
-
-.unlocked {
-  box-shadow: 0px 0px 10px 0px $visited-link;
 }

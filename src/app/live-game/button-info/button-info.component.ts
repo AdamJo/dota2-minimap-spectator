@@ -35,7 +35,6 @@ export class ButtonInfoComponent {
   @Input() allGamesLength: number;
   @Input() apiStatus: boolean;
 
-  locked: boolean;
   loaded: boolean;
   leftButton: string = 'left';
   rightButton: string = 'right';
@@ -58,23 +57,14 @@ export class ButtonInfoComponent {
   // use arrow keys to navigate
   @HostListener(`document:keydown`, ['$event'])
   keypress(e: KeyboardEvent) {
-    if (e.key === 'ArrowRight' && !this.locked) {
+    if (e.key === 'ArrowRight') {
       if (this.gameCount !== 1) {
         this.incrementTotal();
       }
-    } else if (e.key === 'ArrowLeft' && !this.locked) {
+    } else if (e.key === 'ArrowLeft') {
       if (this.gameCount !== this.allGamesLength) {
         this.decrementTotal();
       }
-    }
-  }
-
-  lockMatch() {
-    this.apiService.locked = !this.apiService.locked;
-    if (this.apiService.locked) {
-      this.apiService.lockedMatchId = this.apiService.currentGame.match_id
-    } else {
-      this.apiService.unlockCurrentMatch()
     }
   }
 }

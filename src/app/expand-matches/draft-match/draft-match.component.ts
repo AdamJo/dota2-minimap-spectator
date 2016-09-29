@@ -14,7 +14,6 @@ export class DraftMatchComponent {
   @Input() didGameStart: boolean;
 
   sendToParent() {
-    console.log(this.match, this.index)
     this.userIndexPick.emit({
       index: this.index
     })

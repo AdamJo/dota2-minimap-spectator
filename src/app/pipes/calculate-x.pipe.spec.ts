@@ -32,7 +32,6 @@ describe('Pipe: CalculateX', () => {
 
   it(`transforms are < ${width} && > -1`, () => {
     testIntegers.map(testData => {
-      // console.log(testData, pipe.transform(testData, width))
       expect(pipe.transform(testData, width, maxWdithHeight)).toBeLessThan(width);
       expect(pipe.transform(testData, width, maxWdithHeight)).toBeGreaterThan(-1);
     });

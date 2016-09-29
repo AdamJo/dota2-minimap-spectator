@@ -10,7 +10,6 @@
 ></app-button-info>
 
 <div
-  [@lockPad]="apiService.locked ? 'locked' : 'unlocked'"
   class="container"
   *ngIf='!scoreboard.did_game_start'>
   <app-draft 
@@ -24,7 +23,6 @@
 </div>
 
 <div
-  [@lockPad]="apiService.locked ? 'locked' : 'unlocked'"
   class="container"
   *ngIf='scoreboard.did_game_start'>
   <app-match></app-match>

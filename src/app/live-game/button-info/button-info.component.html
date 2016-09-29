@@ -1,9 +1,9 @@
 <div class="flex-container">
   <div class="content">
     <button 
-      [disabled]="(gameCount === allGamesLength || apiService.lockedMatchId || !apiService.isApiUp) ? true : false"
+      [disabled]="(gameCount === allGamesLength || !apiService.isApiUp || apiService.currentMatchId === -1) ? true : false"
       (click)="decrementTotal()"
-      ngClass="arrow-btn {{(gameCount === allGamesLength || apiService.lockedMatchId || !apiService.isApiUp) ? 'inactive' : 'active' }}">
+      ngClass="arrow-btn {{(gameCount === allGamesLength || !apiService.isApiUp || apiService.currentMatchId === -1) ? 'inactive' : 'active' }}">
       <div class="btn-content">
         <div [@transfer]="leftButton" class="left-arrow">
         </div>
@@ -14,10 +14,6 @@
         <span >{{leagueName}}</span>
       </a>
       <span *ngIf="!leagueUrl" class="league">{{leagueName}}</span>
-      <a *ngIf="apiService.loadDone"
-       ngClass="lock-pad {{apiService.lockedMatchId === 0 ? 'locked' : 'unlocked'}}"
-       (click)="lockMatch()">{{apiService.lockedMatchId === 0 ? 'Lock' : 'Unlock'}} Game
-      </a>
       <div class="spectators">
         <div class="eye-icon">
           <span class="eye"></span>
@@ -31,9 +27,9 @@
       The Steam API is down or no games are up.
     </div>
     <button
-      [disabled]="(gameCount === 1 || apiService.lockedMatchId || !apiService.isApiUp) ? true : false"
+      [disabled]="(gameCount === 1 || !apiService.isApiUp || apiService.currentMatchId === -1) ? true : false"
       (click)="incrementTotal()"
-      ngClass="arrow-btn {{(gameCount === 1 || apiService.lockedMatchId || !apiService.isApiUp) ? 'inactive' : 'active' }}">
+      ngClass="arrow-btn {{(gameCount === 1 || !apiService.isApiUp || apiService.currentMatchId === -1) ? 'inactive' : 'active' }}">
       <div class="btn-content">
         <div [@transfer]="rightButton" class="right-arrow">
         </div>
