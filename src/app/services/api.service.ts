@@ -22,7 +22,7 @@ export class ApiService {
   public upcomingMatches: any; // list of upcoming games
   
   public previousMatches: any;
-  public previousGamesObservable: FirebaseListObservable<any>;
+  public previousGames$: FirebaseListObservable<any>;
   public regions: any;
   
   public gamePaused: boolean;
@@ -30,13 +30,13 @@ export class ApiService {
 
   public scoreboardValues: any;
 
-  public mmrTopObservable: FirebaseListObservable<any>;
+  public mmrTop$: FirebaseListObservable<any>;
   public mmrTopGames: any;
 
   public currentMatchId: number;
   private currentMatchNotFound: boolean;
   private matchId: number;
-  private gameObservable: FirebaseListObservable<any>;
+  private game$: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
     this.duration = 0;
@@ -57,8 +57,8 @@ export class ApiService {
   }
 
   oldGames() {
-    this.previousGamesObservable = this.getPreviousGames();
-    this.previousGamesObservable
+    this.previousGames$ = this.getPreviousGames();
+    this.previousGames$
     .debounceTime(100)
     .subscribe((data: any) => {
       this.previousMatches = data;
@@ -89,8 +89,8 @@ export class ApiService {
 
   // go through live games
   liveGames() {
-    this.gameObservable = this.getCurrentGames();
-    this.gameObservable
+    this.game$ = this.getCurrentGames();
+    this.game$
     .debounceTime(100)
     .subscribe((data: any) => {
       this.dataLength = data.length;
@@ -140,8 +140,8 @@ export class ApiService {
   }
 
   mmrTop() {
-    this.mmrTopObservable = this.getMmrTop()
-    this.mmrTopObservable
+    this.mmrTop$ = this.getMmrTop()
+    this.mmrTop$
     .debounceTime(100)
     .subscribe((data: any) => {
       this.mmrTopGames = data;
