@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding,
+import { Component, DoCheck, HostBinding,
          trigger, transition, animate,
          style, state } from '@angular/core';
 import { ApiService } from '../services/index';
@@ -26,7 +26,7 @@ import { ApiService } from '../services/index';
   ]
 })
 
-export class UpcomingMatchesComponent implements OnInit {
+export class UpcomingMatchesComponent implements DoCheck {
 
   upcomingMatches: any;
   status: string;
@@ -45,16 +45,7 @@ export class UpcomingMatchesComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
 
-  ngOnInit() {
+  ngDoCheck() {
     this.upcomingMatches = this.apiService.upcomingMatches;
-    this.apiService.upcomingGames
-      .subscribe((data: any) => {
-        this.upcomingMatches = data;
-        if (this.upcomingMatches.length === 0) {
-          this.status = 'No scheduled games';
-        } else {
-          this.status = '';
-        }
-      });
   }
 }

@@ -1,6 +1,8 @@
 <div class="container">
   <div class="content">
     <h2>Top Ranked Game</h2>
-    <!--<h3 *ngIf="!apiService.isApiUp">The Steam API is down or no games are up.</h3>-->
+     <app-ranked-match
+      [matches]='rankedGames'
+     ></app-ranked-match>
   </div>
 </div>

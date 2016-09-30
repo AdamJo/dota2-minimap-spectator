@@ -20,8 +20,11 @@ export class ApiService {
   public isApiUp: boolean; // api status
   public upcomingGames: FirebaseListObservable<any>; // list of upcming games from firebase
   public upcomingMatches: any; // list of upcoming games
+  
   public previousMatches: any;
-  public previousGames: FirebaseListObservable<any>;
+  public previousGamesObservable: FirebaseListObservable<any>;
+  public regions: any;
+  
   public gamePaused: boolean;
   public duration: number;
 
@@ -54,12 +57,21 @@ export class ApiService {
   }
 
   oldGames() {
-    this.previousGames = this.getPreviousGames();
-    this.previousGames
-    .debounceTime(500)
+    this.previousGamesObservable = this.getPreviousGames();
+    this.previousGamesObservable
+    .debounceTime(100)
     .subscribe((data: any) => {
       this.previousMatches = data;
+      this.getRegions();
     });
+  }
+
+  getRegions() {
+    this.regions = this.previousMatches.map((data:any) => {
+      return data['cluster_name'];
+    })
+    this.regions = Array.from(new Set(this.regions));
+    this.regions.sort();
   }
 
   newGames() {
@@ -69,7 +81,7 @@ export class ApiService {
     // one then waits 500 milliseconds (could be anything below 5 seconds)
     // to wait for a new one to come in.
     this.upcomingGames
-    .debounceTime(500)
+    .debounceTime(100)
     .subscribe((data: any) => {
       this.upcomingMatches = data;
     });
@@ -79,7 +91,7 @@ export class ApiService {
   liveGames() {
     this.gameObservable = this.getCurrentGames();
     this.gameObservable
-    .debounceTime(500)
+    .debounceTime(100)
     .subscribe((data: any) => {
       this.dataLength = data.length;
       this.allData = data;
@@ -130,10 +142,10 @@ export class ApiService {
   mmrTop() {
     this.mmrTopObservable = this.getMmrTop()
     this.mmrTopObservable
-    .debounceTime(500)
-    .subscribe((data:any) => {
+    .debounceTime(100)
+    .subscribe((data: any) => {
       this.mmrTopGames = data;
-    }) 
+    });
   }
 
   // get live games from firebase backend

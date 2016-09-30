@@ -10,8 +10,8 @@ import { RankedMatchComponent }   from './ranked-match/index';
   imports: [CommonModule],
   exports: [RankedMatchesComponent],
   declarations: [
-    RankedMatchesComponent,
-    RankedMatchComponent
+    RankedMatchComponent,
+    RankedMatchesComponent
   ]
 })
 export class RankedMatchesModule { }

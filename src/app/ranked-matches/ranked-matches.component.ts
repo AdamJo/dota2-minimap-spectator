@@ -1,6 +1,8 @@
-import { Component, OnInit, HostBinding,
+import { Component, DoCheck, HostBinding,
          trigger, transition, animate,
          style, state } from '@angular/core';
+
+import { ApiService } from '../services/index';
 
 @Component({
   selector: 'app-ranked-matches',
@@ -24,7 +26,11 @@ import { Component, OnInit, HostBinding,
     ])
   ]
 })
-export class RankedMatchesComponent implements OnInit {
+
+export class RankedMatchesComponent implements DoCheck {
+
+  rankedGamesObservable: any;
+  rankedGames: any;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
@@ -38,9 +44,9 @@ export class RankedMatchesComponent implements OnInit {
     return 'relative';
   }
 
-  constructor() { }
+  constructor(public apiService: ApiService) { }
 
-  ngOnInit() {
-    console.log('ranked matchES')
+  ngDoCheck() {
+    this.rankedGames = this.apiService.mmrTopGames;
   }
 }
