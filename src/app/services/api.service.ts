@@ -11,29 +11,30 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ApiService {
 
+  // live games
   public firstCheckDone = false; // first check of watched game done
-  public currentGame: LiveLeagueGame; // list of current games
   public gameCount: number; // total number of games
   public dataLength: number; // length of games
   public allData: Array<any>; // all sorted data1
   public loadDone = false; // load of resources status
   public isApiUp: boolean; // api status
-  public upcomingGames: FirebaseListObservable<any>; // list of upcming games from firebase
+  public currentGame: LiveLeagueGame; // list of current games
+  public currentMatchId: number;
+  public scoreboardValues: any;
+
+  private upcoming$: FirebaseListObservable<any>; // list of upcming games from firebase
   public upcomingMatches: any; // list of upcoming games
   
   public previousMatches: any;
-  public previousGames$: FirebaseListObservable<any>;
+  private previousGames$: FirebaseListObservable<any>;
   public regions: any;
   
   public gamePaused: boolean;
   public duration: number;
 
-  public scoreboardValues: any;
-
-  public mmrTop$: FirebaseListObservable<any>;
+  private mmrTop$: FirebaseListObservable<any>;
   public mmrTopGames: any;
 
-  public currentMatchId: number;
   private currentMatchNotFound: boolean;
   private matchId: number;
   private game$: FirebaseListObservable<any>;
@@ -75,12 +76,12 @@ export class ApiService {
   }
 
   newGames() {
-    this.upcomingGames = this.getUpcomingGames();
+    this.upcoming$ = this.getUpcomingGames();
     // since there are a max of 5 values being changes at a time this
     // would be called five times on every change.  The debouce grabs
     // one then waits 500 milliseconds (could be anything below 5 seconds)
     // to wait for a new one to come in.
-    this.upcomingGames
+    this.upcoming$
     .debounceTime(100)
     .subscribe((data: any) => {
       this.upcomingMatches = data;
