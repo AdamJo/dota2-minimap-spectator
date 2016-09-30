@@ -1,8 +1,9 @@
 <div class="container">
   <div class="content">
     <h2>Top Ranked Game</h2>
-     <app-ranked-match
-      [matches]='rankedGames'
-     ></app-ranked-match>
+     <rm-ranked-match
+       *ngIf='rankedGames'
+       [match]='rankedGames'
+     ></rm-ranked-match>
   </div>
 </div>

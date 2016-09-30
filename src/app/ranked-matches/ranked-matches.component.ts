@@ -1,8 +1,9 @@
-import { Component, DoCheck, HostBinding,
+import { Component, OnInit, HostBinding,
          trigger, transition, animate,
          style, state } from '@angular/core';
 
 import { ApiService } from '../services/index';
+import { loadingMmr } from '../assets/loadingMmr';
 
 @Component({
   selector: 'app-ranked-matches',
@@ -27,10 +28,10 @@ import { ApiService } from '../services/index';
   ]
 })
 
-export class RankedMatchesComponent implements DoCheck {
+export class RankedMatchesComponent implements OnInit {
 
-  rankedGamesObservable: any;
   rankedGames: any;
+  games: any;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
@@ -44,9 +45,12 @@ export class RankedMatchesComponent implements DoCheck {
     return 'relative';
   }
 
-  constructor(public apiService: ApiService) { }
+  constructor(public apiService: ApiService) {
+    this.rankedGames = loadingMmr;
+  }
 
-  ngDoCheck() {
-    this.rankedGames = this.apiService.mmrTopGames;
+  ngOnInit() {
+    this.apiService.getMmrTop()
+      .subscribe(data => this.rankedGames = data[0])
   }
 }

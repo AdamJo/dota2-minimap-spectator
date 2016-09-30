@@ -1,1 +1,27 @@
-<div class="match" *ngFor="let match of matches">{{match.average_mmr}}</div>
+<div class="container">
+  <div class="match">
+    <rm-meta-info
+      [gameTime]='match.game_time'
+      [spectators]='match.specators'
+      [averageMmr]='match.average_mmr'
+    ></rm-meta-info>
+    <rm-team-title-info
+      [radiantScore]="match.radiant_score"
+      [side]="radiant"
+    ></rm-team-title-info>
+    <rm-team-info
+      [players]="match.players"
+      [side]="radiant"
+    ></rm-team-info>
+    <!--app-map-->
+    <rm-team-title-info
+      [radiantScore]="match.dire_score"
+      [side]="dire"
+    ></rm-team-title-info>
+    <rm-team-info
+      [players]="match.players"
+      [side]="dire"
+    ></rm-team-info>
+    {{match | json}}
+  </div>
+</div>
