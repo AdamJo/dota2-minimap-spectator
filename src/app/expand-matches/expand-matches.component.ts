@@ -47,7 +47,6 @@ export class ExpandMatchesComponent {
   }
 
   constructor(private apiService: ApiService, private router: Router) {
-
     this.scoreboardValue = 'None';
   }
 
