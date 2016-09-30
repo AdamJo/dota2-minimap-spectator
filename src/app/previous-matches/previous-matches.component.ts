@@ -50,17 +50,20 @@ export class PreviousMatchesComponent implements DoCheck {
     this.sortedMatches = [];
   }
 
-  ngDoCheck() {
-    this.previousMatches = this.apiService.previousMatches;
-    this.regions = this.apiService.regions;
-    if (this.regionValue === 'disabled') {
-      this.switchRegionValue(this.regionValue)
-    }
-    if (this.previousMatches && this.previousMatches.length !== this.sortedMatches.length) {
-      let oldRegion = this.regionValue;
-      this.regionValue = '';
-      this.switchRegionValue(oldRegion)
-    }
+  ngOnInit() {
+    this.apiService.getPreviousGames()
+      .subscribe((data: any) => {
+        this.previousMatches = data;
+        this.getRegions();
+        if (this.regionValue === 'disabled') {
+          this.switchRegionValue(this.regionValue)
+        }
+        if (this.previousMatches && this.previousMatches.length !== this.sortedMatches.length) {
+          let oldRegion = this.regionValue;
+          this.regionValue = '';
+          this.switchRegionValue(oldRegion)
+        }
+      });
   }
 
   // toggles menu and scorebaord
@@ -79,5 +82,13 @@ export class PreviousMatchesComponent implements DoCheck {
       this.sortedMatches = this.previousMatches;
       this.regionValue = '';
     }
+  }
+
+  getRegions() {
+    this.regions = this.previousMatches.map((data:any) => {
+      return data['cluster_name'];
+    })
+    this.regions = Array.from(new Set(this.regions));
+    this.regions.sort();
   }
 }

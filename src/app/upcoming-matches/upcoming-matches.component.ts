@@ -45,7 +45,8 @@ export class UpcomingMatchesComponent implements DoCheck {
 
   constructor(private apiService: ApiService) {}
 
-  ngDoCheck() {
-    this.upcomingMatches = this.apiService.upcomingMatches;
+  ngOnInit() {
+    this.apiService.getUpcomingGames()
+      .subscribe(games => this.upcomingMatches = games)
   }
 }

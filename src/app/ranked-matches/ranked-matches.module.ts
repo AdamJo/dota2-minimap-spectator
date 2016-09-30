@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { RankedMatchesComponent } from './index';
 import { RankedMatchComponent }   from './ranked-match/index';
 
-
-
 @NgModule({
   imports: [CommonModule],
   exports: [RankedMatchesComponent],
