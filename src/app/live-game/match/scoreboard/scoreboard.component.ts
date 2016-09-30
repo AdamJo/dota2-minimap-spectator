@@ -2,12 +2,12 @@ import {
   Component,
   OnChanges,
   Input,
-  Output,
-  EventEmitter,
   ElementRef,
   HostListener,
   ChangeDetectionStrategy
 } from '@angular/core';
+
+import { ApiService } from '../../../services/index';
 
 @Component({
   selector: 'app-scoreboard',
@@ -19,8 +19,6 @@ import {
 export class ScoreboardComponent implements OnChanges {
 
   @Input() scoreboard: any;
-  @Input() scoreboardValues: any;
-  @Output('change') userScoreboardPick = new EventEmitter();
   combinedPlayers: any;
   newValues: any;
   active: string;
@@ -40,7 +38,7 @@ export class ScoreboardComponent implements OnChanges {
     {name: 'draft', option: '(O) DRAFT' },
   ];
 
-  constructor(private _eref: ElementRef) {
+  constructor(public apiService: ApiService, private _eref: ElementRef) {
     this.sortedValue = 'net_worth';
     this.active = 'draft';
     this.menuTitle = 'GAME STATS';
@@ -48,13 +46,13 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   ngOnChanges(changes: any) {
-    if (this.scoreboardValues.sortedValue !== 'None') {
-      this.sortedValue = this.scoreboardValues.sortedValue;
-      this.menuTitle = this.scoreboardValues.menuTitle;
+    if (this.apiService.scoreboardValues.sortedValue !== 'None') {
+      this.sortedValue = this.apiService.scoreboardValues.sortedValue;
+      this.menuTitle = this.apiService.scoreboardValues.menuTitle;
       this.active = 'scoreboard';
     } else {
       this.active = 'draft';
-      this.menuTitle = this.scoreboardValues.menuTitle;
+      this.menuTitle = this.apiService.scoreboardValues.menuTitle;
       this.callDraft('draft', '(O) DRAFT');
     }
     this.addTeamToPlayers(this.scoreboard);
@@ -63,19 +61,15 @@ export class ScoreboardComponent implements OnChanges {
       return data.hero !== 'None';
     });
     if (this.active === 'scoreboard') {
-      this.combinedPlayers = this.sortValues(this.sortedValue, this.scoreboardValues.menuTitle);
+      this.combinedPlayers = this.sortValues(this.sortedValue);
     } else if (this.active === 'draft') {
       this.callDraft('draft', '(O) DRAFT');
     }
   }
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  sortValues(value: string, menuOption: string) {
-    this.userScoreboardPick.emit({
-      sortedValue: value,
-      active: 'scoreboard',
-      menuTitle: menuOption
-    })
+  sortValues(value: string) {
+
     return this.newValues.sort((a: any, b: any) => {
       if (a[value] < b[value]) {
         return 1;
@@ -91,10 +85,11 @@ export class ScoreboardComponent implements OnChanges {
   sortPlayers(value: string, menuTitleOption: string) {
     if (value === 'draft') {
       this.callDraft(value, menuTitleOption);
+      this.active = 'draft';
     } else {
       this.sortedValue = value;
       this.menuTitle = menuTitleOption;
-      this.combinedPlayers = this.sortValues(value, menuTitleOption);
+      this.combinedPlayers = this.sortValues(value);
       this.active = 'scoreboard';
     }
   }
@@ -112,7 +107,7 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   // toggles menu and scoreboard
-  toggle() {
+  toggle() { 
     this.active = this.active === 'menu' ? 'scoreboard' : 'menu';
   }
 
@@ -138,11 +133,6 @@ export class ScoreboardComponent implements OnChanges {
   callDraft(value: string, menuTitleOption: string) {
     this.menuTitle = menuTitleOption;
     this.active = 'draft';
-    this.userScoreboardPick.emit({
-      sortedValue: 'None',
-      active: 'draft',
-      menuTitle: menuTitleOption
-    })
   }
 
   // use in-game shortcuts to navigate scoreboard
@@ -188,5 +178,23 @@ export class ScoreboardComponent implements OnChanges {
         default:
           break;
       }
+  }
+
+  ng
+
+  ngOnDestroy() {
+    if (this.active === 'scoreboard') {
+      this.apiService.scoreboardValues = {
+        sortedValue: this.sortedValue,
+        active: 'scoreboard',
+        menuTitle: this.menuTitle
+      }
+    } else {
+      this.apiService.scoreboardValues = {
+        sortedValue: 'None',
+        active: 'draft',
+        menuTitle: this.menuTitle
+      }
+    }
   }
 }

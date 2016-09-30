@@ -47,9 +47,14 @@ export class ExpandMatchesComponent {
   }
 
   constructor(private apiService: ApiService, private router: Router) {
-    this.scoreboardValue = 'disabled';
 
+    this.scoreboardValue = 'None';
   }
+
+  // add line for None to replace scoreboard from Live game
+  // ngOnInit() {
+  //   this.scoreboardValue = this.apiService.scoreboardValues.sortedValue
+  // }
 
   // Switch user selected game 
   switchToGame($event) {
@@ -60,7 +65,7 @@ export class ExpandMatchesComponent {
   // toggles menu and scorebaord
   switchScoreboardValue(userValue) {
     if (userValue.value === this.scoreboardValue) {
-      this.scoreboardValue = 'disabled';
+      this.scoreboardValue = 'None';
     } else {
       this.scoreboardValue = userValue.value;
     }

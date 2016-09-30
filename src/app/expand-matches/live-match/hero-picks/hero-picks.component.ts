@@ -54,12 +54,9 @@ export class HeroPicksComponent {
     else if (this.scoreboardValue === "last_hits") {
       return `${player['last_hits']} / ${player['denies']}`
     }
-    else if (this.scoreboardValue === "disabled") {
+    else if (this.scoreboardValue === "None") {
       return `${player['name']}`
     }
-    // else if (this.scoreboardValue === "disabled") {
-    //   return this.scoreboardValue
-    // }
     else {
       //adds comma if value is a number and greater than 3
       return player[this.scoreboardValue].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

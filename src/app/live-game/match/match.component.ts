@@ -45,8 +45,4 @@ export class MatchComponent implements DoCheck {
   ngOnInit() {
     this.apiService.gamePaused = false;
   }
-
-  addToScoreBoard(event) {
-    this.apiService.scoreboardValues = event;
-  }
 }
