@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['team-title-info.component.scss']
 })
 export class TeamTitleInfoComponent {
-  @Input() radiantScore: number;
+  @Input() score: number;
   @Input() side: string;
 }

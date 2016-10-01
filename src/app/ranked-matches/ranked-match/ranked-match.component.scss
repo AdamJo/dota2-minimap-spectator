@@ -1,19 +1,33 @@
-$content-background: #222;
+$container-background: #222;
+$match-background: #333;
 $border-color: #2f2724;
 
 .container {
-  background: $content-background;
+  background: $container-background;
   border: 1px solid $border-color;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   width: 1040px;
 }
 
 .match {
+  background: $match-background;
+  border: 1px solid $border-color;
+
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+
+  width: 900px;
 }
 
 .dire {
-  display: flex;
-  justify-content: flex-right;
+  margin-right: 10px;
+}
+
+.radiant {
+  margin-left: 10px;
 }

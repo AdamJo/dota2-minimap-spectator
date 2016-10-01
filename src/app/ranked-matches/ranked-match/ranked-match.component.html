@@ -5,27 +5,27 @@
     [averageMmr]='match.average_mmr'
   ></rm-meta-info>
   <div class="match">
-    <div class="radiant team-side">
-    <rm-team-title-info
-      [radiantScore]="match.radiant_score"
-      [side]="'radiant'"
-    ></rm-team-title-info>
-    <rm-team-info
-      [players]="match.players.slice(0,5)"
-      [side]="'radiant'"
-    ></rm-team-info>
+    <div class="team-side radiant">
+      <rm-team-title-info
+        [score]="match.radiant_score"
+        [side]="'Radiant'"
+      ></rm-team-title-info>
+      <rm-team-info
+        [players]="match.players.slice(0,5)"
+        [side]="'radiant'"
+      ></rm-team-info>
     </div>
-    <!--app-map-->
-    <div class="dire team-side">
-    <rm-team-title-info
-      [radiantScore]="match.dire_score"
-      [side]="'dire'"
-    ></rm-team-title-info>
-    <rm-team-info
-      [players]="match.players.slice(5,10)"
-      [side]="'dire'"
-    ></rm-team-info>
+    {{match.game_time}}
+    <!--<rm-map></rm-map>-->
+    <div class="team-side dire">
+      <rm-team-title-info
+        [score]="match.dire_score"
+        [side]="'Dire'"
+      ></rm-team-title-info>
+      <rm-team-info
+        [players]="match.players.slice(5,10)"
+        [side]="'dire'"
+      ></rm-team-info>
     </div>
   </div>
-  <!--{{match | json}}-->
 </div>
