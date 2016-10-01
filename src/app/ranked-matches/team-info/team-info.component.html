@@ -1,4 +1,7 @@
 <div class="container">
+  <div ngClass="team-title-info {{sideName}}">
+    <span class="teamName">{{sideName}}</span>
+  </div>
   <div ngClass="player {{side}}" *ngFor="let player of players">
     <div class="image">
       <img *ngIf="player?.hero !== 'None'" src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">

@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class TeamInfoComponent {
   @Input() players: any;
   @Input() side: string;
+  @Input() sideName: string;
 }
