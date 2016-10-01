@@ -1,9 +1,4 @@
 <div class="container">
-  <rm-meta-info
-    [gameTime]='match.game_time'
-    [spectators]='match.spectators'
-    [averageMmr]='match.average_mmr'
-  ></rm-meta-info>
   <div class="match">
     <div class="team-side radiant">
       <rm-team-title-info
@@ -15,8 +10,13 @@
         [side]="'radiant'"
       ></rm-team-info>
     </div>
-    {{match.game_time}}
-    <!--<rm-map></rm-map>-->
+    <rm-meta-info
+      [gameTime]='match.game_time'
+      [radiantScore]="match.radiant_score"
+      [direScore]="match.dire_score"
+      [spectators]='match.spectators'
+      [mmr]='match.average_mmr'
+    ></rm-meta-info>
     <div class="team-side dire">
       <rm-team-title-info
         [score]="match.dire_score"

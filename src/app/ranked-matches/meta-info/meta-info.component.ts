@@ -7,9 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 
 export class MetaInfoComponent {
-  @Input() gameTime: any;
-  @Input() spectators: any;
-  @Input() averageMmr: any;
+  @Input() gameTime: number;
+  @Input() spectators: number;
+  @Input() radiantScore: number;
+  @Input() direScore: number;
+  @Input() mmr: number;
 
   gameTimeCalculator(time: number): string {
     let minutes = Math.floor(time / 60);

@@ -11,15 +11,15 @@ $border-color: #2f2724;
 }
 
 .team-title-info {
+  margin-top: 3px;
 }
 
 .Dire {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  text-align: start;
+  margin-left: 30px;
 }
 
 .Radiant {
-  display: flex;
-  justify-content: space-between;
+  margin-right: 16px;
+  text-align: end;
 }

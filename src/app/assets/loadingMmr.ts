@@ -2,7 +2,7 @@ export let loadingMmr = {
   "average_mmr": 0,
   "delay": 0,
   "dire_score": 0,
-  "game_time": 1,
+  "game_time": 0,
   "lobby_id": "0",
   "players": [
     {

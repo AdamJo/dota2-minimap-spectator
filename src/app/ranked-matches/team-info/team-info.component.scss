@@ -4,16 +4,15 @@ img {
 }
 
 .blank {
+  background: #444;
   height: 46px;
-  margin-left: 3px;
   width: 82.28px;
 }
 
 .player {
   display: flex;
   flex-direction: row;
-
-  margin-bottom: 5px;
+  height: 50px;
 }
 
 .player-info {
@@ -27,19 +26,10 @@ img {
 }
 
 .radiant {
-  .player-info {
-    margin-left: 10px;
-  }
-}
-
-.dire {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-
-  .player-info {
-    margin-right: 10px;
-  }
+  margin-right: 5px;
 
   .kda {
     text-align: end;  
@@ -47,4 +37,34 @@ img {
   .name {
     text-align: end;  
   }
+
+  .player-info {
+    margin-right: 10px;
+  }
+}
+
+.dire {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 5px;
+
+  .player-info {
+    margin-right: 10px;
+  }
+
+  .kda {
+    text-align: start;  
+  }
+  .name {
+    text-align: start;  
+  }
+
+  .player-info {
+    margin-left: 10px;
+  }
+}
+
+.kda {
+  font-size: .7rem;
 }

@@ -1,7 +1,12 @@
 <div class="content">
   <div class="meta-info">
-    <span>{{gameTimeCalculator(gameTime)}}</span>
-    <rm-spectators [spectators]="spectators"></rm-spectators>
-    <span>{{averageMmr}}</span>
+    <div class="score-time">
+      <div class="box"></div>
+      <span class="score radiant">{{radiantScore}}</span>
+      <span class="time">{{gameTimeCalculator(gameTime)}}</span>
+      <span class="score dire">{{direScore}}</span>
+    </div>
   </div>
+  <div class="mmr">{{mmr}} <span class="mmr-text">MMR</span></div>
+  <rm-spectators [spectators]="spectators"></rm-spectators>
 </div>
