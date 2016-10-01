@@ -7,6 +7,8 @@ import { TeamTitleInfoComponent } from './team-title-info/index';
 import { TeamInfoComponent } from './team-info/index';
 import { MetaInfoComponent } from './meta-info/index';
 import { MapComponent } from './map/index';
+import { SpectatorsComponent } from './meta-info/spectators/index'
+
 
 @NgModule({
   imports: [CommonModule],
@@ -17,6 +19,7 @@ import { MapComponent } from './map/index';
     TeamTitleInfoComponent,
     TeamInfoComponent,
     MetaInfoComponent,
+    SpectatorsComponent,
     MapComponent
   ]
 })

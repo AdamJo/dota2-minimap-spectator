@@ -1,8 +1,24 @@
-$content-background: #222;
+$content-background: #333;
 $border-color: #2f2724;
 
+.content {
+  display: flex;
+  justify-content: center;
+  width: 1040px;
+}
+
 .meta-info {
-  // background: $content-background;
-  // border: 1px solid $border-color;
-  // width: 900px;
+  display: flex;
+  justify-content: space-around;
+
+  background: $content-background;
+  border: 1px solid $border-color;
+
+  margin: 10px 0;
+  width: 900px;
+  height: 36px;
+
+  span {
+    line-height: 35px;
+  }
 }

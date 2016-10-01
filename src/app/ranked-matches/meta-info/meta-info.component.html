@@ -1,5 +1,7 @@
-<div class="meta-info">
-  <span>{{gameTime}}</span> | 
-  <span>{{spectators}}</span>  | 
-  <span>{{averageMmr}}</span>  | 
+<div class="content">
+  <div class="meta-info">
+    <span>{{gameTimeCalculator(gameTime)}}</span>
+    <rm-spectators [spectators]="spectators"></rm-spectators>
+    <span>{{averageMmr}}</span>
+  </div>
 </div>
