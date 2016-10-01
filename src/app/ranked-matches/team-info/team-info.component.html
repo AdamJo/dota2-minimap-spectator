@@ -1,0 +1,18 @@
+<div class="container">
+  <div ngClass="player {{side}}" *ngFor="let player of players">
+    <div class="image">
+      <img *ngIf="player?.hero !== 'None'" src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
+      <div class="blank" *ngIf="player.hero === 'None'"></div>
+    </div>
+    <div class="player-info">
+      <div class="name">
+      {{player.name}}
+      </div>
+      <div class="kda">
+      {{player.kills}} / {{player.deaths}} / {{player.assists}}
+      <!--Level {{player.level}} |
+      {{player.lh}} / {{player.dh}} |-->
+      </div>
+    </div>
+  </div>
+</div>

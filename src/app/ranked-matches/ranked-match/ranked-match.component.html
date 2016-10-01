@@ -1,27 +1,31 @@
 <div class="container">
+  <rm-meta-info
+    [gameTime]='match.game_time'
+    [spectators]='match.spectators'
+    [averageMmr]='match.average_mmr'
+  ></rm-meta-info>
   <div class="match">
-    <rm-meta-info
-      [gameTime]='match.game_time'
-      [spectators]='match.specators'
-      [averageMmr]='match.average_mmr'
-    ></rm-meta-info>
+    <div class="radiant team-side">
     <rm-team-title-info
       [radiantScore]="match.radiant_score"
-      [side]="radiant"
+      [side]="'radiant'"
     ></rm-team-title-info>
     <rm-team-info
-      [players]="match.players"
-      [side]="radiant"
+      [players]="match.players.slice(0,5)"
+      [side]="'radiant'"
     ></rm-team-info>
+    </div>
     <!--app-map-->
+    <div class="dire team-side">
     <rm-team-title-info
       [radiantScore]="match.dire_score"
-      [side]="dire"
+      [side]="'dire'"
     ></rm-team-title-info>
     <rm-team-info
-      [players]="match.players"
-      [side]="dire"
+      [players]="match.players.slice(5,10)"
+      [side]="'dire'"
     ></rm-team-info>
-    {{match | json}}
+    </div>
   </div>
+  <!--{{match | json}}-->
 </div>

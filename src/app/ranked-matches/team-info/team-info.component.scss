@@ -1,0 +1,51 @@
+.container {
+  margin: 0 10px;
+}
+
+img {
+  height: 46px;
+  width: 82.28px;  
+}
+
+.blank {
+  height: 46px;
+  margin-left: 3px;
+  width: 82.28px;
+}
+
+.player {
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: 5px;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+}
+
+.radiant {
+  .player-info {
+    margin-left: 10px;
+  }
+}
+
+.dire {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  .player-info {
+    margin-right: 10px;
+  }
+
+  .kda {
+    text-align: end;  
+  }
+  .name {
+    text-align: end;  
+  }
+}
