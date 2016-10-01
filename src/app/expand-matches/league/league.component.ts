@@ -51,11 +51,11 @@ import { Component, Input } from '@angular/core';
       border-right: 2px solid #444;
 
       width: 130px;
-      height: 24px;
+      height: 12px;
 
       position: absolute;
       left: 453px;
-      top: 51px;
+      top: 64px;
     }
   `]
 })
