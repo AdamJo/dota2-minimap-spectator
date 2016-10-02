@@ -66,20 +66,29 @@ export class PreviousMatchesComponent implements OnInit {
       });
   }
 
+  sliceMatches(matches) {
+    if (matches.length > 52) {
+      return matches.slice(0, 52);
+    } else {
+      return matches;
+    }
+  }
+
   // toggles menu and scorebaord
   switchRegionValue(userRegion) {
     if (userRegion === 'disabled') {
-      this.sortedMatches = this.previousMatches;
+      this.sortedMatches = this.sliceMatches(this.previousMatches);
     }
-
     else if (this.regionValue !== userRegion) {
       this.sortedMatches = this.previousMatches;
       this.sortedMatches = this.sortedMatches.filter((data:any) => {
         return data['cluster_name'] === userRegion;  
       })
+      this.sortedMatches = this.sliceMatches(this.sortedMatches);
       this.regionValue = userRegion;
     } else {
-      this.sortedMatches = this.previousMatches;
+      console.log('here')
+      this.sortedMatches = this.sliceMatches(this.previousMatches);
       this.regionValue = '';
     }
   }
