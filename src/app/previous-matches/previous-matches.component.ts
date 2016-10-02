@@ -87,7 +87,6 @@ export class PreviousMatchesComponent implements OnInit {
       this.sortedMatches = this.sliceMatches(this.sortedMatches);
       this.regionValue = userRegion;
     } else {
-      console.log('here')
       this.sortedMatches = this.sliceMatches(this.previousMatches);
       this.regionValue = '';
     }
