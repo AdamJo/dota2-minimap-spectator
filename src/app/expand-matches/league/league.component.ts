@@ -33,6 +33,7 @@ import { Component, Input } from '@angular/core';
     }
 
     .duration {
+      font-size: 1.2rem;
       display: flex;
       justify-content: center;
 
@@ -50,12 +51,12 @@ import { Component, Input } from '@angular/core';
       border-left: 2px solid #444;
       border-right: 2px solid #444;
 
-      width: 130px;
+      width: 115px;
       height: 12px;
 
       position: absolute;
-      left: 453px;
-      top: 64px;
+      left: 459px;
+      top: 61px;
     }
   `]
 })

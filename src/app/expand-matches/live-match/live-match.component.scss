@@ -146,16 +146,16 @@ $radiant-color: #006400;
 }
 
 .score {
-  font-size: 1.2rem;
+  font-size: 1rem;
   height: 36px;
   line-height: 36px;
   
   &.score-dire {
-    margin-right: 10px;
+    margin-right: 13px;
   }
 
   &.score-radiant {
-    margin-left: 15px;
+    margin-left: 16px;
   }
 }
 
