@@ -25,7 +25,7 @@
         </div>
         <div class="player-name">{{player.name}}</div>
         <div class="value" [ngSwitch]="sortedValue">
-          <span *ngSwitchCase="'kills'">{{player[sortedValue]}} / {{player["assists"]}} / {{player["death"]}}</span>
+          <span *ngSwitchCase="'kills'">{{player[sortedValue]}} / {{player["death"]}} / {{player["assists"]}}</span>
           <span *ngSwitchCase="'last_hits'">{{player[sortedValue]}} / {{player["denies"]}}</span>
           <span *ngSwitchDefault>{{player[sortedValue] | addCommas}}</span>
         </div>

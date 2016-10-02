@@ -45,7 +45,7 @@ export class ScoreboardComponent implements OnChanges {
     this.callDraft('draft', '(O) DRAFT');
   }
 
-  ngOnChanges(changes: any) {
+  ngOnInit() {
     if (this.apiService.scoreboardValues.sortedValue !== 'None') {
       this.sortedValue = this.apiService.scoreboardValues.sortedValue;
       this.menuTitle = this.apiService.scoreboardValues.menuTitle;
@@ -55,6 +55,14 @@ export class ScoreboardComponent implements OnChanges {
       this.menuTitle = this.apiService.scoreboardValues.menuTitle;
       this.callDraft('draft', '(O) DRAFT');
     }
+    this.mainSort();
+  }
+
+  ngOnChanges() {
+    this.mainSort();
+  }
+
+  mainSort() {
     this.addTeamToPlayers(this.scoreboard);
     this.newValues = [].concat(...[this.scoreboard.dire.players, this.scoreboard.radiant.players]);
     this.newValues = this.newValues.filter((data: any) => {
@@ -66,6 +74,7 @@ export class ScoreboardComponent implements OnChanges {
       this.callDraft('draft', '(O) DRAFT');
     }
   }
+
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
   sortValues(value: string) {

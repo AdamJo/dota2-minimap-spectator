@@ -49,7 +49,7 @@ export class HeroPicksComponent {
 
   ScoreboardSelect(player) {
     if (this.scoreboardValue === "kills") {
-      return `${player['kills']} / ${player['assists']} / ${player['death']}`
+      return `${player['kills']} / ${player['death']} / ${player['assists']}`
     }
     else if (this.scoreboardValue === "last_hits") {
       return `${player['last_hits']} / ${player['denies']}`
