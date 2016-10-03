@@ -4,4 +4,3 @@
 
 export * from './nav/nav.component';
 export * from './footer/footer.component';
-export * from './series/series.component';

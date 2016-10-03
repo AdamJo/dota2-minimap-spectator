@@ -8,122 +8,72 @@ export let loadingMmr = {
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     },
     {
       "assists": 0,
       "deaths": 0,
-      "dh": 0,
       "hero": "None",
       "kills": 0,
-      "level": 0,
-      "lh": 0,
-      "name": "",
-      "x": 0,
-      "y": 0
+      "name": ""
     }
   ],
   "radiant_score": 0,

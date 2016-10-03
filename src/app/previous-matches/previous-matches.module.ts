@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PreviousMatchesComponent } from './previous-matches.component';
-import { PreviousMatchComponent } from './previous-match/previous-match.component';
+import { PreviousMatchesComponent } from './index';
+import { PreviousMatchComponent } from './previous-match/index';
 import { RegionOptionsComponent } from './region-options/index' 
 
 @NgModule({
