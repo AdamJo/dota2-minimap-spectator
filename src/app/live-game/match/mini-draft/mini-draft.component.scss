@@ -1,15 +1,4 @@
-$content-background: #111;
-$border-color: #2f2724;
-$dire-color: #800000;
-$radiant-color: #006400;
-$black-alpha: rgba(0, 0, 0, 0.65);
-$dire-alpha: rgba(255, 200, 200, 0.15);
-$radiant-alpha: rgba(200, 255, 200, 0.15);
-$grey-alpha: rgba(200, 200, 200, 0.15);
-$slash-color: #8b0000;
-
-$height: 66px;
-$width: 118px;
+@import '~assets/_variables.scss';
 
 .mini-draft {
   display: flex;
@@ -30,9 +19,9 @@ $width: 118px;
 }
 
 .ban-cell {
-  height: $height;
+  height: $mini-draft-height;
   position: relative;
-  width: $width;
+  width: $mini-draft-width;
 
   &:nth-child(odd) {
     margin-right: 5px;
@@ -62,9 +51,9 @@ $width: 118px;
 
     div {
       background: radial-gradient(ellipse at top, $grey-alpha, $black-alpha 110%);
-      height: $height;
+      height: $mini-draft-height;
       margin: 0 auto;
-      width: $width;
+      width: $mini-draft-width;
     }
   }
 }
@@ -87,9 +76,9 @@ $width: 118px;
 
 .dire-picks {
   .pick-cell {
-    height: $height;
+    height: $mini-draft-height;
     position: relative;
-    width: $width;
+    width: $mini-draft-width;
 
     &:nth-child(odd) {
       margin-right: 5px;
@@ -105,9 +94,9 @@ $width: 118px;
 
       div {
         background: radial-gradient(ellipse at top, $dire-alpha, $black-alpha 110%);
-        height: $height;
+        height: $mini-draft-height;
         margin: 0 auto;
-        width: $width;
+        width: $mini-draft-width;
       }
     }
   }
@@ -115,9 +104,9 @@ $width: 118px;
 
 .radiant-picks {
   .pick-cell {
-    height: $height;
+    height: $mini-draft-height;
     position: relative;
-    width: $width;
+    width: $mini-draft-width;
 
     &:nth-child(odd) {
       margin-right: 5px;
@@ -133,9 +122,9 @@ $width: 118px;
 
       div {
         background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 110%);
-        height: $height;
+        height: $mini-draft-height;
         margin: 0 auto;
-        width: $width;
+        width: $mini-draft-width;
       }
     }
   }
@@ -176,6 +165,6 @@ $width: 118px;
 }
 
 img {
-  height: $height;
-  width: $width;
+  height: $mini-draft-height;
+  width: $mini-draft-width;
 }

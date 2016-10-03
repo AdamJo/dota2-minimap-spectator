@@ -1,8 +1,7 @@
-$border-color: #2f2724;
-$content-background: #111;
+@import '~assets/_variables.scss';
 
 .container {
-  background-color: $content-background;
+  background-color: $base-background;
   border: 1px solid $border-color;
   margin: 0 auto;
   margin-top: 10px;

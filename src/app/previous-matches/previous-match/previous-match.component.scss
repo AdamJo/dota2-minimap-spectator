@@ -1,4 +1,4 @@
-$border-color: #444;
+@import '~assets/_variables.scss';
 
 .container {
   display: flex;
@@ -7,7 +7,7 @@ $border-color: #444;
 
   width: 480px;
   height: 30px;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $third-layer-background;
 }
 
 .team {

@@ -1,17 +1,4 @@
-$img-height: 33px;
-$img-width: 59px;
-$text-color: #d9d9d9;
-$nav-menu-color: #1e2020;
-$nav-menu-color-hover: #2e3030;
-$menu-gradiant-dire: #5a171d;
-$menu-gradiant-radiant: #4a9b4c;
-$grey: #808080;
-$darkgrey: #a9a9a9;
-$box-shadow-color: rgba(0, 0, 0, 0.75);
-$box-shadow-color-hover: rgba(34, 98, 126, 0.5);
-$border-color: #2f2724;
-$black: #000;
-$background: #111;
+@import '~assets/_variables.scss';
 
 li {
   border: 1px solid $border-color;
@@ -61,19 +48,19 @@ img {
 }
 
 .dire-draft {
-  background: linear-gradient(to bottom, $menu-gradiant-dire, $background);
+  background: linear-gradient(to bottom, $menu-gradiant-dire, $base-background);
   border-right: 1px solid $border-color;
   border-top: 1px solid $border-color;
 }
 
 .radiant-draft {
-  background: linear-gradient(to bottom, $menu-gradiant-radiant, $background);
+  background: linear-gradient(to bottom, $menu-gradiant-radiant, $base-background);
   border-left: 1px solid $border-color;
   border-top: 1px solid $border-color;
 }
 
 .container {
-  color: $text-color;
+  color: $font-color;
   font-size: 1rem;
   height: 600px;
   width: 400px;

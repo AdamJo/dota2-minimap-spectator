@@ -1,5 +1,4 @@
-$content-background: #333;
-$border-color: #2f2724;
+@import '~assets/_variables.scss';
 
 .content {
   display: flex;
@@ -50,9 +49,9 @@ $border-color: #2f2724;
   content: '';
   background: transparent;
   border-top: none;
-  border-bottom: 2px solid #444;
-  border-left: 2px solid #444;
-  border-right: 2px solid #444;
+  border-bottom: 2px solid $third-layer-background;
+  border-left: 2px solid $third-layer-background;
+  border-right: 2px solid $third-layer-background;
 
   width: 115px;
   height: 12px;

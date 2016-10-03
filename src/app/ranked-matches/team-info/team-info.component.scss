@@ -1,10 +1,12 @@
+@import '~assets/_variables.scss';
+
 img {
   height: 46px;
   width: 82.28px;  
 }
 
 .blank {
-  background: #444;
+  background: $third-layer-background;
   height: 46px;
   width: 82.28px;
 }
@@ -73,7 +75,7 @@ img {
 
 .kda {
   font-size: .8rem;
-  color: #AAA;
+  color: $kda-font-color;
 }
 
 .team-title-info {

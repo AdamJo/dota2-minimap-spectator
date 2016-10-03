@@ -1,7 +1,4 @@
-$black: #000;
-$gradient-black: #211602;
-$inactive-series: #935c08;
-$active-series: #b8860b;
+@import '~assets/_variables.scss';
 
 .flex-container {
   display: flex;

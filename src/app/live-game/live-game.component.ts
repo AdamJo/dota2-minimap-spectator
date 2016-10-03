@@ -2,7 +2,7 @@ import { Component, DoCheck, OnInit, HostBinding,
          trigger, transition, animate,
          style, state } from '@angular/core';
 import { ApiService } from '../services/index';
-import { loading } from '../assets/loading';
+import { loading } from 'assets/initialLoadData/loading';
 
 @Component({
   selector: 'app-live-game',

@@ -181,7 +181,6 @@ module.exports = function(options) {
           loader: 'file'
         }
       ],
-
       postLoaders: [
         {
           test: /\.js$/,

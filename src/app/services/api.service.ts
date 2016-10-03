@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
 import { FirebaseListObservable } from 'angularfire2';
-import { loading } from './../assets/loading';
+import { loading } from 'assets/initialLoadData/loading';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';

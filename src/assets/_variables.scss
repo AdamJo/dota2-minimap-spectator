@@ -1,12 +1,18 @@
 $arrow-border: #808080;
 $button-border: #2f2724;
+$border-color: #2f2724;
+
+$black: #000;
+$base-background: #111;
+$first-layer-background: #222;
+$second-layer-background: #333;
+$third-layer-background: #444;
 
 $nav-black: #333;
+$gradient-black: #211602;
 $main-nav-background: #eee;
 $team-background: #222;
-$gradient-black: #211602;
-$content-background: #111;
-
+$background-cell-color: #444;
 
 $inactive-series: #935c08;
 $active-series: #b8860b;
@@ -14,10 +20,10 @@ $ultimate-ready: #050;
 $ultimate-inactive: #444;
 $ultimate-border: #080;
 
-
 $img-height: 33px;
 $img-width: 59px;
-$text-color: #d9d9d9;
+
+$nav-active-grey: #555;
 $nav-menu-color: #1e2020;
 $nav-menu-color-hover: #2e3030;
 $menu-gradiant-dire: #5a171d;
@@ -30,15 +36,24 @@ $box-shadow-color-hover: rgba(34, 98, 126, 0.5);
 $height: 25.6px;
 $width: 34px;
 
-$background-cell-color: #444;
+$mini-draft-height: 66px;
+$mini-draft-width: 118px;
+
 $black: #000;
 $dire-color: #800000;
 $radiant-color: #006400;
 $slash-color: #8b0000;
-$border-color: #2f2724;
 
 $white-alpha: rgba(255, 255, 255, 0.2);
 $black-alpha: rgba(0, 0, 0, 0.65);
 $dire-alpha: rgba(255, 200, 200, 0.15);
 $radiant-alpha: rgba(200, 255, 200, 0.15);
 $grey-alpha: rgba(200, 200, 200, 0.15);
+
+$font-color: #d9d9d9;
+$kda-font-color: #AAA;
+
+$eye-white-space: #ddd;
+
+$visited-link: #22627E;
+$active-link-color: #142958;

@@ -1,15 +1,4 @@
-$arrow-border: #808080;
-$button-border: #2f2724;
-$black: #000;
-$content-background: #111;
-
-$eye-color: #333;
-$eye-white-space: #ddd;
-
-$box-shadow-color-hover: rgba(34, 98, 126, 0.5);
-$font-color: #d9d9d9;
-$active-link-color: #142958;
-$visited-link: #22627E;
+@import '~assets/_variables.scss';
 
 .league {
   color: $font-color;
@@ -66,7 +55,7 @@ button {
 
 .arrow-btn {
   align-items: center;
-  background: $content-background;
+  background: $base-background;
   border: 1px solid $button-border;
   display: flex;
   height: 40px;
@@ -81,7 +70,7 @@ button {
 
 .spectator-info {
   align-items: center;
-  background: $content-background;
+  background: $base-background;
   border: 1px solid $button-border;
   display: flex;
   flex-direction: row;
@@ -92,7 +81,7 @@ button {
 
 .api-status {
   align-items: center;
-  background: $content-background;
+  background: $base-background;
   border: 1px solid $button-border;
   display: flex;
   justify-content: center;
@@ -120,7 +109,7 @@ button {
 
 // found @ http://jameskoster.co.uk/snippets/css-only-eye-icon/
 .eye {
-  background: $eye-color;
+  background: $second-layer-background;
   border-radius: 65% 0;
   display: inline-block;
   height: 1em;
@@ -148,7 +137,7 @@ button {
   }
 
   &::after {
-    background: $eye-color;
+    background: $second-layer-background;
     height: .25em;
     margin-left: -.125em;
     margin-top: -.125em;

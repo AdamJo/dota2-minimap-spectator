@@ -1,27 +1,8 @@
-$content-background: #222;
-$border-color: #2f2724;
-
-$font-color: #d9d9d9;
-$link-color: #142958;
-$visted-link: #22627E;
-
-$black: #000;
-$gradient-black: #211602;
-$inactive-series: #935c08;
-$active-series: #b8860b;
-
-$grey-alpha: rgba(200, 200, 200, 0.15);
-$black-alpha: rgba(0, 0, 0, 0.65);
-$slash-color: #8b0000;
-
-$black-alpha: rgba(0, 0, 0, 0.65);
-$dire-alpha: rgba(255, 100, 100, 0.15);
-$radiant-alpha: rgba(150, 255, 150, 0.15);
-$grey-alpha: rgba(200, 200, 200, 0.15);
+@import '~assets/_variables.scss';
 
 .container {
-  background: $content-background;
-  box-shadow: 0px 0px 15px 0px $link-color;
+  background: $first-layer-background;
+  box-shadow: 0px 0px 15px 0px $active-link-color;
   border: 1px solid $border-color;
   cursor: pointer;
   margin: 10px 0;
@@ -34,7 +15,7 @@ $grey-alpha: rgba(200, 200, 200, 0.15);
   transition-timing-function: ease-in-out;
 
   &:hover {
-    box-shadow: 0px 0px 15px 0px $visted-link;
+    box-shadow: 0px 0px 15px 0px $visited-link;
   }
 }
 

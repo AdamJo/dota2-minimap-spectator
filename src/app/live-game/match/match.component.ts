@@ -1,5 +1,5 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { loading } from '../../assets/loading';
+import { loading } from 'assets/initialLoadData/loading';
 import { ApiService } from '../../services/index';
 
 @Component({

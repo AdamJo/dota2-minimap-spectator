@@ -1,7 +1,4 @@
-$content-background: #111;
-$eye-color: #444;
-$eye-white-space: #ddd;
-$button-border: #2f2724;
+@import '~assets/_variables.scss';
 
 .spectators {
   align-items: center;
@@ -25,7 +22,7 @@ $button-border: #2f2724;
 
 .spectator-info {
   align-items: center;
-  background: $content-background;
+  background: $base-background;
   border: 1px solid $button-border;
   display: flex;
   flex-direction: row;
@@ -36,7 +33,7 @@ $button-border: #2f2724;
 
 // found @ http://jameskoster.co.uk/snippets/css-only-eye-icon/
 .eye {
-  background: $eye-color;
+  background: $third-layer-background;
   border-radius: 65% 0;
   display: inline-block;
   height: 1em;
@@ -64,7 +61,7 @@ $button-border: #2f2724;
   }
 
   &::after {
-    background: $eye-color;
+    background: $third-layer-background;
     height: .25em;
     margin-left: -.125em;
     margin-top: -.125em;
