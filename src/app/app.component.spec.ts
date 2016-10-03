@@ -1,13 +1,14 @@
 import {
-  inject,
   TestBed
 } from '@angular/core/testing';
 
 // Load the implementations that should be tested
 import { AppComponent } from './app.component';
 import { ApiService } from './services/index';
-import { AngularFire } from 'angularfire2'
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AngularFire } from 'angularfire2';
+
+import 'firebase';
+import 'rxjs/add/operator/debounceTime';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',
@@ -27,9 +28,4 @@ describe('App', () => {
       AngularFire,
       AppComponent
     ]}));
-
-  it('should have a url', inject([ AppComponent ], (app: AppComponent) => {
-    expect(app.url).toEqual('1');
-  }));
-
 });

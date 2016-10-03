@@ -1,4 +1,3 @@
-import { async, inject } from '@angular/core/testing';
 import { SplitNumbersPipe } from './split-numbers.pipe';
 
 describe('Pipe: SplitNumbersPipe', () => {

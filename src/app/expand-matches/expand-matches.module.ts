@@ -20,11 +20,11 @@ import { ScoreboardMatchComponent } from './scoreboard-match/index';
     ExpandMatchesComponent,
     LiveMatchComponent,
     DraftMatchComponent,
-    HeroPicksComponent,
     SeriesComponent,
     LeagueComponent,
     PlayerValueComponent,
     SpectatorsComponent,
+    HeroPicksComponent,
     ScoreboardMatchComponent
   ],
   exports: [ExpandMatchesComponent]

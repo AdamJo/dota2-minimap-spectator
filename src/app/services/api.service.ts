@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
 import { FirebaseListObservable } from 'angularfire2';
-import { loading } from 'assets/initialLoadData/loading';
-
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { loading } from '../../assets/initialLoadData/loading';
 
 @Injectable()
 export class ApiService {
@@ -21,7 +17,7 @@ export class ApiService {
   public currentGame: LiveLeagueGame; // list of current games
   public currentMatchId: number;
   public scoreboardValues: any;
-  
+
   public gamePaused: boolean;
   public duration: number;
 
@@ -46,7 +42,7 @@ export class ApiService {
       sortedValue: 'None',
       active: 'draft',
       menuTitle: 'GAME STATS'
-    }
+    };
   }
 
   // go through live games
@@ -71,15 +67,15 @@ export class ApiService {
       // if game exists and any length
       if (this.currentMatchId && this.dataLength !== 0) {
         this.currentMatchNotFound = false;
-        data.map((d:any, i:number) => {
+        data.map((d: any, i: number) => {
           if (d.match_id === this.currentMatchId) {
             if (i === 0) {
-              this.gameCount = this.dataLength
+              this.gameCount = this.dataLength;
             } else {
               this.gameCount = this.dataLength - i;
             }
             this.sortScoreboard(d);
-            this.currentMatchNotFound = true; 
+            this.currentMatchNotFound = true;
           }
         });
         if (!this.currentMatchNotFound) {
@@ -88,13 +84,11 @@ export class ApiService {
           this.sortScoreboard(data[data.length - this.gameCount]);
         }
         this.isApiUp = true;
-      }
+      } else if (this.dataLength !== 0) {
       // inital load or not matchID
-      else if (this.dataLength !== 0) {
         this.sortScoreboard(data[data.length - this.gameCount]);
         this.isApiUp = true;
-      }
-      else {
+      } else {
         this.gameCount = 5;
         this.isApiUp = false;
       }
@@ -148,7 +142,7 @@ export class ApiService {
       if (this.duration === data.scoreboard.duration) {
         this.gamePaused = true;
       } else {
-        this.duration = data.scoreboard.duration
+        this.duration = data.scoreboard.duration;
         this.gamePaused = false;
       }
     }
@@ -187,12 +181,14 @@ export class ApiService {
 
   // sort games by spectators, largest to smallest
   sortBySpectators(games) {
-    return games.sort((a: any,b: any) => {
-      if (a.spectators > b.spectators)
+    return games.sort((a: any, b: any) => {
+      if (a.spectators > b.spectators) {
         return -1;
-      if (a.spectators < b.spectators)
+      }
+      if (a.spectators < b.spectators) {
         return 1;
+      }
       return 0;
-    })
+    });
   }
 }

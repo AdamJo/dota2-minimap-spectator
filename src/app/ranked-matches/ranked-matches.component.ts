@@ -3,7 +3,7 @@ import { Component, OnInit, HostBinding,
          style, state } from '@angular/core';
 
 import { ApiService } from '../services/index';
-import { loadingMmr } from 'assets/initialLoadData/loadingMmr';
+import { loadingMmr } from '../../assets/initialLoadData/loadingMmr';
 
 @Component({
   selector: 'app-ranked-matches',
