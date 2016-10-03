@@ -80,15 +80,30 @@ import { Component, Input, Output, EventEmitter,
 
 export class RegionOptionsComponent {
   @Input() regions: Array<string>;
+  @Input() inactive: string;
   @Output('change') userRegionPick = new EventEmitter();
   active: string;
+  lastInput: string;
 
   ngOnChanges() {
+    console.log(this.inactive)
+    if (this.inactive) {
+      this.active = 'inactive';
+      this.lastInput = '';
+    } else {
+      this.lastInput = '';
+    }
   }
 
   // toggles menu and scorebaord
   changeScoreboardValue(option) {
-    this.active = option;
+    console.log(option)
+    if (option === this.lastInput) {
+      this.active = 'inactive';
+    } else {
+      this.active = option;
+      this.lastInput = option;
+    }
     this.userRegionPick.emit(option)
   }
 }

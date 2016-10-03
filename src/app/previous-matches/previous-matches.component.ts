@@ -31,6 +31,7 @@ export class PreviousMatchesComponent implements OnInit {
   sortedMatches: any;
   regions: Array<string>;
   regionValue: string;
+  regionInactive: boolean;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
@@ -76,10 +77,17 @@ export class PreviousMatchesComponent implements OnInit {
 
   // toggles menu and scorebaord
   switchRegionValue(userRegion) {
+    if (this.regionInactive) {
+      this.regionValue = ''
+      this.regionInactive = false;
+    }
+
     if (userRegion === 'disabled') {
+      // initial load
       this.sortedMatches = this.sliceMatches(this.previousMatches);
     }
     else if (this.regionValue !== userRegion) {
+      // new region searched
       this.sortedMatches = this.previousMatches;
       this.sortedMatches = this.sortedMatches.filter((data:any) => {
         return data['cluster_name'] === userRegion;  
@@ -87,6 +95,7 @@ export class PreviousMatchesComponent implements OnInit {
       this.sortedMatches = this.sliceMatches(this.sortedMatches);
       this.regionValue = userRegion;
     } else {
+      // remove region, default
       this.sortedMatches = this.sliceMatches(this.previousMatches);
       this.regionValue = '';
     }
@@ -98,5 +107,35 @@ export class PreviousMatchesComponent implements OnInit {
     })
     this.regions = Array.from(new Set(this.regions));
     this.regions.sort();
+  }
+
+  fuzzySearch(event: string) {
+    this.regionInactive = true;
+    let fuzzyMatches = this.previousMatches.filter((data:any) => {
+        return this.fuzzysearch(event.toLowerCase(), data.dire_name.toLowerCase()) || this.fuzzysearch(event.toLowerCase(), data.radiant_name.toLowerCase())
+    })
+    this.sortedMatches = this.sliceMatches(fuzzyMatches);
+  }
+
+  // https://github.com/bevacqua/fuzzysearch
+  fuzzysearch (needle:string, haystack:string) {
+    const hlen = haystack.length;
+    const nlen = needle.length;
+    if (nlen > hlen) {
+      return false;
+    }
+    if (nlen === hlen) {
+      return needle === haystack;
+    }
+    outer: for (var i = 0, j = 0; i < nlen; i++) {
+      var nch = needle.charCodeAt(i);
+      while (j < hlen) {
+        if (haystack.charCodeAt(j++) === nch) {
+          continue outer;
+        }
+      }
+      return false;
+    }
+    return true;
   }
 }

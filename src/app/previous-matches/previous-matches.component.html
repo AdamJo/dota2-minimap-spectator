@@ -1,8 +1,10 @@
 <div class="flex-container">
   <div class="container">
     <h2>Previous Matches</h2>
+    <input #box (keyup)="fuzzySearch(box.value)"/>
       <app-region-options
         [regions]='regions'
+        [inactive]='regionInactive'
         (change)="switchRegionValue($event)"
       ></app-region-options>
       <div class="content">
