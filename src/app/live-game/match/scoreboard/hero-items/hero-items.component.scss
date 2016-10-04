@@ -9,16 +9,16 @@
   background: $black;
   border: 1px solid $border-color;
   float: left;
-  height: $height;
+  height: $item-img-height;
 }
 
 .blank {
   background: radial-gradient(ellipse at top left, $white-alpha, $black-alpha 100%);
-  height: $height;
-  width: $width;
+  height: $item-img-height;
+  width: $item-img-width;
 }
 
 img {
-  height: $height;
-  width: $width;
+  height: $item-img-height;
+  width: $item-img-width;
 }
