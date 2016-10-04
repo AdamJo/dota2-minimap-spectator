@@ -15,7 +15,7 @@
   margin: 0 auto;
 
   width: 1100px;
-  height: 952px;
+  height: 982px;
 }
 
 h2 {
@@ -34,5 +34,50 @@ h2 {
   margin-bottom: 10px;
   background: #333;
   width: 1040px;
-  min-height: 800px;
+  height: 820px;
 }
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 45px;
+  margin: 10px 0;
+}
+
+input {
+  color: #d9d9d9;
+  background: #444;
+  
+  border: none;
+
+  font-size: 1.2rem;
+
+  padding: 0 10px;
+  height: 100px;
+  width: 300px; 
+}
+
+input:focus {
+  outline:none;
+}
+
+.line {
+  width: 100%;
+  height: 6px;
+  stroke: $grey;
+  stroke-width: 2px;
+}
+
+.focus {
+  transition: all 0.2s;
+  stroke-dasharray: 0, 160;
+  stroke-dashoffset: -160;
+  stroke: $visited-link;
+}
+
+input:focus ~ .line .focus {
+  stroke-dasharray: 320, 0;
+  stroke-dashoffset: 0;
+}
+

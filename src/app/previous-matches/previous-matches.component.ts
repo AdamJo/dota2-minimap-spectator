@@ -118,7 +118,7 @@ export class PreviousMatchesComponent implements OnInit {
   }
 
   // https://github.com/bevacqua/fuzzysearch
-  fuzzysearch (needle:string, haystack:string) {
+  fuzzysearch (needle: string, haystack: string): boolean {
     const hlen = haystack.length;
     const nlen = needle.length;
     if (nlen > hlen) {

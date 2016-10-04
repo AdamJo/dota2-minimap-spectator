@@ -1,17 +1,33 @@
 <div class="flex-container">
   <div class="container">
-    <h2>Previous Matches</h2>
-    <input #box (keyup)="fuzzySearch(box.value)"/>
-      <app-region-options
-        [regions]='regions'
-        [inactive]='regionInactive'
-        (change)="switchRegionValue($event)"
-      ></app-region-options>
-      <div class="content">
-        <app-previous-match *ngFor="let match of sortedMatches"
-          [match]='match'
-          [sortValue]='regionValue'
-        ></app-previous-match>
-      </div>
+    <div class="input-field">
+      <input
+        #box
+        (keyup)="fuzzySearch(box.value)"
+        placeholder="Search Team"
+      />
+      <svg
+        class="line"
+        view="0 0 320 2"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 1 L320 1"/>
+        <path
+          class="focus"
+          d="M0 1 L320 1"
+        />
+      </svg>
+    </div>
+    <app-region-options
+      [regions]='regions'
+      [inactive]='regionInactive'
+      (change)="switchRegionValue($event)"
+    ></app-region-options>
+    <div class="content">
+      <app-previous-match *ngFor="let match of sortedMatches"
+        [match]='match'
+        [sortValue]='regionValue'
+      ></app-previous-match>
+    </div>
   </div>
 </div>
