@@ -33,6 +33,6 @@ testem.log
 Thumbs.db
 
 # others
+/vscode
 firebase.json
 .firebaserc
-.vscode
