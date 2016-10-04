@@ -8,7 +8,7 @@
         ></app-series>
         <span class="score dire-score">{{scoreboard.dire.score}}</span>
         <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
-        <span class="stream-delay" *ngIf="streamDeplay">({{streamDeplay}}s delay)</span>
+        <span class="stream-delay" *ngIf="streamDelay">({{streamDelay}}s delay)</span>
       </h4>
       <app-team-info
         [side]="'dire'"

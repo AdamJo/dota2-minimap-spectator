@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { Players } from '../../../services/index';
+
 @Component({
   selector: 'app-hero-picks',
   template: `
@@ -44,10 +46,10 @@ import { Component, Input } from '@angular/core';
 })
 
 export class HeroPicksComponent {
-  @Input() players: any;
-  @Input() scoreboardValue: any;
+  @Input() players: Players;
+  @Input() scoreboardValue: string;
 
-  ScoreboardSelect(player) {
+  ScoreboardSelect(player): string {
     if (this.scoreboardValue === "kills") {
       return `${player['kills']} / ${player['death']} / ${player['assists']}`
     }

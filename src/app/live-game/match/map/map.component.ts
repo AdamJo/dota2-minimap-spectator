@@ -9,6 +9,8 @@ import {
   animate
 } from '@angular/core';
 
+import { Team } from '../../../services/index';
+
 @Component({
   selector: 'app-map',
   templateUrl: 'map.component.html',
@@ -46,9 +48,9 @@ export class  MapComponent {
   maxWidth = 600;
   maxHeight = 600;
 
-  @Input() radiant: any;
-  @Input() dire: any;
-  @Input() dayNightCycle: any;
-  @Input() roshanRespawnTimer: any;
-  @Input() paused: any;
+  @Input() radiant: Team;
+  @Input() dire: Team;
+  @Input() dayNightCycle: string;
+  @Input() roshanRespawnTimer: number;
+  @Input() paused: boolean;
 }

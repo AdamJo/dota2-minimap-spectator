@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { Series } from '../../services/index';
+
 @Component({
   selector: 'app-series',
   template: `
@@ -51,6 +53,6 @@ import { Component, Input } from '@angular/core';
 })
 
 export class SeriesComponent {
-  @Input() gameSeries: any;
+  @Input() gameSeries: Series;
   @Input() teamSide: string;
 }

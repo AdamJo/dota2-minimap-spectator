@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['spectators.component.scss']
 })
 export class SpectatorsComponent {
-  @Input() spectators: any;
+  @Input() spectators: number;
 }

@@ -1,6 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { loading } from '../../../assets/initialLoadData/loading';
-import { ApiService } from '../../services/index';
+import { ApiService, LiveLeagueGame, League, Series, Scoreboard } from '../../services/index';
 
 @Component({
   selector: 'app-match',
@@ -9,14 +9,13 @@ import { ApiService } from '../../services/index';
 })
 
 export class MatchComponent implements DoCheck {
-  scoreboard: any;
-  game: any;
-  radiantTeamName: any;
-  direTeamName: any;
-  league: any;
-  series: any;
-  streamDeplay: any;
-  loading: any;
+  scoreboard: Scoreboard;
+  radiantTeamName: string;
+  direTeamName: string;
+  league: League;
+  series: Series;
+  streamDelay: number;
+  loading: boolean;
   paused: boolean;
 
   constructor(public apiService: ApiService) {
@@ -26,7 +25,7 @@ export class MatchComponent implements DoCheck {
     this.radiantTeamName = loading.radiant_team_name;
     this.league = loading.league;
     this.series = loading.series;
-    this.streamDeplay = loading.stream_delay_s;
+    this.streamDelay = loading.stream_delay_s;
   }
 
   ngDoCheck() {
@@ -38,7 +37,7 @@ export class MatchComponent implements DoCheck {
       this.radiantTeamName = this.apiService.currentGame.radiant_team_name;
       this.league = this.apiService.currentGame.league;
       this.series = this.apiService.currentGame.series;
-      this.streamDeplay = this.apiService.currentGame.stream_delay_s;
+      this.streamDelay = this.apiService.currentGame.stream_delay_s;
     }
   }
 

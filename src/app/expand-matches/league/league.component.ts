@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { League } from '../../services/index';
+
 @Component({
   selector: 'app-league',
   template: `
@@ -61,7 +63,7 @@ import { Component, Input } from '@angular/core';
   `]
 })
 export class LeagueComponent {
-  @Input() league: any;
+  @Input() league: League;
   @Input() duration: number;
   @Input() spectators: number;
   @Input() didGameStart: boolean;

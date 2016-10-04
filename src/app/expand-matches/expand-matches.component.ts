@@ -4,7 +4,6 @@ import { Component, OnInit, HostBinding, HostListener,
 import { ApiService } from '../services/index';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-expand-matches',
   templateUrl: 'expand-matches.component.html',
@@ -30,9 +29,7 @@ import { Router } from '@angular/router';
 
 export class ExpandMatchesComponent {
 
-  allGames: any;
-  scoreboardValue: any;
-  matches: any;
+  scoreboardValue: string;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;

@@ -7,7 +7,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { ApiService } from '../../../services/index';
+import { ApiService, Scoreboard, Players } from '../../../services/index';
 
 @Component({
   selector: 'app-scoreboard',
@@ -18,9 +18,9 @@ import { ApiService } from '../../../services/index';
 
 export class ScoreboardComponent implements OnChanges {
 
-  @Input() scoreboard: any;
-  combinedPlayers: any;
-  newValues: any;
+  @Input() scoreboard: Scoreboard;
+  combinedPlayers: Array<Players>;
+  newValues: Array<Players>;
   active: string;
   sortedValue: string;
   menuTitle: string;

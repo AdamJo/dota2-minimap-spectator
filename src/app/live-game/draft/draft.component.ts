@@ -4,6 +4,8 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
   transition,
   animate  } from '@angular/core';
 
+import { Team, League, Series } from '../../services/index';
+
 @Component({
   selector: 'app-draft',
   templateUrl: 'draft.component.html',
@@ -23,10 +25,10 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
 })
 
 export class DraftComponent {
-  @Input() radiant: any;
-  @Input() dire: any;
+  @Input() radiant: Team;
+  @Input() dire: Team;
   @Input() radiantTeamName: string;
   @Input() direTeamName: string;
-  @Input() league: any;
-  @Input() series: any;
+  @Input() league: League;
+  @Input() series: Series;
 }

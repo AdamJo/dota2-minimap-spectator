@@ -4,6 +4,8 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
   transition,
   animate } from '@angular/core';
 
+import { Team } from '../../../services/index'
+
 @Component({
   selector: 'app-mini-draft',
   templateUrl: 'mini-draft.component.html',
@@ -23,6 +25,6 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
 })
 
 export class MiniDraftComponent {
-  @Input() side: any;
-  @Input() team: any;
+  @Input() side: string;
+  @Input() team: Team;
 }

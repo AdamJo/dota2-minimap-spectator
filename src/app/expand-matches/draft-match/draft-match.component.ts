@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { LiveLeagueGame } from '../../services/index';
 
 @Component({
   selector: 'app-draft-match',
@@ -8,7 +9,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 })
 
 export class DraftMatchComponent {
-  @Input() match: any;
+  @Input() match: LiveLeagueGame;
   @Input() index: number;
   @Output('change') userIndexPick = new EventEmitter();
   @Input() didGameStart: boolean;

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Players } from '../../../services/index';
 
 @Component({
   selector: 'app-team-info',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 
 export class TeamInfoComponent {
-  @Input() side: any;
-  @Input() team: any;
+  @Input() side: string;
+  @Input() team: Players;
 }

@@ -3,39 +3,32 @@
 export interface LiveLeagueGame {
   $key?: string;
   dire_team_name: string;
-  league: {
-    name: string,
-    tournament_url: string
-  };
+  league: League;
   match_id: number;
   radiant_team_name: string;
-  scoreboard: {
-    day_cycle: string,
-    did_game_start: boolean,
-    dire: {
-      // abilities: Array<Abilities>,
-      bans: Array<string>,
-      barracks_state: string,
-      picks: Array<string>,
-      players: Array<Players>,
-      score: number,
-      tower_state: string
-    },
-    duration: number,
-    radiant: {
-      // abilities: Array<Abilities>,
-      bans: Array<string>,
-      barracks_state: string,
-      picks: Array<string>,
-      players: Array<Players>,
-      score: number,
-      tower_state: string
-    },
-    roshan_respawn_timer: number
-  };
+  scoreboard: Scoreboard;
   series: Series;
   spectators: number;
   stream_delay_s: number;
+}
+
+export interface Scoreboard {
+  day_cycle: string,
+  did_game_start: boolean,
+  dire: Team,
+  duration: number,
+  radiant: Team,
+  roshan_respawn_timer: number
+};
+
+export interface Team {
+    // abilities: Array<Abilities>,
+    bans: Array<string>,
+    barracks_state: string,
+    picks: Array<string>,
+    players: Array<Players>,
+    score: number,
+    tower_state: string
 }
 
 export interface Abilities {
@@ -49,6 +42,11 @@ export interface Bans {
 
 export interface Picks {
   hero_id: string;
+}
+
+export interface League {
+    name: string,
+    tournament_url: string
 }
 
 export interface Series {

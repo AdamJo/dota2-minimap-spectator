@@ -8,5 +8,5 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 })
 
 export class HeroItemsComponent {
-  @Input() items: any;
+  @Input() items: string;
 }

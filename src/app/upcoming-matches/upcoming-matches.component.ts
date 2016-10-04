@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding,
          trigger, transition, animate,
          style, state } from '@angular/core';
-import { ApiService } from '../services/index';
+import { ApiService, UpcomingGames } from '../services/index';
 
 @Component({
   selector: 'app-upcoming-matches',
@@ -28,7 +28,7 @@ import { ApiService } from '../services/index';
 
 export class UpcomingMatchesComponent implements OnInit {
 
-  upcomingMatches: any;
+  upcomingMatches: Array<UpcomingGames>;
   status: string;
 
   @HostBinding('@routeAnimation') get routeAnimation() {

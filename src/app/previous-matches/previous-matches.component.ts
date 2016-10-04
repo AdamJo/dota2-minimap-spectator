@@ -1,7 +1,9 @@
 import { Component, OnInit, HostBinding,
          trigger, transition, animate,
          style, state } from '@angular/core';
+
 import { ApiService } from '../services/index';
+import { MatchHistory } from '../services/index'
 
 @Component({
   selector: 'app-previous-matches',
@@ -27,8 +29,8 @@ import { ApiService } from '../services/index';
 })
 
 export class PreviousMatchesComponent implements OnInit {
-  previousMatches: any;
-  sortedMatches: any;
+  previousMatches: Array<MatchHistory>;
+  sortedMatches: Array<MatchHistory>;
   regions: Array<string>;
   regionValue: string;
   regionInactive: boolean;
@@ -67,7 +69,7 @@ export class PreviousMatchesComponent implements OnInit {
       });
   }
 
-  sliceMatches(matches) {
+  sliceMatches(matches): Array<MatchHistory> {
     if (matches.length > 52) {
       return matches.slice(0, 52);
     } else {

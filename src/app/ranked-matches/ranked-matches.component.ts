@@ -4,7 +4,7 @@ import { Component, OnInit, HostBinding,
 
 import { ApiService } from '../services/index';
 import { loadingMmr } from '../../assets/initialLoadData/loadingMmr';
-import { MMR } from '../services/mmr.model'
+import { MMR } from '../services/index'
 
 @Component({
   selector: 'app-ranked-matches',

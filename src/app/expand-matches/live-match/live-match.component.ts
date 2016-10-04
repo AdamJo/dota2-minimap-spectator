@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+import { LiveLeagueGame } from '../../services/index';
+
 @Component({
   selector: 'app-live-match',
   templateUrl: 'live-match.component.html',
@@ -7,10 +9,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class LiveMatchComponent {
-  @Input() match: any;
+  @Input() match: LiveLeagueGame;
   @Input() index: number;
   @Output('change') userIndexPick = new EventEmitter();
-  @Input() scoreboardValue: any;
+  @Input() scoreboardValue: string;
   @Input() didGameStart: boolean;
 
   sendToParent() {
