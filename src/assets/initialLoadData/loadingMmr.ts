@@ -3,7 +3,7 @@ export let loadingMmr = {
   "delay": 0,
   "dire_score": 0,
   "game_time": 0,
-  "lobby_id": "0",
+  "lobby_id": "",
   "players": [
     {
       "assists": 0,
@@ -77,7 +77,7 @@ export let loadingMmr = {
     }
   ],
   "radiant_score": 0,
-  "server_steam_id": "0",
+  "server_steam_id": "",
   "spectators": 0,
   "$key": "0"
 }

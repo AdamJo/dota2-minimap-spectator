@@ -4,6 +4,7 @@ import { Component, OnInit, HostBinding,
 
 import { ApiService } from '../services/index';
 import { loadingMmr } from '../../assets/initialLoadData/loadingMmr';
+import { MMR } from '../services/mmr.model'
 
 @Component({
   selector: 'app-ranked-matches',
@@ -30,7 +31,7 @@ import { loadingMmr } from '../../assets/initialLoadData/loadingMmr';
 
 export class RankedMatchesComponent implements OnInit {
 
-  rankedGames: any;
+  rankedGames: MMR;
   games: any;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
