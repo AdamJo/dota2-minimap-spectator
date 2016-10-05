@@ -31,7 +31,7 @@ import { MMR } from '../services/index'
 
 export class RankedMatchesComponent implements OnInit {
 
-  rankedGames: MMR;
+  rankedGames: Array<MMR>;
   games: any;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
@@ -47,11 +47,14 @@ export class RankedMatchesComponent implements OnInit {
   }
 
   constructor(public apiService: ApiService) {
-    this.rankedGames = loadingMmr;
+    this.rankedGames = [loadingMmr];
   }
 
   ngOnInit() {
     this.apiService.getMmrTop()
-      .subscribe(data => this.rankedGames = data[0])
+      .subscribe(data => {
+        console.log(data)
+        this.rankedGames = data
+      })
   }
 }

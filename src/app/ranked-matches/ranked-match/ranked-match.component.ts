@@ -8,5 +8,5 @@ import { MMR } from '../../services/index'
   styleUrls: ['ranked-match.component.scss']
 })
 export class RankedMatchComponent {
-  @Input() match: MMR;
+  @Input() matches: Array<MMR>;
 }
