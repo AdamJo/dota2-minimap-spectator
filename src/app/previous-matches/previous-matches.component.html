@@ -1,31 +1,46 @@
 <div class="flex-container">
   <div class="container">
-    <div class="input-field">
-      <input
-        #box
-        (keyup)="fuzzySearch(box.value)"
-        placeholder="Team"
-      />
-      <svg
-        class="line"
-        view="0 0 320 2"
-        preserveAspectRatio="none">
-        <path d="M0 1 L320 1"/>
-        <path
-          class="focus"
-          d="M0 1 L320 1"/>
-      </svg>
+    <div class="flex-inputs">
+      <div class="input-field">
+        <input
+          #team
+          (keyup)="sortTeams(team.value); league.value=null"
+          placeholder="Team"
+        />
+        <svg
+          class="line"
+          view="0 0 320 2"
+          preserveAspectRatio="none">
+          <path d="M0 1 L320 1"/>
+          <path
+            class="focus"
+            d="M0 1 L320 1"/>
+        </svg>
+      </div>
+      <div class="input-field">
+        <input
+          #league
+          (keyup)="sortLeagues(league.value); team.value=null"
+          placeholder="League"
+        />
+        <svg
+          class="line"
+          view="0 0 320 2"
+          preserveAspectRatio="none">
+          <path d="M0 1 L320 1"/>
+          <path
+            class="focus"
+            d="M0 1 L320 1"/>
+        </svg>
+      </div>
     </div>
     <app-region-options
       [regions]='regions'
       [inactive]='regionInactive'
       (change)="switchRegionValue($event)"
     ></app-region-options>
-    <div class="content">
-      <app-previous-match *ngFor="let match of sortedMatches"
-        [match]='match'
-        [sortValue]='regionValue'
-      ></app-previous-match>
-    </div>
+    <app-previous-match
+      [matches]='sortedMatches'
+    ></app-previous-match>
   </div>
 </div>

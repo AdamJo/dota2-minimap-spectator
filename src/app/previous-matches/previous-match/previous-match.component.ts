@@ -8,18 +8,5 @@ import { MatchHistory } from '../../services/index'
   styleUrls: ['previous-match.component.scss']
 })
 export class PreviousMatchComponent {
-  @Input() match: MatchHistory;
-  @Input() sortValue: string;
-  direWinner: boolean;
-  radiantWinner: boolean;
-
-  ngOnInit() {
-    if (this.match.radiant_win) {
-      this.radiantWinner = true;
-      this.direWinner = false;
-    } else {
-      this.radiantWinner = false;
-      this.direWinner = true;
-    }
-  }
+  @Input() matches: MatchHistory;
 }

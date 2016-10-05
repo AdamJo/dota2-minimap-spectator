@@ -5,6 +5,8 @@ import { Component, OnInit, HostBinding,
 import { ApiService } from '../services/index';
 import { MatchHistory } from '../services/index'
 
+import { loadingPreviousGame } from '../../assets/initialLoadData/loadingPreviousGame'
+
 @Component({
   selector: 'app-previous-matches',
   templateUrl: 'previous-matches.component.html',
@@ -50,7 +52,7 @@ export class PreviousMatchesComponent implements OnInit {
   constructor(private apiService: ApiService) {
     this.regionValue = 'disabled';
     this.regions = [];
-    this.sortedMatches = [];
+    this.sortedMatches = [loadingPreviousGame];
   }
 
   ngOnInit() {
@@ -111,12 +113,27 @@ export class PreviousMatchesComponent implements OnInit {
     this.regions.sort();
   }
 
-  fuzzySearch(event: string) {
-    this.regionInactive = true;
-    let fuzzyMatches = this.previousMatches.filter((data:any) => {
+  sortTeams(event: string) {
+    this.regionInactive = true;    
+    let fuzzyTeams = this.previousMatches.filter((data:any) => {
         return this.fuzzysearch(event.toLowerCase(), data.dire_name.toLowerCase()) || this.fuzzysearch(event.toLowerCase(), data.radiant_name.toLowerCase())
+    })    
+    this.sortedMatches = this.sliceMatches(fuzzyTeams);
+  }
+
+  sortLeagues(event: string) {
+    this.regionInactive = true;
+    let fuzzyLeague = this.previousMatches.filter((data:any) => {
+        if (data.league_name) {
+          return this.fuzzysearch(event.toLowerCase(), data.league_name.toLowerCase())
+        }
     })
-    this.sortedMatches = this.sliceMatches(fuzzyMatches);
+    if (event.length === 0) {
+      this.sortedMatches = this.sliceMatches(this.previousMatches);
+    } else {
+      this.sortedMatches = this.sliceMatches(fuzzyLeague);
+    }
+    
   }
 
   // https://github.com/bevacqua/fuzzysearch

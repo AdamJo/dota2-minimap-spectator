@@ -86,7 +86,6 @@ export class RegionOptionsComponent {
   lastInput: string;
 
   ngOnChanges() {
-    console.log(this.inactive)
     if (this.inactive) {
       this.active = 'inactive';
       this.lastInput = '';
@@ -97,7 +96,6 @@ export class RegionOptionsComponent {
 
   // toggles menu and scorebaord
   changeScoreboardValue(option) {
-    console.log(option)
     if (option === this.lastInput) {
       this.active = 'inactive';
     } else {

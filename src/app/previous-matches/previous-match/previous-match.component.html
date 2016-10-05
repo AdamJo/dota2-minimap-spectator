@@ -1,11 +1,18 @@
-<div class="container">
-  <span
-    class="dire team"
-    [class.active]="direWinner"
-    [class.inactive]="!direWinner"
-    >{{match.dire_name}}</span>
-  <span class="radiant team"
-    [class.active]="radiantWinner"
-    [class.inactive]="!radiantWinner"
-  >{{match.radiant_name}}</span>
+<div class="flex-container">
+  <h4 *ngIf="matches.length === 0">
+      No Games Found
+  </h4>
+<div *ngFor="let match of matches">
+  <div class="container">
+    <span
+      class="dire team"
+      [class.active]="match.radiant_win ? false : true"
+      [class.inactive]="match.radiant_win ? true : false"
+      >{{match.dire_name}}</span>
+    <span class="radiant team"
+      [class.active]="match.radiant_win ? true : false"
+      [class.inactive]="match.radiant_win ? false : true"
+    >{{match.radiant_name}}</span>
+  </div>
+</div>
 </div>
