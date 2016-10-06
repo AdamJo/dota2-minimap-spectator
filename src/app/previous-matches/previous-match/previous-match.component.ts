@@ -5,8 +5,8 @@ import { MatchHistory } from '../../services/index'
 @Component({
   selector: 'app-previous-match',
   templateUrl: 'previous-match.component.html',
-  styleUrls: ['previous-match.component.scss']
+  styleUrls: ['previous-match.component.css']
 })
 export class PreviousMatchComponent {
-  @Input() matches: MatchHistory;
+  @Input() matches: any;
 }

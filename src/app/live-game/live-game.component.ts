@@ -7,7 +7,7 @@ import { loading } from '../../assets/initialLoadData/loading';
 @Component({
   selector: 'app-live-game',
   templateUrl: 'live-game.component.html',
-  styleUrls: ['./live-game.component.scss'],
+  styleUrls: ['./live-game.component.css'],
   animations: [
     trigger('routeAnimation', [
       state('*',

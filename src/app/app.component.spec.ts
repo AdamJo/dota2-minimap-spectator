@@ -1,31 +1,28 @@
-import {
-  TestBed
-} from '@angular/core/testing';
+/* tslint:disable: max-line-length */
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
-// Load the implementations that should be tested
 import { AppComponent } from './app.component';
-import { ApiService } from './services/index';
-import { AngularFireModule, AngularFire } from 'angularfire2';
+import { DashboardComponent } from './features/dashboard.component';
+import { NotFound404Component } from './not-found404.component';
+import { routes } from './app.routing';
 
-import 'firebase';
-import 'rxjs/add/operator/debounceTime';
+describe('App Component', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule,
+        RouterTestingModule.withRoutes(routes)
+        ],
+      providers: [],
+      declarations: [AppComponent, DashboardComponent, NotFound404Component]
+    });
+  });
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',
-  authDomain: 'dota2-project-c0fd5.firebaseapp.com',
-  databaseURL: 'https://dota2-project-c0fd5.firebaseio.com',
-  storageBucket: 'dota2-project-c0fd5.appspot.com'
-};
-
-describe('App', () => {
-  // provide our implementations or mocks to the dependency injector
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [
-      AngularFireModule.initializeApp(firebaseConfig),
-    ],
-    providers: [
-      ApiService,
-      AngularFire,
-      AppComponent
-    ]}));
+  it('should contain Dashboard text', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement).not.toContainText('Welcome to the Dashboard');
+  }));
 });

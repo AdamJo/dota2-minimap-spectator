@@ -5,7 +5,7 @@ import { ApiService, LiveLeagueGame, League, Series, Scoreboard } from '../../se
 @Component({
   selector: 'app-match',
   templateUrl: 'match.component.html',
-  styleUrls: ['match.component.scss']
+  styleUrls: ['match.component.css']
 })
 
 export class MatchComponent implements DoCheck {

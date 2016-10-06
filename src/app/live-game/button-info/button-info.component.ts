@@ -5,7 +5,7 @@ import { ApiService } from '../../services/index';
 @Component({
   selector: 'app-button-info',
   templateUrl: 'button-info.component.html',
-  styleUrls: ['./button-info.component.scss'],
+  styleUrls: ['./button-info.component.css'],
   animations: [
     trigger('transfer', [
       state('left', style({
@@ -40,7 +40,7 @@ export class ButtonInfoComponent {
   rightButton: string = 'right';
   swipeDirection: string = '-';
 
-  constructor(private apiService: ApiService) {}
+  constructor(public apiService: ApiService) {}
 
   // moves games to the right
   decrementTotal() {

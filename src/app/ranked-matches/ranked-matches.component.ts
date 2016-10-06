@@ -9,7 +9,7 @@ import { MMR } from '../services/index'
 @Component({
   selector: 'app-ranked-matches',
   templateUrl: 'ranked-matches.component.html',
-  styleUrls: ['ranked-matches.component.scss'],
+  styleUrls: ['ranked-matches.component.css'],
   animations: [
     trigger('routeAnimation', [
       state('*',

@@ -5,8 +5,8 @@ import { UpcomingGames } from '../../services/index'
 @Component({
   selector: 'app-upcoming-match',
   templateUrl: 'upcoming-match.component.html',
-  styleUrls: ['./upcoming-match.component.scss']
+  styleUrls: ['./upcoming-match.component.css']
 })
 export class UpcomingMatchComponent {
-  @Input() match: UpcomingGames;
+  @Input() match: any;
 }

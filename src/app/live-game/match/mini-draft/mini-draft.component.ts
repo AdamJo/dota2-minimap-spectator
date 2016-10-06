@@ -9,7 +9,7 @@ import { Team } from '../../../services/index'
 @Component({
   selector: 'app-mini-draft',
   templateUrl: 'mini-draft.component.html',
-  styleUrls: ['./mini-draft.component.scss'],
+  styleUrls: ['./mini-draft.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('draft', [

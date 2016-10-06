@@ -74,7 +74,7 @@ export class PlayerValueComponent {
   trigger;
   valueSwitch = 'toSwitch';
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
     if (this.playerValue === 'disabled') {
       this.trigger = 'off';
       this.playerValue = '';

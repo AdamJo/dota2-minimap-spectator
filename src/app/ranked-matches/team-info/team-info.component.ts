@@ -5,7 +5,7 @@ import { RankedPlayers } from '../../services/index';
 @Component({
   selector: 'rm-team-info',
   templateUrl: 'team-info.component.html',
-  styleUrls: ['team-info.component.scss']
+  styleUrls: ['team-info.component.css']
 })
 export class TeamInfoComponent {
   @Input() players: RankedPlayers;

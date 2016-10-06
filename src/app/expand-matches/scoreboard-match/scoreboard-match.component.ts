@@ -85,7 +85,7 @@ export class ScoreboardMatchComponent {
     {name: 'respawn_timer', option: 'Respawn', shortcut: '(O)' },
   ];
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
     this.active = this.shortcut;
   }
 

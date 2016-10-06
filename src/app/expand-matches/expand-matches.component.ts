@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-expand-matches',
   templateUrl: 'expand-matches.component.html',
-  styleUrls: ['./expand-matches.component.scss'],
+  styleUrls: ['./expand-matches.component.css'],
   animations: [
     trigger('routeAnimation', [
       state('*',
@@ -43,7 +43,7 @@ export class ExpandMatchesComponent {
     return 'relative';
   }
 
-  constructor(private apiService: ApiService, private router: Router) {
+  constructor(public apiService: ApiService, private router: Router) {
     this.scoreboardValue = 'None';
   }
 

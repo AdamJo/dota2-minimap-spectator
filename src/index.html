@@ -1,14 +1,13 @@
-<!doctype html>
-<html lang="">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Mini Dota 2 Watcher</title>
-  <base href="/">
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-  <meta name="description" content="Mini Dota 2 Watcher">
-
+	<title>Mini Dota 2 Watcher</title>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta charset='utf-8'>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<base href="/">
+	<!--<meta name="description" content="Mini Dota 2 Watcher">-->
   <!-- Configured Head Tags  -->
   <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-touch-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/apple-touch-icon-76x76.png">
@@ -24,51 +23,50 @@
 	<meta name="msapplication-TileColor" content="#d9d9d9">
 	<meta name="msapplication-TileImage" content="/assets/icon/ms-icon-150x150.png">
 	<meta name="theme-color" content="#111111">
+	<style>
+			@font-face {
+				font-family: HypatiaSansPro;
+				src: url('/assets/fonts/HypatiaSansPro-Regular.otf')
+			}
+			html, body {
+				font-family: HypatiaSansPro;
+				font-size: 20px;
+				overflow: visible;
+				margin: 0 auto;
+				width: 100%;
+				height: 100%;
+				background-color: #000;
+				color: #d9d9d9;
+			}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    @font-face {
-      font-family: HypatiaSansPro;
-      src: url('/assets/fonts/HypatiaSansPro-Regular.otf')
-    }
-    html, body {
-      font-family: HypatiaSansPro;
-      font-size: 20px;
-      overflow: visible;
-      margin: 0 auto;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      color: #d9d9d9;
-    }
+			@keyframes fade-in-out {
+				0% {
+					opacity: 1;
+				}
 
-    @keyframes fade-in-out {
-      0% {
-        opacity: 1;
-      }
+				10% {
+					opacity: 1;
+				}
 
-      10% {
-        opacity: 1;
-      }
+				50% {
+					opacity: 0.5;
+				}
 
-      50% {
-        opacity: 0.5;
-      }
+				100% {
+					opacity: 1;
+				}
+			}
 
-      100% {
-        opacity: 1;
-      }
-    }
-
-    .loading {
-      align-items: center;
-      height: 50%;
-      display: flex;
-      justify-content: center;
-      animation:
-        fade-in-out 4s ease-in-out infinite;
-    }
-  </style>
+			.loading {
+				align-items: center;
+				height: 50%;
+				display: flex;
+				justify-content: center;
+				animation:
+					fade-in-out 4s ease-in-out infinite;
+			}
+		</style>
+		<style>#str-dlls { display: none }</style>
 </head>
 <body>
   <app-root>
@@ -76,7 +74,6 @@
       <img src="assets/img/loading.svg"></img>
     </div>
   </app-root>
-  <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -86,5 +83,11 @@
     ga('create', 'UA-83059702-1', 'auto');
     ga('send', 'pageview');
   </script>
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=console.*,Intl.~locale.en&gated=1"></script>
+	<div id="str-dlls">
+		<%= '<' %>script src="/polyfill.dll.js"<%= '>' %><%= '<' %>/script<%= '>' %>
+		<%= '<' %>script src="/vendor.dll.js"<%= '>' %><%= '<' %>/script<%= '>' %>
+	</div>
+	<script src="/index.js"></script>
 </body>
 </html>

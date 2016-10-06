@@ -1,0 +1,13 @@
+$pink: pink;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+#my-navlist li {
+  background: $pink;
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}

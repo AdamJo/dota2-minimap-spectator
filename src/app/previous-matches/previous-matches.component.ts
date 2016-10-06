@@ -10,7 +10,7 @@ import { loadingPreviousGame } from '../../assets/initialLoadData/loadingPreviou
 @Component({
   selector: 'app-previous-matches',
   templateUrl: 'previous-matches.component.html',
-  styleUrls: ['./previous-matches.component.scss'],
+  styleUrls: ['./previous-matches.component.css'],
   animations: [
     trigger('routeAnimation', [
       state('*',
@@ -49,7 +49,7 @@ export class PreviousMatchesComponent implements OnInit {
     return 'relative';
   }
 
-  constructor(private apiService: ApiService) {
+  constructor(public apiService: ApiService) {
     this.regionValue = 'disabled';
     this.regions = [];
     this.sortedMatches = [loadingPreviousGame];

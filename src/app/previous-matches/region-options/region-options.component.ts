@@ -85,7 +85,7 @@ export class RegionOptionsComponent {
   active: string;
   lastInput: string;
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
     if (this.inactive) {
       this.active = 'inactive';
       this.lastInput = '';

@@ -12,7 +12,7 @@ import { ApiService, Scoreboard, Players } from '../../../services/index';
 @Component({
   selector: 'app-scoreboard',
   templateUrl: 'scoreboard.component.html',
-  styleUrls: ['./scoreboard.component.scss'],
+  styleUrls: ['./scoreboard.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -58,7 +58,7 @@ export class ScoreboardComponent implements OnChanges {
     this.mainSort();
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
     this.mainSort();
   }
 

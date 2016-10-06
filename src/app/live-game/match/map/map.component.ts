@@ -15,7 +15,7 @@ import { Team } from '../../../services/index';
   selector: 'app-map',
   templateUrl: 'map.component.html',
   styleUrls: [
-    './map.component.scss'
+    './map.component.css'
   ],
   providers: [],
   animations: [

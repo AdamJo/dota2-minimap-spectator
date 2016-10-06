@@ -9,7 +9,7 @@ import { Team, League, Series } from '../../services/index';
 @Component({
   selector: 'app-draft',
   templateUrl: 'draft.component.html',
-  styleUrls: ['./draft.component.scss'],
+  styleUrls: ['./draft.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('draft', [

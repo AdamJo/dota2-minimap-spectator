@@ -6,7 +6,7 @@ import { ApiService, UpcomingGames } from '../services/index';
 @Component({
   selector: 'app-upcoming-matches',
   templateUrl: 'upcoming-matches.component.html',
-  styleUrls: ['./upcoming-matches.component.scss'],
+  styleUrls: ['./upcoming-matches.component.css'],
   animations: [
     trigger('routeAnimation', [
       state('*',
@@ -43,7 +43,7 @@ export class UpcomingMatchesComponent implements OnInit {
     return 'relative';
   }
 
-  constructor(private apiService: ApiService) {}
+  constructor(public apiService: ApiService) {}
 
   ngOnInit() {
     this.apiService.getUpcomingGames()
