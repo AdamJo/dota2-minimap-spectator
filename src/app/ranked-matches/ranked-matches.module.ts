@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { RankedMatchesComponent } from './index';
 import { RankedMatchComponent }   from './ranked-match/index';
@@ -7,9 +8,10 @@ import { TeamInfoComponent } from './team-info/index';
 import { MetaInfoComponent } from './meta-info/index';
 import { SpectatorsComponent } from './meta-info/spectators/index'
 
+import { RankedMatchesRoutingModule} from './ranked-matches.routing'
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, RankedMatchesRoutingModule],
   exports: [RankedMatchesComponent],
   declarations: [
     RankedMatchComponent,

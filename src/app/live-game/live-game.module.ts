@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'
 
 import { LiveGameComponent } from './live-game.component';
 
@@ -28,7 +29,12 @@ import {
 } from '../pipes/index';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      { path: '', component: LiveGameComponent },
+    ]),
+  ],
   declarations: [
     LiveGameComponent,
     ScoreboardComponent,

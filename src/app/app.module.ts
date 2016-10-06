@@ -37,12 +37,7 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    LiveGameModule,
-    UpcomingMatchesModule,
     SharedModule,
-    ExpandMatchesModule,
-    PreviousMatchesModule,
-    RankedMatchesModule,
     AppRoutingModule
   ],
   providers: [

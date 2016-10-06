@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'
+
 import { ExpandMatchesComponent } from './expand-matches.component';
 
 import { LiveMatchComponent } from './live-match/index';
@@ -15,7 +17,12 @@ import { PlayerValueComponent } from './live-match/player-value/index';
 import { ScoreboardMatchComponent } from './scoreboard-match/index';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      { path: '', component: ExpandMatchesComponent },
+    ])
+  ],
   declarations: [
     ExpandMatchesComponent,
     LiveMatchComponent,
