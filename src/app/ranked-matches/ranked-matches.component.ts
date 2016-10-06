@@ -53,7 +53,6 @@ export class RankedMatchesComponent implements OnInit {
   ngOnInit() {
     this.apiService.getMmrTop()
       .subscribe(data => {
-        console.log(data)
         this.rankedGames = data
       })
   }
