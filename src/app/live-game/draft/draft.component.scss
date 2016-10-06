@@ -51,6 +51,15 @@
   justify-content: flex-end;
   font-size: 1.5rem;
   flex: 1;
+  
+  .name {
+    max-width: 500px;
+    text-align: end;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .row {
@@ -102,7 +111,7 @@
 }
 
 .player-cell {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-bottom: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -153,3 +162,4 @@
     width: 65px;
   }
 }
+
