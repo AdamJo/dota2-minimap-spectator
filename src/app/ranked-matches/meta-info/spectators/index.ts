@@ -1,1 +1,1 @@
-export * from './spectators.component';
+export { SpectatorsComponent} from './spectators.component';

@@ -1,1 +1,1 @@
-export * from './ranked-match.component'
+export { RankedMatchComponent } from './ranked-match.component'

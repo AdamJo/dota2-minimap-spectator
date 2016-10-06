@@ -1,6 +1,6 @@
-export * from './calculate-x.pipe';
-export * from './calculate-y.pipe';
-export * from './split-numbers.pipe';
-export * from './add-commas.pipe';
-export * from './game-time.pipe';
-export * from './upcoming-game-start.pipe'
+export { CalculateXPipe } from './calculate-x.pipe';
+export { CalculateYPipe } from './calculate-y.pipe';
+export { SplitNumbersPipe } from './split-numbers.pipe';
+export { AddCommasPipe } from './add-commas.pipe';
+export { GameTimePipe } from './game-time.pipe';
+export { UpcomingGameStartPipe } from './upcoming-game-start.pipe'

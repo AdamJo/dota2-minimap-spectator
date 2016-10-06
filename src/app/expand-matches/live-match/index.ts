@@ -1,1 +1,1 @@
-export * from './live-match.component'
+export { LiveMatchComponent } from './live-match.component'

@@ -1,6 +1,5 @@
 <div class="container">
   <div class="content">
-    <!--<div class="content">-->
       <h2>Upcoming Matches</h2>
       <div *ngIf='!status'>
         <app-upcoming-match *ngFor="let match of upcomingMatches"
@@ -10,6 +9,5 @@
       <h3 *ngIf='status'>
         {{status}}
       </h3>
-    <!--</div>-->
   </div>
 </div>

@@ -1,1 +1,1 @@
-export * from './upcoming-match.component'
+export { UpcomingMatchComponent } from './upcoming-match.component'

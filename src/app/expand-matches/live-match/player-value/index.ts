@@ -1,1 +1,1 @@
-export * from './player-value.component';
+export { PlayerValueComponent } from './player-value.component';

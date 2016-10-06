@@ -1,1 +1,1 @@
-export * from './draft-match.component'
+export { DraftMatchComponent } from './draft-match.component';

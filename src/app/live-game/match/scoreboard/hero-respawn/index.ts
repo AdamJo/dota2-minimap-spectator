@@ -1,1 +1,1 @@
-export * from './hero-respawn.component';
+export { HeroRespawnComponent } from './hero-respawn.component';

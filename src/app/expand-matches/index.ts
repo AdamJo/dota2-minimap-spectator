@@ -1,1 +1,1 @@
-export * from './expand-matches.component'
+export { ExpandMatchesComponent } from './expand-matches.component'

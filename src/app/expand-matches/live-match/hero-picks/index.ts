@@ -1,1 +1,1 @@
-export * from './hero-picks.component'
+export { HeroPicksComponent } from './hero-picks.component'

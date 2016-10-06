@@ -1,1 +1,1 @@
-export * from './series.component';
+export { SeriesComponent } from './series.component';

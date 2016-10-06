@@ -1,1 +1,1 @@
-export * from './live-game.component';
+export { LiveGameComponent } from './live-game.component';

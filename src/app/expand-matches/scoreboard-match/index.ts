@@ -1,1 +1,1 @@
-export * from './scoreboard-match.component';
+export { ScoreboardMatchComponent } from './scoreboard-match.component';

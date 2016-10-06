@@ -1,4 +1,4 @@
 /**
  * This barrel file provides the export for the lazy loaded HomeComponent.
  */
-export * from './draft.component';
+export { DraftComponent } from './draft.component';

@@ -1,1 +1,1 @@
-export * from './league.component';
+export { LeagueComponent } from './league.component';

@@ -1,1 +1,1 @@
-export * from './scoreboard.component';
+export { ScoreboardComponent } from './scoreboard.component';

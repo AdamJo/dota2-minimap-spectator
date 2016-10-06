@@ -1,1 +1,1 @@
-export * from './button-info.component'
+export { ButtonInfoComponent } from './button-info.component'

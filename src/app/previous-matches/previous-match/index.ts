@@ -1,1 +1,1 @@
-export * from './previous-match.component';
+export { PreviousMatchComponent } from './previous-match.component';
