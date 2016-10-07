@@ -42,7 +42,7 @@
     "sass:watch": "node-sass -w src -o src",
     "start": "npm run server:dev",
     "serve80": "sudo PORT=80 node prodserver",
-    "server:dev": "npm run webdev",
+    "server:dev": "npm-run-all -p -r webdev sass:watch",
     "server:prod": "npm-run-all -p -r watch:prod prodserver",
     "server:prod80": "npm-run-all -p -r serve80 watch:prod",
     "debug:build": "node-nightly --inspect --debug-brk node_modules/webpack/bin/webpack.js",
@@ -54,8 +54,8 @@
     "build:dll": "npm run clean:dll && webpack",
     "build:prod": "npm run clean:dist && npm run sass && webpack",
     "watch": "npm run watch:dev",
-    "watch:dev": "npm run build:dev -- --watch sass:watch",
-    "watch:prod": "npm run build:prod -- --watch sass:watch"
+    "watch:dev": "npm-run-all -p -r \"build:dev -- --watch\" sass:watch",
+    "watch:prod": "npm-run-all -p -r \"build:prod -- --watch\" sass:watch"
   },
   "dependencies": {
     "@angular/common": "2.1.0-rc.0",

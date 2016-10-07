@@ -1,7 +1,8 @@
 <div class="flex-container">
-  <h4 *ngIf="matches.length === 0">
-      No Games Found
-  </h4>
+  <div *ngIf="matches.length === 0">
+      <h2>No Games Found!</h2>
+      <h4>Games only last one week.</h4>
+  </div>
 <div *ngFor="let match of matches">
   <div class="container">
     <span
