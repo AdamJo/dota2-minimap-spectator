@@ -13,6 +13,7 @@
   display: flex;
   flex-wrap: nowrap;
   width: 887px;
+  height: 36px;
 
   &.radiant {
     .side {
@@ -27,7 +28,7 @@
   }
 
   &:last-child {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-top: 2px;
   }
 }
@@ -43,23 +44,35 @@
   justify-content: center;
   margin-left: 5px;
   width: 59px;
+
+  &.radiant-bans-title {
+    margin-bottom: 6px;
+  }
 }
 
 .team-name {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  
   font-size: 1.5rem;
   flex: 1;
+
+  margin-bottom: 15px;
   
   .name {
     max-width: 500px;
     text-align: end;
+    font-weight: 700;
 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+}
+
+.team-radiant {
+  margin-bottom: 0;
 }
 
 .row {
@@ -119,11 +132,11 @@
 }
 
 .dire-pick {
-  background: radial-gradient(ellipse at bottom, $dire-alpha, $black-alpha 65%);
+  background: radial-gradient(ellipse at bottom, $dire-alpha, $black-alpha 85%);
 }
 
 .radiant-pick {
-  background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 65%);
+  background: radial-gradient(ellipse at top, $radiant-alpha, $black-alpha 85%);
 }
 
 .pick-cell {
@@ -163,3 +176,6 @@
   }
 }
 
+.series {
+  margin-top: 3px;
+}

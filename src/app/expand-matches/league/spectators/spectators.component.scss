@@ -2,23 +2,27 @@
 
 
 .spectators {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: center;
 
-  margin-bottom: 10px;
+  height: 40px;
+  // margin-bottom: 25px;
 }
 
 .spectators-amount {
-  text-align: center;
-  vertical-align: middle;
+  // text-align: center;
+  // vertical-align: middle;
+  line-height: 22px;
+  margin-left: 5px;
 }
 
 .eye-icon {
   height: 30px;
-  // margin-top: 6px;
-  width: 30px;
+  margin-top: -3px;
+  width: 30px
+  ;
 }
 
 .spectator-info {

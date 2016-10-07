@@ -98,7 +98,7 @@
   margin-bottom: 0;
   margin-top: 5px;
 
-
+  line-height: 23px;
 
   &.dire {
     margin-left: 5px;
@@ -131,7 +131,7 @@
 .score {
   font-size: 1rem;
   height: 36px;
-  line-height: 36px;
+  line-height: 33px;
   
   &.score-dire {
     margin-right: 13px;
@@ -142,18 +142,21 @@
   }
 }
 
-
-
 .side {
   margin: 0 10px;
   width: 480px;
 }
 
 .middle-vs {
-  height: 90px;
+  height: 78px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+
+
+  span {
+    vertical-align: top; 
+  }
 }
 
 .players {

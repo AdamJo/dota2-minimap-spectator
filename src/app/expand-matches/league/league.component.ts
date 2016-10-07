@@ -29,7 +29,8 @@ import { League } from '../../services/index';
       overflow: hidden;
       text-overflow: ellipsis;
 
-      margin: 0 36px;
+      line-height: 23px;
+
       white-space: nowrap;
       width: 800px;
     }
@@ -41,7 +42,7 @@ import { League } from '../../services/index';
 
       position: absolute;
       left: 485px;
-      top: 45px;
+      top: 37px;
       width: 68px;
     }
 

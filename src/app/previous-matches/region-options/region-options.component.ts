@@ -30,7 +30,6 @@ import { Component, Input, Output, EventEmitter,
       height: 46px;
 
       list-style-type: none;
-      padding: 0;
       margin: 5px 0;
     }
 
@@ -38,19 +37,17 @@ import { Component, Input, Output, EventEmitter,
       display: flex;
       flex-direction: column;
       width: 140px;
+      height: 32px;
 
       text-align: center;
 
       cursor: pointer;
 
       margin-bottom: 15px;
-      margin-right: 5px;
-      margin-left: 5px;
 
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
 
       box-shadow: 0px 0px 15px 0px #142958;
       transition: box-shadow 300ms ease-in-out both;
@@ -73,7 +70,6 @@ import { Component, Input, Output, EventEmitter,
     li {
       background: #222;
       border: 1px solid #2f2724;
-      padding-top: 5px;
     }
   `]
 })

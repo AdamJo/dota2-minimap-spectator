@@ -63,8 +63,6 @@ import { Component, Input, Output, EventEmitter,
     li {
       background: #222;
       border: 1px solid #2f2724;
-      padding-top: 5px;
-
     }
   `]
 })

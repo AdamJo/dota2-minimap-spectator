@@ -15,9 +15,8 @@ import { Series } from '../../services/index';
     .series-games {
       align-items: center;
       display: flex;
-      margin-top: 4px;
+      margin-top: 8px;
       margin-left: 15px;
-      // width: 40px;
       margin-right: 15px;
     }
 

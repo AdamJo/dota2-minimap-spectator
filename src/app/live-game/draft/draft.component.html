@@ -6,10 +6,10 @@
       <span class="bans-title">Bans</span>
       <span class="side">Dire</span>
       <div class="team-name">
-        <app-series
+        <app-series class="series"
           [gameSeries]='series.dire_series_wins'
         ></app-series>
-        <span class="name"><b>{{direTeamName}}</b></span>
+        <span class="name">{{direTeamName}}</span>
       </div>
     </div>
     <div class="draft-container">
@@ -53,13 +53,13 @@
     </div>
 
     <div class="titles radiant">
-      <span class="bans-title">Bans</span>
+      <span class="bans-title radiant-bans-title">Bans</span>
       <span class="side">Radiant</span>
-      <div class="team-name">
-        <app-series
+      <div class="team-name team-radiant">
+        <app-series class="series"
           [gameSeries]='series.dire_series_wins'
         ></app-series>
-        <span class="name"><b>{{radiantTeamName}}</b></span>
+        <span class="name">{{radiantTeamName}}</span>
       </div>
     </div>
   </div>
