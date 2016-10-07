@@ -20,8 +20,6 @@ import { AppComponent } from './app.component';
 //       Need for applications since errors fail build process
 import 'firebase';
 
-import 'rxjs/add/operator/debounceTime';
-
 @NgModule({
   declarations: [
     AppComponent,

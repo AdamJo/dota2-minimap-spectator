@@ -1,0 +1,61 @@
+<div class="container" (click)=sendToParent()>
+  <div class="match">
+
+    <!--<div class="duration"><span class="inside-duration">{{gameTime(match.scoreboard.duration)}}</span></div>-->
+    <em-league 
+      [league]='match.league'
+      [duration]='match.scoreboard.duration'
+      [spectators]='match.spectators'
+      [didGameStart]='didGameStart'>
+    </em-league>
+    <div class="teams">
+      <div class="side">
+        <h4 class="team-names dire">
+          <div class="name-series">
+            <span class="team-name">{{match.dire_team_name}}</span>
+            <em-series
+              [gameSeries]='match.series.dire_series_wins'
+              [teamSide]='"dire"'
+            ></em-series>
+          </div>
+          <span class="score score-dire">{{match.scoreboard.dire.score}}</span>
+        </h4>
+        <!--<div class="players">
+          <div class="player-names" *ngFor='let player of match.scoreboard.dire.players'>
+            <div class="player-name">
+            {{player.name}}
+            </div>
+          </div>
+        </div>-->
+        <em-hero-picks
+          [players]="match.scoreboard.dire.players"
+          [scoreboardValue]="scoreboardValue"
+        ></em-hero-picks>
+      </div>
+      <div class="middle-vs"><span>vs</span></div>
+      <div class="side">
+        <h4 class="team-names radiant">
+          <span class="score score-radiant">{{match.scoreboard.radiant.score}}</span>
+          <div class="name-series">
+            <em-series
+              [gameSeries]='match.series.radiant_series_wins'
+              [teamSide]='"radiant"'
+            ></em-series>
+            <span class="team-name">{{match.radiant_team_name}}</span>
+          </div>
+        </h4>
+        <!--<div class="players">
+          <div class="player-names" *ngFor='let player of match.scoreboard.dire.players'>
+            <div class="player-name">
+            {{player.name}}
+            </div>
+          </div>
+        </div>-->
+        <em-hero-picks
+          [players]="match.scoreboard.radiant.players"
+          [scoreboardValue]="scoreboardValue"
+        ></em-hero-picks>
+      </div>
+    </div>
+  </div>
+<div>

@@ -1,0 +1,48 @@
+<div class="container">
+<div ngClass="flex-container" [@dayCycle]='dayNightCycle'>
+  <div class="pause-menu" *ngIf="paused">
+    <div [@pause]='paused' class="pausePopUp">
+      PAUSED
+    </div>
+  </div>
+  <div class="image">
+    <img src=",,/../../assets/img/map-7q-c.jpg" alt="mini-map">
+  </div>
+  <div class="content" [style.width.px]='width' [style.height.px]='height'>
+    <lg-buildings
+      [direBarracks]='dire?.barracks_state | splitToNumbers'
+      [direTowers]='dire?.tower_state | splitToNumbers'
+      [radiantBarracks]='radiant?.barracks_state | splitToNumbers'
+      [radiantTowers]='radiant?.tower_state | splitToNumbers'>
+    </lg-buildings>
+    <div *ngFor="let player of radiant?.players">
+      <lg-sprite-animation *ngIf="player.hero !== 'None'"
+        [team]='"radiant"'
+        [heroId]='player?.hero'
+        [posX]='player?.position_x | calculateX:width:maxWidth'
+        [posY]='player?.position_y | calculateY:height:maxHeight'
+        [oldPosX]='player?.old_position_x | calculateX:width:maxWidth'
+        [oldPosY]='player?.old_position_y | calculateY:height:maxHeight'
+        [respawnTimer]='player?.respawn_timer'>
+      </lg-sprite-animation>
+    </div>
+    <div *ngFor="let player of dire?.players">
+      <lg-sprite-animation *ngIf="player.hero !== 'None'"
+        [team]='"dire"'
+        [heroId]='player?.hero'
+        [posX]='player?.position_x | calculateX:width:maxWidth'
+        [posY]='player?.position_y | calculateY:height:maxHeight'
+        [oldPosX]='player?.old_position_x | calculateX:width:maxWidth'
+        [oldPosY]='player?.old_position_y | calculateY:height:maxHeight'
+        [respawnTimer]='player?.respawn_timer'>
+      </lg-sprite-animation>
+    </div>
+    <lg-sprite-animation
+      [heroId]='"roshan"'
+      [posX]='72.5'
+      [posY]='58'
+      [respawnTimer]='roshanRespawnTimer'
+    ></lg-sprite-animation>
+  </div>
+</div>
+</div>

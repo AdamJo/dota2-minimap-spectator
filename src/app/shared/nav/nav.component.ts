@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-nav',
+  selector: 'sh-nav',
   templateUrl: 'nav.component.html',
   styleUrls: ['./nav.component.css']
 })

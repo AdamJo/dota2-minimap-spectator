@@ -1,0 +1,53 @@
+<div class="container">
+  <div (click)='toggle()' class="drop-down-menu">
+      <div class="arrow-box">
+        <div class="down-arrow"></div>
+      </div>
+      <div class="stat-title">
+        {{menuTitle}}
+      </div>
+  </div>
+  <ul [hidden]="active === 'scoreboard' || active === 'draft'" class="nav-menu">
+    <li>GAME STATS</li>
+    <li (click)="sortPlayers(choice.name, choice.option)" *ngFor="let choice of menuOptions">
+      {{choice.option}}
+    </li>
+  </ul>
+
+  <ul [hidden]="active === 'menu' || active === 'draft'" class="nav-players">
+    <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
+        <div class="repsawn-img">
+          <img *ngIf="player.hero !== 'None'" src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
+          <div class="blank" *ngIf="player.hero === 'None'"></div>
+          <lg-hero-respawn *ngIf="player.respawn_timer > 0"
+            [respawn]="player.respawn_timer"
+            ></lg-hero-respawn>
+        </div>
+        <div class="player-name">{{player.name}}</div>
+        <div class="value" [ngSwitch]="sortedValue">
+          <span *ngSwitchCase="'kills'">{{player[sortedValue]}} / {{player["death"]}} / {{player["assists"]}}</span>
+          <span *ngSwitchCase="'last_hits'">{{player[sortedValue]}} / {{player["denies"]}}</span>
+          <span *ngSwitchDefault>{{player[sortedValue] | addCommas}}</span>
+        </div>
+    </li>
+  </ul>
+  <div [hidden]="active === 'menu' || active === 'scoreboard'" >
+    <div class="grid" >
+      <div class="side dire-draft">
+      <lg-mini-draft class="draft" 
+        [side]="'dire'"
+        [team]="scoreboard.dire"
+      >
+      </lg-mini-draft>
+      </div>
+      
+      <div class="side radiant-draft">
+      <lg-mini-draft class="draft"
+        [side]="'radiant'"
+        [team]="scoreboard.radiant"
+      >
+      </lg-mini-draft>
+      </div>
+    </div>
+  </div>
+</div>

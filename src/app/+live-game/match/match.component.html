@@ -1,0 +1,46 @@
+<div #screen class="flex-container">
+  <div class="content">
+    <div class="team">
+      <h4 class="team-names">
+        <span class="team-name">{{direTeamName}}</span>
+        <lg-series
+          [gameSeries]='series.radiant_series_wins'
+        ></lg-series>
+        <span class="score dire-score">{{scoreboard.dire.score}}</span>
+        <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
+        <span class="stream-delay" *ngIf="streamDelay">({{streamDelay}}s delay)</span>
+      </h4>
+      <lg-team-info
+        [side]="'dire'"
+        [team]='scoreboard.dire.players'
+      ></lg-team-info>
+      </div>
+
+      <lg-map class="map"
+        [paused]='apiService.gamePaused'
+        [radiant]='scoreboard.radiant'
+        [dire]='scoreboard.dire'
+        [dayNightCycle]='scoreboard.day_cycle'
+        [roshanRespawnTimer]='scoreboard.roshan_respawn_timer'
+      ></lg-map>
+
+      <lg-scoreboard class="scoreboard-content"
+        [scoreboard]='scoreboard'
+        >
+      </lg-scoreboard>
+
+      <div class="team">
+        <lg-team-info
+          [side]="'radiant'"
+          [team]='scoreboard.radiant.players'
+        ></lg-team-info>
+        <h4 class="team-names">
+          <span class="team-name">{{radiantTeamName}}</span>
+          <lg-series
+            [gameSeries]='series.dire_series_wins'
+          ></lg-series>
+          <span class="score radiant-score">{{scoreboard.radiant.score}}</span>
+        </h4>
+    </div>
+  </div>
+</div>

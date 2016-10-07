@@ -1,0 +1,29 @@
+
+<lg-button-info
+  [apiStatus]="apiService.isApiUp"
+  [gameCount]="apiService.gameCount"
+  [leagueUrl]="apiService.currentGame.league.tournament_url"
+  [leagueName]="apiService.currentGame.league.name"
+  [gamesLength]="apiService.dataLength"
+  [spectators]="apiService.currentGame.spectators"
+  [allGamesLength]="apiService.allData.length"
+></lg-button-info>
+
+<div
+  class="container"
+  *ngIf='!scoreboard.did_game_start'>
+  <lg-draft 
+    [radiant]='scoreboard.radiant'
+    [dire]='scoreboard.dire'
+    [radiantTeamName]='radiantTeamName'
+    [direTeamName]='direTeamName'
+    [league]='league'
+    [series]='series'
+  ></lg-draft>
+</div>
+
+<div
+  class="container"
+  *ngIf='scoreboard.did_game_start'>
+  <lg-match></lg-match>
+</div>

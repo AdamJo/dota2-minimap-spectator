@@ -1,0 +1,66 @@
+<div>
+  <div class="container">
+
+    <div class="league-name">{{league.name}}</div>    
+    <div class="titles dire">
+      <span class="bans-title">Bans</span>
+      <span class="side">Dire</span>
+      <div class="team-name">
+        <lg-series class="series"
+          [gameSeries]='series.dire_series_wins'
+        ></lg-series>
+        <span class="name">{{direTeamName}}</span>
+      </div>
+    </div>
+    <div class="draft-container">
+      <div class="column">
+        <div class="ban-cell dire" *ngFor='let hero of dire?.bans'>
+          <div class="active-ban" *ngIf='hero !== -1'>
+            <img [@draft] src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="pick-cell dire-pick" *ngFor='let hero of dire?.picks'>
+          <img [@draft] *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg' alt="{{hero}}">
+        </div>
+      </div>
+      <div class="players">
+        <div class="player-cell" *ngFor='let player of dire?.players'>
+          <span>{{player.name}}</span>
+        </div>
+      </div>
+
+      <div class="line-break"></div>
+
+      <div class="column">
+        <div class="ban-cell radiant" *ngFor='let hero of radiant?.bans'>
+          <div class="active-ban" *ngIf='hero !== -1'>
+            <img [@draft] src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="pick-cell radiant-pick" *ngFor='let hero of radiant?.picks'>
+          <img [@draft] *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg' alt="{{hero}}">
+        </div>
+      </div>
+      <div class="players">
+        <div class="player-cell" *ngFor='let player of radiant?.players'>
+          <span>{{player.name}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="titles radiant">
+      <span class="bans-title radiant-bans-title">Bans</span>
+      <span class="side">Radiant</span>
+      <div class="team-name team-radiant">
+        <lg-series class="series"
+          [gameSeries]='series.dire_series_wins'
+        ></lg-series>
+        <span class="name">{{radiantTeamName}}</span>
+      </div>
+    </div>
+  </div>
+<div>

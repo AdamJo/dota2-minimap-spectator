@@ -1,0 +1,46 @@
+<div class="flex-container">
+  <div class="container">
+    <div class="flex-inputs">
+      <div class="input-field">
+        <input
+          #team
+          (keyup)="sortTeams(team.value); league.value=null"
+          placeholder="Team"
+        />
+        <svg
+          class="line"
+          view="0 0 320 2"
+          preserveAspectRatio="none">
+          <path d="M0 1 L320 1"/>
+          <path
+            class="focus"
+            d="M0 1 L320 1"/>
+        </svg>
+      </div>
+      <div class="input-field">
+        <input
+          #league
+          (keyup)="sortLeagues(league.value); team.value=null"
+          placeholder="League"
+        />
+        <svg
+          class="line"
+          view="0 0 320 2"
+          preserveAspectRatio="none">
+          <path d="M0 1 L320 1"/>
+          <path
+            class="focus"
+            d="M0 1 L320 1"/>
+        </svg>
+      </div>
+    </div>
+    <pm-region-options
+      [regions]='regions'
+      [inactive]='regionInactive'
+      (change)="switchRegionValue($event)"
+    ></pm-region-options>
+    <pm-previous-match
+      [matches]='sortedMatches'
+    ></pm-previous-match>
+  </div>
+</div>

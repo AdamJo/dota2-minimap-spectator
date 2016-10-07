@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'sh-footer',
   template: `
     <footer>
       Minimal Dota 2 Watcher by <a target="_blank" href="https://github.com/AdamJo">AdamJo</a>
