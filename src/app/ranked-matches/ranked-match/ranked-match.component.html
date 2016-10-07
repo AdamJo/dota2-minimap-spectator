@@ -1,3 +1,6 @@
+<div *ngIf="matches.length === 0">
+  <h3>No ranked games found</h3>
+</div>
 <div class="container" *ngFor="let match of matches">
   <div class="match">
     <div class="team-side radiant">
