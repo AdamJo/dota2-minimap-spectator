@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 // determines when a new game will be up.
 export class UpcomingGameStartPipe implements PipeTransform {
-  transform(value: number): any {
+  transform(value: number): string {
     let gameStart: number;
     let timeSelect: string;
 
@@ -18,9 +18,14 @@ export class UpcomingGameStartPipe implements PipeTransform {
       timeSelect = 'minute';
     }
 
-    if (gameStart > 1) {
+    if (timeSelect === 'minute' && gameStart > 1 || gameStart < -1 ) {
       timeSelect = timeSelect + 's';
     }
+
+    if (timeSelect === 'hour' && gameStart > 1) {
+      timeSelect = timeSelect + 's';
+    }
+
     return `${gameStart} ${timeSelect}`;
   }
 }

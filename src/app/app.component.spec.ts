@@ -1,28 +1,29 @@
 /* tslint:disable: max-line-length */
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { APP_BASE_HREF } from '@angular/common';
+import { TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './features/dashboard.component';
-import { NotFound404Component } from './not-found404.component';
-import { routes } from './app.routing';
+import { APP_DECLERATIONS } from './app.declerations';
+import { APP_IMPORTS } from './app.imports';
+import { APP_PROVIDERS } from './app.providers';
+
+import 'firebase';
+import 'rxjs/add/operator/debounceTime';
 
 describe('App Component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        ReactiveFormsModule,
-        RouterTestingModule.withRoutes(routes)
+        APP_IMPORTS
         ],
-      providers: [],
-      declarations: [AppComponent, DashboardComponent, NotFound404Component]
+      providers: [APP_PROVIDERS, { provide: APP_BASE_HREF, useValue: '/' }],
+      declarations: [ AppComponent, APP_DECLERATIONS]
     });
   });
 
-  it('should contain Dashboard text', async(() => {
+  it('should create instance', (() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    expect(fixture.nativeElement).not.toContainText('Welcome to the Dashboard');
+    expect(fixture.nativeElement).toBeTruthy();
   }));
 });
