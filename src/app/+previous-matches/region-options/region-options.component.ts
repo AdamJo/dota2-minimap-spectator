@@ -37,7 +37,9 @@ import { Component, Input, Output, EventEmitter,
       display: flex;
       flex-direction: column;
       width: 140px;
-      height: 32px;
+      height: 40px;
+
+      line-height: 40px;
 
       text-align: center;
 

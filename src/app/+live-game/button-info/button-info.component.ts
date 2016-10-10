@@ -45,13 +45,13 @@ export class ButtonInfoComponent {
   // moves games to the right
   decrementTotal() {
     this.apiService.decrementTotal();
-    this.rightButton = this.rightButton === 'right' ? 'rightGo' : 'right';
+    this.leftButton = this.leftButton === 'left' ? 'leftGo' : 'left';
   }
 
   // moves games to the left
   incrementTotal() {
     this.apiService.incrementTotal();
-    this.leftButton = this.leftButton === 'left' ? 'leftGo' : 'left';
+    this.rightButton = this.rightButton === 'right' ? 'rightGo' : 'right';
   }
 
   // use arrow keys to navigate

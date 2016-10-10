@@ -24,17 +24,21 @@ import { Component, Input, Output, EventEmitter,
       align-items: center; 
       justify-content: space-around;
 
-      color: $text-color;
+      color: #d9d9d9;
       font-size: .8rem;
       width: 1040px;
+      height: 50px;
 
       list-style-type: none;
       padding: 0;
       margin: 5px 0;
+
     }
 
     .choices {
       width: 100px;
+      height: 50px;
+
       display: flex;
       flex-direction: column;
 
@@ -44,6 +48,10 @@ import { Component, Input, Output, EventEmitter,
 
       box-shadow: 0px 0px 15px 0px #142958;
       transition: box-shadow 300ms ease-in-out both;
+    }
+
+    .shortcut {
+      margin-top:3px;
     }
 
     .choices:hover {

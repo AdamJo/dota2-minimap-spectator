@@ -16,7 +16,7 @@
 
     border: 1px solid $border-color;
     background: $base-background;
-    height: 40px;
+    height: 50px;
     min-width: 1100px;
     list-style: none;
     margin: 0 auto;
@@ -25,23 +25,17 @@
     a {
       color: $font-color;
       margin: 0 5px;
-      height: 40px;
+      height: 50px;
       text-align: center;
       text-decoration: none;
       width: 200px;
+
+      line-height: 45px;
 
       &:hover {
         background: $box-shadow-color-hover;
       }
     }
-  }
-  // http://alwaystwisted.com/articles/2012-05-12-create-a-pure-css-menu-button
-  .lines {
-    border-bottom: 17px double $black;
-    border-top: 6px solid $black;
-    content: '';
-    height: 5px;
-    width: 30px;
   }
 }
 
