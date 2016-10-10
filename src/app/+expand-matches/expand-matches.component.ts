@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, HostListener,
+import { Component, HostBinding, HostListener,
          trigger, transition, animate,
          style, state } from '@angular/core';
 import { ApiService } from '../services/index';

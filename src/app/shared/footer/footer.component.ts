@@ -4,9 +4,12 @@ import { Component } from '@angular/core';
   selector: 'sh-footer',
   template: `
     <footer>
-      Minimal Dota 2 Watcher by <a target="_blank" href="https://github.com/AdamJo">AdamJo</a>
-      | Live Game Info by <a href="https://wiki.teamfortress.com/wiki/WebAPI#Dota_2" target="_blank">SteamApi</a>
-      | Upcoming Matches Info by <a href="http://dailydota2.com/api" target="_blank">DailyDota</a>
+      Minimal Dota 2 Watcher by 
+      <a target="_blank" href="https://github.com/AdamJo">AdamJo</a>
+      | Live Game Info by 
+      <a href="https://wiki.teamfortress.com/wiki/WebAPI#Dota_2" target="_blank">SteamApi</a>
+      | Upcoming Matches Info by
+      <a href="http://dailydota2.com/api" target="_blank">DailyDota</a>
     </footer>
   `,
   styles: [

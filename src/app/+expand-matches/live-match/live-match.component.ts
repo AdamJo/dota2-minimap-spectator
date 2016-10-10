@@ -18,7 +18,7 @@ export class LiveMatchComponent {
   sendToParent() {
     this.userIndexPick.emit({
       index: this.index
-    })
+    });
   }
 
   gameTime(time: number): string {

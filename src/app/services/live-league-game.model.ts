@@ -13,22 +13,22 @@ export interface LiveLeagueGame {
 }
 
 export interface Scoreboard {
-  day_cycle: string,
-  did_game_start: boolean,
-  dire: Team,
-  duration: number,
-  radiant: Team,
-  roshan_respawn_timer: number
+  day_cycle: string;
+  did_game_start: boolean;
+  dire: Team;
+  duration: number;
+  radiant: Team;
+  roshan_respawn_timer: number;
 };
 
 export interface Team {
-    // abilities: Array<Abilities>,
-    bans: Array<string>,
-    barracks_state: string,
-    picks: Array<string>,
-    players: Array<Players>,
-    score: number,
-    tower_state: string
+    // abilities: Array<Abilities>;
+    bans: Array<string>;
+    barracks_state: string;
+    picks: Array<string>;
+    players: Array<Players>;
+    score: number;
+    tower_state: string;
 }
 
 export interface Abilities {
@@ -45,8 +45,8 @@ export interface Picks {
 }
 
 export interface League {
-    name: string,
-    tournament_url: string
+    name: string;
+    tournament_url: string;
 }
 
 export interface Series {

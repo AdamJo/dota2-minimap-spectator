@@ -1,1 +1,1 @@
-export { TeamInfoComponent } from './team-info.component'
+export { TeamInfoComponent } from './team-info.component';

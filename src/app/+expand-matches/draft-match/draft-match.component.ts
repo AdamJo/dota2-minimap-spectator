@@ -17,6 +17,6 @@ export class DraftMatchComponent {
   sendToParent() {
     this.userIndexPick.emit({
       index: this.index
-    })
+    });
   }
 }

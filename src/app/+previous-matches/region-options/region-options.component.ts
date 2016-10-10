@@ -1,6 +1,4 @@
-import { Component, Input, Output, EventEmitter,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'pm-region-options',
@@ -76,7 +74,7 @@ import { Component, Input, Output, EventEmitter,
   `]
 })
 
-export class RegionOptionsComponent {
+export class RegionOptionsComponent implements OnChanges {
   @Input() regions: Array<string>;
   @Input() inactive: string;
   @Output('change') userRegionPick = new EventEmitter();
@@ -100,6 +98,6 @@ export class RegionOptionsComponent {
       this.active = option;
       this.lastInput = option;
     }
-    this.userRegionPick.emit(option)
+    this.userRegionPick.emit(option);
   }
 }

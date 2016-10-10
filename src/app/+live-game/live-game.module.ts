@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
 
 import { LiveGameComponent } from './live-game.component';
 
@@ -8,7 +8,7 @@ import { ButtonInfoComponent } from './button-info/index';
 
 import { DraftComponent } from './draft/index';
 
-import { MatchComponent } from './match/index'
+import { MatchComponent } from './match/index';
 import { SpritesComponent } from './match/map/sprites/index';
 import { SpriteAnimationComponent } from './match/map/sprite-animation/index';
 import { BuildingsComponent } from './match/map/buildings/index';

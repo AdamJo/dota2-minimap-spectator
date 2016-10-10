@@ -1,6 +1,8 @@
 import {
   Component,
   OnChanges,
+  OnDestroy,
+  OnInit,
   Input,
   ElementRef,
   HostListener,
@@ -16,7 +18,7 @@ import { ApiService, Scoreboard, Players } from '../../../services/index';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ScoreboardComponent implements OnChanges {
+export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
 
   @Input() scoreboard: Scoreboard;
   combinedPlayers: Array<Players>;
@@ -116,7 +118,7 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   // toggles menu and scoreboard
-  toggle() { 
+  toggle() {
     this.active = this.active === 'menu' ? 'scoreboard' : 'menu';
   }
 
@@ -189,21 +191,19 @@ export class ScoreboardComponent implements OnChanges {
       }
   }
 
-  ng
-
   ngOnDestroy() {
     if (this.active === 'scoreboard') {
       this.apiService.scoreboardValues = {
         sortedValue: this.sortedValue,
         active: 'scoreboard',
         menuTitle: this.menuTitle
-      }
+      };
     } else {
       this.apiService.scoreboardValues = {
         sortedValue: 'None',
         active: 'draft',
         menuTitle: this.menuTitle
-      }
+      };
     }
   }
 }

@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-import { UpcomingGames } from '../../services/index'
-
 @Component({
   selector: 'um-upcoming-match',
   templateUrl: 'upcoming-match.component.html',

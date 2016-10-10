@@ -12,7 +12,9 @@ import { League } from '../../services/index';
       ></em-spectators>
     </div>
     <div class="box" *ngIf="didGameStart"></div>
-    <div class="duration" *ngIf="didGameStart"><span class="inside-duration">{{gameTime(duration)}}</span></div>
+    <div class="duration" *ngIf="didGameStart">
+      <span class="inside-duration">{{gameTime(duration)}}</span>
+    </div>
   `,
   styles: [`
     .league {

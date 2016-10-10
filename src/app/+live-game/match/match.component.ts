@@ -1,6 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { loading } from '../../../assets/initialLoadData/loading';
-import { ApiService, LiveLeagueGame, League, Series, Scoreboard } from '../../services/index';
+import { ApiService, League, Series, Scoreboard } from '../../services/index';
 
 @Component({
   selector: 'lg-match',
@@ -8,7 +8,7 @@ import { ApiService, LiveLeagueGame, League, Series, Scoreboard } from '../../se
   styleUrls: ['match.component.css']
 })
 
-export class MatchComponent implements DoCheck {
+export class MatchComponent implements DoCheck, OnInit {
   scoreboard: Scoreboard;
   radiantTeamName: string;
   direTeamName: string;
@@ -30,7 +30,7 @@ export class MatchComponent implements DoCheck {
 
   ngDoCheck() {
     if (this.apiService.currentGame) {
-      this.paused = this.apiService.gamePaused;      
+      this.paused = this.apiService.gamePaused;
       this.loading = this.apiService.loadDone;
       this.scoreboard = this.apiService.currentGame.scoreboard;
       this.direTeamName = this.apiService.currentGame.dire_team_name;

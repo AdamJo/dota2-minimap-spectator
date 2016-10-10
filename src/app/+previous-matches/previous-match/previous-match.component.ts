@@ -1,14 +1,13 @@
-import { Component, Input } from '@angular/core';
-
-import { MatchHistory } from '../../services/index'
+import { Component, Input, OnChanges } from '@angular/core';
+import { MatchHistory } from '../../services/index';
 
 @Component({
   selector: 'pm-previous-match',
   templateUrl: 'previous-match.component.html',
   styleUrls: ['previous-match.component.css']
 })
-export class PreviousMatchComponent {
-  @Input() matches: any;
+export class PreviousMatchComponent implements OnChanges {
+  @Input() matches: Array<MatchHistory>;
   splitMatches: any;
 
   constructor() {
@@ -17,10 +16,10 @@ export class PreviousMatchComponent {
 
   ngOnChanges(changes) {
     if (this.matches.length > 26) {
-      this.splitMatches = this.matches.slice(26, 52)
-      this.matches = this.matches.slice(0,26)
+      this.splitMatches = this.matches.slice(26, 52);
+      this.matches = this.matches.slice(0, 26);
     } else {
-      this.splitMatches = []
+      this.splitMatches = [];
     }
   }
 }

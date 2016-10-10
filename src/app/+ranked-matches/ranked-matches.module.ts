@@ -6,12 +6,15 @@ import { RankedMatchesComponent } from './index';
 import { RankedMatchComponent }   from './ranked-match/index';
 import { TeamInfoComponent } from './team-info/index';
 import { MetaInfoComponent } from './meta-info/index';
-import { SpectatorsComponent } from './meta-info/spectators/index'
-
-import { RankedMatchesRoutingModule} from './ranked-matches.routing'
+import { SpectatorsComponent } from './meta-info/spectators/index';
 
 @NgModule({
-  imports: [CommonModule, RankedMatchesRoutingModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      { path: '', component: RankedMatchesComponent },
+    ])
+  ],
   exports: [RankedMatchesComponent],
   declarations: [
     RankedMatchComponent,
@@ -21,4 +24,5 @@ import { RankedMatchesRoutingModule} from './ranked-matches.routing'
     SpectatorsComponent
   ]
 })
+
 export class RankedMatchesModule { }

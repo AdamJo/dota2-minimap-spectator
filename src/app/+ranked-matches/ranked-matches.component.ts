@@ -4,7 +4,7 @@ import { Component, OnInit, HostBinding,
 
 import { ApiService } from '../services/index';
 import { loadingMmr } from '../../assets/initialLoadData/loadingMmr';
-import { MMR } from '../services/index'
+import { MMR } from '../services/index';
 
 @Component({
   selector: 'rm-ranked-matches',
@@ -53,7 +53,7 @@ export class RankedMatchesComponent implements OnInit {
   ngOnInit() {
     this.apiService.getMmrTop()
       .subscribe(data => {
-        this.rankedGames = data
-      })
+        this.rankedGames = data;
+      });
   }
 }

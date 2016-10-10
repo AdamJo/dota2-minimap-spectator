@@ -1,5 +1,3 @@
-// import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app.routing';
 import { AngularFireModule } from 'angularfire2';

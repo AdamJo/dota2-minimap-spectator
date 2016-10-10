@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { MMR } from '../../services/index'
+import { MMR } from '../../services/index';
 
 @Component({
   selector: 'rm-ranked-match',

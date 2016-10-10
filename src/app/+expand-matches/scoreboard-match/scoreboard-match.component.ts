@@ -1,6 +1,4 @@
-import { Component, Input, Output, EventEmitter,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'em-scoreboard-match',
@@ -74,7 +72,7 @@ import { Component, Input, Output, EventEmitter,
     }
   `]
 })
-export class ScoreboardMatchComponent {
+export class ScoreboardMatchComponent implements OnChanges {
   @Input() shortcut: string;
   @Output('change') userScoreboardPick = new EventEmitter();
   active: string;
@@ -100,6 +98,6 @@ export class ScoreboardMatchComponent {
     this.active = option;
     this.userScoreboardPick.emit({
       value: option
-    })
+    });
   }
 }

@@ -3,9 +3,9 @@ import { Component, OnInit, HostBinding,
          style, state } from '@angular/core';
 
 import { ApiService } from '../services/index';
-import { MatchHistory } from '../services/index'
+import { MatchHistory } from '../services/index';
 
-import { loadingPreviousGame } from '../../assets/initialLoadData/loadingPreviousGame'
+import { loadingPreviousGame } from '../../assets/initialLoadData/loadingPreviousGame';
 
 @Component({
   selector: 'pm-previous-matches',
@@ -61,12 +61,12 @@ export class PreviousMatchesComponent implements OnInit {
         this.previousMatches = data;
         this.getRegions();
         if (this.regionValue === 'disabled') {
-          this.switchRegionValue(this.regionValue)
+          this.switchRegionValue(this.regionValue);
         }
         if (this.previousMatches && this.previousMatches.length !== this.sortedMatches.length) {
           let oldRegion = this.regionValue;
           this.regionValue = '';
-          this.switchRegionValue(oldRegion)
+          this.switchRegionValue(oldRegion);
         }
       });
   }
@@ -82,20 +82,19 @@ export class PreviousMatchesComponent implements OnInit {
   // toggles menu and scorebaord
   switchRegionValue(userRegion) {
     if (this.regionInactive) {
-      this.regionValue = ''
+      this.regionValue = '';
       this.regionInactive = false;
     }
 
     if (userRegion === 'disabled') {
       // initial load
       this.sortedMatches = this.sliceMatches(this.previousMatches);
-    }
-    else if (this.regionValue !== userRegion) {
+    } else if (this.regionValue !== userRegion) {
       // new region searched
       this.sortedMatches = this.previousMatches;
-      this.sortedMatches = this.sortedMatches.filter((data:any) => {
-        return data['cluster_name'] === userRegion;  
-      })
+      this.sortedMatches = this.sortedMatches.filter((data: any) => {
+        return data['cluster_name'] === userRegion;
+      });
       this.sortedMatches = this.sliceMatches(this.sortedMatches);
       this.regionValue = userRegion;
     } else {
@@ -106,34 +105,34 @@ export class PreviousMatchesComponent implements OnInit {
   }
 
   getRegions() {
-    this.regions = this.previousMatches.map((data:any) => {
+    this.regions = this.previousMatches.map((data: any) => {
       return data['cluster_name'];
-    })
+    });
     this.regions = Array.from(new Set(this.regions));
     this.regions.sort();
   }
 
   sortTeams(event: string) {
-    this.regionInactive = true;    
-    let fuzzyTeams = this.previousMatches.filter((data:any) => {
-        return this.fuzzysearch(event.toLowerCase(), data.dire_name.toLowerCase()) || this.fuzzysearch(event.toLowerCase(), data.radiant_name.toLowerCase())
-    })    
+    this.regionInactive = true;
+    let fuzzyTeams = this.previousMatches.filter((data: any) => {
+        return (this.fuzzysearch(event.toLowerCase(), data.dire_name.toLowerCase()) ||
+          this.fuzzysearch(event.toLowerCase(), data.radiant_name.toLowerCase()));
+    });
     this.sortedMatches = this.sliceMatches(fuzzyTeams);
   }
 
   sortLeagues(event: string) {
     this.regionInactive = true;
-    let fuzzyLeague = this.previousMatches.filter((data:any) => {
+    let fuzzyLeague = this.previousMatches.filter((data: any) => {
         if (data.league_name) {
-          return this.fuzzysearch(event.toLowerCase(), data.league_name.toLowerCase())
+          return this.fuzzysearch(event.toLowerCase(), data.league_name.toLowerCase());
         }
-    })
+    });
     if (event.length === 0) {
       this.sortedMatches = this.sliceMatches(this.previousMatches);
     } else {
       this.sortedMatches = this.sliceMatches(fuzzyLeague);
     }
-    
   }
 
   // https://github.com/bevacqua/fuzzysearch
@@ -146,8 +145,8 @@ export class PreviousMatchesComponent implements OnInit {
     if (nlen === hlen) {
       return needle === haystack;
     }
-    outer: for (var i = 0, j = 0; i < nlen; i++) {
-      var nch = needle.charCodeAt(i);
+    outer: for (let i = 0, j = 0; i < nlen; i++) {
+      let nch = needle.charCodeAt(i);
       while (j < hlen) {
         if (haystack.charCodeAt(j++) === nch) {
           continue outer;

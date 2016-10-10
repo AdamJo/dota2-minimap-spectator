@@ -4,7 +4,7 @@ import { UpcomingMatchComponent } from './upcoming-match/index';
 import { CommonModule } from '@angular/common';
 import { UpcomingGameStartPipe } from '../pipes/index';
 
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [

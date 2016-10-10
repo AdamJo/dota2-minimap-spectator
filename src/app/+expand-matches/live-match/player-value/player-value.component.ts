@@ -1,11 +1,13 @@
-import { Component, Input, 
+import { Component, Input, OnChanges,
           trigger, transition, animate,
          style, state } from '@angular/core';
 
 @Component({
   selector: 'em-player-value',
   template: `
-    <div [@newPlayerValue]="trigger" class="respawn"><div [@innerSwitch]="valueSwitch" class="value">{{playerValue}}</div></div>
+    <div [@newPlayerValue]="trigger" class="respawn">
+      <div [@innerSwitch]="valueSwitch" class="value">{{playerValue}}</div>
+    </div>
     `,
   styles: [`
     .respawn {
@@ -69,7 +71,7 @@ import { Component, Input,
   ]
 })
 
-export class PlayerValueComponent {
+export class PlayerValueComponent implements OnChanges {
   @Input() playerValue: string;
   trigger;
   valueSwitch = 'toSwitch';
@@ -80,7 +82,7 @@ export class PlayerValueComponent {
       this.playerValue = '';
       this.valueSwitch = '';
     } else {
-      this.trigger = 'on'
+      this.trigger = 'on';
       this.valueSwitch = this.valueSwitch === 'toSwitch' ? 'fromSwitch' : 'toSwitch';
     }
   }

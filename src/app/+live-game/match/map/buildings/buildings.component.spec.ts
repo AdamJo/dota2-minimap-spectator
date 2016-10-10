@@ -11,7 +11,8 @@ describe('Buildings Component', () => {
   it('should create an instance', inject([ BuildingsComponent ], (app: BuildingsComponent) => {
     expect(app.barracks).toBeTruthy();
   }));
-  it('should have barracks defined correctly', inject([ BuildingsComponent ], (app: BuildingsComponent) => {
+  it('should have barracks defined correctly',
+    inject([ BuildingsComponent ], (app: BuildingsComponent) => {
     expect(app.barracks).toEqual([
       'barracks-bottom-ranged',
       'barracks-bottom-melee',
@@ -21,7 +22,8 @@ describe('Buildings Component', () => {
       'barracks-top-melee'
     ]);
   }));
-  it('should have towers defined correctly', inject([ BuildingsComponent ], (app: BuildingsComponent) => {
+  it('should have towers defined correctly',
+    inject([ BuildingsComponent ], (app: BuildingsComponent) => {
     expect(app.towers).toEqual([
       'ancient-1',
       'ancient-2',

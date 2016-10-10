@@ -11,9 +11,9 @@ export interface MMR {
 }
 
 export interface RankedPlayers {
-  assists: number,
-  deaths: number,
-  hero: string,
-  kills: number,
-  name: string
+  assists: number;
+  deaths: number;
+  hero: string;
+  kills: number;
+  name: string;
 }

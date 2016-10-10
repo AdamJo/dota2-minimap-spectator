@@ -1,7 +1,7 @@
-import { Component, DoCheck, OnInit, HostBinding,
+import { Component, DoCheck, HostBinding,
          trigger, transition, animate,
          style, state } from '@angular/core';
-import { ApiService, LiveLeagueGame, League, Series, Scoreboard } from '../services/index';
+import { ApiService, League, Series, Scoreboard } from '../services/index';
 import { loading } from '../../assets/initialLoadData/loading';
 
 @Component({

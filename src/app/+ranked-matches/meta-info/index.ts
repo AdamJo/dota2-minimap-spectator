@@ -1,1 +1,1 @@
-export { MetaInfoComponent }from './meta-info.component'
+export { MetaInfoComponent }from './meta-info.component';

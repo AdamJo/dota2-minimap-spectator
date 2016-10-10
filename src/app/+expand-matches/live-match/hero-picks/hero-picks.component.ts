@@ -50,17 +50,14 @@ export class HeroPicksComponent {
   @Input() scoreboardValue: string;
 
   ScoreboardSelect(player): string {
-    if (this.scoreboardValue === "kills") {
-      return `${player['kills']} / ${player['death']} / ${player['assists']}`
-    }
-    else if (this.scoreboardValue === "last_hits") {
-      return `${player['last_hits']} / ${player['denies']}`
-    }
-    else if (this.scoreboardValue === "None") {
-      return `${player['name']}`
-    }
-    else {
-      //adds comma if value is a number and greater than 3
+    if (this.scoreboardValue === 'kills') {
+      return `${player['kills']} / ${player['death']} / ${player['assists']}`;
+    } else if (this.scoreboardValue === 'last_hits') {
+      return `${player['last_hits']} / ${player['denies']}`;
+    } else if (this.scoreboardValue === 'None') {
+      return `${player['name']}`;
+    } else {
+      // adds comma if value is a number and greater than 3
       return player[this.scoreboardValue].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
   }

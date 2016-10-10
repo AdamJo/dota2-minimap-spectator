@@ -1,1 +1,1 @@
-export { RankedMatchesComponent } from './ranked-matches.component'
+export { RankedMatchesComponent } from './ranked-matches.component';

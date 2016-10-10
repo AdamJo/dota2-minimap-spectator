@@ -4,7 +4,7 @@ import { Component, Input, ChangeDetectionStrategy, trigger,
   transition,
   animate } from '@angular/core';
 
-import { Team } from '../../../services/index'
+import { Team } from '../../../services/index';
 
 @Component({
   selector: 'lg-mini-draft',
