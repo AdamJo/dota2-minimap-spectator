@@ -1,1 +1,1 @@
-export {} from './mobile-message.componet'
+export {} from './mobile-message.componet';

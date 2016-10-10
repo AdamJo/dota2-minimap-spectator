@@ -1,6 +1,6 @@
 import {
   Component,
-  Input,
+  OnInit,
   trigger,
   state,
   style,
@@ -23,8 +23,8 @@ import {
       justify-content: center;
     }
     .mobile-message {
-      text-align:center;
-      line-height:40px;
+      text-align: center;
+      line-height: 40px;
 
       white-space: nowrap;
       overflow: hidden;
@@ -43,11 +43,11 @@ import {
         background: '#000',
         display: 'none'
       })),
-      transition('load => done', animate('2000ms ease-in'))
+      transition('load => done', animate('800ms ease-out'))
     ])
   ]
 })
-export class MobileMessageComponent {
+export class MobileMessageComponent implements OnInit {
   waitTwoSeconds = 'load';
 
   ngOnInit() {
