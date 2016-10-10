@@ -1,6 +1,8 @@
 @import '../../../assets/_variables.scss';
 
 .flex-container {
+  background: $first-layer-background;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,8 +10,10 @@
 
   padding-top: 10px;
   margin-bottom: 10px;
-  background: #333;
-  width: 1040px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  width: 520px;
   height: 820px;
 }
 
@@ -18,20 +22,23 @@
   align-items: center;
   width: 480px;
   height: 30px;
-  border-bottom: 1px solid $third-layer-background;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+
+  background: none;
 }
 
 .team {
   text-align: center;
   width: 240px;
+  border-bottom: 1px solid $third-layer-background;
 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.dire {
-  
 }
 
 .vs {
@@ -40,7 +47,7 @@
 }
 
 .active {
-  
+  border-bottom: 1px solid $radiant-color;
 }
 
 .inactive {
