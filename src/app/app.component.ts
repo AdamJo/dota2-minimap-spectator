@@ -7,7 +7,21 @@ import { ApiService } from './services/index';
 })
 
 export class AppComponent {
+  mobileCheck = false;
+
+  // (TODO): check scrreen width / height,
+  // if lower than initial mobile message ( should only be mobile with that size
   constructor(public apiService: ApiService) {
     this.apiService.liveGames();
+  }
+
+  ngOnInit() {
+    if (window.innerWidth <= 600) {
+      this.mobileCheck = true;
+    }
+  }
+
+  yeup(){
+    console.log('yeup')
   }
 }

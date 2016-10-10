@@ -1,4 +1,8 @@
-<sh-nav></sh-nav>
+<sh-mobile-message
+  *ngIf='mobileCheck'
+  ></sh-mobile-message>
+
+<sh-nav #app ></sh-nav>
 
 <router-outlet></router-outlet>
 

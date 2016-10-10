@@ -19,8 +19,6 @@ export class PreviousMatchComponent {
     if (this.matches.length > 26) {
       this.splitMatches = this.matches.slice(26, 52)
       this.matches = this.matches.slice(0,26)
-      console.log(this.splitMatches.length)
-      console.log(this.matches.length)
     } else {
       this.splitMatches = []
     }
