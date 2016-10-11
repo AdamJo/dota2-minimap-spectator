@@ -1,4 +1,8 @@
 {
+ "manifest_version": 2,
+ "version": 1.0,
+ "default_locale": "en",
+ "description": "View multiple live Dota 2 games along with staying up to date with previous and upcoming games.",
  "name": "Mini Dota",
  "icons": [
   {
