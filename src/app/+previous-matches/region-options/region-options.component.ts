@@ -49,11 +49,12 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      box-shadow: 0px 0px 15px 0px #142958;
+      box-shadow: 0px 0px 7px 0px #808080;
       transition: box-shadow 300ms ease-in-out both;
     }
 
     .choices:hover {
+      background: rgba(34, 98, 126, 0.5);
       box-shadow: 0px 0px 15px 0px #22627E;
     }
 

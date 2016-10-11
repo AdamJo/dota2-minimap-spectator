@@ -3,7 +3,17 @@ import { ApiService } from './services/index';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  template: `
+    <sh-mobile-message
+      *ngIf='mobileCheck'
+    ></sh-mobile-message>
+
+    <sh-nav></sh-nav>
+
+    <router-outlet></router-outlet>
+
+    <sh-footer></sh-footer>
+  `
 })
 
 export class AppComponent implements OnInit {

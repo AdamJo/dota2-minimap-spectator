@@ -44,7 +44,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
 
       cursor: pointer;
 
-      box-shadow: 0px 0px 15px 0px #142958;
+      box-shadow: 0px 0px 7px 0px #808080;
       transition: box-shadow 300ms ease-in-out both;
     }
 
@@ -53,6 +53,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     }
 
     .choices:hover {
+      background: rgba(34, 98, 126, 0.5);
       box-shadow: 0px 0px 15px 0px #22627E;
     }
 
