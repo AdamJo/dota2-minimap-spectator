@@ -34,6 +34,9 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     }
 
     .choices {
+      background: #222;
+      border: 1px solid #2f2724;
+
       width: 100px;
       height: 50px;
 
@@ -53,6 +56,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     }
 
     .choices:hover {
+      border: 1px solid transparent;
       background: rgba(34, 98, 126, 0.5);
       box-shadow: 0px 0px 15px 0px #22627E;
     }
@@ -65,11 +69,6 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     .inactive {
       box-shadow: 0px 0px 15px 0px #red;
       transition: box-shadow 300ms ease-out;
-    }
-
-    li {
-      background: #222;
-      border: 1px solid #2f2724;
     }
   `]
 })
