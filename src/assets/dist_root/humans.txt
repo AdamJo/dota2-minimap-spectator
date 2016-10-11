@@ -8,11 +8,11 @@
 # THANKS
 
   <name>
-  AdamJo -- AdamJo
-  PatrickJS -- gdi2290
-  AngularClass -- AngularClass
+  AdamJo -- developer -- AdamJo
+
+  qdouble -- starter pack -- https://github.com/qdouble/angular-webpack2-starter
 
 # TECHNOLOGY COLOPHON
 
   HTML5, CSS3
-  Angular2, TypeScript, Webpack
+  Angular2, TypeScript2, Webpack2
