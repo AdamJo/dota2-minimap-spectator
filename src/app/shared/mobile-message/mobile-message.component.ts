@@ -13,7 +13,7 @@ import {
   template: `
     <div class="container" >
       <div class="mobile-message"  [@mobile]="waitTwoSeconds">
-        MOBILE: Best viewed in landscape mode!
+        MOBILE: Best viewed in LANDSCAPE mode!
       </div>
     </div>
   `,
@@ -21,15 +21,18 @@ import {
     .container {
       display: flex;
       justify-content: center;
+      min-width: 1102px;
     }
     .mobile-message {
+      font-size: 1.5rem;
+
       text-align: center;
-      line-height: 40px;
+      line-height: 60px;
 
       white-space: nowrap;
       overflow: hidden;
 
-      height: 40px;
+      height: 60px;
       width: 1102px;
     }
   `],
@@ -47,6 +50,7 @@ import {
     ])
   ]
 })
+
 export class MobileMessageComponent implements OnInit {
   waitTwoSeconds = 'load';
 
