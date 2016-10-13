@@ -3,7 +3,11 @@
  "version": 1.0,
  "default_locale": "en",
  "description": "View multiple live Dota 2 games along with staying up to date with previous and upcoming games.",
- "name": "Mini Dota",
+ "name": "Mini Dota 2 Watcher",
+ "background_color": "black",
+ "theme_color": "#222",
+ "orientation": "landscape",
+ "start_url": "/live",
  "icons": [
   {
    "src": "/assets/icon/android-icon-36x36.png",
