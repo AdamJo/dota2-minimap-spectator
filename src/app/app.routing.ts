@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule,
-// PreloadAllModules
+  PreloadAllModules
 } from '@angular/router';
+
+import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
   {
@@ -28,18 +30,23 @@ const routes: Routes = [
   {
     path: 'upcoming',
     loadChildren: './+upcoming-matches/upcoming-matches.module#UpcomingMatchesModule'
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
   }
-  // TODO: currently broken, fix in master waiting on release
-  // {
-  //   path: '**',
-  //   loadChildren: './live-game/live-game.module#LiveGameModule'
-  // } 
+  // TODO: currently broken, still broken as of 2.1.0, https://github.com/angular/angular/pull/12254
+  // forwarding to PageNotFoundComponent until it is fixed
+  , {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(
-      routes
-      // { preloadingStrategy: PreloadAllModules } // does not work with AoT
+      routes,
+      { preloadingStrategy: PreloadAllModules }
   )],
   exports: [RouterModule],
   providers: []
