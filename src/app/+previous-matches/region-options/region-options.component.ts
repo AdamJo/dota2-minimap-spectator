@@ -59,11 +59,11 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     .choices:hover {
       border: 1px solid transparent;
       background: rgba(34, 98, 126, 0.5);
-      box-shadow: 0px 0px 15px 0px #22627E;
     }
 
     .active {
-      box-shadow: 0px 0px 15px 0px #22627E;
+      border: 1px solid transparent;
+      background: #555;
       transition: box-shadow 300ms ease-in;
     }
 
