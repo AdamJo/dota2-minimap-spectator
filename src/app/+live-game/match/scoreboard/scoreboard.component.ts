@@ -77,10 +77,8 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     }
   }
 
-
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
   sortValues(value: string) {
-
     return this.newValues.sort((a: any, b: any) => {
       if (a[value] < b[value]) {
         return 1;
@@ -119,7 +117,15 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
 
   // toggles menu and scoreboard
   toggle() {
-    this.active = this.active === 'menu' ? 'scoreboard' : 'menu';
+    if (this.active === 'menu') {
+      if (this.menuTitle === '(O) DRAFT') {
+        this.active = 'draft';
+      } else {
+        this.active = 'scoreboard'
+      }
+    } else {
+      this.active = 'menu'
+    }
   }
 
   // un expands menu when clicked outside of the area. 
