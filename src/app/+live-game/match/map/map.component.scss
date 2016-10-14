@@ -16,7 +16,7 @@
   left: 5px;
   top: 10px;
 
-  font-size: 2rem;
+  font-size: 2.5rem;
   height: 561px;
   width: 588px;
 
@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
 
-  z-index: 1000;
+  z-index: 10;
 }
 
 .content {
@@ -33,7 +33,12 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 100;
+
+  &:hover + .image {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+  }
 }
 
 .icons {
@@ -44,5 +49,5 @@
   background-color: $black;
   height: 600px;
   width: 600px;
+  z-index: 0;
 }
-

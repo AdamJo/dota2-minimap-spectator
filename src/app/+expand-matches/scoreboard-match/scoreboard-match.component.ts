@@ -67,7 +67,6 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     }
 
     .inactive {
-      box-shadow: 0px 0px 15px 0px #red;
       transition: box-shadow 300ms ease-out;
     }
   `]
