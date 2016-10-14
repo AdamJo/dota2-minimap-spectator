@@ -38,3 +38,4 @@ dll/
 # others #
 firebase.json
 .firebaserc
+yarn.lock
