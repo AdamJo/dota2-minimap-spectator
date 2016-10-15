@@ -38,6 +38,7 @@
   &:hover + .image {
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
+    transition: 500ms ease-in-out;
   }
 }
 
@@ -50,4 +51,7 @@
   height: 600px;
   width: 600px;
   z-index: 0;
+  
+  filter: none;
+  transition: 500ms ease-in-out;
 }
