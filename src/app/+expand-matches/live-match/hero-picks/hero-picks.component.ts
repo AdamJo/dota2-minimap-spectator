@@ -9,7 +9,7 @@ import { Players } from '../../../services/index';
       <div class="hero" *ngFor="let player of players">
         <img
           *ngIf="player.hero !== 'None'"
-          src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png"
+          src="../../../../assets/img/heroes/{{player.hero}}_hphover.png"
           alt="{{player.hero}}">
         <div
           class="blank"
@@ -22,8 +22,6 @@ import { Players } from '../../../services/index';
     </div>
   `,
   styles: [`
-
-  
     .hero-picks {
       display: flex;
       flex-direction: row;

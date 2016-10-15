@@ -16,13 +16,13 @@
       <div class="column">
         <div class="ban-cell dire" *ngFor='let hero of dire?.bans'>
           <div class="active-ban" *ngIf='hero !== -1'>
-            <img [@draft] src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+            <img [@draft] src='../../assets/img/heroes/{{hero}}_hphover.png' alt="{{hero}}">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="pick-cell dire-pick" *ngFor='let hero of dire?.picks'>
-          <img [@draft] *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg' alt="{{hero}}">
+          <img [@draft] *ngIf='hero !== -1' src='../../assets/img/heroes_vert/{{hero}}_vert.jpg' alt="{{hero}}">
         </div>
       </div>
       <div class="players">
@@ -36,13 +36,13 @@
       <div class="column">
         <div class="ban-cell radiant" *ngFor='let hero of radiant?.bans'>
           <div class="active-ban" *ngIf='hero !== -1'>
-            <img [@draft] src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png' alt="{{hero}}">
+            <img [@draft] src='../../assets/img/heroes/{{hero}}_hphover.png' alt="{{hero}}">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="pick-cell radiant-pick" *ngFor='let hero of radiant?.picks'>
-          <img [@draft] *ngIf='hero !== -1' src='http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_vert.jpg' alt="{{hero}}">
+          <img [@draft] *ngIf='hero !== -1' src='../../assets/img/heroes_vert/{{hero}}_vert.jpg' alt="{{hero}}">
         </div>
       </div>
       <div class="players">
