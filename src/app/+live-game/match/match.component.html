@@ -4,7 +4,7 @@
       <h4 class="team-names">
         <span class="team-name">{{direTeamName}}</span>
         <lg-series
-          [gameSeries]='series.radiant_series_wins'
+          [gameSeries]='series.dire_series_wins'
         ></lg-series>
         <span class="score dire-score">{{scoreboard.dire.score}}</span>
         <h5 class="heading">{{scoreboard.duration | gameTime}}</h5>
@@ -37,7 +37,7 @@
         <h4 class="team-names">
           <span class="team-name">{{radiantTeamName}}</span>
           <lg-series
-            [gameSeries]='series.dire_series_wins'
+            [gameSeries]='series.radiant_series_wins'
           ></lg-series>
           <span class="score radiant-score">{{scoreboard.radiant.score}}</span>
         </h4>
