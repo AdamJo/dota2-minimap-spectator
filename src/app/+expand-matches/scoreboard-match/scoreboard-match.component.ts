@@ -48,7 +48,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
       cursor: pointer;
 
       box-shadow: 0px 5px 7px -5px #808080;
-      transition: box-shadow 300ms ease-in-out both;
+      transition: box-shadow 200ms ease-in-out both;
     }
 
     .shortcut {
@@ -65,11 +65,11 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
       border: 1px solid transparent;
       background: #555;
       box-shadow: none;
-      transition: box-shadow 300ms ease-in;
+      transition: box-shadow 200ms ease-in;
     }
 
     .inactive {
-      transition: box-shadow 300ms ease-out;
+      transition: box-shadow 200ms ease-out;
     }
   `]
 })
