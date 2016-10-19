@@ -1,5 +1,5 @@
 import { Component, HostListener, Input,
-  trigger, state, style, transition, animate } from '@angular/core';
+  trigger, style, transition, animate, keyframes } from '@angular/core';
 import { ApiService } from '../../services/index';
 
 @Component({
@@ -8,20 +8,20 @@ import { ApiService } from '../../services/index';
   styleUrls: ['./button-info.component.css'],
   animations: [
     trigger('transfer', [
-      state('left', style({
-        transform: 'rotate(0)'
-      })),
-      state('leftGo', style({
-        transform: 'rotate(360deg)'
-      })),
-      state('right', style({
-        transform: 'rotate(0)'
-      })),
-      state('rightGo', style({
-        transform: 'rotate(360deg)'
-      })),
-      transition('left <=> leftGo', animate('.3s linear')),
-      transition('right <=> rightGo', animate('.3s linear'))
+      transition('left <=> leftGo', [
+        animate('.3s', keyframes([
+        style({opacity: 0, transform: 'translateX(-100%)', offset: 0}),
+        style({opacity: 1, transform: 'translateX(7px)',  offset: 0.3}),
+        style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
+      ]))
+      ]),
+      transition('right <=> rightGo', [
+        animate('.3s', keyframes([
+          style({opacity: 0, transform: 'translateX(-100%)', offset: 0}),
+          style({opacity: 1, transform: 'translateX(7px)',  offset: 0.3}),
+          style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
+        ]))
+      ])
     ])
   ]
 })
