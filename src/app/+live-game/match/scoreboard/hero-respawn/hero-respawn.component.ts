@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styles: [`
     .respawn {
       background: black;
-      opacity: 0.75;
+      opacity: 0.65;
       height: 46px;
       width: 82.27px;
       position: absolute;

@@ -37,7 +37,9 @@
 
 img {
   border: 1px solid $border-color;
-  width: 70%;
+
+  height: 46px;
+  width: 82.27px;
 }
 
 .ultimate {
@@ -74,4 +76,17 @@ img {
   height: 46px;
   margin-left: 3px;
   width: 82.28px;
+}
+
+.respawn-timer {
+  font-size: 1rem;
+  position: absolute;
+  left: -2px;
+  top: 1px;
+}
+
+.respawn {
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
