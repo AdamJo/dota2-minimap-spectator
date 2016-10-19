@@ -55,7 +55,6 @@ export class ApiService {
       if (code.$value === 'online') {
         this.isApiUp = true;
       } else {
-        console.log('statusCode - OFFLINE');
         this.isApiUp = false;
       }
     })
@@ -140,14 +139,37 @@ export class ApiService {
 
     if (this.firstCheckDone) {
       this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
+        if (data.scoreboard.radiant.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
+          data.scoreboard.radiant.players[i].ultimate_used = true;
+          data.scoreboard.radiant.players[i].old_ultimate_cooldown = data.scoreboard.radiant.players[i].ultimate_cooldown;
+        } else {
+          data.scoreboard.radiant.players[i].ultimate_used = false;
+          data.scoreboard.radiant.players[i].old_ultimate_cooldown = data.scoreboard.radiant.players[i].ultimate_cooldown;
+        }
+
         data.scoreboard.radiant.players[i].old_position_x = d.position_x;
         data.scoreboard.radiant.players[i].old_position_y = d.position_y;
       });
       this.currentGame.scoreboard.dire.players.map((d: any, i: any) => {
+        if (data.scoreboard.dire.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
+          data.scoreboard.dire.players[i].ultimate_used = true;
+          data.scoreboard.dire.players[i].old_ultimate_cooldown = data.scoreboard.dire.players[i].ultimate_cooldown;
+        } else {
+          data.scoreboard.dire.players[i].ultimate_used = false;
+          data.scoreboard.dire.players[i].old_ultimate_cooldown = data.scoreboard.dire.players[i].ultimate_cooldown;
+        }
         data.scoreboard.dire.players[i].old_position_x = d.position_x;
         data.scoreboard.dire.players[i].old_position_y = d.position_y;
       });
     } else {
+      data.scoreboard.radiant.players.map((d: any, i: any)  => {
+        data.scoreboard.radiant.players[i].ultimate_used = false;
+        data.scoreboard.radiant.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
+      });
+      data.scoreboard.dire.players.map((d: any, i: any) => {
+        data.scoreboard.dire.players[i].ultimate_used = false;
+        data.scoreboard.dire.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
+      });
       this.gamePaused = false;
       this.matchId = data.match_id;
       this.firstCheckDone = true;

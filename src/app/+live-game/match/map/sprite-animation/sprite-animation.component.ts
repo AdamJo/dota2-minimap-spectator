@@ -3,17 +3,19 @@ import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetect
   state,
   style,
   transition,
+  keyframes,
   animate } from '@angular/core';
 
 @Component({
   selector: 'lg-sprite-animation',
   template: `
-    <div class="animation"
+    <div class="animation icons"
       #position
       (mouseenter)=toggle()
       (mouseleave)=toggle()
       [@shrink]='shrink'
-      ngClass="icons {{ team === 'radiant' ? 'radiant' : team === 'dire' ? 'dire' : 'roshan' }}">
+      [@ultimateGo]='ultimate'
+      ngClass="{{ team === 'radiant' ? 'radiant' : team === 'dire' ? 'dire' : 'roshan' }}">
       <lg-sprites
         [team]='team' 
         [heroId]='heroId'>
@@ -58,7 +60,17 @@ import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetect
         transform: 'scale(.5)'
       })),
       transition('small <=> regular', animate('500ms ease'))
-    ])
+    ]),
+    trigger('ultimateGo', [
+      transition('void => go', [
+        animate('1s', keyframes([
+          style({transform: 'scale(.9)'}),
+          style({transform: 'scale(1.5)'}),
+          style({transform: 'scale(.7)'}),
+          style({transform: 'scale(1)'})
+        ]))
+      ])
+    ]),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -70,16 +82,22 @@ export class SpriteAnimationComponent implements OnInit {
   @Input() posY: number;
   @Input() oldPosX: number;
   @Input() oldPosY: number;
+  @Input() ultimateUsed: boolean;
 
   @ViewChild('position') coordinates: ElementRef;
   @Input() respawnTimer: number;
 
   shrink = 'regular';
+  ultimate:string;
 
   constructor(public renderer: Renderer) {
   }
 
   ngOnInit() {
+    if (this.ultimateUsed) {
+      this.ultimate = 'go';
+    }
+
     this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
     this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
     this.animateMovement();
