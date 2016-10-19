@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
 import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseObjectObservable } from 'angularfire2';
 import { loading } from '../../assets/initialLoadData/loading';
 
 @Injectable()
@@ -17,6 +18,7 @@ export class ApiService {
   public currentGame: LiveLeagueGame; // list of current games
   public currentMatchId: number;
   public scoreboardValues: any;
+  public statusCode: FirebaseObjectObservable<any>;
 
   public gamePaused: boolean;
   public duration: number;
@@ -47,6 +49,17 @@ export class ApiService {
 
   // go through live games
   liveGames() {
+    // determine status code
+    this.statusCode = this.getStatusCode()
+    this.statusCode.subscribe((code: any) => {
+      if (code.$value === 'online') {
+        this.isApiUp = true;
+      } else {
+        console.log('statusCode - OFFLINE');
+        this.isApiUp = false;
+      }
+    })
+
     this.game$ = this.getCurrentGames();
     this.game$
     .debounceTime(100)
@@ -83,16 +96,18 @@ export class ApiService {
           this.gameCount = this.dataLength;
           this.sortScoreboard(data[data.length - this.gameCount]);
         }
-        this.isApiUp = true;
       } else if (this.dataLength !== 0) {
       // inital load or not matchID
         this.sortScoreboard(data[data.length - this.gameCount]);
-        this.isApiUp = true;
       } else {
         this.gameCount = 5;
-        this.isApiUp = false;
       }
     });
+  }
+
+  // get status code (liveGames) from firebase backend
+  getStatusCode() {
+    return this.af.database.object('statusCode');
   }
 
   // get live games from firebase backend
