@@ -24,7 +24,8 @@ import { Team } from '../../../services/index';
         opacity: 1
       })),
       state('night', style({
-        opacity: .8
+        opacity: .8,
+        filter: 'grayscale(.3)'
       })),
       transition('day <=> night', animate('750ms ease-in'))
     ]),
