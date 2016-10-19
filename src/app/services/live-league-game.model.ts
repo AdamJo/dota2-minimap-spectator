@@ -76,7 +76,7 @@ export interface Players {
   old_position_y?: number;
   ultimate_cooldown: number;
   old_ultimate_cooldown?: number;
-  ultimate_used: boolean;
+  ultimate_used?: boolean;
   ultimate_state: number;
   xp_per_min: number;
 }
