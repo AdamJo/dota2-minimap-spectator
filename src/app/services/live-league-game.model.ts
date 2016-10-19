@@ -55,8 +55,8 @@ export interface Series {
 }
 
 export interface Players {
-  account_id: number;
   assists: number;
+  buyback_status: number;
   death: number;
   denies: number;
   gold: number;
@@ -77,6 +77,5 @@ export interface Players {
   ultimate_cooldown: number;
   old_ultimate_cooldown?: number;
   ultimate_used?: boolean;
-  ultimate_state: number;
   xp_per_min: number;
 }
