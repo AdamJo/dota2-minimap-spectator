@@ -79,7 +79,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
 export class RegionOptionsComponent implements OnChanges {
   @Input() regions: Array<string>;
   @Input() inactive: string;
-  @Output('change') userRegionPick = new EventEmitter();
+  @Output() userRegionPick = new EventEmitter();
   active: string;
   lastInput: string;
 

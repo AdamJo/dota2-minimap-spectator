@@ -50,14 +50,14 @@ export class ApiService {
   // go through live games
   liveGames() {
     // determine status code
-    this.statusCode = this.getStatusCode()
+    this.statusCode = this.getStatusCode();
     this.statusCode.subscribe((code: any) => {
       if (code.$value === 'online') {
         this.isApiUp = true;
       } else {
         this.isApiUp = false;
       }
-    })
+    });
 
     this.game$ = this.getCurrentGames();
     this.game$
@@ -141,10 +141,12 @@ export class ApiService {
       this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
         if (data.scoreboard.radiant.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
           data.scoreboard.radiant.players[i].ultimate_used = true;
-          data.scoreboard.radiant.players[i].old_ultimate_cooldown = data.scoreboard.radiant.players[i].ultimate_cooldown;
+          data.scoreboard.radiant.players[i].old_ultimate_cooldown =
+            data.scoreboard.radiant.players[i].ultimate_cooldown;
         } else {
           data.scoreboard.radiant.players[i].ultimate_used = false;
-          data.scoreboard.radiant.players[i].old_ultimate_cooldown = data.scoreboard.radiant.players[i].ultimate_cooldown;
+          data.scoreboard.radiant.players[i].old_ultimate_cooldown =
+            data.scoreboard.radiant.players[i].ultimate_cooldown;
         }
 
         data.scoreboard.radiant.players[i].old_position_x = d.position_x;
@@ -153,10 +155,12 @@ export class ApiService {
       this.currentGame.scoreboard.dire.players.map((d: any, i: any) => {
         if (data.scoreboard.dire.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
           data.scoreboard.dire.players[i].ultimate_used = true;
-          data.scoreboard.dire.players[i].old_ultimate_cooldown = data.scoreboard.dire.players[i].ultimate_cooldown;
+          data.scoreboard.dire.players[i].old_ultimate_cooldown =
+            data.scoreboard.dire.players[i].ultimate_cooldown;
         } else {
           data.scoreboard.dire.players[i].ultimate_used = false;
-          data.scoreboard.dire.players[i].old_ultimate_cooldown = data.scoreboard.dire.players[i].ultimate_cooldown;
+          data.scoreboard.dire.players[i].old_ultimate_cooldown =
+            data.scoreboard.dire.players[i].ultimate_cooldown;
         }
         data.scoreboard.dire.players[i].old_position_x = d.position_x;
         data.scoreboard.dire.players[i].old_position_y = d.position_y;

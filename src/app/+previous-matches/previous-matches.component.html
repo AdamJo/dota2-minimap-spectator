@@ -37,7 +37,7 @@
     <pm-region-options
       [regions]='regions'
       [inactive]='regionInactive'
-      (change)="switchRegionValue($event)"
+      (userRegionPick)="switchRegionValue($event)"
     ></pm-region-options>
     <pm-previous-match
       [matches]='sortedMatches'

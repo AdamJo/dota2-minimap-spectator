@@ -11,14 +11,12 @@ import { LiveLeagueGame } from '../../services/index';
 export class LiveMatchComponent {
   @Input() match: LiveLeagueGame;
   @Input() index: number;
-  @Output('change') userIndexPick = new EventEmitter();
+  @Output() userIndexPick = new EventEmitter();
   @Input() scoreboardValue: string;
   @Input() didGameStart: boolean;
 
   sendToParent() {
-    this.userIndexPick.emit({
-      index: this.index
-    });
+    this.userIndexPick.emit(this.index);
   }
 
   gameTime(time: number): string {

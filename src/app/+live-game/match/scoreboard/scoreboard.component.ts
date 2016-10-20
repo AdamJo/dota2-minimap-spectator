@@ -122,10 +122,10 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
       if (this.menuTitle === '(O) DRAFT') {
         this.active = 'draft';
       } else {
-        this.active = 'scoreboard'
+        this.active = 'scoreboard';
       }
     } else {
-      this.active = 'menu'
+      this.active = 'menu';
     }
   }
 

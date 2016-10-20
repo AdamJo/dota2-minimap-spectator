@@ -88,7 +88,7 @@ export class SpriteAnimationComponent implements OnInit {
   @Input() respawnTimer: number;
 
   shrink = 'regular';
-  ultimate:string;
+  ultimate: string;
 
   constructor(public renderer: Renderer) {
   }
