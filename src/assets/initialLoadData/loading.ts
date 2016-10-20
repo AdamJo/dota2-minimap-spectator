@@ -28,8 +28,8 @@ export let loading = {
       ],
       'players': [
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -53,13 +53,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -83,13 +82,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -113,13 +111,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -143,13 +140,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -173,7 +169,6 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         }
@@ -200,8 +195,8 @@ export let loading = {
       ],
       'players': [
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -225,13 +220,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -255,13 +249,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -285,13 +278,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -315,13 +307,12 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         },
         {
-          'account_id': 1234567890,
           'assists': 0,
+          'buyback_status': 0,
           'death': 0,
           'denies': 0,
           'gold': 0,
@@ -345,7 +336,6 @@ export let loading = {
           'position_y': 0,
           'respawn_timer': 0,
           'ultimate_cooldown': 0,
-          'ultimate_state': 0,
           'xp_per_min': 0,
           'team': 'dire'
         }

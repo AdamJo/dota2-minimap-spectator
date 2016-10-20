@@ -10,7 +10,10 @@
           ></lg-hero-respawn>
         </div>
         <div
-          ngClass="ultimate {{(player.ultimate_cooldown === 0 && player.level >= 6) ? 'ultimate-active' : 'ultimate-inactive'}}"
+          ngClass="
+          ultimate
+          {{(player.ultimate_cooldown === 0 && player.level >= 6) ? 'ultimate-active' : 'ultimate-inactive'}}
+          {{(player.gold > player.buyback_status) ? 'buyback-active' : 'buyback-inactive'}}"
         >&nbsp;</div>
       </div>
       <lg-hero-items class="items"

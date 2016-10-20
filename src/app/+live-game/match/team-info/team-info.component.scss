@@ -43,7 +43,6 @@ img {
 }
 
 .ultimate {
-  border: 1px solid $ultimate-border;
   height: 18px;
   margin-top: 12px;
   opacity: .8;
@@ -62,6 +61,14 @@ img {
 .ultimate-cooldown {
   position: absolute;
   top: 63px;
+}
+
+.buyback-active {
+  border: 1px solid $buyback-status;
+}
+
+.buyback-inactive {
+  border: 1px solid $ultimate-border;
 }
 
 .dire {

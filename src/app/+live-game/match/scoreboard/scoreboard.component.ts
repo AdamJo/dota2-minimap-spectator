@@ -36,7 +36,8 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     {name: 'gold', option: '(T) CURRENT GOLD' },
     {name: 'net_worth', option: '(Y) NET WORTH' },
     {name: 'gold_per_min', option: '(U) GOLD PER MINUTE' },
-    {name: 'ultimate_cooldown', option: '(I) ULTIMATE COOLDOWN' },
+    // {name: 'ultimate_cooldown', option: '(I) ULTIMATE COOLDOWN' },
+    {name: 'buyback_status', option: '(I) BUYBACK STATUS (Estimated)' },
     {name: 'draft', option: '(O) DRAFT' },
   ];
 
@@ -186,7 +187,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
           break;
         case 'i':
         case 'I':
-          this.sortPlayers('ultimate_cooldown', '(I) ULTIMATE COOLDOWN');
+          this.sortPlayers('buyback_status', '(I) BUYBACK STATUS (Estimate)');
           break;
         case 'o':
         case 'O':
