@@ -17,7 +17,7 @@
   <ul [hidden]="active === 'menu' || active === 'draft'" class="nav-players">
     <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
         <div class="repsawn-img">
-          <img *ngIf="player.hero !== 'None'" src="../../../assets/img/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
+          <img *ngIf="player.hero !== 'None'" src="../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">
           <div class="blank" *ngIf="player.hero === 'None'"></div>
           <lg-hero-respawn *ngIf="player.respawn_timer > 0"
             [respawn]="player.respawn_timer"
@@ -27,7 +27,9 @@
         <div class="value" [ngSwitch]="sortedValue">
           <span *ngSwitchCase="'kills'">{{player[sortedValue]}} / {{player["death"]}} / {{player["assists"]}}</span>
           <span *ngSwitchCase="'last_hits'">{{player[sortedValue]}} / {{player["denies"]}}</span>
-          <span *ngSwitchCase="'buyback_status'">{{player['gold'] > player[sortedValue] ? 'Yes' : 'No' }}</span>
+          <span *ngSwitchCase="'buyback_status'">
+            {{player['gold'] > player[sortedValue] ? 'Yes' : 'No ('+(player[sortedValue]-player["gold"])+')' }}
+          </span>
           <span *ngSwitchDefault>{{player[sortedValue] | addCommas}}</span>
         </div>
     </li>

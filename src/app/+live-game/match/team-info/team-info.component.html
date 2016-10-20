@@ -3,7 +3,7 @@
     <div class="team" *ngFor="let player of team">
       <div class="player-stats">
         <div class="respawn">
-          <img *ngIf="player.hero !== 'None'" src="../../../../assets/img/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
+          <img *ngIf="player.hero !== 'None'" src="../../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">
           <div class="blank" *ngIf="player.hero === 'None'"></div>
           <lg-hero-respawn  *ngIf="player.respawn_timer > 0" class="respawn-timer"
             [respawn]="player.respawn_timer"

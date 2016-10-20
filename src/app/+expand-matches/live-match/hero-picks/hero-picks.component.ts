@@ -9,7 +9,7 @@ import { Players } from '../../../services/index';
       <div class="hero" *ngFor="let player of players">
         <img
           *ngIf="player.hero !== 'None'"
-          src="../../../../assets/img/heroes/{{player.hero}}_hphover.png"
+          src="../../../../assets/img/heroes/{{player.hero}}.png"
           alt="{{player.hero}}">
         <div
           class="blank"
