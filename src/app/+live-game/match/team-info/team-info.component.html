@@ -1,6 +1,6 @@
 <div ngClass="flex-conatiner {{side}}">
   <div class="team-side">
-    <div class="team" *ngFor="let player of team">
+    <div class="team" ngClass="{{highlightPlayer === player.name ? 'highlight' : 'none'}}" *ngFor="let player of team">
       <div class="player-stats">
         <div class="respawn">
           <img *ngIf="player.hero !== 'None'" src="../../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">

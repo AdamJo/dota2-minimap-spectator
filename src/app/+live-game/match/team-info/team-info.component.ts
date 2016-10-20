@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Players } from '../../../services/index';
 
 @Component({
@@ -7,7 +7,12 @@ import { Players } from '../../../services/index';
   styleUrls: ['./team-info.component.css']
 })
 
-export class TeamInfoComponent {
+export class TeamInfoComponent implements OnInit {
   @Input() side: string;
   @Input() team: Players;
+  @Input() highlightPlayer: string;
+
+  ngOnInit() {
+    this.highlightPlayer = 'loading';
+  }
 }

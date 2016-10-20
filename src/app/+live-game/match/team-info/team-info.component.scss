@@ -26,6 +26,10 @@
   display: flex;
 }
 
+.highlight {
+  background: $second-layer-background;;
+}
+
 .player-stats {
   align-items: center;
   display: flex;

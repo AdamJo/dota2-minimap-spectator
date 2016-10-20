@@ -13,6 +13,7 @@
       <lg-team-info
         [side]="'dire'"
         [team]='scoreboard.dire.players'
+        [highlightPlayer]='highlightedPlayer'
       ></lg-team-info>
       </div>
 
@@ -26,6 +27,7 @@
 
       <lg-scoreboard class="scoreboard-content"
         [scoreboard]='scoreboard'
+        (highlightPlayer)='highlightedPlayer = $event'
         >
       </lg-scoreboard>
 
@@ -33,6 +35,7 @@
         <lg-team-info
           [side]="'radiant'"
           [team]='scoreboard.radiant.players'
+          [highlightPlayer]='highlightedPlayer'
         ></lg-team-info>
         <h4 class="team-names">
           <span class="team-name">{{radiantTeamName}}</span>
