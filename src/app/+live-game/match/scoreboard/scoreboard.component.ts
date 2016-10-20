@@ -187,7 +187,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
           break;
         case 'i':
         case 'I':
-          this.sortPlayers('buyback_status', '(I) BUYBACK STATUS (Estimate)');
+          this.sortPlayers('buyback_status', '(I) BUYBACK STATUS (Estimated)');
           break;
         case 'o':
         case 'O':
