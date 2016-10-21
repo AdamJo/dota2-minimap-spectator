@@ -1,5 +1,7 @@
 @import '../../../../../assets/_variables.scss';
 
+$svg-summary-width: 380px;
+
 .container {
   position: absolute;
   border-left: 1px solid transparent;
@@ -54,12 +56,18 @@ svg {
 }
 
 .data {
-  display: flex;
-  flex-direction: center;
+  // display: flex;
+  // flex-direction: center;
 
-  background: pink;
+  // background: pink;
   height: 25px;
-
+  position: relative;
+  width: $svg-summary-width - 35;
 
   z-index: 2;
+}
+
+.value {
+  position: absolute;
+  left: 50%;
 }

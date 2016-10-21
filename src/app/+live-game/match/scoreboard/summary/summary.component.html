@@ -13,11 +13,9 @@
         class="arrow"
         *ngIf="arrowDirection === 'dire'"><-
       </div>-->
-      <div class="bar">
-        <span class="value">
-          {{accData}}
-        </span>
-      </div>
+      <span #position class="value">
+        {{accDataCurrent}}
+      </span>
       <!--<div
         class="arrow"
         *ngIf="arrowDirection === 'radiant'"
