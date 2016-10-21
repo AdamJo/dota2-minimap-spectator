@@ -34,12 +34,10 @@ const routes: Routes = [
   {
     path: '404',
     component: PageNotFoundComponent
-  }
-  // TODO: currently broken, still broken as of 2.1.0, https://github.com/angular/angular/pull/12254
-  // forwarding to PageNotFoundComponent until it is fixed: redirectTo: 'live'
-  , {
+  },
+  {
     path: '**',
-    component: PageNotFoundComponent
+    redirectTo: 'live'
   }
 ];
 
