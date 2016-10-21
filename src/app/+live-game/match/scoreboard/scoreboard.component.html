@@ -57,10 +57,17 @@
     </div>
   </div>
   <div [hidden]="active === 'menu' || active === 'scoreboard' || active === 'draft'" >
-    <lg-summary class class="summary"
+    <lg-summary class="summary"
       [radiantData]='scoreboard.radiant.players'
       [direData]='scoreboard.dire.players'
       [sortValue]='"net_worth"'
+      [duration]='scoreboard.duration'
+    ></lg-summary>
+    <lg-summary class="summary"
+      [radiantData]='scoreboard.radiant.players'
+      [direData]='scoreboard.dire.players'
+      [sortValue]='"xp_per_min"'
+      [duration]='scoreboard.duration'
     ></lg-summary>
     <div class="grid" >
       <div class="side dire-summary">

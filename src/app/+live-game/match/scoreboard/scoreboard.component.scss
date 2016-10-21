@@ -85,16 +85,8 @@ img {
     display: flex;
     padding-left: 8px;
 
-    &:nth-child(1) {
-      cursor: default;
-    }
-
-    &:nth-child(n+2) {
-      
-
-      &:hover {
-        background-color: $nav-menu-color-hover;
-      }
+    &:hover {
+      background-color: $nav-menu-color-hover;
     }
   }
 }

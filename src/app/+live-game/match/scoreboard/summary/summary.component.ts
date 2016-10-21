@@ -10,10 +10,13 @@ export class SummaryComponent implements OnChanges {
   @Input() radiantData;
   @Input() direData;
   @Input() sortValue;
-  @ViewChild('position') percentage: ElementRef;
+  @Input() duration;
 
-  accPercentCurrent: number = 50;
-  accPercentPrevious: number = 50;
+  @ViewChild('position') percentage: ElementRef;
+  @ViewChild('title') title: ElementRef;
+
+  accPercentCurrent: number = 0;
+  accPercentPrevious: number = 0;
 
   accDataCurrent: number = 0;
   accDataPrevious: number = 0;
@@ -24,6 +27,17 @@ export class SummaryComponent implements OnChanges {
   percentageDifference: number = 0;
 
   constructor(public renderer: Renderer) { }
+
+  ngOnInit() {
+    if (this.sortValue === 'xp_per_min') {
+      this.renderer.setElementStyle(
+        this.title.nativeElement,
+        'top',
+        '100px'
+      )
+    }
+  }
+
 
   ngOnChanges(changes) {
     let accTemp
@@ -69,8 +83,10 @@ export class SummaryComponent implements OnChanges {
         this.accPercentPrevious
       ] = this.calculateAdvantage(direAccTemp, radiantAccTemp, accTemp)
     }
-
-    this.animateBar()
+    if (this.sortValue === 'xp_per_min') {
+      this.accDataCurrent = this.accDataCurrent * Math.floor(this.duration / 60);
+    }
+    this.animateBar(Object.keys(changes.radiantData.previousValue)[0] !== 'toString')
   }
 
   calculateAdvantage(direData, radiantData, accData): [number, string, number] {
@@ -98,23 +114,26 @@ export class SummaryComponent implements OnChanges {
     return ([Math.abs(amount), direction, percentage])
   }
   
-  animateBar() {
-    console.log(this.accPercentPrevious, this.accPercentCurrent)
-    // this.renderer.invokeElementMethod(
-    //   this.percentage.nativeElement,
-    //   'animate',
-    //   [
-    //     [
-    //       {left: this.accPercentPrevious + '%'},
-    //       {left: this.accPercentCurrent + '%'}
-    //     ],
-    //     {
-    //       duration: 2000,
-    //       delay: 0,
-    //       fill: 'forwards'
-    //     }
-    //   ]
-    // )
+  animateBar(firstRun) {
+
+    // console.log(this.accPercentPrevious, this.accPercentCurrent, this.arrowDirectionCurrent, this.accDataPrevious, this.accDataCurrent)
+    if (firstRun) {
+      this.renderer.invokeElementMethod(
+        this.percentage.nativeElement,
+        'animate',
+        [
+          [
+            {left: this.accPercentPrevious + '%'},
+            {left: this.accPercentCurrent + '%'}
+          ],
+          {
+            duration: 1000,
+            delay: 0,
+            fill: 'forwards'
+          }
+        ]
+      )
+    }
   }
 }
 

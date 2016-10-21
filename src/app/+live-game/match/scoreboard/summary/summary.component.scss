@@ -5,24 +5,22 @@ $svg-summary-width: 380px;
 .container {
   position: absolute;
   border-left: 1px solid transparent;
-  width: 400px;
-  height: 513px;
-
+  left: 1px;
   display: flex;
   flex-direction: column;
 }
 
 .title {
   background: red;
-  width: 400px;
+  width: 396px;
   height: 30px;
   text-align: center;
 }
 
 .graph {
-  background: darkgreen;
+  // background: darkgreen;
 
-  width: 400px;
+  width: 396px;
   height: 100px;
   position: relative;
 
@@ -33,7 +31,7 @@ $svg-summary-width: 380px;
 
 .graph-line {
   position: absolute;
-  width: 400px;
+  width: 396px;
   
   border-top: 20px dotted purple;
 }
@@ -56,18 +54,21 @@ svg {
 }
 
 .data {
-  // display: flex;
-  // flex-direction: center;
-
+  display: flex;
+  justify-content: center;
   // background: pink;
   height: 25px;
-  position: relative;
   width: $svg-summary-width - 35;
 
   z-index: 2;
 }
 
+.valueNeutral {
+  width: 52px;
+  position: relative;
+  text-align: center;
+}
+
 .value {
   position: absolute;
-  left: 50%;
 }
