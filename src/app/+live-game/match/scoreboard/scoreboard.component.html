@@ -7,15 +7,18 @@
         {{menuTitle}}
       </div>
   </div>
-  <ul [hidden]="active === 'scoreboard' || active === 'draft'" class="nav-menu">
-    <li>GAME STATS</li>
+  <ul [hidden]="active === 'scoreboard' || active === 'draft' || active === 'gameStats'" class="nav-menu">
     <li (click)="sortPlayers(choice.name, choice.option)" *ngFor="let choice of menuOptions">
       {{choice.option}}
     </li>
   </ul>
 
-  <ul [hidden]="active === 'menu' || active === 'draft'" class="nav-players">
-    <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
+  <ul [hidden]="active === 'menu' || active === 'draft' || active === 'gameStats'" class="nav-players">
+    <li
+      *ngFor="let player of combinedPlayers"
+      (mouseenter)="highlightPlayer.emit(player.name);"
+      (click)="highlightPlayer.emit(player.name);"
+      ngClass="{{player.team}}">
         <div class="repsawn-img">
           <img *ngIf="player.hero !== 'None'" src="../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">
           <div class="blank" *ngIf="player.hero === 'None'"></div>
@@ -34,7 +37,8 @@
         </div>
     </li>
   </ul>
-  <div [hidden]="active === 'menu' || active === 'scoreboard'" >
+  
+  <div [hidden]="active === 'menu' || active === 'scoreboard' || active == 'gameStats'" >
     <div class="grid" >
       <div class="side dire-draft">
       <lg-mini-draft class="draft" 
@@ -43,7 +47,6 @@
       >
       </lg-mini-draft>
       </div>
-      
       <div class="side radiant-draft">
       <lg-mini-draft class="draft"
         [side]="'radiant'"
@@ -53,4 +56,17 @@
       </div>
     </div>
   </div>
+  <div [hidden]="active === 'menu' || active === 'scoreboard' || active === 'draft'" >
+    <lg-summary class class="summary"
+      [radiantData]='scoreboard.radiant.players'
+      [direData]='scoreboard.dire.players'
+    ></lg-summary>
+    <div class="grid" >
+      <div class="side dire-summary">
+      </div>
+      <div class="side radiant-summary">
+      </div>
+    </div>
+  </div>
+
 </div>

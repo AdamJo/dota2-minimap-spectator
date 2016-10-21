@@ -1,0 +1,65 @@
+@import '../../../../../assets/_variables.scss';
+
+.container {
+  position: absolute;
+  border-left: 1px solid transparent;
+  width: 400px;
+  height: 513px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  background: red;
+  width: 400px;
+  height: 30px;
+  text-align: center;
+}
+
+.graph {
+  background: darkgreen;
+
+  width: 400px;
+  height: 100px;
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.graph-line {
+  position: absolute;
+  width: 400px;
+  
+  border-top: 20px dotted purple;
+}
+
+svg {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  z-index: 1;
+}
+
+.circle {
+  fill: grey;
+}
+
+.line {
+  stroke: grey;
+  stroke-width: 2px;
+  // stroke-dasharray: 5;
+}
+
+.data {
+  display: flex;
+  flex-direction: center;
+
+  background: pink;
+  height: 25px;
+
+
+  z-index: 2;
+}

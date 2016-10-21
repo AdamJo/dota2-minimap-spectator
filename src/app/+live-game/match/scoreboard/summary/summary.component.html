@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="title">Networth</div>
+  <div class="graph">
+    <svg
+      view="0 0 380 2"
+      preserveAspectRatio="none">
+      <circle class="circle" cx="25" cy="15" r="5"/>
+      <path class="line" d="M25 15 L380 15"/>
+      <circle class="circle" cx="375" cy="15" r="5"/>
+    </svg>
+    <div class="data">
+      <!--<div
+        class="arrow"
+        *ngIf="arrowDirection === 'dire'"><-
+      </div>-->
+      <div class="bar">
+        <span class="value">
+          {{accData}}
+        </span>
+      </div>
+      <!--<div
+        class="arrow"
+        *ngIf="arrowDirection === 'radiant'"
+      >-></div>-->
+    </div>
+  </div>
+</div>
