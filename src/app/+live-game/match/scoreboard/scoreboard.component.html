@@ -56,24 +56,30 @@
       </div>
     </div>
   </div>
-  <div [hidden]="active === 'menu' || active === 'scoreboard' || active === 'draft'" >
-    <lg-summary class="summary"
-      [radiantData]='scoreboard.radiant.players'
+  <div class="summary" [hidden]="active === 'menu' || active === 'scoreboard' || active === 'draft'" >
+    <lg-summary-graph 
       [direData]='scoreboard.dire.players'
+      [duration]='scoreboard.duration'
+      [radiantData]='scoreboard.radiant.players'
       [sortValue]='"net_worth"'
-      [duration]='scoreboard.duration'
-    ></lg-summary>
-    <lg-summary class="summary"
-      [radiantData]='scoreboard.radiant.players'
+    ></lg-summary-graph>
+    <lg-summary-graph 
       [direData]='scoreboard.dire.players'
-      [sortValue]='"xp_per_min"'
       [duration]='scoreboard.duration'
-    ></lg-summary>
-    <div class="grid" >
-      <div class="side dire-summary">
-      </div>
-      <div class="side radiant-summary">
-      </div>
-    </div>
+      [radiantData]='scoreboard.radiant.players'
+      [sortValue]='"xp_per_min"'
+    ></lg-summary-graph>
+    <lg-summary-players
+      [direData]='scoreboard.dire.players'
+      [radiantData]='scoreboard.radiant.players'
+      [sortValue]='"net_worth"'
+      [title]='"Highest Net Worth"'
+    ></lg-summary-players>
+    <lg-summary-players
+      [direData]='scoreboard.dire.players'
+      [radiantData]='scoreboard.radiant.players'
+      [sortValue]='"last_hits"'
+      [title]='"Most Last Hits / Denies"'
+    ></lg-summary-players>
   </div>
 </div>

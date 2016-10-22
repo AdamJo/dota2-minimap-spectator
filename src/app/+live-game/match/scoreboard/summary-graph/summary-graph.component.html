@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="title">Team <b>{{sortValue === 'net_worth' ? "Net Worth" : "Experience"}}</b> Difference</div>
+    <div class="graph">
+      <svg
+        view="0 0 380 2"
+        preserveAspectRatio="none">
+        <g ngClass='
+            {{advantage === "dire" && sortValue === "net_worth" ? "active-gold" : "inactive"}}
+            {{advantage === "dire" && sortValue === "xp_per_min" ? "active-xp" : "inactive"}}'>
+        <path
+          stroke-width="2"
+          d="M30 15 L200 15"/>
+        <circle
+          cx="25"
+          cy="15"r="5"/>
+        </g>
+        <g ngClass='
+            {{advantage === "radiant" && sortValue === "net_worth" ? "active-gold" : "inactive"}}
+            {{advantage === "radiant" && sortValue === "xp_per_min" ? "active-xp" : "inactive"}}'>          
+          <path
+            stroke-width="2"
+            d="M200 15 L370 15"/>
+          <circle
+            cx="375"
+            cy="15"
+            r="5"/>
+          </g>
+      </svg>
+      <div class="data">
+        <div #position class="valueNeutral">
+          <span class="value">
+            &nbsp;{{accData}}
+          </span>
+          <br>
+          <span class="percent-value">
+          	&nbsp;{{accPercentage}}%&nbsp;
+          </span>
+        </div>
+      </div>
+    </div>
+</div>

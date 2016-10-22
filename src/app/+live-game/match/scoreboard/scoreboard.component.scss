@@ -54,7 +54,7 @@ img {
 }
 
 .radiant-draft {
-  background: linear-gradient(to bottom, $menu-gradiant-radiant, $base-background);
+  background: linear-gradient(to bottom, $radiant-color, $base-background);
   border-left: 1px solid $border-color;
   border-top: 1px solid $border-color;
 }
@@ -65,7 +65,7 @@ img {
 }
 
 .radiant-summary {
-  background: linear-gradient(to bottom, $menu-gradiant-radiant, $base-background);
+  background: linear-gradient(to bottom, $radiant-color, $base-background);
   border-top: 1px solid $border-color;
 }
 
@@ -96,7 +96,7 @@ img {
 }
 
 .radiant {
-  background: linear-gradient(to right, $menu-gradiant-radiant, $black);
+  background: linear-gradient(to right, $radiant-color, $black);
 }
 
 .nav-players {
@@ -173,5 +173,7 @@ img {
 }
 
 .summary {
-  position: relative;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
 }

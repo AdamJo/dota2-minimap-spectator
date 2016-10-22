@@ -42,8 +42,8 @@ export class ApiService {
 
     this.scoreboardValues = {
       sortedValue: 'None',
-      active: 'draft',
-      menuTitle: 'GAME STATS'
+      active: 'gameStats',
+      menuTitle: '(A) GAME STATS'
     };
   }
 

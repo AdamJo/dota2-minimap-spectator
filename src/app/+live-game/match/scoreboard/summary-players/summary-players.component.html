@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="title">{{title}}</div>
+  <div class="content">
+    <div>
+      <div class="value">
+        <span *ngIf='sortValue=== "net_worth"'>{{mvpDire[sortValue]}}</span>
+        <span *ngIf='sortValue=== "last_hits"'>{{mvpDire[sortValue]}} / {{mvpDire['denies']}}</span>           
+      </div>
+      <div class="repsawn-img">
+        <img *ngIf="mvpDire['hero'] !== 'None'" src="../../../assets/img/heroes/{{mvpDire['hero']}}.png" alt="{{mvpDire['hero']}}">
+        <div class="blank" *ngIf="mvpDire['hero'] === 'None'"></div>
+        <lg-hero-respawn *ngIf="mvpDire['respawn_timer'] > 0"
+          [respawn]="mvpDire['respawn_timer']"
+          ></lg-hero-respawn>
+      </div>
+    </div>
+    <div>
+      <div class="value">
+        <span *ngIf='sortValue=== "net_worth"'>{{mvpRadiant[sortValue]}}</span>
+        <span *ngIf='sortValue=== "last_hits"'>{{mvpRadiant[sortValue]}} / {{mvpRadiant['denies']}}</span>         
+      </div>
+      <div class="repsawn-img">
+        <img *ngIf="mvpRadiant['hero'] !== 'None'" src="../../../assets/img/heroes/{{mvpRadiant['hero']}}.png" alt="{{mvpRadiant['hero']}}">
+        <div class="blank" *ngIf="mvpRadiant['hero'] === 'None'"></div>
+        <lg-hero-respawn *ngIf="mvpRadiant['respawn_timer'] > 0"
+          [respawn]="mvpRadiant['respawn_timer']"
+          ></lg-hero-respawn>
+      </div>
+    </div>
+  </div>
+</div>

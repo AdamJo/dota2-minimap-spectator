@@ -47,9 +47,9 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
 
   constructor(public apiService: ApiService, private _eref: ElementRef) {
     this.sortedValue = 'net_worth';
-    this.active = 'draft';
-    this.menuTitle = 'GAME STATS';
-    this.sortPlayers('draft', '(O) DRAFT');
+    this.active = 'gameStats';
+    this.menuTitle = '(A) GAME STATS';
+      this.sortPlayers('gameStats', '(A) GAME STATS');
   }
 
   ngOnInit() {
@@ -58,11 +58,6 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
       this.menuTitle = this.apiService.scoreboardValues.menuTitle;
       this.active = 'scoreboard';
     } else {
-      // this.active = 'draft';
-      // this.menuTitle = this.apiService.scoreboardValues.menuTitle;
-      // this.sortPlayers('draft', '(O) DRAFT');
-      
-      //TODO Testing
       this.active = 'gameStats';
       this.menuTitle = this.apiService.scoreboardValues.menuTitle;
       this.sortPlayers('gameStats', '(A) GAME STATS');
@@ -107,7 +102,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
       this.active = 'draft';
     } else if (value === 'gameStats') {
       this.menuTitle = menuTitleOption;
-      this.active = 'gameStats'
+      this.active = 'gameStats';
     } else {
       this.sortedValue = value;
       this.menuTitle = menuTitleOption;
@@ -133,6 +128,8 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     if (this.active === 'menu') {
       if (this.menuTitle === '(O) DRAFT') {
         this.active = 'draft';
+      } else if (this.menuTitle === '(A) GAME STATS') {
+        this.active = 'gameStats';
       } else {
         this.active = 'scoreboard';
       }
@@ -148,7 +145,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
       // need the if since draft is not in the scoreboard area
       if (this.menuTitle === '(O) DRAFT') {
         this.active = 'draft';
-      } else if (this.menuTitle == '(A) GAME STATS') {
+      } else if (this.menuTitle === '(A) GAME STATS') {
         this.active = 'gameStats';
       } else {
         this.active = 'scoreboard';

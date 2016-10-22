@@ -16,7 +16,8 @@ import { MapComponent } from './match/map/index';
 import { ScoreboardComponent } from './match/scoreboard/index';
 import { TeamInfoComponent } from './match/team-info/index';
 import { MiniDraftComponent } from './match/scoreboard/mini-draft/index';
-import { SummaryComponent } from './match/scoreboard/summary/index';
+import { SummaryGraphComponent } from './match/scoreboard/summary-graph/index';
+import { SummaryPlayersComponent } from './match/scoreboard/summary-players/index';
 import { HeroItemsComponent } from './match/scoreboard/hero-items/index';
 import { HeroRespawnComponent } from './match/scoreboard/hero-respawn/index';
 import { SeriesComponent } from './series/index';
@@ -46,10 +47,11 @@ import {
     HeroItemsComponent,
     HeroRespawnComponent,
     MiniDraftComponent,
-    SummaryComponent,
+    SummaryGraphComponent,
     MapComponent,
     DraftComponent,
     TeamInfoComponent,
+    SummaryPlayersComponent,
     MatchComponent,
     SeriesComponent,
     CalculateXPipe,
