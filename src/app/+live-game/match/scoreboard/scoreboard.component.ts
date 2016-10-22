@@ -4,6 +4,8 @@ import {
   OnDestroy,
   OnInit,
   Input,
+  Output,
+  EventEmitter,
   ElementRef,
   HostListener,
   ChangeDetectionStrategy
@@ -21,6 +23,7 @@ import { ApiService, Scoreboard, Players } from '../../../services/index';
 export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
 
   @Input() scoreboard: Scoreboard;
+  @Output() highlightPlayer = new EventEmitter();
   combinedPlayers: Array<Players>;
   newValues: Array<Players>;
   active: string;
@@ -29,6 +32,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
   items: Array<string>;
 
   menuOptions = [
+    {name: 'gameStats', option: '(A) GAME STATS' },
     {name: 'kills', option: '(Q) KILL/DEATH/ASSISTS' },
     {name: 'last_hits', option: '(W) LAST HITS/DENIES' },
     {name: 'level', option: '(E) HERO LEVEL' },
@@ -36,15 +40,16 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     {name: 'gold', option: '(T) CURRENT GOLD' },
     {name: 'net_worth', option: '(Y) NET WORTH' },
     {name: 'gold_per_min', option: '(U) GOLD PER MINUTE' },
-    {name: 'ultimate_cooldown', option: '(I) ULTIMATE COOLDOWN' },
+    // {name: 'ultimate_cooldown', option: '(I) ULTIMATE COOLDOWN' },
+    {name: 'buyback_status', option: '(I) BUYBACK STATUS (Estimated)' },
     {name: 'draft', option: '(O) DRAFT' },
   ];
 
   constructor(public apiService: ApiService, private _eref: ElementRef) {
     this.sortedValue = 'net_worth';
-    this.active = 'draft';
-    this.menuTitle = 'GAME STATS';
-    this.callDraft('draft', '(O) DRAFT');
+    this.active = 'gameStats';
+    this.menuTitle = '(A) GAME STATS';
+      this.sortPlayers('gameStats', '(A) GAME STATS');
   }
 
   ngOnInit() {
@@ -53,9 +58,9 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
       this.menuTitle = this.apiService.scoreboardValues.menuTitle;
       this.active = 'scoreboard';
     } else {
-      this.active = 'draft';
+      this.active = 'gameStats';
       this.menuTitle = this.apiService.scoreboardValues.menuTitle;
-      this.callDraft('draft', '(O) DRAFT');
+      this.sortPlayers('gameStats', '(A) GAME STATS');
     }
     this.mainSort();
   }
@@ -73,7 +78,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     if (this.active === 'scoreboard') {
       this.combinedPlayers = this.sortValues(this.sortedValue);
     } else if (this.active === 'draft') {
-      this.callDraft('draft', '(O) DRAFT');
+      this.sortPlayers('draft', '(O) DRAFT');
     }
   }
 
@@ -93,8 +98,11 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
   // sort plays by value given
   sortPlayers(value: string, menuTitleOption: string) {
     if (value === 'draft') {
-      this.callDraft(value, menuTitleOption);
+      this.menuTitle = menuTitleOption;
       this.active = 'draft';
+    } else if (value === 'gameStats') {
+      this.menuTitle = menuTitleOption;
+      this.active = 'gameStats';
     } else {
       this.sortedValue = value;
       this.menuTitle = menuTitleOption;
@@ -120,11 +128,13 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     if (this.active === 'menu') {
       if (this.menuTitle === '(O) DRAFT') {
         this.active = 'draft';
+      } else if (this.menuTitle === '(A) GAME STATS') {
+        this.active = 'gameStats';
       } else {
-        this.active = 'scoreboard'
+        this.active = 'scoreboard';
       }
     } else {
-      this.active = 'menu'
+      this.active = 'menu';
     }
   }
 
@@ -135,6 +145,8 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
       // need the if since draft is not in the scoreboard area
       if (this.menuTitle === '(O) DRAFT') {
         this.active = 'draft';
+      } else if (this.menuTitle === '(A) GAME STATS') {
+        this.active = 'gameStats';
       } else {
         this.active = 'scoreboard';
       }
@@ -146,16 +158,14 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     this.items = value;
   }
 
-  // grab draft board
-  callDraft(value: string, menuTitleOption: string) {
-    this.menuTitle = menuTitleOption;
-    this.active = 'draft';
-  }
-
   // use in-game shortcuts to navigate scoreboard
   @HostListener(`document:keypress`, ['$event'])
   keypress(e: KeyboardEvent) {
       switch (e.key) {
+        case 'a':
+        case 'A':
+          this.sortPlayers('gameStats', '(A) GAME STATS');
+          break;
         case 'q':
         case 'Q':
           this.sortPlayers('kills', '(Q) KILL/DEATH/ASSISTS');
@@ -186,11 +196,11 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
           break;
         case 'i':
         case 'I':
-          this.sortPlayers('ultimate_cooldown', '(I) ULTIMATE COOLDOWN');
+          this.sortPlayers('buyback_status', '(I) BUYBACK STATUS (Estimated)');
           break;
         case 'o':
         case 'O':
-          this.callDraft('draft', '(O) DRAFT');
+          this.sortPlayers('draft', '(O) DRAFT');
           break;
         default:
           break;

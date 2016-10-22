@@ -20,7 +20,8 @@
         [posY]='player?.position_y | calculateY:height:maxHeight'
         [oldPosX]='player?.old_position_x | calculateX:width:maxWidth'
         [oldPosY]='player?.old_position_y | calculateY:height:maxHeight'
-        [respawnTimer]='player?.respawn_timer'>
+        [respawnTimer]='player?.respawn_timer'
+        [ultimateUsed]='player.ultimate_used'>
       </lg-sprite-animation>
     </div>
     <div *ngFor="let player of dire?.players">
@@ -31,7 +32,8 @@
         [posY]='player?.position_y | calculateY:height:maxHeight'
         [oldPosX]='player?.old_position_x | calculateX:width:maxWidth'
         [oldPosY]='player?.old_position_y | calculateY:height:maxHeight'
-        [respawnTimer]='player?.respawn_timer'>
+        [respawnTimer]='player?.respawn_timer'
+        [ultimateUsed]='player.ultimate_used'>
       </lg-sprite-animation>
     </div>
     <lg-sprite-animation

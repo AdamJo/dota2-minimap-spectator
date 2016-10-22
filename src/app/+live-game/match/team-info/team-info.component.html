@@ -1,10 +1,20 @@
 <div ngClass="flex-conatiner {{side}}">
   <div class="team-side">
-    <div class="team" *ngFor="let player of team">
+    <div class="team" ngClass="{{highlightPlayer === player.name ? 'highlight' : 'none'}}" *ngFor="let player of team">
       <div class="player-stats">
-        <img *ngIf="player.hero !== 'None'" src="../../../../assets/img/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
-        <div class="blank" *ngIf="player.hero === 'None'"></div>
-        <div ngClass="ultimate {{player.ultimate_cooldown === 0 ? 'ultimate-active' : 'ultimate-inactive'}}">&nbsp;</div>
+        <div class="respawn">
+          <img *ngIf="player.hero !== 'None'" src="../../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">
+          <div class="blank" *ngIf="player.hero === 'None'"></div>
+          <lg-hero-respawn  *ngIf="player.respawn_timer > 0" class="respawn-timer"
+            [respawn]="player.respawn_timer"
+          ></lg-hero-respawn>
+        </div>
+        <div
+          ngClass="
+          ultimate
+          {{(player.ultimate_cooldown === 0 && player.level >= 6) ? 'ultimate-active' : 'ultimate-inactive'}}
+          {{(player.gold > player.buyback_status) ? 'buyback-active' : 'buyback-inactive'}}"
+        >&nbsp;</div>
       </div>
       <lg-hero-items class="items"
         [items]='player.items'></lg-hero-items>

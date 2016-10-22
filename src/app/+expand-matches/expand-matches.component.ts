@@ -54,16 +54,16 @@ export class ExpandMatchesComponent {
 
   // Switch user selected game 
   switchToGame($event) {
-    this.apiService.SwitchToGame($event.index);
+    this.apiService.SwitchToGame($event);
     this.router.navigate(['']);
   }
 
   // toggles menu and scorebaord
   switchScoreboardValue(userValue) {
-    if (userValue.value === this.scoreboardValue) {
+    if (userValue === this.scoreboardValue) {
       this.scoreboardValue = 'None';
     } else {
-      this.scoreboardValue = userValue.value;
+      this.scoreboardValue = userValue;
     }
   }
 

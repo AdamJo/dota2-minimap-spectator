@@ -7,17 +7,20 @@
         {{menuTitle}}
       </div>
   </div>
-  <ul [hidden]="active === 'scoreboard' || active === 'draft'" class="nav-menu">
-    <li>GAME STATS</li>
+  <ul [hidden]="active === 'scoreboard' || active === 'draft' || active === 'gameStats'" class="nav-menu">
     <li (click)="sortPlayers(choice.name, choice.option)" *ngFor="let choice of menuOptions">
       {{choice.option}}
     </li>
   </ul>
 
-  <ul [hidden]="active === 'menu' || active === 'draft'" class="nav-players">
-    <li (mouseenter)="items = player.items" ngClass="{{player.team}}" *ngFor="let player of combinedPlayers">
+  <ul [hidden]="active === 'menu' || active === 'draft' || active === 'gameStats'" class="nav-players">
+    <li
+      *ngFor="let player of combinedPlayers"
+      (mouseenter)="highlightPlayer.emit(player.name);"
+      (click)="highlightPlayer.emit(player.name);"
+      ngClass="{{player.team}}">
         <div class="repsawn-img">
-          <img *ngIf="player.hero !== 'None'" src="../../../assets/img/heroes/{{player.hero}}_hphover.png" alt="{{player.hero}}">
+          <img *ngIf="player.hero !== 'None'" src="../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">
           <div class="blank" *ngIf="player.hero === 'None'"></div>
           <lg-hero-respawn *ngIf="player.respawn_timer > 0"
             [respawn]="player.respawn_timer"
@@ -27,11 +30,15 @@
         <div class="value" [ngSwitch]="sortedValue">
           <span *ngSwitchCase="'kills'">{{player[sortedValue]}} / {{player["death"]}} / {{player["assists"]}}</span>
           <span *ngSwitchCase="'last_hits'">{{player[sortedValue]}} / {{player["denies"]}}</span>
+          <span *ngSwitchCase="'buyback_status'">
+            {{player['gold'] > player[sortedValue] ? 'Yes' : 'No ('+(player[sortedValue]-player["gold"])+')' }}
+          </span>
           <span *ngSwitchDefault>{{player[sortedValue] | addCommas}}</span>
         </div>
     </li>
   </ul>
-  <div [hidden]="active === 'menu' || active === 'scoreboard'" >
+  
+  <div [hidden]="active === 'menu' || active === 'scoreboard' || active == 'gameStats'" >
     <div class="grid" >
       <div class="side dire-draft">
       <lg-mini-draft class="draft" 
@@ -40,7 +47,6 @@
       >
       </lg-mini-draft>
       </div>
-      
       <div class="side radiant-draft">
       <lg-mini-draft class="draft"
         [side]="'radiant'"
@@ -49,5 +55,31 @@
       </lg-mini-draft>
       </div>
     </div>
+  </div>
+  <div class="summary" [hidden]="active === 'menu' || active === 'scoreboard' || active === 'draft'" >
+    <lg-summary-graph 
+      [direData]='scoreboard.dire.players'
+      [duration]='scoreboard.duration'
+      [radiantData]='scoreboard.radiant.players'
+      [sortValue]='"net_worth"'
+    ></lg-summary-graph>
+    <lg-summary-graph 
+      [direData]='scoreboard.dire.players'
+      [duration]='scoreboard.duration'
+      [radiantData]='scoreboard.radiant.players'
+      [sortValue]='"xp_per_min"'
+    ></lg-summary-graph>
+    <lg-summary-players
+      [direData]='scoreboard.dire.players'
+      [radiantData]='scoreboard.radiant.players'
+      [sortValue]='"net_worth"'
+      [title]='"Highest Net Worth"'
+    ></lg-summary-players>
+    <lg-summary-players
+      [direData]='scoreboard.dire.players'
+      [radiantData]='scoreboard.radiant.players'
+      [sortValue]='"last_hits"'
+      [title]='"Most Last Hits / Denies"'
+    ></lg-summary-players>
   </div>
 </div>

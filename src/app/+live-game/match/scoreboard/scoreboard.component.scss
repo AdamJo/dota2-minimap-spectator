@@ -38,7 +38,7 @@ img {
 .side {
   display: flex;
   justify-content: center;
-  width: 195px;
+  width: 198px;
 }
 
 .draft {
@@ -54,8 +54,18 @@ img {
 }
 
 .radiant-draft {
-  background: linear-gradient(to bottom, $menu-gradiant-radiant, $base-background);
+  background: linear-gradient(to bottom, $radiant-color, $base-background);
   border-left: 1px solid $border-color;
+  border-top: 1px solid $border-color;
+}
+
+.dire-summary {
+  background: linear-gradient(to bottom, $menu-gradiant-dire, $base-background);
+  border-top: 1px solid $border-color;
+}
+
+.radiant-summary {
+  background: linear-gradient(to bottom, $radiant-color, $base-background);
   border-top: 1px solid $border-color;
 }
 
@@ -75,16 +85,8 @@ img {
     display: flex;
     padding-left: 8px;
 
-    &:nth-child(1) {
-      cursor: default;
-    }
-
-    &:nth-child(n+2) {
-      
-
-      &:hover {
-        background-color: $nav-menu-color-hover;
-      }
+    &:hover {
+      background-color: $nav-menu-color-hover;
     }
   }
 }
@@ -94,7 +96,7 @@ img {
 }
 
 .radiant {
-  background: linear-gradient(to right, $menu-gradiant-radiant, $black);
+  background: linear-gradient(to right, $radiant-color, $black);
 }
 
 .nav-players {
@@ -168,4 +170,10 @@ img {
   height: 46px;
   margin-left: 3px;
   width: 82.28px;
+}
+
+.summary {
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
 }

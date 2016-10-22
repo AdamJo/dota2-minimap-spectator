@@ -34,12 +34,6 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-
-  &:hover + .image {
-    -webkit-filter: grayscale(1);
-    filter: grayscale(1);
-    transition: 500ms ease-in-out;
-  }
 }
 
 .icons {
@@ -51,7 +45,4 @@
   height: 600px;
   width: 600px;
   z-index: 0;
-  
-  filter: none;
-  transition: 500ms ease-in-out;
 }

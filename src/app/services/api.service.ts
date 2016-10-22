@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
 import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseObjectObservable } from 'angularfire2';
 import { loading } from '../../assets/initialLoadData/loading';
 
 @Injectable()
@@ -17,6 +18,7 @@ export class ApiService {
   public currentGame: LiveLeagueGame; // list of current games
   public currentMatchId: number;
   public scoreboardValues: any;
+  public statusCode: FirebaseObjectObservable<any>;
 
   public gamePaused: boolean;
   public duration: number;
@@ -40,13 +42,23 @@ export class ApiService {
 
     this.scoreboardValues = {
       sortedValue: 'None',
-      active: 'draft',
-      menuTitle: 'GAME STATS'
+      active: 'gameStats',
+      menuTitle: '(A) GAME STATS'
     };
   }
 
   // go through live games
   liveGames() {
+    // determine status code
+    this.statusCode = this.getStatusCode();
+    this.statusCode.subscribe((code: any) => {
+      if (code.$value === 'online') {
+        this.isApiUp = true;
+      } else {
+        this.isApiUp = false;
+      }
+    });
+
     this.game$ = this.getCurrentGames();
     this.game$
     .debounceTime(100)
@@ -83,16 +95,18 @@ export class ApiService {
           this.gameCount = this.dataLength;
           this.sortScoreboard(data[data.length - this.gameCount]);
         }
-        this.isApiUp = true;
       } else if (this.dataLength !== 0) {
       // inital load or not matchID
         this.sortScoreboard(data[data.length - this.gameCount]);
-        this.isApiUp = true;
       } else {
         this.gameCount = 5;
-        this.isApiUp = false;
       }
     });
+  }
+
+  // get status code (liveGames) from firebase backend
+  getStatusCode() {
+    return this.af.database.object('statusCode');
   }
 
   // get live games from firebase backend
@@ -125,14 +139,41 @@ export class ApiService {
 
     if (this.firstCheckDone) {
       this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
+        if (data.scoreboard.radiant.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
+          data.scoreboard.radiant.players[i].ultimate_used = true;
+          data.scoreboard.radiant.players[i].old_ultimate_cooldown =
+            data.scoreboard.radiant.players[i].ultimate_cooldown;
+        } else {
+          data.scoreboard.radiant.players[i].ultimate_used = false;
+          data.scoreboard.radiant.players[i].old_ultimate_cooldown =
+            data.scoreboard.radiant.players[i].ultimate_cooldown;
+        }
+
         data.scoreboard.radiant.players[i].old_position_x = d.position_x;
         data.scoreboard.radiant.players[i].old_position_y = d.position_y;
       });
       this.currentGame.scoreboard.dire.players.map((d: any, i: any) => {
+        if (data.scoreboard.dire.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
+          data.scoreboard.dire.players[i].ultimate_used = true;
+          data.scoreboard.dire.players[i].old_ultimate_cooldown =
+            data.scoreboard.dire.players[i].ultimate_cooldown;
+        } else {
+          data.scoreboard.dire.players[i].ultimate_used = false;
+          data.scoreboard.dire.players[i].old_ultimate_cooldown =
+            data.scoreboard.dire.players[i].ultimate_cooldown;
+        }
         data.scoreboard.dire.players[i].old_position_x = d.position_x;
         data.scoreboard.dire.players[i].old_position_y = d.position_y;
       });
     } else {
+      data.scoreboard.radiant.players.map((d: any, i: any)  => {
+        data.scoreboard.radiant.players[i].ultimate_used = false;
+        data.scoreboard.radiant.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
+      });
+      data.scoreboard.dire.players.map((d: any, i: any) => {
+        data.scoreboard.dire.players[i].ultimate_used = false;
+        data.scoreboard.dire.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
+      });
       this.gamePaused = false;
       this.matchId = data.match_id;
       this.firstCheckDone = true;

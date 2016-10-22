@@ -26,6 +26,10 @@
   display: flex;
 }
 
+.highlight {
+  background: $second-layer-background;;
+}
+
 .player-stats {
   align-items: center;
   display: flex;
@@ -37,11 +41,12 @@
 
 img {
   border: 1px solid $border-color;
-  width: 70%;
+
+  height: 46px;
+  width: 82px;
 }
 
 .ultimate {
-  border: 1px solid $ultimate-border;
   height: 18px;
   margin-top: 12px;
   opacity: .8;
@@ -62,6 +67,14 @@ img {
   top: 63px;
 }
 
+.buyback-active {
+  border: 1px solid $buyback-status;
+}
+
+.buyback-inactive {
+  border: 1px solid $ultimate-border;
+}
+
 .dire {
   box-shadow: 0px 0px 15px 0px $dire-color;
 }
@@ -73,5 +86,18 @@ img {
 .blank {
   height: 46px;
   margin-left: 3px;
-  width: 82.28px;
+  width: 82px;
+}
+
+.respawn-timer {
+  font-size: 1rem;
+  position: absolute;
+  left: -2px;
+  top: 1px;
+}
+
+.respawn {
+  display: flex;
+  justify-content: center;
+  position: relative;
 }

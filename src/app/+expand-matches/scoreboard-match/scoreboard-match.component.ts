@@ -75,7 +75,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
 })
 export class ScoreboardMatchComponent implements OnChanges {
   @Input() shortcut: string;
-  @Output('change') userScoreboardPick = new EventEmitter();
+  @Output() userScoreboardPick = new EventEmitter();
   active: string;
 
   menuOptions = [
@@ -97,8 +97,6 @@ export class ScoreboardMatchComponent implements OnChanges {
   // toggles menu and scorebaord
   changeScoreboardValue(option) {
     this.active = option;
-    this.userScoreboardPick.emit({
-      value: option
-    });
+    this.userScoreboardPick.emit(option);
   }
 }

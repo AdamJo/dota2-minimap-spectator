@@ -18,6 +18,8 @@ export class MatchComponent implements DoCheck, OnInit {
   loading: boolean;
   paused: boolean;
 
+  highlightedPlayer: string;
+
   constructor(public apiService: ApiService) {
     this.loading = false;
     this.scoreboard = loading.scoreboard;
@@ -26,6 +28,8 @@ export class MatchComponent implements DoCheck, OnInit {
     this.league = loading.league;
     this.series = loading.series;
     this.streamDelay = loading.stream_delay_s;
+
+    this.highlightedPlayer = '';
   }
 
   ngDoCheck() {
