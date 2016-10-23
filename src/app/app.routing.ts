@@ -3,8 +3,6 @@ import { Routes, RouterModule,
   PreloadAllModules
 } from '@angular/router';
 
-import { PageNotFoundComponent } from './page-not-found.component';
-
 const routes: Routes = [
   {
     path: '',
@@ -30,10 +28,6 @@ const routes: Routes = [
   {
     path: 'upcoming',
     loadChildren: './+upcoming-matches/upcoming-matches.module#UpcomingMatchesModule'
-  },
-  {
-    path: '404',
-    component: PageNotFoundComponent
   },
   {
     path: '**',
