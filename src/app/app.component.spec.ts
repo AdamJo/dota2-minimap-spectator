@@ -1,4 +1,3 @@
-/* tslint:disable: max-line-length */
 import { APP_BASE_HREF } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
 

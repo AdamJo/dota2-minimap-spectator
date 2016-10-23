@@ -76,6 +76,7 @@ import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetect
 })
 
 export class SpriteAnimationComponent implements OnInit {
+  @Input() browserCheck: boolean;
   @Input() team: string;
   @Input() heroId: string;
   @Input() posX: number;
@@ -100,8 +101,13 @@ export class SpriteAnimationComponent implements OnInit {
 
     this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
     this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
-    this.animateMovement();
-    if (this.respawnTimer > 0) {
+    if (this.browserCheck) {
+      this.animateMovement();
+    } else {
+      this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
+      this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
+    }
+    if (this.respawnTimer > 0 && this.browserCheck) {
       this.animateDeath();
     }
   }

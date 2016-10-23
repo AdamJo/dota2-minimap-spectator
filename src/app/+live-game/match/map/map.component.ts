@@ -49,6 +49,7 @@ export class  MapComponent {
   maxWidth = 600;
   maxHeight = 600;
 
+  @Input() browserCheck: boolean;
   @Input() radiant: Team;
   @Input() dire: Team;
   @Input() dayNightCycle: string;

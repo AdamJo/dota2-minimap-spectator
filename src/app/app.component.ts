@@ -4,9 +4,9 @@ import { ApiService } from './services/index';
 @Component({
   selector: 'app-root',
   template: `
-    <sh-mobile-message
-      *ngIf='mobileCheck'
-    ></sh-mobile-message>
+    <sh-browser-message
+      *ngIf='browserCheck'
+    ></sh-browser-message>
 
     <sh-nav></sh-nav>
 
@@ -17,17 +17,14 @@ import { ApiService } from './services/index';
 })
 
 export class AppComponent implements OnInit {
-  mobileCheck: boolean = false;
+  browserCheck: boolean = false;
 
   constructor(public apiService: ApiService) {
     this.apiService.liveGames();
   }
-
   ngOnInit() {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-      .test(navigator.userAgent)) {
-        this.mobileCheck = true;
+    if (!this.apiService.browser) {
+      this.browserCheck = true;
     }
   }
 }

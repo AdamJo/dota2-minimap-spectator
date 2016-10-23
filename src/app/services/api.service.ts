@@ -1,3 +1,4 @@
+/* tslint:disable: max-line-length */
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
@@ -5,8 +6,14 @@ import { FirebaseListObservable } from 'angularfire2';
 import { FirebaseObjectObservable } from 'angularfire2';
 import { loading } from '../../assets/initialLoadData/loading';
 
+declare var window;
+declare var InstallTrigger;
+declare var opr;
+
 @Injectable()
 export class ApiService {
+
+  public browser: boolean;
 
   // live games
   public firstCheckDone = false; // first check of watched game done
@@ -45,6 +52,7 @@ export class ApiService {
       active: 'gameStats',
       menuTitle: '(A) GAME STATS'
     };
+    this.detectBrowser();
   }
 
   // go through live games
@@ -231,5 +239,27 @@ export class ApiService {
       }
       return 0;
     });
+  }
+
+  detectBrowser() {
+    // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
+    // http://stackoverflow.com/questions/39120772/how-to-detect-safari-10-browser-in-javascript/39621764#39621764
+    let isFirefox = typeof InstallTrigger !== 'undefined';
+    let isChrome = !!window.chrome && !!window.chrome.webstore;
+    let isOpera = (!!window.opr &&
+                   !!opr.addons) ||
+                   !!window.opera ||
+                   navigator.userAgent.indexOf(' OPR/') >= 0;
+
+    // checks up to safari 10
+    let isSafari = Object.prototype.toString.call(
+        window.HTMLElement).indexOf('Constructor') > 0 ||
+        !isChrome && !isOpera && window.webkitAudioContext !== undefined;
+
+    if ((isChrome || isFirefox) && !isSafari) {
+      this.browser = true;
+    } else {
+      this.browser = false;
+    }
   }
 }

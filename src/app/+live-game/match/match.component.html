@@ -18,6 +18,7 @@
       </div>
 
       <lg-map class="map"
+        [browserCheck]='apiService.browser'
         [paused]='apiService.gamePaused'
         [radiant]='scoreboard.radiant'
         [dire]='scoreboard.dire'

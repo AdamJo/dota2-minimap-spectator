@@ -49,7 +49,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     this.sortedValue = 'net_worth';
     this.active = 'gameStats';
     this.menuTitle = '(A) GAME STATS';
-      this.sortPlayers('gameStats', '(A) GAME STATS');
+    this.sortPlayers('gameStats', '(A) GAME STATS');
   }
 
   ngOnInit() {

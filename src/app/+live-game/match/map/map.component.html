@@ -14,6 +14,7 @@
     </lg-buildings>
     <div *ngFor="let player of radiant?.players">
       <lg-sprite-animation *ngIf="player.hero !== 'None'"
+        [browserCheck]="browserCheck"
         [team]='"radiant"'
         [heroId]='player?.hero'
         [posX]='player?.position_x | calculateX:width:maxWidth'
@@ -26,6 +27,7 @@
     </div>
     <div *ngFor="let player of dire?.players">
       <lg-sprite-animation *ngIf="player.hero !== 'None'"
+        [browserCheck]="browserCheck"
         [team]='"dire"'
         [heroId]='player?.hero'
         [posX]='player?.position_x | calculateX:width:maxWidth'

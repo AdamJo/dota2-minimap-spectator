@@ -9,6 +9,7 @@ import { Component, OnChanges, Input, Renderer,
 })
 
 export class SummaryGraphComponent implements OnChanges {
+  @Input() browserCheck: boolean;
   @Input() radiantData;
   @Input() direData;
   @Input() sortValue;
@@ -78,7 +79,13 @@ export class SummaryGraphComponent implements OnChanges {
     }
 
     this.accPercentage = Math.abs(this.accPercent);
-    this.animateBar();
+    if (this.browserCheck) {
+      this.animateBar();
+    } else {
+      this.renderer.setElementStyle(
+        this.percentage.nativeElement,
+        'left', this.accPercent / 2 + '%');
+    }
   }
 
   calculateAdvantage(direData, radiantData, accData): [number, string, number] {

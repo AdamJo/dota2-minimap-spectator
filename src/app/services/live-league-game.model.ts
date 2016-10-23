@@ -1,5 +1,3 @@
-/* tslint:disable:no-string-literal */
-
 export interface LiveLeagueGame {
   $key?: string;
   dire_team_name: string;

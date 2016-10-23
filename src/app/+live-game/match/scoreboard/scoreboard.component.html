@@ -57,13 +57,15 @@
     </div>
   </div>
   <div class="summary" [hidden]="active === 'menu' || active === 'scoreboard' || active === 'draft'" >
-    <lg-summary-graph 
+    <lg-summary-graph
+      [browserCheck]='apiService.browser'
       [direData]='scoreboard.dire.players'
       [duration]='scoreboard.duration'
       [radiantData]='scoreboard.radiant.players'
       [sortValue]='"net_worth"'
     ></lg-summary-graph>
     <lg-summary-graph 
+      [browserCheck]='apiService.browser'
       [direData]='scoreboard.dire.players'
       [duration]='scoreboard.duration'
       [radiantData]='scoreboard.radiant.players'
