@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   constructor(public apiService: ApiService) {
     this.apiService.liveGames();
   }
+
   ngOnInit() {
     if (!this.apiService.browser) {
       this.browserCheck = true;
