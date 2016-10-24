@@ -1,5 +1,12 @@
 @import '../../../assets/_variables.scss';
 
+.content {
+  display: flex;
+  flex-direction: row;
+
+  background: none;
+}
+
 .flex-container {
   background: $first-layer-background;
 
@@ -15,43 +22,6 @@
 
   width: 520px;
   height: 820px;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  width: 480px;
-  height: 30px;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-
-  background: none;
-}
-
-.team {
-  text-align: center;
-  width: 240px;
-  border-bottom: 1px solid $third-layer-background;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.vs {
-  font-size: .8rem;
-  line-height: 20px;
-}
-
-.active {
-  border-bottom: 1px solid $radiant-color;
-}
-
-.inactive {
-  opacity: .5;
 }
 
 h2 {

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding,
+import { Component, OnInit, HostBinding, ViewChild, ElementRef,
          trigger, transition, animate,
          style, state } from '@angular/core';
 
@@ -29,8 +29,10 @@ import { loadingPreviousGame } from '../../assets/initialLoadData/loadingPreviou
     ])
   ]
 })
-//TODO Add previous matchID
+
 export class PreviousMatchesComponent implements OnInit {
+  @ViewChild('team') teamInput: ElementRef;
+  @ViewChild('league') leagueInput: ElementRef;
   previousMatches: Array<MatchHistory>;
   sortedMatches: Array<MatchHistory>;
   regions: Array<string>;
@@ -81,6 +83,9 @@ export class PreviousMatchesComponent implements OnInit {
 
   // toggles menu and scorebaord
   switchRegionValue(userRegion) {
+    this.leagueInput.nativeElement.value = null;
+    this.teamInput.nativeElement.value = null;
+
     if (this.regionInactive) {
       this.regionValue = '';
       this.regionInactive = false;
