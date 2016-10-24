@@ -26,7 +26,7 @@ import { loading } from '../../assets/initialLoadData/loading';
     ])
   ]
 })
-
+//TODO show when game ends
 export class LiveGameComponent implements DoCheck {
   scoreboard: Scoreboard;
   radiantTeamName: string;

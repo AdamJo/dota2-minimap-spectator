@@ -29,7 +29,7 @@ import { loadingPreviousGame } from '../../assets/initialLoadData/loadingPreviou
     ])
   ]
 })
-
+//TODO Add previous matchID
 export class PreviousMatchesComponent implements OnInit {
   previousMatches: Array<MatchHistory>;
   sortedMatches: Array<MatchHistory>;
