@@ -3,8 +3,8 @@
   <div class="content">
     <div>
       <div class="value">
-        <span *ngIf='sortValue=== "net_worth"'>{{mvpDire[sortValue]}}</span>
-        <span *ngIf='sortValue=== "last_hits"'>{{mvpDire[sortValue]}} / {{mvpDire['denies']}}</span>           
+        <span *ngIf='sortValue=== "net_worth"'>{{mvpDire[sortValue] | addCommas}}</span>
+        <span *ngIf='sortValue=== "last_hits"'>{{mvpDire[sortValue] | addCommas}} / {{mvpDire['denies'] | addCommas}}</span>           
       </div>
       <div class="repsawn-img">
         <img *ngIf="mvpDire['hero'] !== 'None'" src="../../../assets/img/heroes/{{mvpDire['hero']}}.png" alt="{{mvpDire['hero']}}">
@@ -16,8 +16,8 @@
     </div>
     <div>
       <div class="value">
-        <span *ngIf='sortValue=== "net_worth"'>{{mvpRadiant[sortValue]}}</span>
-        <span *ngIf='sortValue=== "last_hits"'>{{mvpRadiant[sortValue]}} / {{mvpRadiant['denies']}}</span>         
+        <span *ngIf='sortValue=== "net_worth"'>{{mvpRadiant[sortValue] | addCommas}}</span>
+        <span *ngIf='sortValue=== "last_hits"'>{{mvpRadiant[sortValue] | addCommas}} / {{mvpRadiant['denies'] | addCommas}}</span>         
       </div>
       <div class="repsawn-img">
         <img *ngIf="mvpRadiant['hero'] !== 'None'" src="../../../assets/img/heroes/{{mvpRadiant['hero']}}.png" alt="{{mvpRadiant['hero']}}">

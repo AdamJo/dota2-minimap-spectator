@@ -29,9 +29,9 @@
         <div class="player-name">{{player.name}}</div>
         <div class="value" [ngSwitch]="sortedValue">
           <span *ngSwitchCase="'kills'">{{player[sortedValue]}} / {{player["death"]}} / {{player["assists"]}}</span>
-          <span *ngSwitchCase="'last_hits'">{{player[sortedValue]}} / {{player["denies"]}}</span>
+          <span *ngSwitchCase="'last_hits'">{{player[sortedValue] | addCommas}} / {{player["denies"] | addCommas}}</span>
           <span *ngSwitchCase="'buyback_status'">
-            {{player['gold'] > player[sortedValue] ? 'Yes' : 'No ('+(player[sortedValue]-player["gold"])+')' }}
+            {{player['gold'] > player[sortedValue] ? 'Yes' : 'No ('+(player[sortedValue]-player["gold"] | addCommas)+')' }}
           </span>
           <span *ngSwitchDefault>{{player[sortedValue] | addCommas}}</span>
         </div>
