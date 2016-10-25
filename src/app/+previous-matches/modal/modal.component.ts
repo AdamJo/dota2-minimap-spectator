@@ -47,7 +47,7 @@ import { MatchHistory } from '../../services/index';
 })
 
 export class ModalComponent {
-  @Input() match: number;
+  @Input() match: MatchHistory;
   @Output() visibleOutput = new EventEmitter();
 
   // un expands menu when clicked outside of the area.
