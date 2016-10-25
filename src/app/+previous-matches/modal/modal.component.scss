@@ -23,9 +23,10 @@
   background: $first-layer-background;
   border: 2px solid $border-color;
 
-  position: fixed;
-  top: 15%;
-  left: 33.1%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 640px;
   height: 135px;
 
@@ -95,4 +96,15 @@ a {
 
 .inactive {
   opacity: .5;
+}
+
+@media (max-width: 1102px) {
+  .container {
+    width: 1102px;
+  }
+  .modal {
+    position: fixed;
+    left: 550px;
+    margin: auto;
+  }
 }

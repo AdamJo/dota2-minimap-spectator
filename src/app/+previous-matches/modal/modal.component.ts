@@ -5,8 +5,7 @@ import { MatchHistory } from '../../services/index';
 @Component({
   selector: 'pm-modal',
   template: `
-  <div class="container" (click)="closeOverlay()">
-  </div>
+  <div class="container" (click)="closeOverlay()"></div>
   <div class="modal" [@entering]>
     <div class="match">
       <div class="league">
@@ -32,18 +31,14 @@ import { MatchHistory } from '../../services/index';
   styleUrls: ['modal.component.css'],
   animations: [
     trigger('entering', [
+      state('*',
+        style({
+          opacity: 1
+        })
+      ),
       transition(':enter', [
         style({
-          opacity: .8,
-          transform: 'scale(.95)'
-        }),
-        animate('0.2s ease-in')
-      ]),
-      transition(':leave', [
-        style({
-          opacity: .8,
-          transform: 'scale(.95)',
-          display: 'none'
+          opacity: 0
         }),
         animate('0.2s ease-in')
       ])
