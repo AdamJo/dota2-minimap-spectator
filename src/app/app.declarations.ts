@@ -1,5 +1,5 @@
 import { AppComponent } from './app.component';
 
-export const APP_DECLERATIONS = [
+export const APP_DECLARATIONS = [
   AppComponent
 ];
