@@ -4,7 +4,10 @@
   </div>
   <div ngClass="player {{side}}" *ngFor="let player of players">
     <div class="image">
-      <img *ngIf="player?.hero !== 'None'" src="../../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">
+      <picture *ngIf="player?.hero !== 'None'">
+        <source srcset="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png" sizes="100%" media="screen and (min-device-width: 500px)">
+        <img src="../../../../assets/img/heroes/{{player.hero}}.png" alt="{{player.hero}}">
+      </picture>
       <div class="blank" *ngIf="player.hero === 'None'"></div>
     </div>
     <div class="player-info">
