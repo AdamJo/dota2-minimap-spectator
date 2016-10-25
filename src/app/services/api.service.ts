@@ -245,12 +245,11 @@ export class ApiService {
     // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
     // http://stackoverflow.com/questions/39120772/how-to-detect-safari-10-browser-in-javascript/39621764#39621764
     let isFirefox = typeof InstallTrigger !== 'undefined';
-    let isChrome = !!window.chrome && !!window.chrome.webstore;
+    let isChrome = !!window.chrome && (!!window.chrome.webstore || /Google Inc/.test(navigator.vendor));
     let isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 
     // checks up to safari 10
     let isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0 || !isChrome && !isOpera && window.webkitAudioContext !== undefined;
-
     if ((isChrome || isFirefox) && !isSafari) {
       this.browser = true;
     } else {
