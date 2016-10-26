@@ -1,5 +1,5 @@
 <div class="container">
-<div ngClass="flex-container" [@dayCycle]='dayNightCycle'>
+<div ngClass="flex-container">
   <div class="pause-menu" *ngIf="paused">
     <div [@pause]='paused' class="pausePopUp">
       PAUSED
@@ -58,7 +58,7 @@
       [respawnTimer]='roshanRespawnTimer'
     ></lg-sprite-animation>
   </div>
-  <div class="image">
+  <div class="image" [@dayCycle]='dayNightCycle'>
     <img src="../../../assets/img/map-7q-c.jpg" alt="mini-map">
   </div>
 </div>
