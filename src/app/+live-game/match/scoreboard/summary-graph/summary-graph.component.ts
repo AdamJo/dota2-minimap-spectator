@@ -117,6 +117,14 @@ export class SummaryGraphComponent implements OnChanges {
       percentage = 0;
       amount = 0;
     }
+
+    if (isNaN(percentage)) {
+      percentage = 0;
+    }
+    if (isNaN(amount)) {
+      amount = 0;
+    }
+
     return ([Math.abs(amount), direction, percentage]);
   }
 
