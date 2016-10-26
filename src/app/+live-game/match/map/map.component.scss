@@ -27,6 +27,29 @@
   z-index: 10;
 }
 
+.game-over-menu {
+  position: absolute;
+  background: rgba(0, 0, 0, .3);
+
+  left: 5px;
+  top: 10px;
+
+  font-size: 2.5rem;
+  height: 561px;
+  width: 588px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  z-index: 1000;
+
+  span {
+    font-size: 2rem;
+  }
+}
+
 .content {
   left: 50%;
   padding: 22px 11px;
