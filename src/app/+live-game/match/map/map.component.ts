@@ -24,7 +24,7 @@ import { Team } from '../../../services/index';
         opacity: 1
       })),
       state('night', style({
-        opacity: .8,
+        opacity: .7,
         filter: 'grayscale(.3)'
       })),
       transition('day <=> night', animate('750ms ease-in'))
@@ -37,9 +37,27 @@ import { Team } from '../../../services/index';
         opacity: 0
       })),
       transition('void <=> *', animate('500ms ease-in-out'))
+    ]),
+    trigger('gameOver', [
+      state('*', style({
+        opacity: 1
+      })),
+      state('void', style({
+        opacity: 0
+      })),
+      transition(':enter', animate('750ms ease-in'))
+    ]),
+    trigger('winner', [
+      state('*', style({
+        opacity: 1
+      })),
+      state('void', style({
+        opacity: 0,
+        transform: 'scale(.95)'
+      })),
+      transition(':enter', animate('500ms ease-in'))
     ])
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  ]
 })
 
 export class  MapComponent {
@@ -48,6 +66,8 @@ export class  MapComponent {
   height = 556;
   maxWidth = 600;
   maxHeight = 600;
+  winner: string;
+  toggleWinner: boolean = false;
 
   @Input() browserCheck: boolean;
   @Input() radiant: Team;
@@ -55,4 +75,15 @@ export class  MapComponent {
   @Input() dayNightCycle: string;
   @Input() roshanRespawnTimer: number;
   @Input() paused: boolean;
+  @Input() gameOver: any;
+
+  toggle() {
+    if (this.gameOver.game) {
+      this.toggleWinner = true;
+      this.winner =
+        this.gameOver.game.radiant_win ?
+        this.gameOver.game.radiant_name :
+        this.gameOver.game.dire_name;
+    }
+  }
 }

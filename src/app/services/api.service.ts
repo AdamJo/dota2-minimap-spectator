@@ -14,6 +14,9 @@ declare var opr;
 export class ApiService {
 
   public browser: boolean;
+  public oldMatchId: number;
+  public gameOver: any;
+  public previousGame$: any;
 
   // live games
   public firstCheckDone = false; // first check of watched game done
@@ -37,8 +40,12 @@ export class ApiService {
   private game$: FirebaseListObservable<any>;
 
   constructor(private af: AngularFire) {
+
+    this.gameOver = { status: false, game: {} };
+
     this.duration = 0;
     this.gamePaused = false;
+    this.firstCheckDone = false;
     this.currentMatchId = -1;
     this.gameCount = 5; // top spectated game
     this.dataLength = 1;
@@ -132,6 +139,24 @@ export class ApiService {
     return this.af.database.list('matchHistory');
   }
 
+  findPreviousGame() {
+    this.previousGame$ = this.af.database.list('matchHistory')
+      .debounceTime(100)
+      .subscribe( (games: any) => {
+        this.gameOver.game = games.find((game) => {
+          if (game['match_id'] === this.oldMatchId) {
+            return game;
+          }
+        });
+      },
+      val => console.log('ERROR -> ', val),
+      () => {
+        if (this.gameOver.game !== {}) {
+          return;
+        }
+      });
+  }
+
   // get upcoming games from firebase backend
   getMmrTop() {
     return this.af.database.list('mmrTop');
@@ -139,65 +164,79 @@ export class ApiService {
 
   // returns the radiant and dire players
   sortScoreboard(data: LiveLeagueGame) {
-    if (data.match_id) {
-      if (this.matchId !== data.match_id) {
-        this.firstCheckDone = false;
-      }
-    }
-
-    if (this.firstCheckDone) {
-      this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
-        if (data.scoreboard.radiant.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
-          data.scoreboard.radiant.players[i].ultimate_used = true;
-          data.scoreboard.radiant.players[i].old_ultimate_cooldown =
-            data.scoreboard.radiant.players[i].ultimate_cooldown;
-        } else {
-          data.scoreboard.radiant.players[i].ultimate_used = false;
-          data.scoreboard.radiant.players[i].old_ultimate_cooldown =
-            data.scoreboard.radiant.players[i].ultimate_cooldown;
-        }
-
-        data.scoreboard.radiant.players[i].old_position_x = d.position_x;
-        data.scoreboard.radiant.players[i].old_position_y = d.position_y;
-      });
-      this.currentGame.scoreboard.dire.players.map((d: any, i: any) => {
-        if (data.scoreboard.dire.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
-          data.scoreboard.dire.players[i].ultimate_used = true;
-          data.scoreboard.dire.players[i].old_ultimate_cooldown =
-            data.scoreboard.dire.players[i].ultimate_cooldown;
-        } else {
-          data.scoreboard.dire.players[i].ultimate_used = false;
-          data.scoreboard.dire.players[i].old_ultimate_cooldown =
-            data.scoreboard.dire.players[i].ultimate_cooldown;
-        }
-        data.scoreboard.dire.players[i].old_position_x = d.position_x;
-        data.scoreboard.dire.players[i].old_position_y = d.position_y;
-      });
+    if (this.firstCheckDone && this.matchId !== data.match_id &&
+        this.currentGame['league_tier'] > 1) {
+      this.oldMatchId = this.matchId;
+      this.gameOver.status = true;
+      this.findPreviousGame();
     } else {
-      data.scoreboard.radiant.players.map((d: any, i: any)  => {
-        data.scoreboard.radiant.players[i].ultimate_used = false;
-        data.scoreboard.radiant.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
-      });
-      data.scoreboard.dire.players.map((d: any, i: any) => {
-        data.scoreboard.dire.players[i].ultimate_used = false;
-        data.scoreboard.dire.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
-      });
-      this.gamePaused = false;
-      this.matchId = data.match_id;
-      this.firstCheckDone = true;
-    }
-
-    if (data.scoreboard.duration > 0) {
-      if (this.duration === data.scoreboard.duration) {
-        this.gamePaused = true;
-      } else {
-        this.duration = data.scoreboard.duration;
-        this.gamePaused = false;
+      if (this.previousGame$ !== undefined || this.previousGame$) {
+        this.previousGame$.unsubscribe();
       }
+
+      if (data.match_id) {
+        if (this.matchId !== data.match_id) {
+          this.firstCheckDone = false;
+        }
+      }
+
+      this.gameOver.status = false;
+      this.gameOver.game = undefined;
+
+      if (this.firstCheckDone) {
+        this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
+          if (data.scoreboard.radiant.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
+            data.scoreboard.radiant.players[i].ultimate_used = true;
+            data.scoreboard.radiant.players[i].old_ultimate_cooldown =
+              data.scoreboard.radiant.players[i].ultimate_cooldown;
+          } else {
+            data.scoreboard.radiant.players[i].ultimate_used = false;
+            data.scoreboard.radiant.players[i].old_ultimate_cooldown =
+              data.scoreboard.radiant.players[i].ultimate_cooldown;
+          }
+
+          data.scoreboard.radiant.players[i].old_position_x = d.position_x;
+          data.scoreboard.radiant.players[i].old_position_y = d.position_y;
+        });
+        this.currentGame.scoreboard.dire.players.map((d: any, i: any) => {
+          if (data.scoreboard.dire.players[i].ultimate_cooldown > d.old_ultimate_cooldown) {
+            data.scoreboard.dire.players[i].ultimate_used = true;
+            data.scoreboard.dire.players[i].old_ultimate_cooldown =
+              data.scoreboard.dire.players[i].ultimate_cooldown;
+          } else {
+            data.scoreboard.dire.players[i].ultimate_used = false;
+            data.scoreboard.dire.players[i].old_ultimate_cooldown =
+              data.scoreboard.dire.players[i].ultimate_cooldown;
+          }
+          data.scoreboard.dire.players[i].old_position_x = d.position_x;
+          data.scoreboard.dire.players[i].old_position_y = d.position_y;
+        });
+      } else {
+        data.scoreboard.radiant.players.map((d: any, i: any)  => {
+          data.scoreboard.radiant.players[i].ultimate_used = false;
+          data.scoreboard.radiant.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
+        });
+        data.scoreboard.dire.players.map((d: any, i: any) => {
+          data.scoreboard.dire.players[i].ultimate_used = false;
+          data.scoreboard.dire.players[i].old_ultimate_cooldown = d.ultimate_cooldown;
+        });
+        this.gamePaused = false;
+        this.matchId = data.match_id;
+        this.firstCheckDone = true;
+      }
+
+      if (data.scoreboard.duration > 0) {
+        if (this.duration === data.scoreboard.duration) {
+          this.gamePaused = true;
+        } else {
+          this.duration = data.scoreboard.duration;
+          this.gamePaused = false;
+        }
+      }
+      this.currentGame = data;
+      this.currentMatchId = this.currentGame.match_id;
+      this.loadDone = true;
     }
-    this.currentGame = data;
-    this.currentMatchId = this.currentGame.match_id;
-    this.loadDone = true;
   }
 
   // return current game
@@ -208,6 +247,7 @@ export class ApiService {
   // decrease game number being watched 
   decrementTotal() {
     if (this.gameCount <= this.dataLength - 1) {
+      this.firstCheckDone = false;
       this.gameCount = this.gameCount + 1;
       this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
     }
@@ -216,6 +256,7 @@ export class ApiService {
   // increase game number being watched
   incrementTotal() {
     if (this.gameCount > 1) {
+      this.firstCheckDone = false;
       this.gameCount = this.gameCount - 1;
       this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
     }
@@ -224,6 +265,7 @@ export class ApiService {
   // when switching from '/Expand' to ''
   // game count is set to new game, and games is sorted.
   SwitchToGame(index: number) {
+    this.firstCheckDone = false;
     this.gameCount = this.allData.length - index;
     this.sortScoreboard(this.allData[index]);
   }
@@ -245,12 +287,11 @@ export class ApiService {
     // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
     // http://stackoverflow.com/questions/39120772/how-to-detect-safari-10-browser-in-javascript/39621764#39621764
     let isFirefox = typeof InstallTrigger !== 'undefined';
-    let isChrome = !!window.chrome && !!window.chrome.webstore;
+    let isChrome = !!window.chrome && (!!window.chrome.webstore || /Google Inc/.test(navigator.vendor));
     let isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 
     // checks up to safari 10
     let isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0 || !isChrome && !isOpera && window.webkitAudioContext !== undefined;
-
     if ((isChrome || isFirefox) && !isSafari) {
       this.browser = true;
     } else {

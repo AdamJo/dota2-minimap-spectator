@@ -2,7 +2,7 @@
   <div ngClass="{{side}}-picks picks">
     <div class="pick-cell" *ngFor='let hero of team?.picks'>
       <div *ngIf='hero !== -1'>
-        <img *ngIf="hero !== 'None'" src='../../../../../assets/img/heroes/{{hero}}.png' alt="{{hero}}">
+        <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png" alt="{{hero}}">
       </div>
       <div *ngIf='hero === -1' >&nbsp;</div>
     </div>
@@ -10,7 +10,7 @@
   <div class="bans">
     <div class="ban-cell" *ngFor='let hero of team?.bans'>
       <div class="active-ban" *ngIf='hero !== -1'>
-        <img *ngIf="hero !== 'None'" src='../../../../../assets/img/heroes/{{hero}}.png' alt="{{hero}}">
+        <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{hero}}_hphover.png" alt="{{hero}}">
       </div>
       <div *ngIf='hero === -1' >&nbsp;</div>
     </div>

@@ -21,3 +21,15 @@ h2 {
   margin-top: 15px;
   margin-bottom: 10px;
 }
+
+a {
+  color: $font-color;
+
+  &:active {
+    color: $visited-link;
+  }
+
+  &:visited {
+    color: $visited-link;
+  }
+}

@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="api-status" *ngIf="!apiStatus">
-      The Steam API is down or no games are up.
+      The&nbsp;<a href="https://steamstat.us/">Steam API is down</a>&nbsp;or no games are up.
     </div>
     <button
       [disabled]="(gameCount === 1 || apiService.currentMatchId === -1) ? true : false"

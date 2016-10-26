@@ -79,7 +79,7 @@ export class SummaryGraphComponent implements OnChanges {
     }
 
     this.accPercentage = Math.abs(this.accPercent);
-    if (this.browserCheck) {
+    if (this.browserCheck && this.accPercentPrevious && this.accPercent) {
       this.animateBar();
     } else {
       this.renderer.setElementStyle(
@@ -117,6 +117,14 @@ export class SummaryGraphComponent implements OnChanges {
       percentage = 0;
       amount = 0;
     }
+
+    if (isNaN(percentage)) {
+      percentage = 0;
+    }
+    if (isNaN(amount)) {
+      amount = 0;
+    }
+
     return ([Math.abs(amount), direction, percentage]);
   }
 

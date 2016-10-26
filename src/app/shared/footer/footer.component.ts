@@ -37,5 +37,5 @@ import { Component } from '@angular/core';
     `
   ]
 })
-
+// TODO replace SteamApi with Donate (stripe/paypal/bitcoin) 
 export class FooterComponent {}

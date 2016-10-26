@@ -1,10 +1,10 @@
 export let loading = {
   'dire_team_name': 'Dire',
   'league': {
-    'league_id': 1234,
     'name': 'Loading...',
     'tournament_url': ''
   },
+  'league_tier': 1,
   'match_id': 1234567890,
   'radiant_team_name': 'Radiant',
   'scoreboard': {
@@ -12,19 +12,19 @@ export let loading = {
     'did_game_start': true,
     'dire': {
       'bans': [
-        'None',
-        'None',
-        'None',
-        'None',
-        'None'
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
       ],
       'barracks_state': '111111',
       'picks': [
-        'None',
-        'None',
-        'None',
-        'None',
-        'None'
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
       ],
       'players': [
         {
@@ -179,19 +179,19 @@ export let loading = {
     'duration': 0,
     'radiant': {
       'bans': [
-        'None',
-        'None',
-        'None',
-        'None',
-        'None'
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
       ],
       'barracks_state': '111111',
       'picks': [
-        'None',
-        'None',
-        'None',
-        'None',
-        'None'
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
       ],
       'players': [
         {

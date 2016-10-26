@@ -4,7 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { PreviousMatchesComponent } from './index';
 import { PreviousMatchComponent } from './previous-match/index';
+import { MatchComponent } from './match/index';
 import { RegionOptionsComponent } from './region-options/index';
+import { ModalComponent } from './modal/modal.component'
 
 @NgModule({
   imports: [
@@ -16,6 +18,8 @@ import { RegionOptionsComponent } from './region-options/index';
   declarations: [
     PreviousMatchesComponent,
     RegionOptionsComponent,
+    MatchComponent,
+    ModalComponent,
     PreviousMatchComponent
   ],
   exports: [PreviousMatchesComponent]

@@ -1,0 +1,110 @@
+@import '../../../assets/_variables.scss';
+
+.container {
+  background: rgba(0,0,0,.4);
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: $first-layer-background;
+  border: 2px solid $border-color;
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 640px;
+  height: 135px;
+
+  text-align:center;
+  z-index: 10;
+}
+
+.league {
+  font-size: 1.2rem;
+}
+
+.match {
+  background: $second-layer-background;
+  border: 1px solid $border-color;
+
+  padding: 0 5px;
+  margin-bottom: 5px;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 550px;
+}
+
+.match-names {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  span {
+    font-size: .8rem;
+    line-height: 38px;
+  }
+
+  div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    width: 280px;
+  }
+
+  span {
+    width: 50px;
+  }
+}
+
+a {
+  color: $font-color;
+
+  &:active {
+    color: $visited-link;
+  }
+
+  &:visited {
+    color: $visited-link;
+  }
+}
+
+.active {
+  border-bottom: 1px solid $radiant-color;
+}
+
+.inactive {
+  opacity: .5;
+}
+
+@media (max-width: 1102px) {
+  .container {
+    width: 1102px;
+  }
+  .modal {
+    position: fixed;
+    left: 550px;
+    margin: auto;
+  }
+}

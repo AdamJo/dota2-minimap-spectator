@@ -1,6 +1,7 @@
 export interface LiveLeagueGame {
   $key?: string;
   dire_team_name: string;
+  league_tier: number;
   league: League;
   match_id: number;
   radiant_team_name: string;
@@ -21,9 +22,9 @@ export interface Scoreboard {
 
 export interface Team {
     // abilities: Array<Abilities>;
-    bans: Array<string>;
+    bans: Array<number>;
     barracks_state: string;
-    picks: Array<string>;
+    picks: Array<number>;
     players: Array<Players>;
     score: number;
     tower_state: string;

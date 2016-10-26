@@ -1,0 +1,50 @@
+@import '../../../assets/_variables.scss';
+
+.container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 480px;
+  height: 41px;
+
+  font-size: 1.2rem;
+  position: relative;
+  
+  &.container:hover {
+    background: $second-layer-background;
+
+    .active {
+      background: $second-layer-background;
+    }
+  }
+
+}
+
+.team {
+  background: $first-layer-background;
+
+  text-align: center;
+  width: 240px;
+  height: 39px;
+  border-bottom: 1px solid $third-layer-background;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  z-index: 1;
+}
+
+.active {
+  border-bottom: 1px solid $radiant-color;
+}
+
+.inactive {
+  opacity: .5;
+}
+
+.match-id {
+  position: absolute;
+  left: 25%;
+  z-index: 0;
+}

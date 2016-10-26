@@ -2,36 +2,27 @@
   <div class="flex-container">
     <div *ngIf="matches.length === 0">
         <h2>No Games Found!</h2>
-        <h4>Games only kept for one week.</h4>
+        <h4>Only 300 recent games are stored</h4>
     </div>
   <div *ngFor="let match of matches">
-    <div class="container">
-      <span
-        class="dire team"
-        [class.active]="match.radiant_win ? false : true"
-        [class.inactive]="match.radiant_win ? true : false"
-        >{{match.dire_name}}</span>
-      <span class="radiant team"
-        [class.active]="match.radiant_win ? true : false"
-        [class.inactive]="match.radiant_win ? false : true"
-      >{{match.radiant_name}}</span>
-    </div>
+    <pm-match
+      (modalOutput)="overlay($event)"
+      (visibleOutput)="closeOverlay($event)" 
+      [match]="match"
+    ></pm-match>
   </div>
   </div>
   <div class="flex-container" *ngIf="splitMatches.length > 0">
-  <div *ngFor="let match of splitMatches">
-    <div class="container">
-      <span
-        class="dire team"
-        [class.active]="match.radiant_win ? false : true"
-        [class.inactive]="match.radiant_win ? true : false"
-        >{{match.dire_name}}</span>
-      <span
-        class="radiant team"
-        [class.active]="match.radiant_win ? true : false"
-        [class.inactive]="match.radiant_win ? false : true"
-      >{{match.radiant_name}}</span>
+    <div *ngFor="let match of splitMatches">
+      <pm-match
+        (modalOutput)="overlay($event)"
+        (visibleOutput)="closeOverlay($event)"
+        [match]="match"
+      ></pm-match>
     </div>
   </div>
-  </div>
 </div>
+<pm-modal *ngIf="toggleMatch"
+  [match]="overlayMatch"
+  (visibleOutput)="closeOverlay($event)"
+  ></pm-modal>

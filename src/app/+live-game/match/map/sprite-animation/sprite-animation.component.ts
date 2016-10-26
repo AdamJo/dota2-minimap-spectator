@@ -91,8 +91,7 @@ export class SpriteAnimationComponent implements OnInit {
   shrink = 'regular';
   ultimate: string;
 
-  constructor(public renderer: Renderer) {
-  }
+  constructor(public renderer: Renderer) {}
 
   ngOnInit() {
     if (this.ultimateUsed) {
@@ -158,6 +157,8 @@ export class SpriteAnimationComponent implements OnInit {
       ]
     );
   }
+
+
 
   // shrinks and exands hero sprites
   toggle() {
