@@ -49,6 +49,8 @@ export class HeroPicksComponent {
       return `${player['kills']} / ${player['death']} / ${player['assists']}`;
     } else if (this.scoreboardValue === 'last_hits') {
       return `${player['last_hits']} / ${player['denies']}`;
+    } else if (this.scoreboardValue === 'buyback_status') {
+      return player['gold'] > player['buyback_status'] ? 'Yes' : 'No'
     } else if (this.scoreboardValue === 'None') {
       return `${player['name']}`;
     } else {

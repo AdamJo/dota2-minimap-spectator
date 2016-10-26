@@ -86,7 +86,8 @@ export class ScoreboardMatchComponent implements OnChanges {
     {name: 'gold', option: 'Current Gold', shortcut: '(T)' },
     {name: 'net_worth', option: 'Net Worth', shortcut: '(Y)' },
     {name: 'gold_per_min', option: 'GPM', shortcut: '(U)' },
-    {name: 'ultimate_cooldown', option: 'Ultimate CD', shortcut: '(I)' },
+    // {name: 'ultimate_cooldown', option: 'Ultimate CD', shortcut: '(I)' },
+    {name: 'buyback_status', option: '~Buyback', shortcut: '(I)' },
     {name: 'respawn_timer', option: 'Respawn', shortcut: '(O)' },
   ];
 
