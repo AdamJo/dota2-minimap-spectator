@@ -79,7 +79,7 @@ export class SummaryGraphComponent implements OnChanges {
     }
 
     this.accPercentage = Math.abs(this.accPercent);
-    if (this.browserCheck) {
+    if (this.browserCheck && this.accPercentPrevious && this.accPercent) {
       this.animateBar();
     } else {
       this.renderer.setElementStyle(
