@@ -158,3 +158,15 @@ button {
     background: $box-shadow-color-hover;
   }
 }
+
+a {
+  color: $font-color;
+
+  &:active {
+    color: $visited-link;
+  }
+
+  &:visited {
+    color: $visited-link;
+  }
+}

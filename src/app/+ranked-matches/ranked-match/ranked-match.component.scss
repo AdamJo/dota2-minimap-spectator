@@ -34,3 +34,15 @@
 .radiant {
   margin-right: 10px;
 }
+
+a {
+  color: $font-color;
+
+  &:active {
+    color: $visited-link;
+  }
+
+  &:visited {
+    color: $visited-link;
+  }
+}

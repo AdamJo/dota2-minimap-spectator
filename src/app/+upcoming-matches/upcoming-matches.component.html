@@ -1,13 +1,13 @@
 <div class="container">
   <div class="content">
       <h2>Upcoming Matches</h2>
-      <div *ngIf='!status'>
+      <div *ngIf='status'>
         <um-upcoming-match *ngFor="let match of upcomingMatches"
           [match]='match'
         ></um-upcoming-match>
       </div>
-      <h3 *ngIf='status'>
-        {{status}}
+      <h3 *ngIf='!status'>
+        No games found.
       </h3>
   </div>
 </div>

@@ -29,7 +29,7 @@ import { ApiService, UpcomingGames } from '../services/index';
 export class UpcomingMatchesComponent implements OnInit {
 
   upcomingMatches: Array<UpcomingGames>;
-  status: string;
+  status: boolean;
 
   @HostBinding('@routeAnimation') get routeAnimation() {
     return true;
@@ -43,10 +43,19 @@ export class UpcomingMatchesComponent implements OnInit {
     return 'relative';
   }
 
-  constructor(public apiService: ApiService) {}
+  constructor(public apiService: ApiService) {
+    status
+  }
 
   ngOnInit() {
     this.apiService.getUpcomingGames()
-      .subscribe(games => this.upcomingMatches = games);
+      .subscribe(games => {
+        this.upcomingMatches = games
+        if (this.upcomingMatches.length > 0) {
+          this.status = true;
+        } else {
+          this.status = false;
+        }
+      });
   }
 }
