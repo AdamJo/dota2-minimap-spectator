@@ -159,6 +159,8 @@ export class SpriteAnimationComponent implements OnInit {
     );
   }
 
+
+
   // shrinks and exands hero sprites
   toggle() {
     this.shrink = this.shrink === 'small' ? 'regular' : 'small';

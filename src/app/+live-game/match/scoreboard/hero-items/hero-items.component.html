@@ -1,9 +1,6 @@
 <div class="flex-container">
   <div class="item" *ngFor="let item of items">
-    <picture *ngIf='item !== "None"'>
-      <source srcset="http://cdn.dota2.com/apps/dota2/images/items/{{item}}_lg.png" sizes="100%" media="screen and (min-device-width: 500px)">
-      <img src="../../../../../assets/img/items/{{item}}.png" alt="{{item}}">
-    </picture>
+      <img *ngIf='item !== "None"' src="http://cdn.dota2.com/apps/dota2/images/items/{{item}}_lg.png" alt="{{item}}">
     <div class="blank" *ngIf='item === "None"'></div>
   </div>
 </div>

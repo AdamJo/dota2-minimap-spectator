@@ -7,12 +7,7 @@ import { Players } from '../../../services/index';
   template: `
     <div class="hero-picks">
       <div class="hero" *ngFor="let player of players">
-        <picture *ngIf="player.hero !== 'None'">
-          <source 
-            srcset="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png"
-            sizes="100%" media="screen and (min-device-width: 500px)">
-          <img src='../../../../assets/img/heroes/{{player.hero}}.png' alt="{{player.hero}}">
-        </picture>
+          <img *ngIf="player.hero !== 'None'" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png' alt="{{player.hero}}">
         <div
           class="blank"
           *ngIf="player.hero === 'None'">          
