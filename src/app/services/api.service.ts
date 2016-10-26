@@ -14,7 +14,6 @@ declare var opr;
 export class ApiService {
 
   public browser: boolean;
-  public previousGames: any;
   public oldMatchId: number;
   public gameOver: any;
   public previousGame$: any;
@@ -42,7 +41,7 @@ export class ApiService {
 
   constructor(private af: AngularFire) {
 
-    this.gameOver = { status: false, game: {} }
+    this.gameOver = { status: false, game: {} };
 
     this.duration = 0;
     this.gamePaused = false;
@@ -143,19 +142,19 @@ export class ApiService {
   findPreviousGame() {
     this.previousGame$ = this.af.database.list('matchHistory')
       .debounceTime(100)
-      .subscribe((games:any) => {
+      .subscribe( (games: any) => {
         this.gameOver.game = games.find((game) => {
           if (game['match_id'] === this.oldMatchId) {
             return game;
           }
         });
       },
-      val => console.log('ERROR'),
+      val => console.log('ERROR -> ', val),
       () => {
         if (this.gameOver.game !== {}) {
-          return console.log('completed')
+          return;
         }
-      })
+      });
   }
 
   // get upcoming games from firebase backend
@@ -171,18 +170,18 @@ export class ApiService {
       this.gameOver.status = true;
       this.findPreviousGame();
     } else {
-
       if (this.previousGame$ !== undefined || this.previousGame$) {
         this.previousGame$.unsubscribe();
       }
-      this.gameOver.status = false;
-      this.gameOver.game = undefined;
-      
+
       if (data.match_id) {
         if (this.matchId !== data.match_id) {
           this.firstCheckDone = false;
         }
       }
+
+      this.gameOver.status = false;
+      this.gameOver.game = undefined;
 
       if (this.firstCheckDone) {
         this.currentGame.scoreboard.radiant.players.map((d: any, i: any)  => {
@@ -266,6 +265,7 @@ export class ApiService {
   // when switching from '/Expand' to ''
   // game count is set to new game, and games is sorted.
   SwitchToGame(index: number) {
+    this.firstCheckDone = false;
     this.gameCount = this.allData.length - index;
     this.sortScoreboard(this.allData[index]);
   }

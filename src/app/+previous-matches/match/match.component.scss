@@ -9,10 +9,15 @@
 
   font-size: 1.2rem;
   position: relative;
-}
+  
+  &.container:hover {
+    background: $second-layer-background;
 
-.container:hover > .active {
-  background: $second-layer-background;
+    .active {
+      background: $second-layer-background;
+    }
+  }
+
 }
 
 .team {

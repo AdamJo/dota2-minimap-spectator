@@ -69,3 +69,17 @@
   width: 600px;
   z-index: 0;
 }
+
+.winner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-name {
+  max-width: 550px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

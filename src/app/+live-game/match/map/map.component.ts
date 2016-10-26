@@ -24,7 +24,7 @@ import { Team } from '../../../services/index';
         opacity: 1
       })),
       state('night', style({
-        opacity: .8,
+        opacity: .7,
         filter: 'grayscale(.3)'
       })),
       transition('day <=> night', animate('750ms ease-in'))
@@ -45,7 +45,17 @@ import { Team } from '../../../services/index';
       state('void', style({
         opacity: 0
       })),
-      transition('void <=> *', animate('1500ms ease-in'))
+      transition(':enter', animate('750ms ease-in'))
+    ]),
+    trigger('winner', [
+      state('*', style({
+        opacity: 1
+      })),
+      state('void', style({
+        opacity: 0,
+        transform: 'scale(.95)'
+      })),
+      transition(':enter', animate('500ms ease-in'))
     ])
   ]
 })
@@ -67,27 +77,13 @@ export class  MapComponent {
   @Input() paused: boolean;
   @Input() gameOver: any;
 
-  ngOnChanges() {
-    this.gameOver.status = true;
-    this.gameOver.game = {
-      cluster_name: "US East",
-      dire_name: "Elements Pro Gaming",
-      league_name: "Boston Major Open Qualifier",
-      match_id: 2734832335,
-      radiant_name: "Radiant",
-      radiant_win: false
-    }
-    // this.gameOver.game = undefined;
-    console.log(this.gameOver)
-  }
-
   toggle() {
     if (this.gameOver.game) {
       this.toggleWinner = true;
-      this.winner = 
-        this.gameOver.game.radiant_win ? 
-        'Radiant' :
-        'Dire'
+      this.winner =
+        this.gameOver.game.radiant_win ?
+        this.gameOver.game.radiant_name :
+        this.gameOver.game.dire_name;
     }
   }
 }

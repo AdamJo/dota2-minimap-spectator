@@ -12,8 +12,9 @@
         <br>
         <span *ngIf="gameOver.game">Click map for spoilers...</span>
       </div>
-      <div *ngIf="toggleWinner" ngClass="gameOver.game.radiant_win ? 'radiant': 'dire'">
-        {{winner}} Victory
+      <div [@winner] *ngIf="toggleWinner" ngClass="winner gameOver.game.radiant_win ? 'radiant': 'dire'">
+        <span class="team-name">{{this.winner}}</span>&nbsp;
+        <span>Victory</span>
       </div>
     </div>
   </div>

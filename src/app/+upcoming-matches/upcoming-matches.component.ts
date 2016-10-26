@@ -43,14 +43,12 @@ export class UpcomingMatchesComponent implements OnInit {
     return 'relative';
   }
 
-  constructor(public apiService: ApiService) {
-    status
-  }
+  constructor(public apiService: ApiService) {}
 
   ngOnInit() {
     this.apiService.getUpcomingGames()
       .subscribe(games => {
-        this.upcomingMatches = games
+        this.upcomingMatches = games;
         if (this.upcomingMatches.length > 0) {
           this.status = true;
         } else {
