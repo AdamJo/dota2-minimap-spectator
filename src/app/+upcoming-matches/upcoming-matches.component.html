@@ -1,6 +1,7 @@
 <div class="container">
   <div class="content">
       <h2>Upcoming Matches</h2>
+      <div>API by <a href="http://dailydota2.com/api" target="_blank">DailyDota</a></div>
       <div *ngIf='status'>
         <um-upcoming-match *ngFor="let match of upcomingMatches"
           [match]='match'

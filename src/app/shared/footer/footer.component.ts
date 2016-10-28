@@ -4,12 +4,7 @@ import { Component } from '@angular/core';
   selector: 'sh-footer',
   template: `
     <footer>
-      Minimal Dota 2 Watcher by 
-      <a target="_blank" href="https://github.com/AdamJo">AdamJo</a>
-      | Live Game Info by 
-      <a href="https://wiki.teamfortress.com/wiki/WebAPI#Dota_2" target="_blank">SteamApi</a>
-      | Upcoming Matches Info by
-      <a href="http://dailydota2.com/api" target="_blank">DailyDota</a>
+      <a [routerLink]="['/about']" routerLinkActive="active">About & Donations</a>
     </footer>
   `,
   styles: [
@@ -26,16 +21,15 @@ import { Component } from '@angular/core';
         color: #22627E;
       }
 
-
       footer {
-        background: #000;
+        background: transparent;
         color: #d9d9d9;
-        margin-top: 10px;
+        margin-top: 5px;
         min-width: 1100px;
         text-align: center;
       }
     `
   ]
 })
-// TODO replace SteamApi with Donate (stripe/paypal/bitcoin) 
+
 export class FooterComponent {}

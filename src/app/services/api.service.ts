@@ -298,4 +298,15 @@ export class ApiService {
       this.browser = false;
     }
   }
+
+  passToken(tokenId, amount, currency, description) {
+    this.af.database.list('queue/tasks').push(
+      {
+        'token': tokenId,
+        'amount': amount,
+        'currency': currency,
+        'description': description
+      }
+    );
+  }
 }

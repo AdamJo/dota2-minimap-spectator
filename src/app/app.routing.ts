@@ -30,6 +30,10 @@ const routes: Routes = [
     loadChildren: './+upcoming-matches/upcoming-matches.module#UpcomingMatchesModule'
   },
   {
+    path: 'about',
+    loadChildren: './+about/about.module#AboutModule'
+  },
+  {
     path: '**',
     redirectTo: 'live'
   }
