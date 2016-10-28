@@ -31,5 +31,5 @@ import { Component } from '@angular/core';
     `
   ]
 })
-// TODO Donate / About page (stripe) 
+
 export class FooterComponent {}

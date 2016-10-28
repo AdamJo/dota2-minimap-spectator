@@ -6,7 +6,7 @@ import { Routes, RouterModule,
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'about',
+    redirectTo: 'live',
     pathMatch: 'full'
   },
   {
