@@ -166,6 +166,7 @@ export class ApiService {
   sortScoreboard(data: LiveLeagueGame) {
     if (this.firstCheckDone && this.matchId !== data.match_id &&
         this.currentGame['league_tier'] > 1) {
+      this.gamePaused = false;
       this.oldMatchId = this.matchId;
       this.gameOver.status = true;
       this.findPreviousGame();
@@ -248,6 +249,7 @@ export class ApiService {
   decrementTotal() {
     if (this.gameCount <= this.dataLength - 1) {
       this.firstCheckDone = false;
+      this.gamePaused = false;
       this.gameCount = this.gameCount + 1;
       this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
     }
@@ -257,6 +259,7 @@ export class ApiService {
   incrementTotal() {
     if (this.gameCount > 1) {
       this.firstCheckDone = false;
+      this.gamePaused = false;
       this.gameCount = this.gameCount - 1;
       this.sortScoreboard(this.allData[this.dataLength - this.gameCount]);
     }
@@ -266,6 +269,7 @@ export class ApiService {
   // game count is set to new game, and games is sorted.
   SwitchToGame(index: number) {
     this.firstCheckDone = false;
+    this.gamePaused = false;
     this.gameCount = this.allData.length - index;
     this.sortScoreboard(this.allData[index]);
   }
