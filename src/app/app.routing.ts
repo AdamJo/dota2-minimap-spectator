@@ -6,7 +6,7 @@ import { Routes, RouterModule,
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'live',
+    redirectTo: 'about',
     pathMatch: 'full'
   },
   {
@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'upcoming',
     loadChildren: './+upcoming-matches/upcoming-matches.module#UpcomingMatchesModule'
+  },
+  {
+    path: 'about',
+    loadChildren: './+about/about.module#AboutModule'
   },
   {
     path: '**',

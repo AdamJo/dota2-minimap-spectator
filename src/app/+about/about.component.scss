@@ -1,0 +1,91 @@
+@import '../../assets/_variables.scss';
+
+.flex-container {
+  display: flex;
+}
+
+.content {
+  background: $base-background;
+  border: 1px solid $border-color;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  min-width: 1100px;
+  width: 1100px;
+  padding-bottom: 10px;
+  min-height: 500px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+
+  width: 1050px;
+  text-align: center;
+}
+
+.donate, .about, .stack {
+  padding: 10px 10px;
+  margin: 10px 0;
+  background: $first-layer-background;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+h1 {
+  margin-top: 15px;
+}
+
+a {
+  color: #d9d9d9;
+
+  a:active {
+    color: #142958;
+  }
+
+  a:visited {
+    color: #22627E;
+  }
+}
+
+.donation {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 15px;
+}
+
+select, button {
+  font-size: 1rem;
+
+  outline: none;
+  border-radius: 5px;
+
+  border: 1px solid $border-color;
+  color: $font-color;
+  background: $second-layer-background;
+  height: 50px;
+
+  min-width: 60px;
+  text-align-last:center;
+
+  margin: 0 5px;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &:active {
+    box-shadow: 0 0 3px $grey;
+  }
+}
+
+button {
+  background: $buyback-status;
+}
