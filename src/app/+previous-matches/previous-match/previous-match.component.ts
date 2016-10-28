@@ -27,7 +27,7 @@ export class PreviousMatchComponent implements OnChanges {
 
   overlay(event) {
     this.toggleMatch = !this.toggleMatch;
-    this.overlayMatch = event
+    this.overlayMatch = event;
   }
 
   closeOverlay(event) {

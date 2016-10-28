@@ -1,4 +1,5 @@
-import { Component, OnInit, HostBinding, ElementRef, NgZone,
+/* tslint:disable: max-line-length */
+import { Component, HostBinding, ElementRef, AfterViewInit,
          trigger, transition, animate,
          style, state } from '@angular/core';
 
@@ -8,7 +9,6 @@ import { ApiService } from '../services/index';
 @Component({
   selector: 'sh-about',
   template: `
-
     <div class="container">
       <div class="content">
         <h1>Welcome to the Minimal Dota 2 Watcher</h1>
@@ -26,7 +26,7 @@ import { ApiService } from '../services/index';
             <h2>Donations</h2>
             <div>
               <div>
-                Help me with server costs or just show your appreciation with the donations below!
+                Help me with server costs or just show your appreciation with that donation button below!
               </div>
               <div class="donation">
                 <select class="currency" [ngModel]="defaultCurrency" (change)="onChangeCurrency($event.target.value)">
@@ -79,17 +79,17 @@ import { ApiService } from '../services/index';
   ]
 })
 
-export class AboutComponent {
+export class AboutComponent implements AfterViewInit {
 
   currency = [
-    'AUD', 'CAD', 'EUR', 'GBP','USD',
+    'AUD', 'CAD', 'EUR', 'GBP', 'USD',
     '---',
     'CYN',
     '---',
     'RUB',
     '---',
     'SAR'
-  ]
+  ];
 
   amount = [
     '1', '2', '3', '4', '5',
@@ -104,11 +104,11 @@ export class AboutComponent {
   amountChinese = [
     '10', '20', '30', '40', '50',
     '100', '500', '750', '1,000', '2,000'
-  ]
+  ];
 
   amountSAR = [
     '5', '50', '500', '5,000', '50,000'
-  ]
+  ];
 
   defaultCurrency: string = 'USD';
   defaultAmount: string = '5';
@@ -129,41 +129,41 @@ export class AboutComponent {
     return 'relative';
   }
 
-  constructor(private apiService: ApiService, private elementRef:ElementRef, private _zone: NgZone) {}
+  constructor(private apiService: ApiService, private elementRef: ElementRef) {}
 
   ngAfterViewInit() {
     this.onChangeAmount(this.defaultAmount);
 
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "https://js.stripe.com/v2/";
+    let s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'https://js.stripe.com/v2/';
     this.elementRef.nativeElement.appendChild(s);
 
-    var r = document.createElement("script");
-    r.src = "https://checkout.stripe.com/checkout.js";
+    let r = document.createElement('script');
+    r.src = 'https://checkout.stripe.com/checkout.js';
     this.elementRef.nativeElement.appendChild(r);
   }
 
   onChangeCurrency(currencyValue) {
-      this.userCurrency = currencyValue;
+    this.userCurrency = currencyValue;
   }
 
   onChangeAmount(amountValue: string) {
-      this.userAmount = parseInt(amountValue.replace(',', ''));
-      this.userAmountCents = parseInt(amountValue.replace(',', '') + '00');
-      console.log(amountValue, this.userAmount, this.userAmountCents, this.userCurrency)
+    this.userAmount = parseInt(amountValue.replace(',', ''), 10);
+    this.userAmountCents = parseInt(amountValue.replace(',', '') + '00', 10);
+    console.log(this.userAmount, this.userAmountCents)
   }
 
   openCheckout() {
     // hack for stripejs & angular 2 to remove an error on callback.
     // http://stackoverflow.com/questions/36258252/stripe-json-circular-reference
     const _stringify = JSON.stringify;
-    JSON.stringify = function (value, ...args) {
+    JSON.stringify = (value, ...args) => {
       if (args.length) {
         return _stringify(value, args);
       } else {
         return _stringify(value, function (key, value) {
-          if (value && key === 'zone' && value['_zoneDelegate'] 
+          if (value && key === 'zone' && value['_zoneDelegate']
               && value['_zoneDelegate']['zone'] === value) {
             return undefined;
           }
@@ -171,17 +171,19 @@ export class AboutComponent {
         });
       }
     };
-    let selectedAmount = new CurrencyPipe(this.userCurrency).transform(this.userAmount, this.userCurrency, true);
-    console.log(selectedAmount);
+
+    let selectedAmount = new CurrencyPipe(this.userCurrency)
+      .transform(this.userAmount, this.userCurrency, true);
+
     let description = `Donation of ${selectedAmount}`;
-    var handler = (<any>window).StripeCheckout.configure({
+    let handler = (<any>window).StripeCheckout.configure({
       key: 'pk_live_aQ6aUyhoFiME9Q9RZ1OWGQHd',
       image: 'assets/icon/android-chrome-192x192.png',
       bitcoin: true,
-      locale: "auto",
+      locale: 'auto',
 
       token: (token, args) => {
-        this.apiService.passToken(token.id, this.userAmountCents, this.userCurrency, description)
+        this.apiService.passToken(token.id, this.userAmountCents, this.userCurrency, description);
       }
     });
 
