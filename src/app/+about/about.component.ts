@@ -50,9 +50,12 @@ import { ApiService } from '../services/index';
                   </select>
                 </div>
                 <button (click)="openCheckout()">
-                  Donate
+                  Stripe Donate
                 </button>
-                </div>
+                <span class="or">or</span>
+                <button class="paypal">
+                  <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3HNBRHTU44PGY">Paypal</a>
+                </button>
             </div>
           </div>
         </div>
