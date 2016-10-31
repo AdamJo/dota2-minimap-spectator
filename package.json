@@ -2,7 +2,7 @@
   "name": "minimal-dota2-viewer",
   "version": "1.4.4",
   "description": "minimal Dota2 Viewer",
-  "author": "AdamJo",
+  "author": "Adam Johannesmeyer <adam.johannesmeyer@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AdamJo/dota2-minimap-spectator"
