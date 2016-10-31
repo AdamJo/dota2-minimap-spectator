@@ -6,17 +6,19 @@ import { FirebaseListObservable } from 'angularfire2';
 import { FirebaseObjectObservable } from 'angularfire2';
 import { loading } from '../../assets/initialLoadData/loading';
 
+
+// used to remove typescript errors
 declare var window;
 declare var InstallTrigger;
-declare var opr;
+declare var opr; 
 
 @Injectable()
 export class ApiService {
 
-  public browser: boolean;
-  public oldMatchId: number;
-  public gameOver: any;
-  public previousGame$: any;
+  public browser: boolean;  // detects browser for message to show if needed
+  public oldMatchId: number; // old match for showing games result
+  public gameOver: any; // tells component if game is over
+  public previousGame$: any; // grabs values to tell if game is finished 
 
   // live games
   public firstCheckDone = false; // first check of watched game done
@@ -24,20 +26,20 @@ export class ApiService {
   public dataLength: number; // length of games
   public allData: Array<any>; // all sorted data1
   public loadDone = false; // load of resources status
-  public isApiUp: boolean; // api status
+  public isApiUp: boolean; // variable sent to component : statusCode
   public currentGame: LiveLeagueGame; // list of current games
-  public currentMatchId: number;
-  public scoreboardValues: any;
-  public statusCode: FirebaseObjectObservable<any>;
+  public currentMatchId: number; // keeps track of current game
+  public scoreboardValues: any; // keeps track of scoreboard value for switching between routes
+  public statusCode: FirebaseObjectObservable<any>; // tells user if api is up
 
-  public gamePaused: boolean;
-  public duration: number;
+  public gamePaused: boolean; // tells component game is paused
+  public duration: number; // determines if game duration is same
 
-  public mmrTopGames: any;
+  public mmrTopGames: any; // grab mmr games
 
-  private currentMatchNotFound: boolean;
-  private matchId: number;
-  private game$: FirebaseListObservable<any>;
+  private currentMatchNotFound: boolean; // used to determine match 
+  private matchId: number; // current game match user is watching
+  private game$: FirebaseListObservable<any>; // all live games
 
   constructor(private af: AngularFire) {
 
