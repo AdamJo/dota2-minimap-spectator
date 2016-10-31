@@ -2,7 +2,7 @@
   <div class="flex-container">
     <div *ngIf="matches.length === 0">
         <h2>No Games Found!</h2>
-        <h4>Only 300 recent games are stored</h4>
+        <h4>Only the 100 most recent games are stored</h4>
     </div>
   <div *ngFor="let match of matches">
     <pm-match
