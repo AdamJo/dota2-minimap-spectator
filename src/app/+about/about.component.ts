@@ -154,7 +154,6 @@ export class AboutComponent implements AfterViewInit {
   onChangeAmount(amountValue: string) {
     this.userAmount = parseInt(amountValue.replace(',', ''), 10);
     this.userAmountCents = parseInt(amountValue.replace(',', '') + '00', 10);
-    console.log(this.userAmount, this.userAmountCents)
   }
 
   openCheckout() {
@@ -182,7 +181,6 @@ export class AboutComponent implements AfterViewInit {
     let handler = (<any>window).StripeCheckout.configure({
       key: 'pk_live_aQ6aUyhoFiME9Q9RZ1OWGQHd',
       image: 'assets/icon/android-chrome-192x192.png',
-      bitcoin: true,
       locale: 'auto',
 
       token: (token, args) => {
@@ -195,7 +193,8 @@ export class AboutComponent implements AfterViewInit {
       description: description,
       amount: this.userAmountCents,
       currency: this.userCurrency,
-      bitcoin: true
+      bitcoin: true,
+      alipay: true
     });
   }
 }
