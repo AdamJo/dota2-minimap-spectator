@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'sh-footer',
   template: `
     <footer>
-      <a [routerLink]="['/about']" routerLinkActive="active">About & Donations</a>
+      <a [routerLink]="['/about']" routerLinkActive="active">About & <span class="donations">Donations</span></a>
     </footer>
   `,
   styles: [
@@ -27,6 +27,18 @@ import { Component } from '@angular/core';
         margin-top: 5px;
         min-width: 1100px;
         text-align: center;
+      }
+
+      .donations {
+        color: #c18d0b
+      }
+
+      a:active > .donations {
+        color: #142958;
+      }
+
+      a:visited > .donations {
+        color: #c18d0b;
       }
     `
   ]
