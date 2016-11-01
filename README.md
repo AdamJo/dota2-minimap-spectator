@@ -1,5 +1,7 @@
-Spectate live games from the dota 2 minimap using the Valves Dota 2 API.
+## [MiniDota.watch](https://minidota.watch)
 
-Thanks to https://github.com/kronusme/ and https://github.com/bontscho/ for Dota 2 metadata I used with this project.
+Spectate live Dota 2 league games and stay up to date with previous and upcoming matches.
+
+Thanks to [joshuaduffy](https://github.com/joshuaduffy/dota2api/) and [bontscho](https://github.com/bontscho/) for their dota 2 resources.
 
 This project is using a modified https://github.com/qdouble/angular2webpack2-starter as base.
