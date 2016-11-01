@@ -2,6 +2,6 @@
 
 Spectate live Dota 2 league games and stay up to date with previous and upcoming matches.
 
-Thanks to [joshuaduffy](https://github.com/joshuaduffy/dota2api/) and [bontscho](https://github.com/bontscho/) for their dota 2 resources.
+Thanks to [Joshuaduffy](https://github.com/joshuaduffy/dota2api/) and [Bontscho](https://github.com/bontscho/) for their dota 2 resources.
 
-This project is using a modified https://github.com/qdouble/angular2webpack2-starter as base.
+This project is using a modified [Qdouble's Angular Webpack 2 starter](https://github.com/qdouble/angular-webpack2-starter) as base.
