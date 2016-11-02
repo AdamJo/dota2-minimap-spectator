@@ -16,10 +16,6 @@ import { APP_PROVIDERS } from './app.providers';
 
 import { AppComponent } from './app.component';
 
-// TODO: this fixes the error "Cannot find namespace 'firebase'."
-//       Need for applications since errors fail build process
-import 'firebase';
-
 @NgModule({
   declarations: [
     AppComponent,
