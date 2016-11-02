@@ -20,7 +20,7 @@
       (click)="highlightPlayer.emit(player.name);"
       ngClass="{{player.team}}">
         <div class="repsawn-img">
-          <img *ngIf="player.hero !== 'None'" src='http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero}}_hphover.png' alt="{{player.hero}}">
+          <img *ngIf="player.hero !== 'None'" src='assets/img/heroes/{{player.hero}}.png' alt="{{player.hero}}">
           <div class="blank" *ngIf="player.hero === 'None'"></div>
           <lg-hero-respawn *ngIf="player.respawn_timer > 0"
             [respawn]="player.respawn_timer"

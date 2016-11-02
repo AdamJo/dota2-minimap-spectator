@@ -7,7 +7,7 @@
         <span *ngIf='sortValue=== "last_hits"'>{{mvpDire[sortValue] | addCommas}} / {{mvpDire['denies'] | addCommas}}</span>           
       </div>
       <div class="repsawn-img">
-        <img *ngIf="mvpDire['hero'] !== 'None'" src="http://cdn.dota2.com/apps/dota2/images/heroes/{{mvpDire['hero']}}_hphover.png" alt="{{mvpDire['hero']}}">
+        <img *ngIf="mvpDire['hero'] !== 'None'" src="assets/img/heroes/{{mvpDire['hero']}}.png" alt="{{mvpDire['hero']}}">
         <div class="blank" *ngIf="mvpDire['hero'] === 'None'"></div>
         <lg-hero-respawn *ngIf="mvpDire['respawn_timer'] > 0"
           [respawn]="mvpDire['respawn_timer']"
@@ -20,7 +20,7 @@
         <span *ngIf='sortValue=== "last_hits"'>{{mvpRadiant[sortValue] | addCommas}} / {{mvpRadiant['denies'] | addCommas}}</span>         
       </div>
       <div class="repsawn-img">
-        <img *ngIf="mvpRadiant['hero'] !== 'None'" src="http://cdn.dota2.com/apps/dota2/images/heroes/{{mvpRadiant['hero']}}_hphover.png" alt="{{mvpRadiant['hero']}}">
+        <img *ngIf="mvpRadiant['hero'] !== 'None'" src="assets/img/heroes/{{mvpRadiant['hero']}}.png" alt="{{mvpRadiant['hero']}}">
         <div class="blank" *ngIf="mvpRadiant['hero'] === 'None'"></div>
         <lg-hero-respawn *ngIf="mvpRadiant['respawn_timer'] > 0"
           [respawn]="mvpRadiant['respawn_timer']"
