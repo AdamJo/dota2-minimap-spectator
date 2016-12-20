@@ -94,7 +94,7 @@ const clientConfig = function webpackConfig(): WebpackConfig {
       {
         test: /\.ts$/,
         loaders: [
-          'awesome-typescript-loader',
+          'awesome-typescript-loader?tsconfig=tsconfig.webpack.json',
           'angular2-template-loader',
           'angular2-router-loader?loader=system&genDir=src/compiled/src/app&aot=' + AOT
         ],
