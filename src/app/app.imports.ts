@@ -1,6 +1,7 @@
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app.routing';
 import { AngularFireModule } from 'angularfire2';
+import { IdlePreload, IdlePreloadModule } from '@angularclass/idle-preload';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAgULOLZZOd5IHc5ABgOIm8_dTsrunyYRs',
@@ -13,5 +14,6 @@ const firebaseConfig = {
 export const APP_IMPORTS = [
     AngularFireModule.initializeApp(firebaseConfig),
     SharedModule,
+    IdlePreloadModule.forRoot(),
     AppRoutingModule
 ];

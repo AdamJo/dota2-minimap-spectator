@@ -9,7 +9,9 @@ const root = require('../helpers').root;
  */
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+const ForkCheckerPlugin = require(
+  'awesome-typescript-loader'
+).ForkCheckerPlugin;
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 
 const EXCLUDE_SOURCE_MAPS = require('../constants').EXCLUDE_SOURCE_MAPS;
@@ -23,9 +25,6 @@ const STORE_DEV_TOOLS = require('../constants').STORE_DEV_TOOLS;
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
 module.exports = {
-
-  entry: {},
-
   /**
    * Source map for Karma from the help of karma-sourcemap-loader &  karma-webpack
    *
@@ -33,37 +32,31 @@ module.exports = {
    * See: https://github.com/webpack/karma-webpack#source-maps
    */
   devtool: 'inline-source-map',
-
   /**
    * Options affecting the resolving of modules.
    *
    * See: http://webpack.github.io/docs/configuration.html#resolve
    */
   resolve: {
-
     /**
      * An array of extensions that should be used to resolve modules.
      *
      * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
      */
-    extensions: ['.ts', '.js']
-
+    extensions: [ '.ts', '.js' ]
   },
-
   /**
    * Options affecting the normal modules.
    *
    * See: http://webpack.github.io/docs/configuration.html#module
    */
   module: {
-
     /**
      * An array of applied pre and post loaders.
      *
      * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
      */
     rules: [
-
       /**
        * Tslint loader support for *.ts files
        *
@@ -73,9 +66,8 @@ module.exports = {
         test: /\.ts$/,
         enforce: 'pre',
         loader: 'tslint-loader',
-        exclude: [root('node_modules')]
+        exclude: [ root('node_modules') ]
       },
-
       /**
        * Source map loader support for *.js files
        * Extracts SourceMaps for source files that as added as sourceMappingURL comment.
@@ -86,9 +78,8 @@ module.exports = {
         test: /\.js$/,
         enforce: 'pre',
         loader: 'source-map-loader',
-        exclude: [EXCLUDE_SOURCE_MAPS]
+        exclude: [ EXCLUDE_SOURCE_MAPS ]
       },
-
       /**
        * Typescript loader support for .ts and Angular 2 async routes via .async.ts
        *
@@ -100,32 +91,40 @@ module.exports = {
           'awesome-typescript-loader?sourceMap=false,inlineSourceMap=true,compilerOptions{}=removeComments:true',
           'angular2-template-loader'
         ],
-        exclude: [/\.e2e\.ts$/]
+        exclude: [ /\.e2e\.ts$/ ]
       },
-
       /**
        * Json loader support for *.json files.
        *
        * See: https://github.com/webpack/json-loader
        */
-      { test: /\.json$/, loader: 'json-loader', exclude: [root('src/index.html')] },
-
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+        exclude: [ root('src/index.html') ]
+      },
       /**
        * Raw loader support for *.css files
        * Returns file content as string
        *
        * See: https://github.com/webpack/raw-loader
        */
-      { test: /\.css$/, loaders: ['raw-loader'], exclude: [root('src/index.html')] },
-
+      {
+        test: /\.css$/,
+        loaders: [ 'raw-loader' ],
+        exclude: [ root('src/index.html') ]
+      },
       /**
        * Raw loader support for *.html
        * Returns file content as string
        *
        * See: https://github.com/webpack/raw-loader
        */
-      { test: /\.html$/, loader: 'raw-loader', exclude: [root('src/index.html')] },
-
+      {
+        test: /\.html$/,
+        loader: 'raw-loader',
+        exclude: [ root('src/index.html') ]
+      },
       /**
        * Instruments JS files with Istanbul for subsequent code coverage reporting.
        * Instrument only testing sources.
@@ -133,18 +132,15 @@ module.exports = {
        * See: https://github.com/deepsweet/istanbul-instrumenter-loader
        */
       {
-        test: /\.(js|ts)$/, loader: 'istanbul-instrumenter-loader',
+        test: /\.(js|ts)$/,
+        loader: 'istanbul-instrumenter-loader',
         enforce: 'post',
         include: root('src'),
-        exclude: [
-          /\.(e2e|spec)\.ts$/,
-          /node_modules/
-        ]
+        exclude: [ /\.(e2e|spec)\.ts$/, /node_modules/ ]
       },
       ...MY_TEST_RULES
     ]
   },
-
   /**
    * Add additional plugins to the compiler.
    *
@@ -183,7 +179,6 @@ module.exports = {
     }),
     ...MY_TEST_PLUGINS
   ],
-
   /**
    * Include polyfills or mocks for various node stuff
    * Description: Node configuration

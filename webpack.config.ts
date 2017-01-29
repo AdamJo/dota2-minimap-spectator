@@ -6,10 +6,20 @@
 import 'ts-helpers';
 
 import {
-  DEV_PORT, PROD_PORT, EXCLUDE_SOURCE_MAPS, HOST,
-  USE_DEV_SERVER_PROXY, DEV_SERVER_PROXY_CONFIG, DEV_SERVER_WATCH_OPTIONS,
-  DEV_SOURCE_MAPS, PROD_SOURCE_MAPS, MY_COPY_FOLDERS, MY_VENDOR_DLLS,
-  MY_CLIENT_PLUGINS, MY_CLIENT_PRODUCTION_PLUGINS, MY_CLIENT_RULES
+  DEV_PORT,
+  PROD_PORT,
+  EXCLUDE_SOURCE_MAPS,
+  HOST,
+  USE_DEV_SERVER_PROXY,
+  DEV_SERVER_PROXY_CONFIG,
+  DEV_SERVER_WATCH_OPTIONS,
+  DEV_SOURCE_MAPS,
+  PROD_SOURCE_MAPS,
+  MY_COPY_FOLDERS,
+  MY_VENDOR_DLLS,
+  MY_CLIENT_PLUGINS,
+  MY_CLIENT_PRODUCTION_PLUGINS,
+  MY_CLIENT_RULES
 } from './constants';
 
 const {
@@ -18,7 +28,7 @@ const {
   DllPlugin,
   DllReferencePlugin,
   ProgressPlugin,
-  NoErrorsPlugin
+  NoEmitOnErrorsPlugin
 } = require('webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -26,7 +36,9 @@ const { CheckerPlugin } = require('awesome-typescript-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require(
+  'webpack-bundle-analyzer'
+).BundleAnalyzerPlugin;
 const WebpackMd5Hash = require('webpack-md5-hash');
 
 const { root, testDll } = require('./helpers.js');
@@ -82,7 +94,7 @@ if (!DEV_SERVER) {
   COPY_FOLDERS.push({ from: 'dll' });
 }
 
-const clientConfig = function webpackConfig(): WebpackConfig {
+const clientConfig = (function webpackConfig(): WebpackConfig {
   let config: WebpackConfig = Object.assign({});
 
   config.module = {
@@ -90,19 +102,23 @@ const clientConfig = function webpackConfig(): WebpackConfig {
       {
         test: /\.js$/,
         loader: 'source-map-loader',
-        exclude: [EXCLUDE_SOURCE_MAPS]
+        exclude: [ EXCLUDE_SOURCE_MAPS ]
       },
       {
         test: /\.ts$/,
         loaders: [
           'awesome-typescript-loader?{configFileName: "tsconfig.webpack.json"}',
           'angular2-template-loader',
-          'angular2-router-loader?loader=system&genDir=src/compiled/src/app&aot=' + AOT
+          'angular-router-loader?loader=system&genDir=compiled&aot=' + AOT
         ],
-        exclude: [/\.(spec|e2e|d)\.ts$/]
+        exclude: [ /\.(spec|e2e|d)\.ts$/ ]
       },
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.html/, loader: 'raw-loader', exclude: [root('src/index.html')] },
+      {
+        test: /\.html/,
+        loader: 'raw-loader',
+        exclude: [ root('src/index.html') ]
+      },
       { test: /\.css$/, loader: 'raw-loader' },
       ...MY_CLIENT_RULES
     ]
@@ -139,26 +155,21 @@ const clientConfig = function webpackConfig(): WebpackConfig {
   }
 
   if (DLL) {
-    config.plugins.push(
-      new DllPlugin({
-        name: '[name]',
-        path: root('dll/[name]-manifest.json'),
-      })
-    );
+    config.plugins.push(new DllPlugin({
+      name: '[name]',
+      path: root('dll/[name]-manifest.json')
+    }));
   } else {
     config.plugins.push(
-      new CopyWebpackPlugin(COPY_FOLDERS, { ignore: ['*dist_root/*'] }),
-      new CopyWebpackPlugin([{ from: 'src/assets/dist_root' }])
+      new CopyWebpackPlugin(COPY_FOLDERS, { ignore: [ '*dist_root/*' ] }),
+      new CopyWebpackPlugin([ { from: 'src/assets/dist_root' } ])
     );
   }
 
   if (PROD) {
     config.plugins.push(
-      new NoErrorsPlugin(),
-      new UglifyJsPlugin({
-        beautify: false,
-        comments: false
-      }),
+      new NoEmitOnErrorsPlugin(),
+      new UglifyJsPlugin({ beautify: false, comments: false }),
       new BundleAnalyzerPlugin(),
       ...MY_CLIENT_PRODUCTION_PLUGINS
     );
@@ -169,7 +180,7 @@ const clientConfig = function webpackConfig(): WebpackConfig {
 
   if (DLL) {
     config.entry = {
-      app_assets: ['./src/main.browser'],
+      app_assets: [ './src/main.browser' ],
       polyfill: [
         'sockjs-client',
         'ts-helpers',
@@ -186,18 +197,14 @@ const clientConfig = function webpackConfig(): WebpackConfig {
         'webpack/hot/emitter.js',
         'zone.js/dist/long-stack-trace-zone.js'
       ],
-      vendor: [...DLL_VENDORS]
+      vendor: [ ...DLL_VENDORS ]
     };
   } else {
     if (AOT) {
-        config.entry = {
-          main: './src/main.browser.aot'
-        };
-      } else {
-        config.entry = {
-          main: './src/main.browser'
-        };
-      }
+      config.entry = { main: './src/main.browser.aot' };
+    } else {
+      config.entry = { main: './src/main.browser' };
+    }
   }
   if (!DLL) {
     config.output = {
@@ -205,7 +212,6 @@ const clientConfig = function webpackConfig(): WebpackConfig {
       filename: '[name].[chunkhash].bundle.js',
       sourceMapFilename: '[name].[chunkhash].bundle.map',
       chunkFilename: '[id].[chunkhash].chunk.js'
-
     };
   } else {
     config.output = {
@@ -216,24 +222,18 @@ const clientConfig = function webpackConfig(): WebpackConfig {
   }
 
   config.devServer = {
-    contentBase: AOT ? './src/compiled' : './src',
+    contentBase: AOT ? './compiled' : './src',
     port: CONSTANTS.PORT,
-    historyApiFallback: {
-       disableDotRule: true,
-    },
+    historyApiFallback: { disableDotRule: true },
     host: '0.0.0.0',
     watchOptions: DEV_SERVER_WATCH_OPTIONS
   };
 
   if (USE_DEV_SERVER_PROXY) {
-    Object.assign(config.devServer, {
-      proxy: DEV_SERVER_PROXY_CONFIG
-    });
+    Object.assign(config.devServer, { proxy: DEV_SERVER_PROXY_CONFIG });
   }
 
-  config.performance = {
-    hints: false
-  };
+  config.performance = { hints: false };
 
   config.node = {
     global: true,
@@ -247,13 +247,10 @@ const clientConfig = function webpackConfig(): WebpackConfig {
     setTimeout: true
   };
 
-  config.resolve = {
-    extensions: ['.ts', '.js', '.json']
-  };
+  config.resolve = { extensions: [ '.ts', '.js', '.json' ] };
 
   return config;
-
-} ();
+})();
 
 DLL ? console.log('BUILDING DLLs') : console.log('BUILDING APP');
 module.exports = clientConfig;
