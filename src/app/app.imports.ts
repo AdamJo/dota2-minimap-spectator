@@ -8,12 +8,12 @@ const firebaseConfig = {
   authDomain: 'dota2-project-c0fd5.firebaseapp.com',
   databaseURL: 'https://dota2-project-c0fd5.firebaseio.com',
   storageBucket: 'dota2-project-c0fd5.appspot.com',
-  messagingSenderId: "158994092281"
+  messagingSenderId: '158994092281'
 };
 
 export const APP_IMPORTS = [
-    AngularFireModule.initializeApp(firebaseConfig),
-    SharedModule,
-    IdlePreloadModule.forRoot(),
-    AppRoutingModule
+  AngularFireModule.initializeApp(firebaseConfig),
+  SharedModule,
+  IdlePreloadModule.forRoot(),
+  AppRoutingModule
 ];

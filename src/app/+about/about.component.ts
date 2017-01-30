@@ -156,6 +156,7 @@ export class AboutComponent implements AfterViewInit {
     this.userAmountCents = parseInt(amountValue.replace(',', '') + '00', 10);
   }
 
+  // tslint:disable:no-shadowed-variable
   openCheckout() {
     // hack for stripejs & angular 2 to remove an error on callback.
     // http://stackoverflow.com/questions/36258252/stripe-json-circular-reference
@@ -173,6 +174,7 @@ export class AboutComponent implements AfterViewInit {
         });
       }
     };
+    // tslint:enable:no-shadowed-variable
 
     let selectedAmount = new CurrencyPipe(this.userCurrency)
       .transform(this.userAmount, this.userCurrency, true);

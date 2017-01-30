@@ -7,7 +7,9 @@ import { Players } from '../../../services/index';
   template: `
     <div class="hero-picks">
       <div class="hero" *ngFor="let player of players">
-          <img *ngIf="player.hero !== 'None'" src='assets/img/heroes/{{player.hero}}.png' alt="{{player.hero}}">
+          <img 
+            *ngIf="player.hero !== 'None' 
+            "src='assets/img/heroes/{{player.hero}}.png' alt="{{player.hero}}">
         <div
           class="blank"
           *ngIf="player.hero === 'None'">          
@@ -18,7 +20,8 @@ import { Players } from '../../../services/index';
       </div>
     </div>
   `,
-  styles: [`
+  styles: [
+    `
     .hero-picks {
       display: flex;
       flex-direction: row;
@@ -37,12 +40,14 @@ import { Players } from '../../../services/index';
     .blank {
       margin-bottom: 5px;
     }
-  `]
+  `
+  ]
 })
-
 export class HeroPicksComponent {
-  @Input() players: Players;
-  @Input() scoreboardValue: string;
+  @Input()
+  players: Players;
+  @Input()
+  scoreboardValue: string;
 
   ScoreboardSelect(player): string {
     if (this.scoreboardValue === 'kills') {
@@ -50,12 +55,14 @@ export class HeroPicksComponent {
     } else if (this.scoreboardValue === 'last_hits') {
       return `${player['last_hits']} / ${player['denies']}`;
     } else if (this.scoreboardValue === 'buyback_status') {
-      return player['gold'] > player['buyback_status'] ? 'Yes' : 'No'
+      return player['gold'] > player['buyback_status'] ? 'Yes' : 'No';
     } else if (this.scoreboardValue === 'None') {
       return `${player['name']}`;
     } else {
       // adds comma if value is a number and greater than 3
-      return player[this.scoreboardValue].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return player[this.scoreboardValue]
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
   }
 }

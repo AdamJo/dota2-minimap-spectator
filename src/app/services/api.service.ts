@@ -8,9 +8,10 @@ import { loading } from '../../assets/initialLoadData/loading';
 
 
 // used to remove typescript errors
+// used to detect browser
 declare var window;
 declare var InstallTrigger;
-declare var opr; 
+declare var opr;
 
 @Injectable()
 export class ApiService {
@@ -289,6 +290,7 @@ export class ApiService {
     });
   }
 
+  // tslint:disable:max-line-length
   detectBrowser() {
     // http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
     // http://stackoverflow.com/questions/39120772/how-to-detect-safari-10-browser-in-javascript/39621764#39621764
@@ -304,7 +306,7 @@ export class ApiService {
       this.browser = false;
     }
   }
-
+  // tslint:enable:max-line-length
   passToken(tokenId, amount, currency, description) {
     this.af.database.list('queue/tasks').push(
       {

@@ -4,7 +4,10 @@ import { Component } from '@angular/core';
   selector: 'sh-footer',
   template: `
     <footer>
-      <a [routerLink]="['/about']" routerLinkActive="active">About & <span class="donations">Donations</span></a>
+      <a [routerLink]="['/about']"
+        routerLinkActive="active">
+          About & 
+        <span class="donations">Donations</span></a>
     </footer>
   `,
   styles: [
@@ -43,5 +46,4 @@ import { Component } from '@angular/core';
     `
   ]
 })
-
 export class FooterComponent {}
