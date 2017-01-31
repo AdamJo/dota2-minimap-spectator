@@ -3,6 +3,8 @@ import { Routes, RouterModule,
   PreloadAllModules
 } from '@angular/router';
 
+import { IdlePreload, IdlePreloadModule } from '@angularclass/idle-preload';
+
 const routes: Routes = [
   {
     path: '',
@@ -42,7 +44,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(
       routes,
-      { preloadingStrategy: PreloadAllModules }
+      { useHash: false, preloadingStrategy: IdlePreload }
   )],
   exports: [RouterModule],
   providers: []
