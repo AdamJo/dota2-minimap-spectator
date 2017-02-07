@@ -6,7 +6,8 @@ cache:
   directories:
     - node_modules
 script:
-  - npm run test
+  - npm run compile:ci
+  - npm run test:once
 
 before_install:
   - export CHROME_BIN=chromium-browser

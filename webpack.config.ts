@@ -48,6 +48,7 @@ const AOT = EVENT.includes('aot');
 const DEV_SERVER = EVENT.includes('webdev');
 const DLL = EVENT.includes('dll');
 const PROD = EVENT.includes('prod');
+const CI = EVENT.includes('ci');
 
 let port: number;
 if (PROD) {
@@ -58,6 +59,7 @@ if (PROD) {
 
 const PORT = port;
 
+console.log(EVENT);
 console.log('PRODUCTION BUILD: ', PROD);
 console.log('AOT: ', AOT);
 if (DEV_SERVER) {
@@ -170,9 +172,14 @@ const clientConfig = (function webpackConfig(): WebpackConfig {
     config.plugins.push(
       new NoEmitOnErrorsPlugin(),
       new UglifyJsPlugin({ beautify: false, comments: false }),
-      new BundleAnalyzerPlugin(),
       ...MY_CLIENT_PRODUCTION_PLUGINS
     );
+    if (!CI) {
+      config.plugins.push(
+        // needed for travis builds to complete
+        new BundleAnalyzerPlugin()
+      )
+    }
   }
 
   config.cache = true;
