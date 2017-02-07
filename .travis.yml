@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - '6.6.0'
 cache:
-  - directories:
+  yarn: true
+  directories:
     - node_modules
-before_script:
-  npm run compile
+script:
+  - npm run test

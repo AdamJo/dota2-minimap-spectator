@@ -6,7 +6,7 @@ describe('App', () => {
 
   it('should have a title', () => {
     let subject = browser.getTitle();
-    let result  = 'Angular 2 App';
+    let result  = 'Mini Dota 2 Watcher';
     expect(subject).toEqual(result);
   });
 

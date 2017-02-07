@@ -85,7 +85,7 @@ export class RegionOptionsComponent implements OnChanges {
 
   ngOnChanges(changes) {
     if (this.regions.includes(undefined)) {
-      this.regions = this.regions.filter(data => data !== undefined)
+      this.regions = this.regions.filter(data => data !== undefined);
     }
 
     if (this.inactive) {
