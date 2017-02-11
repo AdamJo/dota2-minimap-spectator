@@ -19,7 +19,7 @@ import { ApiService } from '../services/index';
               Watch multiple Dota 2 matches while staying up-to-date with previous and upcoming matches.
             </p>
             <p>
-              Contact: <a href="adam.johannesmeyer@gmail.com">adam.johannesmeyer@gmail.com</a>
+              Contact: <span class="email">adam.johannesmeyer@gmail.com</span>
             </p>
           </div>
           <div class="donate">
