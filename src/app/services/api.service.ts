@@ -1,9 +1,7 @@
 /* tslint:disable: max-line-length */
 import { Injectable } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { LiveLeagueGame } from './live-league-game.model';
-import { FirebaseListObservable } from 'angularfire2';
-import { FirebaseObjectObservable } from 'angularfire2';
 import { loading } from '../../assets/initialLoadData/loading';
 
 
@@ -42,7 +40,7 @@ export class ApiService {
   private matchId: number; // current game match user is watching
   private game$: FirebaseListObservable<any>; // all live games
 
-  constructor(private af: AngularFire) {
+  constructor(private af: AngularFireDatabase) {
 
     this.gameOver = { status: false, game: {} };
 
@@ -124,26 +122,26 @@ export class ApiService {
 
   // get status code (liveGames) from firebase backend
   getStatusCode() {
-    return this.af.database.object('statusCode');
+    return this.af.object('statusCode');
   }
 
   // get live games from firebase backend
   getCurrentGames() {
-    return this.af.database.list('sortedGames');
+    return this.af.list('sortedGames');
   }
 
   // get upcoming games from firebase backend
   getUpcomingGames() {
-    return this.af.database.list('upcomingGames');
+    return this.af.list('upcomingGames');
   }
 
   // get upcoming games from firebase backend
   getPreviousGames() {
-    return this.af.database.list('matchHistory');
+    return this.af.list('matchHistory');
   }
 
   findPreviousGame() {
-    this.previousGame$ = this.af.database.list('matchHistory')
+    this.previousGame$ = this.af.list('matchHistory')
       .debounceTime(100)
       .subscribe( (games: any) => {
         this.gameOver.game = games.find((game) => {
@@ -162,7 +160,7 @@ export class ApiService {
 
   // get upcoming games from firebase backend
   getMmrTop() {
-    return this.af.database.list('mmrTop');
+    return this.af.list('mmrTop');
   }
 
   // returns the radiant and dire players
@@ -308,7 +306,7 @@ export class ApiService {
   }
   // tslint:enable:max-line-length
   passToken(tokenId, amount, currency, description) {
-    this.af.database.list('queue/tasks').push(
+    this.af.list('queue/tasks').push(
       {
         'token': tokenId,
         'amount': amount,
