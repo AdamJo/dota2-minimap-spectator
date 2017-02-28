@@ -30,11 +30,10 @@ export class SummaryGraphComponent implements OnChanges {
   constructor(public renderer: Renderer) { }
 
   ngOnChanges(changes) {
-    let isFirstLoad = Object.keys(changes.radiantData.previousValue)[0] !== 'toString';
+    let isFirstLoad = changes.radiantData.previousValue !== undefined;
     let accTemp;
     let radiantAccTemp;
     let direAccTemp;
-
     let direAccCurrentTemp = changes.direData.currentValue
       .map(x => x[this.sortValue])
       .reduce( (max, cur ) => {
