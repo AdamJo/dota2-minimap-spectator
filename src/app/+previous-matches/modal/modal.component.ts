@@ -1,5 +1,5 @@
-import { Component, Input, Output, trigger, EventEmitter,
-  transition, animate, style, state } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MatchHistory } from '../../services/index';
 
 @Component({

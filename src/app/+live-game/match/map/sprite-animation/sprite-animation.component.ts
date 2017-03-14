@@ -1,10 +1,5 @@
-import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetectionStrategy,
-  trigger,
-  state,
-  style,
-  transition,
-  keyframes,
-  animate } from '@angular/core';
+import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'lg-sprite-animation',

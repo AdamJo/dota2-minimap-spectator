@@ -1,6 +1,6 @@
-import { Component, HostBinding, HostListener,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
+import { Component, HostBinding, HostListener } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
 import { ApiService } from '../services/index';
 import { Router } from '@angular/router';
 

@@ -1,7 +1,5 @@
-import { Component, OnInit, HostBinding, ViewChild, ElementRef,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
-
+import { Component, OnInit, HostBinding, ViewChild, ElementRef } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ApiService } from '../services/index';
 import { MatchHistory } from '../services/index';
 

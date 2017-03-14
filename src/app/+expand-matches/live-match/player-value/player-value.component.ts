@@ -1,6 +1,5 @@
-import { Component, Input, OnChanges,
-          trigger, transition, animate,
-         style, state } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'em-player-value',

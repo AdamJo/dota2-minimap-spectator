@@ -1,7 +1,7 @@
 /* tslint:disable: max-line-length */
-import { Component, HostBinding, ElementRef, AfterViewInit,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
+import { Component, HostBinding, ElementRef, AfterViewInit } from '@angular/core';
+
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import { CurrencyPipe } from '@angular/common';
 import { ApiService } from '../services/index';

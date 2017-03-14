@@ -1,7 +1,5 @@
-import { Component, OnInit, HostBinding,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
-
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ApiService } from '../services/index';
 import { loadingMmr } from '../../assets/initialLoadData/loadingMmr';
 import { MMR } from '../services/index';

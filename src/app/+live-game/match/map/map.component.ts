@@ -1,14 +1,5 @@
-import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from '@angular/core';
-
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Team } from '../../../services/index';
 
 @Component({

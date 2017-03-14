@@ -1,6 +1,5 @@
-import { Component, DoCheck, HostBinding,
-         trigger, transition, animate,
-         style, state } from '@angular/core';
+import { Component, DoCheck, HostBinding } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ApiService, League, Series, Scoreboard } from '../services/index';
 import { loading } from '../../assets/initialLoadData/loading';
 

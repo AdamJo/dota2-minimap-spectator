@@ -8,7 +8,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { APP_DECLARATIONS } from './app.declarations';
 import { APP_IMPORTS } from './app.imports';
 import { APP_PROVIDERS } from './app.providers';
@@ -22,7 +22,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     APP_IMPORTS,
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
   providers: [APP_PROVIDERS]
