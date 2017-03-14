@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, Renderer, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component,
+  OnInit,
+  Input,
+  Renderer,
+  ElementRef,
+  ViewChild,
+  ChangeDetectionStrategy } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
