@@ -97,7 +97,7 @@ if (!DEV_SERVER) {
 }
 
 const clientConfig = (function webpackConfig(): WebpackConfig {
-  let config: WebpackConfig = Object.assign({});
+  let config: WebpackConfig = (<any>Object).assign({});
 
   config.module = {
     rules: [
@@ -237,7 +237,7 @@ const clientConfig = (function webpackConfig(): WebpackConfig {
   };
 
   if (USE_DEV_SERVER_PROXY) {
-    Object.assign(config.devServer, { proxy: DEV_SERVER_PROXY_CONFIG });
+    (<any>Object).assign(config.devServer, { proxy: DEV_SERVER_PROXY_CONFIG });
   }
 
   config.performance = { hints: false };
