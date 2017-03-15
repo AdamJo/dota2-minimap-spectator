@@ -111,9 +111,9 @@ export class SpriteAnimationComponent implements OnInit {
       this.animateDeath();
     }
   }
-  /* 
+  /*
   * if old pos X/Y exists set sprites to old pos then animate to new, else it is a fresh restart
-  * Using this instead of onChanges since onChanges only captures actual values and 
+  * Using this instead of onChanges since onChanges only captures actual values and
   * not object references like int he *ngFor
   */
   animateMovement() {

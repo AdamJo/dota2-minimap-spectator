@@ -52,7 +52,7 @@ import { Team } from '../../../services/index';
 })
 
 export class  MapComponent {
-  // values for map to fit with sprites 
+  // values for map to fit with sprites
   width = 578;
   height = 556;
   maxWidth = 600;

@@ -52,7 +52,7 @@ export class ExpandMatchesComponent {
   //   this.scoreboardValue = this.apiService.scoreboardValues.sortedValue
   // }
 
-  // Switch user selected game 
+  // Switch user selected game
   switchToGame($event) {
     this.apiService.SwitchToGame($event);
     this.router.navigate(['']);

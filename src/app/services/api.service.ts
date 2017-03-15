@@ -17,7 +17,7 @@ export class ApiService {
   public browser: boolean;  // detects browser for message to show if needed
   public oldMatchId: number; // old match for showing games result
   public gameOver: any; // tells component if game is over
-  public previousGame$: any; // grabs values to tell if game is finished 
+  public previousGame$: any; // grabs values to tell if game is finished
 
   // live games
   public firstCheckDone = false; // first check of watched game done
@@ -36,7 +36,7 @@ export class ApiService {
 
   public mmrTopGames: any; // grab mmr games
 
-  private currentMatchNotFound: boolean; // used to determine match 
+  private currentMatchNotFound: boolean; // used to determine match
   private matchId: number; // current game match user is watching
   private game$: FirebaseListObservable<any>; // all live games
 
@@ -246,7 +246,7 @@ export class ApiService {
     return this.currentGame;
   }
 
-  // decrease game number being watched 
+  // decrease game number being watched
   decrementTotal() {
     if (this.gameCount <= this.dataLength - 1) {
       this.firstCheckDone = false;

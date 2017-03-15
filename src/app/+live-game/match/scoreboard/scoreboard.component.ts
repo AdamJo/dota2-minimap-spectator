@@ -138,7 +138,7 @@ export class ScoreboardComponent implements OnChanges, OnInit, OnDestroy {
     }
   }
 
-  // un expands menu when clicked outside of the area. 
+  // un expands menu when clicked outside of the area.
   @HostListener(`document:click`, ['$event.target'])
   onClick(event: any) {
     if (!this._eref.nativeElement.contains(event)) {
