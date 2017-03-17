@@ -182,7 +182,7 @@ const clientConfig = (function webpackConfig(): WebpackConfig {
     }
   }
 
-  config.cache = true;
+  config.cache = false;
   PROD ? config.devtool = PROD_SOURCE_MAPS : config.devtool = DEV_SOURCE_MAPS;
 
   if (DLL) {
