@@ -64,7 +64,7 @@
     "watch:prod": "npm-run-all -p -r \"build:prod -- --watch\" sass:watch"
   },
   "dependencies": {
-    "@angular/animations": "^4.0.0-rc.2",
+    "@angular/animations": "4.0.0-rc.2",
     "@angular/common": "4.0.0-rc.2",
     "@angular/compiler": "4.0.0-rc.2",
     "@angular/compiler-cli": "4.0.0-rc.2",

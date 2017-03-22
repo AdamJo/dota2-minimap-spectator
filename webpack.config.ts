@@ -129,7 +129,7 @@ const clientConfig = (function webpackConfig(): WebpackConfig {
   config.plugins = [
     new ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)@angular/,
-      root(__dirname, '../src')
+      root('./src')
     ),
     new ProgressPlugin(),
     new CheckerPlugin(),
