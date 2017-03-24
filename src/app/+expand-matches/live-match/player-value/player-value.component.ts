@@ -64,7 +64,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         style({
           opacity: .4,
         }),
-        animate('0.3s ease-in')
+        animate('300ms ease-in')
       ]),
     ]),
   ]
@@ -72,8 +72,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
 export class PlayerValueComponent implements OnChanges {
   @Input() playerValue: string;
-  trigger;
-  valueSwitch = 'toSwitch';
+  trigger: string;
+  valueSwitch: string;
 
   ngOnChanges(changes) {
     if (this.playerValue === 'disabled') {
