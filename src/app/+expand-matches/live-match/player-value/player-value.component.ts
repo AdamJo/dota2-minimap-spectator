@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -67,7 +67,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         animate('300ms ease-in')
       ]),
     ]),
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class PlayerValueComponent implements OnChanges {

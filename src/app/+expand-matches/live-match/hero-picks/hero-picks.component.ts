@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { Players } from '../../../services/index';
 
@@ -41,7 +41,8 @@ import { Players } from '../../../services/index';
       margin-bottom: 5px;
     }
   `
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroPicksComponent {
   @Input()
