@@ -73,39 +73,39 @@ export class ExpandMatchesComponent {
       switch (e.key) {
         case 'q':
         case 'Q':
-          this.switchScoreboardValue({value: 'kills'});
+          this.switchScoreboardValue('kills');
           break;
         case 'w':
         case 'W':
-          this.switchScoreboardValue({value: 'last_hits'});
+          this.switchScoreboardValue('last_hits');
           break;
         case 'e':
         case 'E':
-          this.switchScoreboardValue({value: 'level'});
+          this.switchScoreboardValue('level');
           break;
         case 'r':
         case 'R':
-          this.switchScoreboardValue({value: 'xp_per_min'});
+          this.switchScoreboardValue('xp_per_min');
           break;
         case 't':
         case 'T':
-          this.switchScoreboardValue({value: 'gold'});
+          this.switchScoreboardValue('gold');
           break;
         case 'y':
         case 'Y':
-          this.switchScoreboardValue({value: 'net_worth'});
+          this.switchScoreboardValue('net_worth');
           break;
         case 'u':
         case 'U':
-          this.switchScoreboardValue({value: 'gold_per_min'});
+          this.switchScoreboardValue('gold_per_min');
           break;
         case 'i':
         case 'I':
-          this.switchScoreboardValue({value: 'ultimate_cooldown'});
+          this.switchScoreboardValue('ultimate_cooldown');
           break;
         case 'o':
         case 'O':
-          this.switchScoreboardValue({value: 'respawn_timer'});
+          this.switchScoreboardValue('respawn_timer');
           break;
         default:
           break;
