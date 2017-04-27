@@ -1,1 +1,1 @@
-export { UpcomingMatchesComponent } from './upcoming-matches.component'
+export { UpcomingMatchesComponent } from './upcoming-matches.component';

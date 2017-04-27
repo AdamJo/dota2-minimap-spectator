@@ -18,7 +18,7 @@ export interface Scoreboard {
   duration: number;
   radiant: Team;
   roshan_respawn_timer: number;
-};
+}
 
 export interface Team {
     // abilities: Array<Abilities>;

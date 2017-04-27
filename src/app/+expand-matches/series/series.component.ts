@@ -5,10 +5,10 @@ import { Series } from '../../services/index';
 @Component({
   selector: 'em-series',
   template: `
-    <div 
+    <div
       class="series-games
       {{teamSide === 'dire' ? 'series-dire' : 'series-radiant'}}">
-      <div 
+      <div
         ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
         *ngFor="let wins of gameSeries">
       </div>

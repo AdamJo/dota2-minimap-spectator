@@ -16,7 +16,7 @@ import { MatchHistory } from '../../services/index';
           ngClass="{{match.radiant_win ? 'inactive' : 'active'}}"
         >{{match.dire_name}}</div>
         <span>vs</span>
-        <div 
+        <div
           ngClass="{{match.radiant_win ? 'active' : 'inactive'}}"
         >{{match.radiant_name}}</div>
       </div>

@@ -18,7 +18,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
       [@ultimateGo]='ultimate'
       ngClass="{{ team === 'radiant' ? 'radiant' : team === 'dire' ? 'dire' : 'roshan' }}">
       <lg-sprites
-        [team]='team' 
+        [team]='team'
         [heroId]='heroId'>
         </lg-sprites>
     </div>
@@ -41,12 +41,12 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
         background: radial-gradient(ellipse at center, rgba(0,255,0,1) 0%,rgba(0,255,0,0) 75%);
       }
       .dire {
-        background: radial-gradient(ellipse at center, rgba(255,0,0,1) 0%,rgba(255,0,0,0) 75%); 
+        background: radial-gradient(ellipse at center, rgba(255,0,0,1) 0%,rgba(255,0,0,0) 75%);
       }
       .roshan {
         border-radius: 25px;
         padding-top: 4px;
-        background: 
+        background:
           radial-gradient(ellipse at center, rgba(128,128,128,0.75) 0%,rgba(128,128,128,0) 75%);
         z-index: 5;
       }

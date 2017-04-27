@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <footer>
       <a [routerLink]="['/about']"
         routerLinkActive="active">
-          About & 
+          About &
         <span class="donations">Donations</span></a>
     </footer>
   `,

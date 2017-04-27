@@ -18,7 +18,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     .container-region {
       display: flex;
       flex-direction: row;
-      align-items: center; 
+      align-items: center;
       justify-content: space-around;
       flex-wrap: wrap;
 

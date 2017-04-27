@@ -19,7 +19,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
     .container-scoreboard {
       display: flex;
       flex-direction: row;
-      align-items: center; 
+      align-items: center;
       justify-content: space-around;
 
       color: #d9d9d9;

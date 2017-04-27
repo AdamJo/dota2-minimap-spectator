@@ -7,12 +7,12 @@ import { Players } from '../../../services/index';
   template: `
     <div class="hero-picks">
       <div class="hero" *ngFor="let player of players">
-          <img 
-            *ngIf="player.hero !== 'None' 
+          <img
+            *ngIf="player.hero !== 'None'
             "src='assets/img/heroes/{{player.hero}}.png' alt="{{player.hero}}">
         <div
           class="blank"
-          *ngIf="player.hero === 'None'">          
+          *ngIf="player.hero === 'None'">
         </div>
         <em-player-value
           [playerValue]="ScoreboardSelect(player)"
@@ -27,7 +27,7 @@ import { Players } from '../../../services/index';
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-around;
-      
+
       position: relative;
     }
 

@@ -3,9 +3,9 @@ import { Series } from '../../services/index';
 @Component({
   selector: 'lg-series',
   template: `
-    <div 
+    <div
       class="series-games">
-      <div 
+      <div
         ngClass="series {{wins !== -1 ? 'active' : 'inactive'}}"
         *ngFor="let wins of gameSeries">
       </div>

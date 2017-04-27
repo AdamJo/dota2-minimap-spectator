@@ -33,7 +33,7 @@ import { ApiService } from '../services/index';
                     <option [disabled]="i === '---'"  *ngFor="let i of currency">{{i}}</option>
                 </select>
                 <div>
-                  <select 
+                  <select
                     *ngIf="userCurrency !== 'RUB' && userCurrency !== 'CYN' && userCurrency !== 'SAR'"
                     [ngModel]="defaultAmount"
                     (change)="onChangeAmount($event.target.value)">
