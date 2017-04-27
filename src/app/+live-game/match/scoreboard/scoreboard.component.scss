@@ -33,6 +33,7 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 210px;
+  z-index: 10;
 }
 
 .side {
@@ -89,6 +90,10 @@ img {
       background-color: $nav-menu-color-hover;
     }
   }
+}
+
+.dire, .radiant {
+  position: relative;
 }
 
 .dire {
@@ -176,4 +181,26 @@ img {
   border-left: 1px solid $border-color;
   border-right: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
+}
+
+.dire-team, .radiant-team {
+  opacity: .80;
+  position: absolute;
+  top: 10px;
+  left: 75px;
+  z-index: 1;
+}
+
+.dire-team {
+  stroke: $dire-color;
+  fill: $dire-color;
+}
+
+.radiant-team {
+  stroke: $radiant-color;
+  fill: $radiant-color;
+}
+
+.dot-graph {
+  opacity: .95;
 }

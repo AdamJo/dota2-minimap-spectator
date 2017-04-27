@@ -15,7 +15,7 @@
 
   <ul [hidden]="active === 'menu' || active === 'draft' || active === 'gameStats'" class="nav-players">
     <li
-      *ngFor="let player of combinedPlayers"
+      *ngFor="let player of combinedPlayers; let i = index;"
       (mouseenter)="highlightPlayer.emit(player.name);"
       (click)="highlightPlayer.emit(player.name);"
       ngClass="{{player.team}}">
@@ -26,6 +26,27 @@
             [respawn]="player.respawn_timer"
             ></lg-hero-respawn>
         </div>
+        <svg
+          *ngIf="sortedValue === 'net_worth'"
+          ngClass="{{player.team === 'dire' ? 'dire-team' : 'radiant-team'}}" 
+          [style.width.px]="i === 0 ? 240 : player.net_worth / combinedPlayers[0].net_worth * 240"
+          view="0 0 50 2"
+          preserveAspectRatio="none">
+          <path 
+            stroke-width="2"
+            d="M30 15 L250 15"/>
+        </svg>
+        <svg 
+          *ngIf="sortedValue === 'net_worth'"
+          ngClass="dot-graph {{player.team === 'dire' ? 'dire-team' : 'radiant-team'}}" 
+          [style.left.px]="i === 0 ? 290.5 : player.net_worth / combinedPlayers[0].net_worth * 240 + 50.4"
+          view="0 0 50 2"
+          preserveAspectRatio="none">
+          <circle
+            cx="30"
+            cy="15"
+            r="5"/>
+        </svg>
         <div class="player-name">{{player.name}}</div>
         <div class="value" [ngSwitch]="sortedValue">
           <span *ngSwitchCase="'kills'">{{player[sortedValue]}} / {{player["death"]}} / {{player["assists"]}}</span>
