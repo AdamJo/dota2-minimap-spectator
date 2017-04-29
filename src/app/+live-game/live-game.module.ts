@@ -21,6 +21,7 @@ import { SummaryPlayersComponent } from './match/scoreboard/summary-players/inde
 import { HeroItemsComponent } from './match/scoreboard/hero-items/index';
 import { HeroRespawnComponent } from './match/scoreboard/hero-respawn/index';
 import { SeriesComponent } from './series/index';
+import { ComparisonSvg } from './match/comparison-svg/index';
 
 import {
   CalculateXPipe,
@@ -54,6 +55,7 @@ import {
     SummaryPlayersComponent,
     MatchComponent,
     SeriesComponent,
+    ComparisonSvg,
     CalculateXPipe,
     CalculateYPipe,
     GameTimePipe,

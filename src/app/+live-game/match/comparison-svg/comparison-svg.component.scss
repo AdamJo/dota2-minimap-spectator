@@ -1,0 +1,20 @@
+@import '../../../../assets/_variables.scss';
+
+.dire-team, .radiant-team {
+  position: absolute;
+  opacity: .80;
+}
+
+.dire-team {
+  stroke: $dire-color;
+}
+
+.radiant-team {
+  stroke: $radiant-color;
+}
+
+.dot-graph {
+  fill: $grey;
+  stroke-width: 3;
+  opacity: .95;
+}

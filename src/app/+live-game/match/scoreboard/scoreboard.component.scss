@@ -183,24 +183,9 @@ img {
   border-bottom: 1px solid $border-color;
 }
 
-.dire-team, .radiant-team {
-  opacity: .80;
+.compare {
   position: absolute;
   top: 10px;
   left: 75px;
   z-index: 1;
-}
-
-.dire-team {
-  stroke: $dire-color;
-}
-
-.radiant-team {
-  stroke: $radiant-color;
-}
-
-.dot-graph {
-  fill: $grey;
-  stroke-width: 3;
-  opacity: .95;
 }

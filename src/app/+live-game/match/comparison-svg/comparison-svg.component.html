@@ -1,0 +1,19 @@
+  <svg
+    ngClass="{{playerTeam === 'dire' ? 'dire-team' : 'radiant-team'}}" 
+    [style.width.px]="playerValue / maxValue * 240"
+    view="0 0 50 2"
+    preserveAspectRatio="none">
+    <path 
+      stroke-width="2"y
+      d="M30 15 L250 15"/>
+  </svg>
+  <svg 
+    ngClass="dot-graph {{playerTeam === 'dire' ? 'dire-team' : 'radiant-team'}}" 
+    [style.left.px]="playerValue / maxValue * 240 > 30 ? playerValue / maxValue * 240 - 30 : 1"
+    view="0 0 50 2"
+    preserveAspectRatio="none">
+    <circle
+      cx="30"
+      cy="15"
+      r="5"/>
+  </svg>
