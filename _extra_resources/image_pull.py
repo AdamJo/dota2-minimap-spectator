@@ -5,13 +5,14 @@ def main():
   for hero in hero_links:
     response = requests.get(hero_links[hero])
     if response.status_code == 200:
-      f = open('C:\\Users\\Adam\\Desktop\\hero_images\\lg\\{0}_hphover.png'.format(hero), 'wb')
+      f = open('E:\\Projects\\dota2-ms-server\\hero_images\\items\\{0}_hphover.png'.format(hero), 'wb')
       f.write(response.content)
       f.close()
     else:
       print('not found')
 
 hero_links = {
+  "monkey_king": "http://cdn.dota2.com/apps/dota2/images/heroes/monkey_king_hphover.png",
   "lone_druid": "http://cdn.dota2.com/apps/dota2/images/heroes/lone_druid_hphover.png",
   "naga_siren": "http://cdn.dota2.com/apps/dota2/images/heroes/naga_siren_hphover.png",
   "enigma": "http://cdn.dota2.com/apps/dota2/images/heroes/enigma_hphover.png",
