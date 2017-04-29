@@ -193,14 +193,14 @@ img {
 
 .dire-team {
   stroke: $dire-color;
-  fill: $dire-color;
 }
 
 .radiant-team {
   stroke: $radiant-color;
-  fill: $radiant-color;
 }
 
 .dot-graph {
+  fill: $grey;
+  stroke-width: 3;
   opacity: .95;
 }
