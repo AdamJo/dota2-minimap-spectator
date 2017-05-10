@@ -1,6 +1,6 @@
 /* tslint:disable: max-line-length */
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { LiveLeagueGame } from './live-league-game.model';
 import { loading } from '../../assets/initialLoadData/loading';
 
@@ -40,7 +40,7 @@ export class ApiService {
   private matchId: number; // current game match user is watching
   private game$: FirebaseListObservable<any>; // all live games
 
-  constructor(private af: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
 
     this.gameOver = { status: false, game: {} };
 
@@ -122,26 +122,26 @@ export class ApiService {
 
   // get status code (liveGames) from firebase backend
   getStatusCode() {
-    return this.af.object('statusCode');
+    return this.db.object('statusCode');
   }
 
   // get live games from firebase backend
   getCurrentGames() {
-    return this.af.list('sortedGames');
+    return this.db.list('sortedGames');
   }
 
   // get upcoming games from firebase backend
   getUpcomingGames() {
-    return this.af.list('upcomingGames');
+    return this.db.list('upcomingGames');
   }
 
   // get upcoming games from firebase backend
   getPreviousGames() {
-    return this.af.list('matchHistory');
+    return this.db.list('matchHistory');
   }
 
   findPreviousGame() {
-    this.previousGame$ = this.af.list('matchHistory')
+    this.previousGame$ = this.db.list('matchHistory')
       .debounceTime(100)
       .subscribe( (games: any) => {
         this.gameOver.game = games.find((game) => {
@@ -160,7 +160,7 @@ export class ApiService {
 
   // get upcoming games from firebase backend
   getMmrTop() {
-    return this.af.list('mmrTop');
+    return this.db.list('mmrTop');
   }
 
   // returns the radiant and dire players
@@ -306,7 +306,7 @@ export class ApiService {
   }
   // tslint:enable:max-line-length
   passToken(tokenId, amount, currency, description) {
-    this.af.list('queue/tasks').push(
+    this.db.list('queue/tasks').push(
       {
         'token': tokenId,
         'amount': amount,
