@@ -1,7 +1,6 @@
 import { Component,
   OnInit,
   Input,
-  Renderer,
   ElementRef,
   ViewChild,
   ChangeDetectionStrategy } from '@angular/core';
@@ -92,20 +91,19 @@ export class SpriteAnimationComponent implements OnInit {
   shrink = 'regular';
   ultimate: string;
 
-  constructor(public renderer: Renderer) {}
+  constructor() {}
 
   ngOnInit() {
     if (this.ultimateUsed) {
       this.ultimate = 'go';
     }
-
-    this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
-    this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
+    this.coordinates.nativeElement.style.left = this.posX + '%';
+    this.coordinates.nativeElement.style.top = this.posY + '%';
     if (this.browserCheck) {
       this.animateMovement();
     } else {
-      this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
-      this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
+      this.coordinates.nativeElement.style.left = this.posX + '%';
+      this.coordinates.nativeElement.style.top = this.posY + '%';
     }
     if (this.respawnTimer > 0 && this.browserCheck) {
       this.animateDeath();
@@ -119,43 +117,35 @@ export class SpriteAnimationComponent implements OnInit {
   animateMovement() {
 
     if (!Number.isNaN(this.oldPosX) && this.oldPosX !== undefined ) {
-        this.renderer.invokeElementMethod(
-          this.coordinates.nativeElement,
-          'animate',
+        this.coordinates.nativeElement.animate(
           [
-            [
-              {left: this.oldPosX + '%', top: this.oldPosY + '%'},
-              {left: this.posX + '%', top: this.posY + '%'}
-            ],
-            {
-              duration: 2000,
-              delay: 0,
-              fill: 'forwards'
-            }
-          ]
+            {left: this.oldPosX + '%', top: this.oldPosY + '%'},
+            {left: this.posX + '%', top: this.posY + '%'}
+          ],
+          {
+            duration: 2000,
+            delay: 0,
+            fill: 'forwards'
+          }
         );
       } else {
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'left', this.posX + '%');
-        this.renderer.setElementStyle(this.coordinates.nativeElement, 'top', this.posY + '%');
+        this.coordinates.nativeElement.style.left = this.posX + '%';
+        this.coordinates.nativeElement.style.top = this.posY + '%';
       }
   }
   // changes opacity for death animation
   animateDeath() {
-    this.renderer.invokeElementMethod(
-      this.coordinates.nativeElement,
-      'animate',
+    this.coordinates.nativeElement.animate(
       [
-        [
-          {opacity: .75},
-          {opacity: .25},
-          {opacity: .75}
-        ],
-        {
-          duration: 3000,
-          delay: 0,
-          iterations: this.respawnTimer / 3
-        }
-      ]
+        {opacity: .75},
+        {opacity: .25},
+        {opacity: .75}
+      ],
+      {
+        duration: 3000,
+        delay: 0,
+        iterations: this.respawnTimer / 3
+      }
     );
   }
 
