@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input, Renderer,
+import { Component, OnChanges, Input,
   ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -27,7 +27,7 @@ export class SummaryGraphComponent implements OnChanges {
   advantage: string = 'neutral';
   advantagePrevious: string = 'neutral';
 
-  constructor(public renderer: Renderer) { }
+  constructor() { }
 
   ngOnChanges(changes) {
     let isFirstLoad = changes.radiantData.previousValue !== undefined;
@@ -81,9 +81,7 @@ export class SummaryGraphComponent implements OnChanges {
     if (this.browserCheck && this.accPercentPrevious && this.accPercent) {
       this.animateBar();
     } else {
-      this.renderer.setElementStyle(
-        this.percentage.nativeElement,
-        'left', this.accPercent / 2 + '%');
+      this.percentage.nativeElement.style.left = this.accPercent / 2 + '%';
     }
   }
 
@@ -128,20 +126,16 @@ export class SummaryGraphComponent implements OnChanges {
   }
 
   animateBar() {
-    this.renderer.invokeElementMethod(
-      this.percentage.nativeElement,
-      'animate',
+    this.percentage.nativeElement.animate(
       [
-        [
-          {left: this.accPercentPrevious / 2 + '%'},
-          {left: this.accPercent / 2 + '%'}
-        ],
-        {
-          duration: 1000,
-          delay: 0,
-          fill: 'forwards'
-        }
-      ]
+        {left: this.accPercentPrevious / 2 + '%'},
+        {left: this.accPercent / 2 + '%'}
+      ],
+      {
+        duration: 1000,
+        delay: 0,
+        fill: 'forwards'
+      }
     );
   }
 }

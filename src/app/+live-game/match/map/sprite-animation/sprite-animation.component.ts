@@ -115,7 +115,6 @@ export class SpriteAnimationComponent implements OnInit {
   * not object references like int he *ngFor
   */
   animateMovement() {
-
     if (!Number.isNaN(this.oldPosX) && this.oldPosX !== undefined ) {
         this.coordinates.nativeElement.animate(
           [
