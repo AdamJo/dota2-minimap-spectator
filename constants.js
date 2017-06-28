@@ -7,6 +7,7 @@ exports.DEV_PORT = 3000;
 exports.E2E_PORT = 4201;
 exports.PROD_PORT = 8088;
 const CriticalPlugin = require('webpack-plugin-critical').CriticalPlugin;
+const webpack = require('webpack');
 
 /**
  * These constants set whether or not you will use proxy for Webpack DevServer
@@ -66,7 +67,8 @@ exports.MY_CLIENT_PRODUCTION_PLUGINS = [
     inline: true,
     minify: true,
     dest: 'index.html'
-  })
+  }),
+  new webpack.optimize.ModuleConcatenationPlugin(),
 ]
 
 exports.MY_CLIENT_RULES = [
