@@ -6,7 +6,7 @@ import { Team } from '../../../services/index';
   selector: 'lg-map',
   templateUrl: 'map.component.html',
   styleUrls: [
-    './map.component.css'
+    './map.component.scss'
   ],
   providers: [],
   animations: [

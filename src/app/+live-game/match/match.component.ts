@@ -5,7 +5,7 @@ import { ApiService, League, Series, Scoreboard } from '../../services/index';
 @Component({
   selector: 'lg-match',
   templateUrl: 'match.component.html',
-  styleUrls: ['match.component.css']
+  styleUrls: ['match.component.scss']
 })
 
 export class MatchComponent implements DoCheck, OnInit {

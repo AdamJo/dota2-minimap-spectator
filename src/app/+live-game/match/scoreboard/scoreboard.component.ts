@@ -16,7 +16,7 @@ import { ApiService, Scoreboard, Players } from '../../../services/index';
 @Component({
   selector: 'lg-scoreboard',
   templateUrl: 'scoreboard.component.html',
-  styleUrls: ['./scoreboard.component.css'],
+  styleUrls: ['./scoreboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

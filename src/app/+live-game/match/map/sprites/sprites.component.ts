@@ -7,7 +7,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
       ngClass="d2mh {{heroId}}"
       ></div>
   `,
-  styleUrls: ['./resources/dota2minimapheroes.css'],
+  styleUrls: ['./resources/dota2minimapheroes.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpritesComponent {

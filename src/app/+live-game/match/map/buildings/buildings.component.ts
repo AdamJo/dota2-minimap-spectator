@@ -3,7 +3,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'lg-buildings',
   templateUrl: 'buildings.component.html',
-  styleUrls: ['./buildings.component.css', './resources/buildings.css'],
+  styleUrls: ['./buildings.component.scss', './resources/buildings.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuildingsComponent {

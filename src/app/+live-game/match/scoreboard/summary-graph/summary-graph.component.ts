@@ -4,7 +4,7 @@ import { Component, OnChanges, Input,
 @Component({
   selector: 'lg-summary-graph',
   templateUrl: 'summary-graph.component.html',
-  styleUrls: ['./summary-graph.component.css'],
+  styleUrls: ['./summary-graph.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

@@ -5,7 +5,7 @@ import { MMR } from '../../services/index';
 @Component({
   selector: 'rm-ranked-match',
   templateUrl: 'ranked-match.component.html',
-  styleUrls: ['ranked-match.component.css']
+  styleUrls: ['ranked-match.component.scss']
 })
 export class RankedMatchComponent {
   @Input() matches: Array<MMR>;

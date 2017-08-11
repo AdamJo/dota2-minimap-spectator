@@ -5,7 +5,7 @@ import { ApiService } from '../../services/index';
 @Component({
   selector: 'lg-button-info',
   templateUrl: 'button-info.component.html',
-  styleUrls: ['./button-info.component.css'],
+  styleUrls: ['./button-info.component.scss'],
   animations: [
     trigger('transfer', [
       transition('left <=> leftGo', [

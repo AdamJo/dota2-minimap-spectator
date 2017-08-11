@@ -8,7 +8,7 @@ import { loadingPreviousGame } from '../../assets/initialLoadData/loadingPreviou
 @Component({
   selector: 'pm-previous-matches',
   templateUrl: 'previous-matches.component.html',
-  styleUrls: ['./previous-matches.component.css'],
+  styleUrls: ['./previous-matches.component.scss'],
   animations: [
     trigger('routeAnimation', [
       state('*',

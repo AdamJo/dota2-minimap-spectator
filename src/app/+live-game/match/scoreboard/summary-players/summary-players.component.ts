@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-summary-players',
   templateUrl: 'summary-players.component.html',
-  styleUrls: [ './summary-players.component.css' ],
+  styleUrls: [ './summary-players.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SummaryPlayersComponent implements OnChanges {

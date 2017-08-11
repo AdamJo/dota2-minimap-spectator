@@ -89,10 +89,5 @@
     </div>
   </app-root>
 	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=console.*,Intl.~locale.en&gated=1"></script>
-	<% if (htmlWebpackPlugin.options.metadata.isDevServer) { %>
-  <!-- DLL files -->
-		<script src="/polyfill.dll.js"></script>
-		<script src="/vendor.dll.js"></script>
-  <% } %>
 </body>
 </html>

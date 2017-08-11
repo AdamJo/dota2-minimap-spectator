@@ -4,7 +4,7 @@ import { LiveLeagueGame } from '../../services/index';
 @Component({
   selector: 'em-draft-match',
   templateUrl: 'draft-match.component.html',
-  styleUrls: ['./draft-match.component.css'],
+  styleUrls: ['./draft-match.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

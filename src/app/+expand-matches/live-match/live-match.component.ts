@@ -5,7 +5,7 @@ import { LiveLeagueGame } from '../../services/index';
 @Component({
   selector: 'em-live-match',
   templateUrl: 'live-match.component.html',
-  styleUrls: ['./live-match.component.css']
+  styleUrls: ['./live-match.component.scss']
 })
 
 export class LiveMatchComponent {

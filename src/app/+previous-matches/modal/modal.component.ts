@@ -28,7 +28,7 @@ import { MatchHistory } from '../../services/index';
     </div>
   </div>
   `,
-  styleUrls: ['modal.component.css'],
+  styleUrls: ['modal.component.scss'],
   animations: [
     trigger('entering', [
       state('*',

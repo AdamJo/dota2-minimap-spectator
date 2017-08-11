@@ -5,7 +5,7 @@ import { ApiService, UpcomingGames } from '../services/index';
 @Component({
   selector: 'um-upcoming-matches',
   templateUrl: 'upcoming-matches.component.html',
-  styleUrls: ['./upcoming-matches.component.css'],
+  styleUrls: ['./upcoming-matches.component.scss'],
   animations: [
     trigger('routeAnimation', [
       state('*',

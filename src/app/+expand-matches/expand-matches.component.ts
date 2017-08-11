@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'em-expand-matches',
   templateUrl: 'expand-matches.component.html',
-  styleUrls: ['./expand-matches.component.css'],
+  styleUrls: ['./expand-matches.component.scss'],
   animations: [
     trigger('routeAnimation', [
       state('*',

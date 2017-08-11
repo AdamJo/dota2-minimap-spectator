@@ -62,7 +62,7 @@ import { ApiService } from '../services/index';
       </div>
     </div>
   `,
-  styleUrls: ['./about.component.css'],
+  styleUrls: ['./about.component.scss'],
   animations: [
     trigger('routeAnimation', [
       state('*',

@@ -17,7 +17,7 @@ import { MatchHistory } from '../../services/index';
     >{{match.radiant_name}}</span>
   </div>
   `,
-  styleUrls: ['match.component.css']
+  styleUrls: ['match.component.scss']
 })
 
 export class MatchComponent {

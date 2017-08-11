@@ -3,7 +3,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'lg-hero-items',
   templateUrl: 'hero-items.component.html',
-  styleUrls: ['./hero-items.component.css'],
+  styleUrls: ['./hero-items.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

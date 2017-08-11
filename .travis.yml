@@ -1,13 +1,13 @@
 language: node_js
 node_js:
-  - 7
+  - 8
 cache:
   yarn: true
   directories:
     - node_modules
 script:
-  - npm run compile:ci
-  - npm run test:once
+  - npm run build:prod
+  - npm run test
 
 before_install:
   - export CHROME_BIN=chromium-browser

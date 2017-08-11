@@ -4,7 +4,7 @@ import { Component, Input, OnInit, AfterContentChecked } from '@angular/core';
   moduleId: module.id,
   selector: 'lg-comparison-svg',
   templateUrl: 'comparison-svg.component.html',
-  styleUrls: ['./comparison-svg.component.css'],
+  styleUrls: ['./comparison-svg.component.scss'],
 
 })
 

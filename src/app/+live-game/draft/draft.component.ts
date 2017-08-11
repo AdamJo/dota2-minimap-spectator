@@ -7,7 +7,7 @@ import { Team, League, Series } from '../../services/index';
 @Component({
   selector: 'lg-draft',
   templateUrl: 'draft.component.html',
-  styleUrls: ['./draft.component.css'],
+  styleUrls: ['./draft.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('draft', [

@@ -4,7 +4,7 @@ import { Players } from '../../../services/index';
 @Component({
   selector: 'lg-team-info',
   templateUrl: 'team-info.component.html',
-  styleUrls: ['./team-info.component.css'],
+  styleUrls: ['./team-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

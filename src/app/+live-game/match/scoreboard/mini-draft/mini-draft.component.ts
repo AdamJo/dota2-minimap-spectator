@@ -5,7 +5,7 @@ import { Team } from '../../../../services/index';
 @Component({
   selector: 'lg-mini-draft',
   templateUrl: 'mini-draft.component.html',
-  styleUrls: ['./mini-draft.component.css'],
+  styleUrls: ['./mini-draft.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('draft', [

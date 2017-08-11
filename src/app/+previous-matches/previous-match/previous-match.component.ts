@@ -4,7 +4,7 @@ import { MatchHistory } from '../../services/index';
 @Component({
   selector: 'pm-previous-match',
   templateUrl: 'previous-match.component.html',
-  styleUrls: ['previous-match.component.css']
+  styleUrls: ['previous-match.component.scss']
 })
 export class PreviousMatchComponent implements OnChanges {
   @Input() matches: Array<MatchHistory>;
