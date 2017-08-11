@@ -19,6 +19,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod --build-optimizer --aot",
     "test": "ng test",
+    "test:travis": "ng test --watch false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
