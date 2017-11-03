@@ -8,9 +8,9 @@ import { environment } from './environments/environment';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 
-
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err));

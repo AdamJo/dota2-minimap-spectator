@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule,
-  PreloadAllModules
-} from '@angular/router';
-
-import { IdlePreload, IdlePreloadModule } from '@angularclass/idle-preload';
+import {
+    Routes,
+    RouterModule,
+    PreloadAllModules
+  } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -44,7 +44,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(
       routes,
-      { useHash: false, preloadingStrategy: IdlePreload }
+      { useHash: false, preloadingStrategy: PreloadAllModules }
   )],
   exports: [RouterModule],
   providers: []

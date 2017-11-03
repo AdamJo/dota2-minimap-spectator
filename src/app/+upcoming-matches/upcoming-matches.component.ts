@@ -27,7 +27,7 @@ import { ApiService, UpcomingGames } from '../services/index';
 
 export class UpcomingMatchesComponent implements OnInit {
 
-  upcomingMatches: Array<UpcomingGames>;
+  upcomingMatches: Array<UpcomingGames> | Array<any>;
   status: boolean;
 
   @HostBinding('@routeAnimation') get routeAnimation() {

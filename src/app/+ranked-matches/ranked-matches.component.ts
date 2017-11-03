@@ -29,7 +29,7 @@ import { MMR } from '../services/index';
 
 export class RankedMatchesComponent implements OnInit {
 
-  rankedGames: Array<MMR>;
+  rankedGames: Array<MMR> | Array<any>;
   games: any;
 
   @HostBinding('@routeAnimation') get routeAnimation() {

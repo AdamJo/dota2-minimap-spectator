@@ -1,6 +1,6 @@
 /* tslint:disable: max-line-length */
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
 import { LiveLeagueGame } from './live-league-game.model';
 import { loading } from '../../assets/initialLoadData/loading';
 
@@ -29,7 +29,7 @@ export class ApiService {
   public currentGame: LiveLeagueGame; // list of current games
   public currentMatchId: number; // keeps track of current game
   public scoreboardValues: any; // keeps track of scoreboard value for switching between routes
-  public statusCode: FirebaseObjectObservable<any>; // tells user if api is up
+  public statusCode: any; // tells user if api is up
 
   public gamePaused: boolean; // tells component game is paused
   public duration: number; // determines if game duration is same
@@ -38,7 +38,7 @@ export class ApiService {
 
   private currentMatchNotFound: boolean; // used to determine match
   private matchId: number; // current game match user is watching
-  private game$: FirebaseListObservable<any>; // all live games
+  private game$: any; // all live games
 
   constructor(private db: AngularFireDatabase) {
 
@@ -122,26 +122,27 @@ export class ApiService {
 
   // get status code (liveGames) from firebase backend
   getStatusCode() {
-    return this.db.object('statusCode');
+    return this.db.object('statusCode').valueChanges();
   }
 
   // get live games from firebase backend
   getCurrentGames() {
-    return this.db.list('sortedGames');
+    return this.db.list('sortedGames').valueChanges();
   }
 
   // get upcoming games from firebase backend
   getUpcomingGames() {
-    return this.db.list('upcomingGames');
+    return this.db.list('upcomingGames').valueChanges();
   }
 
   // get upcoming games from firebase backend
   getPreviousGames() {
-    return this.db.list('matchHistory');
+    return this.db.list('matchHistory').valueChanges();
   }
 
   findPreviousGame() {
     this.previousGame$ = this.db.list('matchHistory')
+      .valueChanges()
       .debounceTime(100)
       .subscribe( (games: any) => {
         this.gameOver.game = games.find((game) => {
@@ -160,7 +161,7 @@ export class ApiService {
 
   // get upcoming games from firebase backend
   getMmrTop() {
-    return this.db.list('mmrTop');
+    return this.db.list('mmrTop').valueChanges();
   }
 
   // returns the radiant and dire players
@@ -304,9 +305,10 @@ export class ApiService {
       this.browser = false;
     }
   }
-  // tslint:enable:max-line-length
+
   passToken(tokenId, amount, currency, description) {
-    this.db.list('queue/tasks').push(
+    const queue = this.db.list('queue/tasks');
+    queue.push(
       {
         'token': tokenId,
         'amount': amount,
@@ -314,5 +316,7 @@ export class ApiService {
         'description': description
       }
     );
+    const queue$ = queue.snapshotChanges();
+    queue$.subscribe();
   }
 }

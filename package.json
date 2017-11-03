@@ -1,19 +1,20 @@
 {
-  "name": "MiniDota.watch",
-  "version": "1.5.0",
+  "name": "minidota.watch",
+  "version": "1.5.1",
   "description": "minimal Dota 2 viewer",
   "author": "Adam Johannesmeyer <adam.johannesmeyer@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AdamJo/dota2-minimap-spectator"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AdamJo/dota2-minimap-spectator/issues"
   },
   "homepage": "minidota.watch",
   "scripts": {
     "ng": "ng",
+    "deploy": "firebase deploy",
     "start": "ng serve",
     "start:prod": "ng serve --prod --build-optimizer --aot --target production --vendor-chunk --extract-css --output-hashing all",
     "build": "ng build",
@@ -25,30 +26,29 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^4.2.4",
-    "@angular/common": "^4.2.4",
-    "@angular/compiler": "^4.2.4",
-    "@angular/core": "^4.2.4",
-    "@angular/forms": "^4.2.4",
-    "@angular/http": "^4.2.4",
-    "@angular/platform-browser": "^4.2.4",
-    "@angular/platform-browser-dynamic": "^4.2.4",
-    "@angular/router": "^4.2.4",
-    "@angularclass/idle-preload": "^1.0.4",
-    "angularfire2": "^4.0.0-rc.1",
+    "@angular/animations": "^5.0.0",
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/router": "^5.0.0",
+    "angularfire2": "^5.0.0-rc.3",
     "core-js": "^2.4.1",
-    "rxjs": "^5.4.2",
+    "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.2",
-    "@angular/compiler-cli": "^4.2.4",
-    "@angular/language-service": "^4.2.4",
+    "@angular/cli": "1.5.0",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/language-service": "^5.0.0",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
-    "codelyzer": "~3.1.1",
-    "firebase": "^4.2.0",
+    "codelyzer": "~3.2.0",
+    "firebase": "^4.6.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
@@ -59,7 +59,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
-    "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "tslint": "~5.7.0",
+    "typescript": "~2.4.2"
   }
 }
