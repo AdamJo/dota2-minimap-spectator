@@ -6,9 +6,6 @@ import { APP_DECLARATIONS } from './app.declarations';
 import { APP_IMPORTS } from './app.imports';
 import { APP_PROVIDERS } from './app.providers';
 
-import 'firebase';
-import 'rxjs/add/operator/debounceTime';
-
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({

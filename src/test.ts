@@ -13,8 +13,7 @@ import {
 } from '@angular/platform-browser-dynamic/testing';
 
 // RxJS
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.

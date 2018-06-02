@@ -4,7 +4,6 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angular
 import { LiveLeagueGame } from './live-league-game.model';
 import { loading } from '../../assets/initialLoadData/loading';
 
-
 // used to remove typescript errors
 // used to detect browser
 declare var window;
@@ -77,7 +76,6 @@ export class ApiService {
 
     this.game$ = this.getCurrentGames();
     this.game$
-    .debounceTime(100)
     .subscribe((data: any) => {
       this.dataLength = data.length;
       this.allData = data;
@@ -143,7 +141,6 @@ export class ApiService {
   findPreviousGame() {
     this.previousGame$ = this.db.list('matchHistory')
       .valueChanges()
-      .debounceTime(100)
       .subscribe( (games: any) => {
         this.gameOver.game = games.find((game) => {
           if (game['match_id'] === this.oldMatchId) {

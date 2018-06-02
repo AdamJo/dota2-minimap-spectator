@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('minidota-watch-cli App', () => {
+describe('minidota App', () => {
   let page: AppPage;
 
   beforeEach(() => {
