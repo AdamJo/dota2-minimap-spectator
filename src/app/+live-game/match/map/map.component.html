@@ -1,10 +1,5 @@
 <div class="container">
 <div ngClass="flex-container">
-  <div class="pause-menu" *ngIf="paused">
-    <div [@pause]='paused' class="pausePopUp">
-      PAUSED
-    </div>
-  </div>
   <div [@gameOver] class="game-over-menu" (click)="toggle()" *ngIf="gameOver.status">
     <div class="gameOverPopUp">
       <div *ngIf="!toggleWinner" class="game-over">

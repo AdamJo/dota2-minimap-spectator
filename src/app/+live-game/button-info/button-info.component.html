@@ -9,7 +9,7 @@
         </div>
       </div>
     </button>
-    <div class="spectator-info" *ngIf="apiStatus">
+    <div class="spectator-info">
       <a class="league" *ngIf="leagueUrl" href="{{leagueUrl}}" target="_blank">
         <span >{{leagueName}}</span>
       </a>
@@ -22,9 +22,6 @@
           {{spectators}}
         </div>
       </div>
-    </div>
-    <div class="api-status">
-      <span>Mini Dota</span>
     </div>
     <button
       [disabled]="(gameCount === 1 || apiService.currentMatchId === -1) ? true : false"
